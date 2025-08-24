@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your contracting business captures every project inquiry, converts 80% of estimates into signed contracts, and adds $150,000+ annual revenue - all while you focus on delivering quality work, not chasing phone calls."
+
+const dreamOutcomeTitle = "What Your Construction Business Deserves"
+
+const painPoints = [
+  {
+    title: "Job Site Phone Call Interruptions",
+    description: "You're operating a saw on a roofing job when your phone rings - a homeowner needs a kitchen remodel estimate. Power tools are loud, you can't hear, and by the time you check voicemail 3 hours later, they've hired another contractor. That missed call was worth $35,000.",
+    cost: "$15,000-50,000 per project",
+    icon: "🔨"
+  },
+  {
+    title: "Emergency Repair Revenue Bleeding",
+    description: "It's 2 AM and a storm just damaged someone's roof. Water is pouring into their living room, and they need immediate tarping and emergency repairs. They call 6 contractors - but you're asleep. The contractor who answers gets a $8,000 emergency job plus the $40,000 full roof replacement.",
+    cost: "$5,000-50,000 per emergency",
+    icon: "⛈️"
+  },
+  {
+    title: "Estimate Request Phone Tag",
+    description: "Homeowners call wanting estimates for deck construction, bathroom remodels, or siding replacement. You're on a job site, promise to call back with pricing, but get caught up in the current project. 70% of callback estimates never happen - that's lost revenue walking away.",
+    cost: "$8,000-40,000 per missed estimate",
+    icon: "📋"
+  },
+  {
+    title: "Seasonal Rush Overwhelm",
+    description: "Spring hits and everyone wants exterior work done. Your phone rings 40 times daily with requests for roofing, siding, decks, and concrete work. You can book maybe 10 calls while working, missing 30 potential projects that go to competitors with better availability.",
+    cost: "$200,000+ seasonal loss",
+    icon: "🌱"
+  },
+  {
+    title: "Multi-Trade Confusion Chaos",
+    description: "You do electrical, plumbing, AND general contracting, but customers don't know your full capabilities. They call about electrical work, you rush through the call focusing on that, and never mention your plumbing or remodeling services. One service call could have been a $60,000 whole-house renovation.",
+    cost: "$20,000-80,000 upsell opportunity",
+    icon: "🔧"
+  },
+  {
+    title: "Material Quote Delays",
+    description: "Customers want project pricing, but you need to calculate materials, permits, labor, and timeline. You promise to call back with a detailed estimate, but material prices change, you get busy with current jobs, and the quote process drags on for weeks.",
+    cost: "$5,000-25,000 per delayed quote",
+    icon: "📊"
+  }
+];
+
+const benefits = [
+  {
+    title: "24/7 Project Lead Capture",
+    description: "AI answers every construction inquiry immediately, collects detailed project specifications, assesses urgency levels, and schedules on-site estimates based on your availability. Never miss another major renovation opportunity to faster competitors.",
+    icon: "🏗️"
+  },
+  {
+    title: "Emergency Response Prioritization",
+    description: "AI handles storm damage, plumbing emergencies, electrical failures, and HVAC breakdowns with immediate response protocols. It assesses emergency severity, provides temporary solutions, and dispatches you to high-value urgent repairs first.",
+    icon: "🚨"
+  },
+  {
+    title: "Instant Estimate Automation",
+    description: "AI provides preliminary pricing for common projects using your rates, local material costs, and project complexity factors. Customers get ballpark estimates immediately, keeping them engaged while competitors are still playing phone tag.",
+    icon: "💰"
+  },
+  {
+    title: "Multi-Service Upsell Engine",
+    description: "AI identifies additional service opportunities by asking about related needs. An electrical service call becomes a whole-house rewiring discussion. A bathroom repair leads to full renovation consideration. Maximizes revenue from every customer interaction.",
+    icon: "📈"
+  },
+  {
+    title: "Seasonal Capacity Optimization",
+    description: "AI manages high-volume seasonal demands by prioritizing high-value projects, scheduling efficiently based on weather forecasts, and maintaining waiting lists for ideal customers. Maximizes revenue during peak construction seasons.",
+    icon: "📅"
+  },
+  {
+    title: "Project Timeline Coordination",
+    description: "AI schedules estimates, start dates, and project phases considering your current workload, seasonal factors, permit timelines, and material availability. Keeps projects flowing smoothly while maintaining realistic customer expectations.",
+    icon: "⏱️"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Summit Roofing & Construction - Colorado",
+    scenario: "Seasonal roofing contractor missing 50+ calls daily during hail season, losing an estimated $800,000 in storm damage repairs to competitors who answered phones faster during peak demand periods.",
+    solution: "AI Phone Agent deployed with Colorado weather integration, storm damage assessment protocols, emergency response prioritization, and integration with insurance claim processes for faster project approval.",
+    result: "Captured 90% of storm season calls, increased seasonal revenue by $1.2M, and established partnerships with 3 major insurance companies. ROI of 2,400% during first storm season."
+  },
+  {
+    title: "Heritage Home Remodeling - Nashville",
+    scenario: "Full-service remodeling company struggling with complex multi-trade project coordination, leading to customer confusion, project delays, and missed opportunities for comprehensive whole-house renovations.",
+    solution: "Implemented AI system with Nashville building code knowledge, multi-phase project scheduling, comprehensive service portfolio presentation, and automated customer education about renovation possibilities.",
+    result: "Increased average project value by 240%, reduced project coordination time by 60%, and achieved 95% customer satisfaction rating. Became Nashville's premier full-service renovation contractor."
+  },
+  {
+    title: "Precision Electric & Plumbing - Phoenix",
+    scenario: "Dual-trade contractor missing cross-selling opportunities, with customers calling for electrical work but not learning about plumbing capabilities, resulting in single-service jobs instead of comprehensive multi-trade projects.",
+    solution: "AI system programmed with Phoenix trade regulations, comprehensive service portfolio, intelligent cross-selling protocols, and integration with Arizona contractor licensing requirements and permit processes.",
+    result: "Increased multi-service project bookings by 320%, expanded average job value from $1,200 to $4,800, and reduced marketing costs by 40% through better customer lifetime value."
+  }
+];
+
+const testimonial = {
+  name: "Jake Thompson",
+  title: "Owner, Thompson Construction Group",
+  quote: "Running a multi-trade contracting business means constant phone calls while I'm trying to work. The AI Phone Agent changed everything - it captures every lead, qualifies projects, and schedules estimates while I stay focused on jobs. Last quarter alone, it helped me book $240,000 in additional projects I would have missed.",
+  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&auto=format",
+  revenue: "$240,000",
+  timeframe: "additional projects last quarter"
+};
+
+const roiData = {
+  avgCallValue: 12000, // Average project value
+  missedCallsPerMonth: 25,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Contractors | Never Miss a $50K Project Call While on Job Sites"
+  description="Stop losing $150,000+ annually from missed contractor calls! Our AI captures every project inquiry 24/7, provides instant estimates, schedules on-site visits, and handles emergency calls while you focus on quality construction work."
+  keywords="AI call answering for contractors, AI phone agent for construction company, automated contractor booking, virtual receptionist for contractors, AI construction project leads, contractor call management system, automated construction estimates"
+  industry="Construction"
+  heroTitle="Stop Missing $50,000 Project Calls While on Job Sites"
+  heroSubtitle="The only AI phone agent built specifically for contractors and construction professionals. Capture every project inquiry 24/7, handle emergency calls, provide instant estimates, and focus on what you do best - building quality projects."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

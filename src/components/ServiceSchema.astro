@@ -1,0 +1,198 @@
+---
+export interface Props {
+  serviceType: 'feature' | 'pricing' | 'industry' | 'general';
+  serviceName: string;
+  description: string;
+  serviceUrl: string;
+  serviceCategory?: string;
+  price?: {
+    value: number;
+    currency: string;
+    per?: string;
+  };
+  features?: string[];
+  industry?: string;
+  targetAudience?: string;
+  availableHours?: string;
+  areaServed?: string[];
+}
+
+const {
+  serviceType,
+  serviceName,
+  description,
+  serviceUrl,
+  serviceCategory = "TelecommunicationsService",
+  price,
+  features,
+  industry,
+  targetAudience,
+  availableHours = "24/7",
+  areaServed = ["United States", "Canada", "Australia", "United Kingdom"]
+} = Astro.props;
+
+const baseUrl = "https://aiphoneagent.ai";
+const fullServiceUrl = serviceUrl.startsWith('http') ? serviceUrl : `${baseUrl}${serviceUrl}`;
+
+// Generate service-specific offers
+const generateServiceOffers = () => {
+  const baseOffers = [
+    {
+      "@type": "Offer",
+      "name": "AI Virtual Receptionist",
+      "description": "24/7 automated call handling and customer service",
+      "price": price?.value || "599",
+      "priceCurrency": price?.currency || "USD",
+      "validFrom": "2024-01-01",
+      "availability": "InStock",
+      "itemCondition": "NewCondition"
+    }
+  ];
+
+  if (serviceType === 'pricing') {
+    return [
+      {
+        "@type": "Offer",
+        "name": "Complete AI Phone System",
+        "description": "All-in-one AI phone solution with virtual receptionist, SMS, and CRM",
+        "price": price?.value || "997",
+        "priceCurrency": price?.currency || "USD",
+        "validFrom": "2024-01-01",
+        "availability": "InStock",
+        "itemCondition": "NewCondition",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": price?.value || "997",
+          "priceCurrency": price?.currency || "USD",
+          "unitText": price?.per || "MONTH"
+        }
+      }
+    ];
+  }
+
+  if (serviceType === 'industry' && industry) {
+    return [
+      {
+        "@type": "Offer",
+        "name": `AI Phone System for ${industry}`,
+        "description": `Specialized AI phone solution designed for ${industry.toLowerCase()} businesses`,
+        "price": price?.value || "997",
+        "priceCurrency": price?.currency || "USD",
+        "validFrom": "2024-01-01",
+        "availability": "InStock",
+        "itemCondition": "NewCondition",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": targetAudience || `${industry} Businesses`
+        }
+      }
+    ];
+  }
+
+  return baseOffers;
+};
+
+// Generate service-specific categories
+const getServiceCategories = () => {
+  const baseCategories = ["Artificial Intelligence", "Business Communication", "Customer Service"];
+  
+  if (serviceType === 'industry' && industry) {
+    return [...baseCategories, industry, `${industry} Services`, "Industry Solutions"];
+  }
+  
+  if (serviceType === 'feature') {
+    return [...baseCategories, "Software Features", "Business Tools"];
+  }
+  
+  if (serviceType === 'pricing') {
+    return [...baseCategories, "Pricing Plans", "Business Solutions"];
+  }
+  
+  return baseCategories;
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": serviceName,
+  "description": description,
+  "url": fullServiceUrl,
+  "category": getServiceCategories(),
+  "serviceType": serviceCategory,
+  "provider": {
+    "@type": "Organization",
+    "@id": `${baseUrl}/#organization`,
+    "name": "AI Phone Agent",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logo.png`,
+    "sameAs": [
+      "https://www.facebook.com/aiphoneagent",
+      "https://www.linkedin.com/company/aiphoneagent", 
+      "https://twitter.com/aiphoneagent"
+    ]
+  },
+  "offers": generateServiceOffers(),
+  "serviceOutput": {
+    "@type": "Thing",
+    "name": "Enhanced Business Communication",
+    "description": "Improved customer service, increased call conversion rates, and automated business processes"
+  },
+  "audience": targetAudience ? {
+    "@type": "BusinessAudience", 
+    "audienceType": targetAudience
+  } : {
+    "@type": "BusinessAudience",
+    "audienceType": "Small and Medium Businesses"
+  },
+  "areaServed": areaServed.map(area => ({
+    "@type": "Country",
+    "name": area
+  })),
+  "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", 
+      "Friday", "Saturday", "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "AI Phone Agent",
+    "url": baseUrl
+  },
+  "isRelatedTo": {
+    "@type": "Organization",
+    "@id": `${baseUrl}/#organization`
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": fullServiceUrl
+  }
+};
+
+// Add features if provided
+if (features && features.length > 0) {
+  serviceSchema.features = features.map(feature => ({
+    "@type": "Thing",
+    "name": feature
+  }));
+}
+
+// Add industry-specific properties
+if (serviceType === 'industry' && industry) {
+  serviceSchema.industryServed = {
+    "@type": "DefinedTerm",
+    "name": industry,
+    "inDefinedTermSet": "Business Industries"
+  };
+}
+
+// Add pricing-specific properties
+if (serviceType === 'pricing' && price) {
+  serviceSchema.priceRange = `$${price.value} ${price.per || 'per month'}`;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema, null, 2)}></script>

@@ -1,0 +1,152 @@
+---
+export interface Props {
+  industry: string;
+  targetAudience: string;
+  specificServices: string[];
+  industryKeywords: string[];
+  avgCallValue: number;
+  testimonialAuthor?: string;
+  testimonialText?: string;
+  testimonialRating?: string;
+}
+
+const { 
+  industry,
+  targetAudience,
+  specificServices,
+  industryKeywords,
+  avgCallValue,
+  testimonialAuthor,
+  testimonialText,
+  testimonialRating = "5"
+} = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "SoftwareApplication"],
+  "name": `AI Phone Agent for ${industry}`,
+  "alternateName": `${industry} Virtual Receptionist Service`,
+  "description": `Specialized AI phone answering service for ${industry.toLowerCase()} businesses. 24/7 virtual receptionist with industry-specific training to handle ${industry.toLowerCase()} calls, appointments, and customer service.`,
+  "url": `https://aiphoneagent.ai/industries/${industry.toLowerCase().replace(/\s+/g, '-')}`,
+  "applicationCategory": "BusinessApplication",
+  "serviceType": `${industry} Business Process Outsourcing`,
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Phone Agent",
+    "url": "https://aiphoneagent.ai"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": targetAudience
+  },
+  "industryServed": industry,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": `${industry} AI Phone Services`,
+    "itemListElement": specificServices.map((service, index) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": service,
+        "description": `${service} specialized for ${industry.toLowerCase()} businesses`,
+        "category": "Professional Services",
+        "serviceType": `${industry} Virtual Receptionist`
+      },
+      "price": "499",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "499",
+        "priceCurrency": "USD",
+        "unitText": "per month"
+      }
+    }))
+  },
+  "featureList": [
+    `${industry}-Specific Call Handling`,
+    "24/7 Availability",
+    "Appointment Scheduling",
+    "Emergency Call Prioritization",
+    "Industry Terminology Training",
+    "CRM Integration",
+    "Call Analytics",
+    "Multi-Location Support"
+  ],
+  "knowsAbout": industryKeywords,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "priceRange": "$499-$999",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": [
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "Country", 
+      "name": "Australia"
+    },
+    {
+      "@type": "Country",
+      "name": "New Zealand"
+    }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://aiphoneagent.ai/booking",
+      "actionPlatform": [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Free Strategy Call"
+    }
+  }
+};
+
+// Add testimonial if provided
+if (testimonialAuthor && testimonialText) {
+  schemaData.review = [{
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": testimonialRating,
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": testimonialAuthor
+    },
+    "reviewBody": testimonialText
+  }];
+}
+
+// Add average transaction value for business context
+schemaData.offers = {
+  "@type": "Offer",
+  "name": `${industry} AI Phone Service`,
+  "description": `Professional AI phone answering service for ${industry.toLowerCase()} businesses`,
+  "price": "499",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/InStock",
+  "validFrom": "2025-01-01",
+  "priceSpecification": {
+    "@type": "UnitPriceSpecification",
+    "price": "499",
+    "priceCurrency": "USD",
+    "unitText": "per month"
+  },
+  "businessFunction": "https://schema.org/Sell"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData, null, 2)}></script>

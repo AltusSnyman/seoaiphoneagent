@@ -1,6 +1,8 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const features = [
   {
@@ -153,9 +155,21 @@ function getIconSVG(iconType: string) {
 ---
 
 <PageLayout 
-  title="Our Features - AI-Powered Business Communication"
-  description="Discover how our comprehensive AI-powered features can transform your business communication with virtual receptionists, appointment booking, SMS texting, and more."
+  title="AI Phone Features | Virtual Receptionist & Call Automation Features"
+  description="Discover powerful AI phone features: 24/7 call answering, appointment booking, SMS automation, call recording, and review generation. Transform your business communications today."
+  keywords="AI phone features, virtual receptionist features, AI call answering, AI appointment booking, automated phone system, call recording, SMS automation, AI phone system features"
 >
+  <ServiceSchema
+    serviceType="feature"
+    serviceName="AI Phone System Features"
+    description="Comprehensive AI-powered phone system with virtual receptionist, appointment booking, SMS automation, call recording, and review management features"
+    serviceUrl="/features"
+    serviceCategory="SoftwareApplication"
+    features={features.map(f => f.title)}
+    targetAudience="Small and Medium Businesses"
+    availableHours="24/7"
+  />
+  
   <!-- Hero Section -->
   <section class="hero-section section-padding">
     <div class="circuit-bg"></div>
@@ -202,11 +216,14 @@ function getIconSVG(iconType: string) {
           </div>
           <div class="feature-image animate-fade-in" style={`animation-delay: 200ms`}>
             <div class="image-wrapper">
-              <img 
-                src={feature.imageUrl} 
-                alt={feature.title}
-                loading="lazy"
+              <OptimizedImage
+                src={feature.imageUrl}
+                alt={`${feature.title} - Professional business automation solution`}
+                width={800}
+                height={600}
                 class="feature-img"
+                loading="lazy"
+                objectFit="cover"
               />
               <div class="image-overlay"></div>
               <div class="image-glow image-glow-1"></div>

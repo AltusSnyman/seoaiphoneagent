@@ -1,0 +1,1413 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+
+// Comprehensive pillar content data
+const aiPhoneAgentTypes = [
+  {
+    name: "Virtual Receptionist AI Agents",
+    description: "AI phone agents that handle incoming calls, greet customers professionally, and route calls to appropriate departments.",
+    features: ["24/7 availability", "Professional greetings", "Call routing", "Message taking"],
+    bestFor: "Medical offices, law firms, service businesses",
+    avgCost: "$300-800/month"
+  },
+  {
+    name: "Appointment Booking AI Agents", 
+    description: "Specialized AI phone agents that manage scheduling, handle cancellations, and send appointment reminders automatically.",
+    features: ["Calendar integration", "Automated reminders", "Rescheduling", "Confirmation emails"],
+    bestFor: "Healthcare, beauty salons, consulting services",
+    avgCost: "$200-600/month"
+  },
+  {
+    name: "Lead Qualification AI Agents",
+    description: "AI phone agents designed to screen potential customers, gather qualifying information, and prioritize hot leads for sales teams.",
+    features: ["Lead scoring", "Data collection", "CRM integration", "Sales handoff"],
+    bestFor: "Real estate, contractors, B2B services",
+    avgCost: "$400-1000/month"
+  },
+  {
+    name: "Emergency Response AI Agents",
+    description: "Advanced AI phone agents that handle urgent calls, assess emergency levels, and dispatch appropriate response teams immediately.",
+    features: ["Emergency detection", "Priority routing", "Response coordination", "Safety protocols"],
+    bestFor: "Electrical, plumbing, HVAC contractors",
+    avgCost: "$500-1200/month"
+  },
+  {
+    name: "Customer Service AI Agents",
+    description: "Comprehensive AI phone agents that answer FAQs, troubleshoot common issues, and escalate complex problems to human agents.",
+    features: ["FAQ handling", "Issue resolution", "Escalation protocols", "Customer satisfaction"],
+    bestFor: "E-commerce, SaaS, retail businesses",
+    avgCost: "$350-900/month"
+  },
+  {
+    name: "Multi-language AI Agents",
+    description: "Bilingual or multilingual AI phone agents that can communicate with customers in multiple languages seamlessly.",
+    features: ["Multiple languages", "Cultural sensitivity", "Accent recognition", "Regional customization"],
+    bestFor: "Diverse markets, international businesses",
+    avgCost: "$450-1100/month"
+  }
+];
+
+const industries = [
+  {
+    name: "Healthcare AI Phone Agents",
+    description: "HIPAA-compliant AI phone agents for medical practices, hospitals, and healthcare providers.",
+    specialFeatures: ["HIPAA compliance", "Medical terminology", "Appointment scheduling", "Emergency triage"],
+    examples: ["Patient appointment booking", "Prescription refill requests", "Emergency call routing", "Insurance verification"]
+  },
+  {
+    name: "Legal AI Phone Agents", 
+    description: "Professional AI phone agents designed for law firms, legal practices, and attorney offices.",
+    specialFeatures: ["Confidentiality protocols", "Legal terminology", "Case intake", "Emergency dispatch"],
+    examples: ["New client intake", "Court date reminders", "Emergency legal calls", "Case status updates"]
+  },
+  {
+    name: "Real Estate AI Phone Agents",
+    description: "AI phone agents specialized for realtors, property managers, and real estate agencies.",
+    specialFeatures: ["Property information", "Showing scheduling", "Lead qualification", "Market updates"],
+    examples: ["Property inquiries", "Showing appointments", "Buyer pre-qualification", "Market analysis requests"]
+  },
+  {
+    name: "Contractor AI Phone Agents",
+    description: "Heavy-duty AI phone agents built for construction, electrical, plumbing, and HVAC contractors.",
+    specialFeatures: ["Emergency prioritization", "Job scheduling", "Equipment questions", "Safety protocols"],
+    examples: ["Emergency repairs", "Project estimates", "Service appointments", "Equipment availability"]
+  }
+];
+
+const benefits = [
+  {
+    title: "Never Miss Revenue Opportunities",
+    description: "AI phone agents work 24/7/365, capturing every call that could turn into business while you sleep.",
+    impact: "Average 30% increase in captured leads",
+    icon: "💰"
+  },
+  {
+    title: "Scale Customer Service Infinitely",
+    description: "Handle unlimited simultaneous calls without hiring additional staff or dealing with capacity constraints.",
+    impact: "Reduce customer wait times to zero",
+    icon: "📈"
+  },
+  {
+    title: "Eliminate Human Error",
+    description: "AI phone agents maintain consistent quality, never have bad days, and follow protocols perfectly every time.",
+    impact: "99.9% consistency in customer interactions",
+    icon: "✅"
+  },
+  {
+    title: "Reduce Operating Costs",
+    description: "Replace expensive human receptionists with AI phone agents that cost less than minimum wage per hour.",
+    impact: "Save $25,000-60,000 annually per position",
+    icon: "💡"
+  }
+];
+
+const selectionCriteria = [
+  {
+    factor: "Industry Specialization",
+    description: "Choose AI phone agents built for your specific industry with relevant terminology and workflows.",
+    weight: "Critical",
+    questions: ["Does it understand your industry jargon?", "Are there compliance features needed?", "What about specialized workflows?"]
+  },
+  {
+    factor: "Integration Capabilities", 
+    description: "Ensure the AI phone agent connects seamlessly with your existing CRM, calendar, and business tools.",
+    weight: "High",
+    questions: ["What systems need integration?", "How complex is the setup?", "Are APIs available?"]
+  },
+  {
+    factor: "Scalability & Volume",
+    description: "Consider your call volume and growth plans when selecting AI phone agent capacity and pricing.",
+    weight: "High", 
+    questions: ["How many simultaneous calls?", "Expected growth rate?", "Peak hour requirements?"]
+  },
+  {
+    factor: "Voice Quality & Training",
+    description: "Evaluate the naturalness of the AI voice and ability to train it for your business personality.",
+    weight: "Medium",
+    questions: ["How natural does it sound?", "Can you customize the voice?", "Training time required?"]
+  }
+];
+
+const implementations = [
+  {
+    phase: "Assessment & Planning",
+    duration: "1-2 weeks",
+    activities: ["Business process analysis", "Call flow mapping", "Integration requirements", "Success metrics definition"],
+    deliverables: ["Implementation roadmap", "Technical requirements", "Training data plan"]
+  },
+  {
+    phase: "Setup & Configuration",
+    duration: "2-4 weeks", 
+    activities: ["AI agent training", "System integrations", "Call routing setup", "Testing protocols"],
+    deliverables: ["Configured AI agent", "Integration testing", "Performance benchmarks"]
+  },
+  {
+    phase: "Training & Optimization",
+    duration: "2-6 weeks",
+    activities: ["Voice training", "Script refinement", "Response optimization", "Edge case handling"],
+    deliverables: ["Trained AI agent", "Optimized responses", "Quality assurance reports"]
+  },
+  {
+    phase: "Launch & Monitoring",
+    duration: "Ongoing",
+    activities: ["Soft launch", "Performance monitoring", "Continuous improvement", "Scale optimization"],
+    deliverables: ["Live AI agent", "Performance reports", "Optimization recommendations"]
+  }
+];
+---
+
+<PageLayout 
+  title="AI Phone Agents: Complete Guide to Automated Phone Systems for Business (2025)"
+  description="Comprehensive guide to AI phone agents for businesses. Compare types, features, pricing, and implementation. Discover how AI phone agents can transform your customer service and sales."
+  keywords="AI phone agents, automated phone systems, AI receptionist comparison, business phone automation, virtual phone agents, AI call handling systems, automated customer service, phone AI solutions"
+>
+  <ServiceSchema
+    serviceType="general"
+    serviceName="AI Phone Agents Guide & Solutions"
+    description="Comprehensive guide and solutions for AI phone agents including virtual receptionists, appointment booking systems, emergency response agents, and industry-specific phone automation."
+    serviceUrl="/ai-phone-agents"
+    serviceCategory="SoftwareApplication"
+    features={[
+      "AI Phone Agent Comparison",
+      "Implementation Guidance", 
+      "Industry-Specific Solutions",
+      "Cost-Benefit Analysis",
+      "Integration Support",
+      "24/7 Virtual Reception"
+    ]}
+    targetAudience="Business Owners and Decision Makers"
+    availableHours="24/7"
+  />
+
+  <!-- Hero Section -->
+  <section class="pillar-hero section-padding">
+    <div class="circuit-bg"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    
+    <div class="container hero-content">
+      <div class="hero-text animate-fade-in">
+        <h1 class="hero-title">
+          The Complete Guide to <span class="neon-text">AI Phone Agents</span> for Business
+        </h1>
+        <p class="hero-subtitle">
+          Discover how AI phone agents are revolutionizing business communications. Compare types, features, pricing, and implementation strategies to find the perfect automated phone solution for your business.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Types of AI Agents</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Industries Covered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Always Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="toc-section section-padding">
+    <div class="container">
+      <div class="toc-card glass-card animate-fade-in">
+        <h2 class="toc-title">What You'll Learn</h2>
+        <div class="toc-grid">
+          <a href="#types" class="toc-item">
+            <span class="toc-icon">🤖</span>
+            <span class="toc-text">Types of AI Phone Agents</span>
+          </a>
+          <a href="#industries" class="toc-item">
+            <span class="toc-icon">🏢</span>
+            <span class="toc-text">Industry-Specific Solutions</span>
+          </a>
+          <a href="#benefits" class="toc-item">
+            <span class="toc-icon">📈</span>
+            <span class="toc-text">Business Benefits & ROI</span>
+          </a>
+          <a href="#selection" class="toc-item">
+            <span class="toc-icon">✅</span>
+            <span class="toc-text">How to Choose</span>
+          </a>
+          <a href="#implementation" class="toc-item">
+            <span class="toc-icon">🚀</span>
+            <span class="toc-text">Implementation Process</span>
+          </a>
+          <a href="#comparison" class="toc-item">
+            <span class="toc-icon">⚖️</span>
+            <span class="toc-text">Solution Comparison</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Types of AI Phone Agents -->
+  <section id="types" class="types-section section-padding">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container">
+      <SectionHeading
+        title="6 Types of AI Phone Agents"
+        subtitle="Understanding different AI phone agent categories to choose the right solution for your business needs"
+        centered={true}
+      />
+      
+      <div class="types-grid">
+        {aiPhoneAgentTypes.map((type, index) => (
+          <div class="type-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+            <h3 class="type-title">{type.name}</h3>
+            <p class="type-description">{type.description}</p>
+            
+            <div class="type-features">
+              <h4 class="features-title">Key Features:</h4>
+              <ul class="features-list">
+                {type.features.map((feature) => (
+                  <li class="feature-item">
+                    <span class="feature-bullet">•</span>
+                    <span class="feature-text">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="type-meta">
+              <div class="meta-item">
+                <span class="meta-label">Best For:</span>
+                <span class="meta-value">{type.bestFor}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Typical Cost:</span>
+                <span class="meta-value">{type.avgCost}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry-Specific Solutions -->
+  <section id="industries" class="industries-section section-padding">
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="container">
+      <SectionHeading
+        title="AI Phone Agents by Industry"
+        subtitle="Specialized AI phone agent solutions tailored for different business sectors and their unique requirements"
+        centered={true}
+      />
+      
+      <div class="industries-grid">
+        {industries.map((industry, index) => (
+          <div class="industry-card glass-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
+            <h3 class="industry-title">{industry.name}</h3>
+            <p class="industry-description">{industry.description}</p>
+            
+            <div class="industry-features">
+              <h4 class="features-title">Special Features:</h4>
+              <div class="features-tags">
+                {industry.specialFeatures.map((feature) => (
+                  <span class="feature-tag">{feature}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div class="industry-examples">
+              <h4 class="examples-title">Common Use Cases:</h4>
+              <ul class="examples-list">
+                {industry.examples.map((example) => (
+                  <li class="example-item">{example}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits -->
+  <section id="benefits" class="benefits-section section-padding">
+    <div class="blob blob-5"></div>
+    <div class="blob blob-6"></div>
+    <div class="container">
+      <SectionHeading
+        title="Why Businesses Choose AI Phone Agents"
+        subtitle="Measurable benefits and ROI that AI phone agents deliver across industries and business sizes"
+        centered={true}
+      />
+      
+      <div class="benefits-grid">
+        {benefits.map((benefit, index) => (
+          <div class="benefit-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+            <div class="benefit-icon">{benefit.icon}</div>
+            <h3 class="benefit-title">{benefit.title}</h3>
+            <p class="benefit-description">{benefit.description}</p>
+            <div class="benefit-impact">
+              <span class="impact-label">Impact:</span>
+              <span class="impact-value">{benefit.impact}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Selection Criteria -->
+  <section id="selection" class="selection-section section-padding">
+    <div class="blob blob-7"></div>
+    <div class="blob blob-8"></div>
+    <div class="container">
+      <SectionHeading
+        title="How to Choose the Right AI Phone Agent"
+        subtitle="Key factors and evaluation criteria to select the perfect AI phone agent solution for your business"
+        centered={true}
+      />
+      
+      <div class="selection-cards">
+        {selectionCriteria.map((criteria, index) => (
+          <div class="criteria-card glass-card animate-fade-in" style={`animation-delay: ${index * 120}ms`}>
+            <div class="criteria-header">
+              <h3 class="criteria-title">{criteria.factor}</h3>
+              <span class={`criteria-weight weight-${criteria.weight.toLowerCase()}`}>{criteria.weight}</span>
+            </div>
+            <p class="criteria-description">{criteria.description}</p>
+            
+            <div class="criteria-questions">
+              <h4 class="questions-title">Key Questions:</h4>
+              <ul class="questions-list">
+                {criteria.questions.map((question) => (
+                  <li class="question-item">{question}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Process -->
+  <section id="implementation" class="implementation-section section-padding">
+    <div class="blob blob-9"></div>
+    <div class="blob blob-10"></div>
+    <div class="container">
+      <SectionHeading
+        title="AI Phone Agent Implementation Process"
+        subtitle="Step-by-step roadmap for successfully implementing AI phone agents in your business operations"
+        centered={true}
+      />
+      
+      <div class="implementation-timeline">
+        {implementations.map((phase, index) => (
+          <div class="phase-card glass-card animate-fade-in" style={`animation-delay: ${index * 200}ms`}>
+            <div class="phase-number">{index + 1}</div>
+            <div class="phase-content">
+              <h3 class="phase-title">{phase.phase}</h3>
+              <div class="phase-duration">{phase.duration}</div>
+              
+              <div class="phase-activities">
+                <h4 class="activities-title">Key Activities:</h4>
+                <ul class="activities-list">
+                  {phase.activities.map((activity) => (
+                    <li class="activity-item">{activity}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div class="phase-deliverables">
+                <h4 class="deliverables-title">Deliverables:</h4>
+                <div class="deliverables-tags">
+                  {phase.deliverables.map((deliverable) => (
+                    <span class="deliverable-tag">{deliverable}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Comparison & CTA -->
+  <section id="comparison" class="comparison-section section-padding">
+    <div class="blob blob-11"></div>
+    <div class="blob blob-12"></div>
+    <div class="container">
+      <SectionHeading
+        title="Find Your Perfect AI Phone Agent Solution"
+        subtitle="Compare leading AI phone agent solutions and discover why AI Phone Agent leads the industry"
+        centered={true}
+      />
+      
+      <div class="comparison-card glass-card animate-fade-in">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Why Choose AI Phone Agent?</h3>
+          <p class="comparison-description">
+            After analyzing dozens of AI phone agent solutions, AI Phone Agent stands out as the most comprehensive, 
+            reliable, and cost-effective solution for businesses of all sizes.
+          </p>
+          
+          <div class="comparison-features">
+            <div class="feature-group">
+              <h4 class="feature-group-title">🏆 Industry Leadership</h4>
+              <ul class="feature-group-list">
+                <li>15+ industry specializations</li>
+                <li>99.9% uptime guarantee</li>
+                <li>24/7 support & monitoring</li>
+              </ul>
+            </div>
+            
+            <div class="feature-group">
+              <h4 class="feature-group-title">💰 Best Value</h4>
+              <ul class="feature-group-list">
+                <li>All-inclusive pricing at $997/month</li>
+                <li>No setup fees or hidden costs</li>
+                <li>30-day money-back guarantee</li>
+              </ul>
+            </div>
+            
+            <div class="feature-group">
+              <h4 class="feature-group-title">🚀 Advanced Features</h4>
+              <ul class="feature-group-list">
+                <li>Multi-language support</li>
+                <li>Advanced AI training</li>
+                <li>Complete CRM integration</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="comparison-cta">
+            <a href="/booking" class="cta-button primary-button">
+              Get Your Free AI Phone Agent Consultation
+            </a>
+            <p class="cta-note">
+              Speak with our AI specialists to design the perfect phone agent solution for your business
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section section-padding">
+    <div class="blob blob-13"></div>
+    <div class="blob blob-14"></div>
+    <div class="container">
+      <SectionHeading
+        title="AI Phone Agents: Frequently Asked Questions"
+        subtitle="Get answers to the most common questions about implementing AI phone agents in your business"
+        centered={true}
+      />
+      
+      <div class="faq-grid">
+        <div class="faq-item glass-card animate-fade-in">
+          <h3 class="faq-question">How much do AI phone agents cost?</h3>
+          <p class="faq-answer">
+            AI phone agent costs vary by features and volume. Basic solutions start at $200-400/month, 
+            while comprehensive systems like AI Phone Agent cost $997/month for unlimited calls and full features. 
+            Most businesses save $25,000-60,000 annually compared to human receptionists.
+          </p>
+        </div>
+        
+        <div class="faq-item glass-card animate-fade-in" style="animation-delay: 100ms">
+          <h3 class="faq-question">Can AI phone agents handle complex conversations?</h3>
+          <p class="faq-answer">
+            Modern AI phone agents can handle 80-95% of business calls independently, including appointment 
+            scheduling, FAQ responses, lead qualification, and basic troubleshooting. Complex issues are 
+            seamlessly transferred to human agents with full context.
+          </p>
+        </div>
+        
+        <div class="faq-item glass-card animate-fade-in" style="animation-delay: 200ms">
+          <h3 class="faq-question">How long does implementation take?</h3>
+          <p class="faq-answer">
+            Implementation typically takes 4-12 weeks depending on complexity. Basic setups can be live in 
+            2-3 weeks, while custom integrations and advanced training may take 8-12 weeks. Most businesses 
+            see ROI within the first month.
+          </p>
+        </div>
+        
+        <div class="faq-item glass-card animate-fade-in" style="animation-delay: 300ms">
+          <h3 class="faq-question">Do customers notice they're talking to AI?</h3>
+          <p class="faq-answer">
+            Advanced AI phone agents are increasingly natural-sounding. While some customers may realize 
+            they're speaking with AI, most appreciate the immediate response, consistent quality, and 
+            24/7 availability. Transparency builds trust.
+          </p>
+        </div>
+        
+        <div class="faq-item glass-card animate-fade-in" style="animation-delay: 400ms">
+          <h3 class="faq-question">What industries benefit most from AI phone agents?</h3>
+          <p class="faq-answer">
+            Healthcare, legal, real estate, contractors, and service businesses see the highest ROI. 
+            Any business with high call volume, after-hours needs, or appointment scheduling benefits 
+            significantly from AI phone agents.
+          </p>
+        </div>
+        
+        <div class="faq-item glass-card animate-fade-in" style="animation-delay: 500ms">
+          <h3 class="faq-question">Can AI phone agents integrate with existing systems?</h3>
+          <p class="faq-answer">
+            Yes, modern AI phone agents integrate with most CRMs, calendars, and business systems 
+            including Salesforce, HubSpot, Google Calendar, Outlook, and industry-specific software. 
+            API connections enable seamless data flow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  /* Hero Section */
+  .pillar-hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(0, 163, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.1) 0%, transparent 50%);
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.12;
+    z-index: -1;
+    animation: blob-animation 20s infinite alternate ease-in-out;
+  }
+
+  .hero-blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--color-neon-blue);
+    top: -200px;
+    right: -150px;
+    animation-delay: 0s;
+  }
+
+  .hero-blob-2 {
+    width: 320px;
+    height: 320px;
+    background: var(--color-neon-cyan);
+    bottom: -160px;
+    left: -100px;
+    animation-delay: 10s;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 3.75rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+  }
+
+  .hero-subtitle {
+    font-size: 1.375rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    font-family: var(--font-body);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-neon-blue);
+    font-family: var(--font-heading);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* Table of Contents */
+  .toc-section {
+    background: var(--color-dark-300);
+  }
+
+  .toc-card {
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .toc-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  .toc-item:hover {
+    background: rgba(0, 163, 255, 0.1);
+    border-color: rgba(0, 163, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .toc-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  .toc-text {
+    font-weight: 500;
+  }
+
+  /* Types Section */
+  .types-section {
+    background: var(--color-dark-400);
+  }
+
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .type-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .type-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-neon-blue);
+    margin-bottom: 1rem;
+  }
+
+  .type-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .type-features {
+    margin-bottom: 1.5rem;
+  }
+
+  .features-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .feature-bullet {
+    color: var(--color-neon-cyan);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .feature-text {
+    color: var(--color-text);
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+
+  .type-meta {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .meta-label {
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .meta-value {
+    font-weight: 600;
+    color: var(--color-neon-blue);
+    font-size: 0.9rem;
+  }
+
+  /* Industries Section */
+  .industries-section {
+    background: var(--color-dark-300);
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .industry-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .industry-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .industry-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .industry-features {
+    margin-bottom: 1.5rem;
+  }
+
+  .features-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .feature-tag {
+    background: rgba(0, 163, 255, 0.1);
+    color: var(--color-neon-blue);
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+  }
+
+  .industry-examples {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+
+  .examples-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .examples-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .example-item {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .example-item::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-neon-cyan);
+    font-weight: 600;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    background: var(--color-dark-400);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .benefit-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .benefit-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit-impact {
+    background: rgba(0, 163, 255, 0.1);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+  }
+
+  .impact-label {
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .impact-value {
+    font-weight: 700;
+    color: var(--color-neon-blue);
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Selection Section */
+  .selection-section {
+    background: var(--color-dark-300);
+  }
+
+  .selection-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .criteria-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .criteria-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .criteria-weight {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .weight-critical {
+    background: rgba(255, 76, 76, 0.2);
+    color: #ff4c4c;
+    border: 1px solid rgba(255, 76, 76, 0.4);
+  }
+
+  .weight-high {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.4);
+  }
+
+  .weight-medium {
+    background: rgba(0, 163, 255, 0.2);
+    color: var(--color-neon-blue);
+    border: 1px solid rgba(0, 163, 255, 0.4);
+  }
+
+  .criteria-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .criteria-questions {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+
+  .questions-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .questions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .question-item {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .question-item::before {
+    content: "?";
+    position: absolute;
+    left: 0;
+    color: var(--color-neon-cyan);
+    font-weight: 700;
+  }
+
+  /* Implementation Section */
+  .implementation-section {
+    background: var(--color-dark-400);
+  }
+
+  .implementation-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .phase-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .phase-number {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+    color: var(--color-dark-400);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+  }
+
+  .phase-content {
+    flex: 1;
+  }
+
+  .phase-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-duration {
+    color: var(--color-neon-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .phase-activities {
+    margin-bottom: 1.5rem;
+  }
+
+  .activities-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .activity-item {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .activity-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-neon-cyan);
+    font-weight: 700;
+  }
+
+  .phase-deliverables {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+
+  .deliverables-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .deliverables-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .deliverable-tag {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--color-neon-cyan);
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+  }
+
+  /* Comparison Section */
+  .comparison-section {
+    background: var(--color-dark-300);
+  }
+
+  .comparison-card {
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  .comparison-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+  }
+
+  .comparison-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature-group {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-group-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .feature-group-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feature-group-list li {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .feature-group-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-neon-blue);
+    font-weight: 700;
+  }
+
+  .comparison-cta {
+    text-align: center;
+    background: rgba(0, 163, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.2);
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+    color: var(--color-dark-400);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.3);
+  }
+
+  .cta-note {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    background: var(--color-dark-400);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .faq-item {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-question {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .faq-answer {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Animations */
+  @keyframes blob-animation {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(50px, -80px) scale(1.1);
+    }
+    50% {
+      transform: translate(-30px, 40px) scale(0.9);
+    }
+    75% {
+      transform: translate(20px, -30px) scale(1.05);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero-title {
+      font-size: 2.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .stat {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .phase-card {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .phase-number {
+      align-self: flex-start;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .toc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .types-grid,
+    .industries-grid,
+    .benefits-grid,
+    .selection-cards,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .comparison-features {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .hero-blob-1 {
+      width: 250px;
+      height: 250px;
+    }
+
+    .hero-blob-2 {
+      width: 200px;
+      height: 200px;
+    }
+  }
+</style>

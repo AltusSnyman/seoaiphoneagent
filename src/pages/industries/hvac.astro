@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your HVAC business captures every emergency call, converts 90% of service requests into booked appointments, and adds $300,000+ annual revenue - all while you focus on installations and repairs, not chasing phone calls."
+
+const dreamOutcomeTitle = "What Your HVAC Business Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency AC Calls During Peak Summer",
+    description: "It's 95°F outside and you're installing a new AC unit when your phone rings - another emergency breakdown. The family has no cooling, it's urgent, but you can't answer with tools in your hands. They call the next HVAC company and you lose a $1,200 emergency repair plus potential system replacement.",
+    cost: "$1,200-8,000 per emergency",
+    icon: "🔥"
+  },
+  {
+    title: "After-Hours Heating Emergencies",
+    description: "It's 10 PM in January and someone's furnace dies. They have small children, temperature is dropping, and they need immediate help. Your phone rings 6 times while you're at dinner with family. The first HVAC company to answer gets a $1,500 emergency call plus the follow-up maintenance contract.",
+    cost: "$1,500-5,000 per emergency",
+    icon: "❄️"
+  },
+  {
+    title: "Seasonal Service Rush Overwhelm",
+    description: "Spring hits and everyone needs AC tune-ups before summer heat. Your phone rings 60+ times daily with maintenance requests, but you're booked solid for 3 weeks. Customers can't wait, so they book with competitors who answer immediately and offer sooner availability.",
+    cost: "$400,000+ seasonal loss",
+    icon: "🌸"
+  },
+  {
+    title: "Commercial HVAC Quote Delays",
+    description: "A restaurant owner calls needing a new commercial system after theirs failed during lunch rush. They need immediate quotes for insurance, but you're on residential calls all day. By the time you call back tomorrow, they've hired another contractor who responded in 30 minutes.",
+    cost: "$15,000-80,000 per commercial project",
+    icon: "🏢"
+  },
+  {
+    title: "Installation Scheduling Conflicts",
+    description: "You schedule a furnace installation for Tuesday but also have three maintenance calls booked. The installation runs long, maintenance customers wait hours, and you end up with negative reviews about unreliable scheduling and poor time management.",
+    cost: "$2,000-10,000 reputation damage",
+    icon: "📅"
+  },
+  {
+    title: "Maintenance Contract Revenue Bleeding",
+    description: "You complete a $800 AC repair perfectly, customer is thrilled with the service, but you never follow up about annual maintenance contracts. That satisfied customer never signs up for recurring revenue that could be worth $300 annually for 10+ years.",
+    cost: "$3,000+ lifetime value loss",
+    icon: "🔄"
+  }
+];
+
+const benefits = [
+  {
+    title: "Emergency Response Command Center",
+    description: "AI handles heating and cooling emergencies with immediate assessment protocols, evaluates system failure severity, dispatches you to high-priority calls first, and provides customers with realistic arrival times based on your current location and schedule.",
+    icon: "🚨"
+  },
+  {
+    title: "Seasonal Demand Optimization",
+    description: "AI manages peak season appointment volumes by prioritizing high-value installations, scheduling efficiently around weather forecasts, and maintaining optimal customer wait times while maximizing your daily revenue potential.",
+    icon: "📊"
+  },
+  {
+    title: "Commercial Quote Acceleration",
+    description: "AI provides immediate commercial HVAC estimates using your pricing models, system specifications, and local building requirements. Business owners get preliminary quotes within minutes, keeping them engaged while competitors play phone tag.",
+    icon: "⚡"
+  },
+  {
+    title: "Smart Installation Scheduling",
+    description: "AI schedules installations based on system complexity, weather conditions, and your crew availability. It understands that furnace installations need 6-8 hours while AC tune-ups need 1-2 hours, preventing scheduling conflicts and customer delays.",
+    icon: "🔧"
+  },
+  {
+    title: "Maintenance Contract Maximization",
+    description: "After every service call, AI automatically follows up about annual maintenance agreements, seasonal tune-ups, and filter replacement programs. Transforms one-time repairs into recurring revenue streams worth thousands annually per customer.",
+    icon: "💰"
+  },
+  {
+    title: "Weather-Based Call Prioritization",
+    description: "AI integrates local weather data to predict call volumes, prioritize emergencies during extreme temperatures, and proactively schedule preventive maintenance before peak demand seasons hit your service area.",
+    icon: "🌡️"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Arctic Air Solutions - Minneapolis",
+    scenario: "HVAC company losing 40+ emergency calls daily during Minnesota winter peaks, missing an estimated $500,000 in seasonal emergency revenue to competitors who answered phones faster during -20°F cold snaps.",
+    solution: "AI Phone Agent deployed with Minneapolis weather integration, emergency heating protocols, and real-time technician dispatching based on location proximity and call severity assessment.",
+    result: "Captured 92% of emergency calls during winter season, increased seasonal revenue by $680,000, and became the #1 emergency HVAC service in Twin Cities metro area. ROI of 2,800% in first winter."
+  },
+  {
+    title: "Desert Climate Control - Phoenix",
+    scenario: "Commercial HVAC specialist struggling with complex quote processes for restaurants, retail stores, and office buildings, leading to 60% quote conversion rate and losing projects to faster-responding competitors.",
+    solution: "Implemented AI with Phoenix building code integration, commercial system specifications, and automated quote generation for different business types with energy efficiency calculations.",
+    result: "Improved quote response time from 2 days to 15 minutes, increased conversion rate to 85%, and captured $2.1M in additional commercial contracts annually."
+  },
+  {
+    title: "Comfort Plus HVAC - Dallas",
+    scenario: "Growing residential service company overwhelmed during Texas summer with AC failures, missing maintenance contract opportunities and struggling with customer retention beyond initial repairs.",
+    solution: "AI system with Texas heat index integration, predictive maintenance scheduling, automated contract follow-ups, and customer education about preventive care benefits.",
+    result: "Increased maintenance contract signups by 340%, improved customer retention to 89%, and added $290,000 annual recurring revenue from service agreements."
+  }
+];
+
+const testimonial = {
+  name: "Robert Chen",
+  title: "Owner, Premium Climate Solutions",
+  quote: "Summer in Texas means constant AC emergency calls, but I was missing 30+ calls daily while on job sites. The AI Phone Agent captures every emergency, qualifies the urgency, and dispatches me efficiently. Last summer alone, it helped me capture $340,000 in additional emergency revenue I would have lost to competitors.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$340,000",
+  timeframe: "additional revenue last summer"
+};
+
+const roiData = {
+  avgCallValue: 850, // Average HVAC service call value
+  missedCallsPerMonth: 35,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for HVAC Companies | Never Miss Another $1,500 Emergency Call"
+  description="Stop losing $300,000+ annually from missed HVAC calls! Our AI captures every heating/cooling emergency 24/7, schedules service appointments, handles seasonal rush, and focuses your time on installations and repairs."
+  keywords="AI phone agent for HVAC companies, HVAC call answering service, automated HVAC scheduling, AI HVAC dispatcher, virtual receptionist HVAC, automated HVAC booking, 24/7 HVAC emergency calls"
+  industry="HVAC"
+  heroTitle="Stop Missing $1,500 Emergency Calls During AC Installations"
+  heroSubtitle="The only AI phone agent built specifically for HVAC professionals. Capture every heating and cooling emergency 24/7, handle seasonal demand spikes, schedule installations efficiently, and focus on what you do best - keeping customers comfortable."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

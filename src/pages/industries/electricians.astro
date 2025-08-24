@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your electrical business captures every emergency call, converts 95% of service requests into booked jobs, and adds $400,000+ annual revenue - all while you focus on safe electrical work, not missing urgent calls."
+
+const dreamOutcomeTitle = "What Your Electrical Business Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency Power Outage Calls",
+    description: "You're rewiring a kitchen when your phone rings - someone's power is completely out and they have a newborn baby who needs electricity for medical equipment. You can't answer while working with live wires, and that desperate family calls the next electrician. Lost: $800 emergency + potential whole-house rewiring project.",
+    cost: "$800-15,000 per emergency",
+    icon: "⚡"
+  },
+  {
+    title: "After-Hours Electrical Emergencies",
+    description: "It's 11 PM and someone's circuit breaker keeps tripping, causing fire safety concerns. They need immediate electrical assessment, but you're off-duty and miss the call. The electrician who answers gets a $1,200 emergency call plus follow-up electrical upgrades worth $8,000+.",
+    cost: "$1,200-10,000 per after-hours emergency",
+    icon: "🌙"
+  },
+  {
+    title: "Commercial Electrical Project Loss",
+    description: "A restaurant manager calls about electrical problems affecting their kitchen equipment during lunch rush. They need immediate commercial electrical service, but you're on residential calls and can't respond. Commercial electrical projects are worth $5,000-50,000 and require fast response.",
+    cost: "$5,000-50,000 commercial projects",
+    icon: "🏢"
+  },
+  {
+    title: "Electrical Panel Upgrade Opportunity Miss",
+    description: "Customers call about outlet installations or light fixtures, but you never assess their electrical panel capacity or mention safety upgrades. That $200 outlet job could have been a $3,500 panel upgrade if you had proper consultation time during initial booking.",
+    cost: "$2,000-8,000 upgrade opportunities",
+    icon: "🔌"
+  },
+  {
+    title: "Permit and Code Inspection Coordination",
+    description: "Electrical work requires permits, inspections, and code compliance documentation. Manual coordination with city offices takes hours, delays projects, and frustrated customers choose electricians who handle permitting processes seamlessly.",
+    cost: "$1,500-12,000 per delayed project",
+    icon: "📋"
+  },
+  {
+    title: "Generator Installation Season Rush",
+    description: "Storm season arrives and everyone wants backup generators installed. Your phone rings 60+ times weekly with generator inquiries, but you're booked with current electrical projects. Customers can't wait and hire competitors with immediate availability.",
+    cost: "$200,000+ seasonal generator revenue",
+    icon: "⚙️"
+  }
+];
+
+const benefits = [
+  {
+    title: "Emergency Electrical Response",
+    description: "AI handles electrical emergencies with immediate safety assessment, evaluates fire hazards and power outage risks, dispatches appropriate response teams, and provides safety guidance while electricians are en route to dangerous situations.",
+    icon: "🚨"
+  },
+  {
+    title: "Commercial Project Prioritization",
+    description: "AI identifies commercial electrical opportunities, schedules facility assessments, provides preliminary estimates for different electrical systems, and prioritizes business calls that require immediate attention due to operational impacts.",
+    icon: "🏗️"
+  },
+  {
+    title: "Electrical Safety Consultation",
+    description: "AI assesses electrical service requests and identifies potential safety upgrade opportunities, explains panel capacity issues, recommends code compliance improvements, and educates customers about electrical safety benefits.",
+    icon: "🛡️"
+  },
+  {
+    title: "Permit Coordination Automation",
+    description: "AI streamlines electrical permitting by collecting project specifications, coordinating with local building departments, scheduling inspections, and ensuring all code compliance requirements are met throughout the electrical project timeline.",
+    icon: "📄"
+  },
+  {
+    title: "Generator Installation Management",
+    description: "AI manages seasonal generator demand by qualifying installation requirements, assessing electrical panel compatibility, scheduling site evaluations, and coordinating generator deliveries with installation appointments.",
+    icon: "⚡"
+  },
+  {
+    title: "Electrical Service Upselling",
+    description: "AI evaluates electrical service requests and suggests related improvements like surge protection, GFCI outlets, LED lighting upgrades, and smart home electrical systems that enhance safety and energy efficiency.",
+    icon: "💡"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Lightning Electric - Tampa",
+    scenario: "Florida electrical contractor missing 40+ emergency calls monthly during storm season, losing an estimated $350,000 annually in lightning damage repairs, generator installations, and power restoration services.",
+    solution: "AI Phone Agent deployed with Florida storm protocols, emergency electrical response, generator installation coordination, and integration with Tampa Electric utility outage data for optimal storm response.",
+    result: "Captured 91% of emergency electrical calls, increased storm season revenue by $420,000, and became Tampa's preferred electrical contractor for insurance claim work. ROI of 2,800% during hurricane season."
+  },
+  {
+    title: "Industrial Power Solutions - Houston",
+    scenario: "Commercial electrical specialist struggling with complex industrial project coordination, missing opportunities for high-value facility electrical upgrades and emergency commercial service calls.",
+    solution: "AI system with Houston industrial protocols, commercial electrical project management, emergency business response, and coordination with facility managers for minimal operational disruption.",
+    result: "Secured 8 major industrial contracts, added $850,000 annual commercial revenue, and established preferred vendor status with 12 manufacturing facilities through superior emergency response."
+  },
+  {
+    title: "Home Safety Electric - Phoenix",
+    scenario: "Residential electrician missing opportunities to educate Arizona customers about electrical safety in extreme heat, panel upgrades for increased AC loads, and whole-house surge protection benefits.",
+    solution: "Implemented AI with Phoenix electrical code integration, heat-related electrical safety education, AC electrical load assessment, and premium electrical safety package promotion for desert climate challenges.",
+    result: "Increased electrical safety upgrade revenue by 240%, expanded premium service sales by $180,000 annually, and achieved 94% customer retention through safety education and superior service."
+  }
+];
+
+const testimonial = {
+  name: "Carlos Rodriguez",
+  title: "Master Electrician, Rodriguez Electric",
+  quote: "Electrical emergencies are dangerous and time-sensitive, but I was missing 25+ emergency calls monthly while working on live electrical systems. The AI Phone Agent now captures every emergency, assesses safety risks, and dispatches me efficiently. This year I've captured $320,000 in additional emergency and upgrade work I would have missed.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$320,000",
+  timeframe: "additional work captured this year"
+};
+
+const roiData = {
+  avgCallValue: 950, // Average electrical service value
+  missedCallsPerMonth: 28,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Electricians | Never Miss a $10K Emergency Call Again"
+  description="Stop losing $400,000+ annually from missed electrical calls! Our AI captures every emergency 24/7, prioritizes safety risks, schedules service efficiently, coordinates permits, and focuses your time on safe electrical work."
+  keywords="AI phone agent for electricians, electrical emergency calls, automated electrical booking, AI electrician assistant, virtual receptionist electrical, automated electrical scheduling, emergency electrician response"
+  industry="Electrical"
+  heroTitle="Stop Missing $10,000 Emergency Calls While Working Live Wires"
+  heroSubtitle="The only AI phone agent built specifically for electrical professionals. Capture every emergency 24/7, prioritize safety risks, schedule service efficiently, coordinate permits, and focus on delivering safe electrical solutions."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

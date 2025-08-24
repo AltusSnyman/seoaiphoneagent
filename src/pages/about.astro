@@ -3,12 +3,34 @@ import PageLayout from '../layouts/PageLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
 ---
 
 <PageLayout 
-	title="About The Voice AI Agency - Leading Business Communication Revolution"
-	description="Learn about The Voice AI Agency's mission to transform business communications with cutting-edge AI technology. Serving businesses globally with enterprise-grade solutions."
+	title="About AI Phone Agent | Leading AI Receptionist Technology Company"
+	description="Learn about AI Phone Agent's mission to transform business communications with 24/7 AI receptionist technology. Serving thousands of businesses globally with intelligent phone automation."
+	keywords="AI phone agent company, AI receptionist technology, virtual receptionist service provider, business phone automation, AI call center solutions"
 >
+	<ServiceSchema
+		serviceType="general"
+		serviceName="AI Phone Agent Company Services"
+		description="Leading AI receptionist technology company providing 24/7 virtual phone agents, intelligent call handling, and business communication automation to thousands of businesses globally."
+		serviceUrl="/about"
+		serviceCategory="TelecommunicationsService"
+		features={[
+			"AI Receptionist Technology",
+			"24/7 Call Handling",
+			"Virtual Phone Agents",
+			"Business Communication Automation",
+			"Call Center Solutions",
+			"SMS Automation",
+			"Appointment Scheduling",
+			"Customer Service AI"
+		]}
+		targetAudience="Small and Medium Businesses"
+		availableHours="24/7"
+	/>
+	
 	<PageHero
 		title="About"
 		highlightText="The Voice AI Agency"

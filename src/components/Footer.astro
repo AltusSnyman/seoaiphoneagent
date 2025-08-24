@@ -8,9 +8,26 @@ const footerLinks = {
 		{ name: 'Pricing', href: '/pricing' },
 		{ name: 'Contact', href: '/contact' }
 	],
+	industries: [
+		{ name: 'For Dentists', href: '/industries/dentists' },
+		{ name: 'For Plumbers', href: '/industries/plumbers' },
+		{ name: 'For Real Estate', href: '/industries/real-estate' },
+		{ name: 'For Contractors', href: '/industries/contractors' },
+		{ name: 'For Medical Clinics', href: '/industries/medical-clinics' },
+		{ name: 'For HVAC', href: '/industries/hvac' },
+		{ name: 'For Auto Repair', href: '/industries/auto-repair' },
+		{ name: 'For Landscaping', href: '/industries/landscaping' },
+		{ name: 'For Salons & Spas', href: '/industries/salons' },
+		{ name: 'For Cleaning Services', href: '/industries/cleaning-services' },
+		{ name: 'For Pest Control', href: '/industries/pest-control' },
+		{ name: 'For Roofers', href: '/industries/roofers' },
+		{ name: 'For Electricians', href: '/industries/electricians' },
+		{ name: 'For Legal Offices', href: '/industries/legal-offices' },
+		{ name: 'For Restaurants', href: '/industries/restaurants' }
+	],
 	support: [
+		{ name: 'FAQ', href: '/faq' },
 		{ name: 'Help Center', href: '/help' },
-		{ name: 'Documentation', href: '/docs' },
 		{ name: 'Book a Call', href: '/booking' },
 		{ name: 'Demo', href: '/features' }
 	],
@@ -35,6 +52,7 @@ const socialLinks = [
 		<div class="footer-main">
 			<div class="footer-brand">
 				<a href="/" class="footer-logo">
+					<img src="/logo.png" alt="AI Phone Agent" class="footer-logo-image" />
 					<span class="logo-text">AI Phone Agent</span>
 				</a>
 				<p class="footer-description">
@@ -49,7 +67,7 @@ const socialLinks = [
 						<strong>Australia:</strong> <a href="tel:+61238213526">+61 2 3821 3526</a>
 					</p>
 					<p class="contact-item">
-						<strong>Email:</strong> <a href="mailto:hello@aiphoneagent.com">hello@aiphoneagent.com</a>
+						<strong>Email:</strong> <a href="mailto:hello@aiphoneagent.ai">hello@aiphoneagent.ai</a>
 					</p>
 				</div>
 			</div>
@@ -59,6 +77,15 @@ const socialLinks = [
 					<h4 class="footer-heading">Company</h4>
 					<ul class="footer-list">
 						{footerLinks.company.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4 class="footer-heading">Industries</h4>
+					<ul class="footer-list">
+						{footerLinks.industries.map((link) => (
 							<li><a href={link.href} class="footer-link">{link.name}</a></li>
 						))}
 					</ul>
@@ -124,12 +151,28 @@ const socialLinks = [
 	}
 
 	.footer-logo {
-		display: inline-block;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-decoration: none;
 		font-size: 1.75rem;
 		font-weight: 700;
 		font-family: var(--font-heading);
 		color: var(--color-neon-blue);
 		text-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.footer-logo-image {
+		height: 48px;
+		width: auto;
+		filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.2));
+		transition: all 0.3s ease;
+	}
+
+	.footer-logo:hover .footer-logo-image {
+		filter: drop-shadow(0 0 12px rgba(0, 163, 255, 0.5));
+		transform: scale(1.05);
 	}
 
 	.footer-description {
@@ -162,7 +205,7 @@ const socialLinks = [
 
 	.footer-links {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 		gap: 2rem;
 	}
 

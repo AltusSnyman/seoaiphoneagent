@@ -4,12 +4,49 @@
 <header class="header">
 	<nav class="container nav">
 		<a href="/" class="logo">
+			<img src="/logo.png" alt="AI Phone Agent" class="logo-image" />
 			<span class="logo-text">AI Phone Agent</span>
 		</a>
 		
 		<ul class="nav-links">
 			<li><a href="/features" class="nav-link">Features</a></li>
+			<li><a href="/ai-phone-agents" class="nav-link">Guide</a></li>
+			<li><a href="/blog" class="nav-link">Blog</a></li>
+			<li class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+					Locations <span class="dropdown-arrow">▼</span>
+				</a>
+				<ul class="dropdown-menu" aria-label="Locations submenu">
+					<li><a href="/locations" class="dropdown-link">All Locations</a></li>
+					<li><a href="/locations/usa" class="dropdown-link">🇺🇸 United States</a></li>
+					<li><a href="/locations/australia" class="dropdown-link">🇦🇺 Australia</a></li>
+					<li><a href="/locations/new-zealand" class="dropdown-link">🇳🇿 New Zealand</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+					Industries <span class="dropdown-arrow">▼</span>
+				</a>
+				<ul class="dropdown-menu" aria-label="Industries submenu">
+					<li><a href="/industries/dentists" class="dropdown-link">For Dentists</a></li>
+					<li><a href="/industries/plumbers" class="dropdown-link">For Plumbers</a></li>
+					<li><a href="/industries/real-estate" class="dropdown-link">For Real Estate</a></li>
+					<li><a href="/industries/contractors" class="dropdown-link">For Contractors</a></li>
+					<li><a href="/industries/medical-clinics" class="dropdown-link">For Medical Clinics</a></li>
+					<li><a href="/industries/hvac" class="dropdown-link">For HVAC</a></li>
+					<li><a href="/industries/auto-repair" class="dropdown-link">For Auto Repair</a></li>
+					<li><a href="/industries/landscaping" class="dropdown-link">For Landscaping</a></li>
+					<li><a href="/industries/salons" class="dropdown-link">For Salons & Spas</a></li>
+					<li><a href="/industries/cleaning-services" class="dropdown-link">For Cleaning Services</a></li>
+					<li><a href="/industries/pest-control" class="dropdown-link">For Pest Control</a></li>
+					<li><a href="/industries/roofers" class="dropdown-link">For Roofers</a></li>
+					<li><a href="/industries/electricians" class="dropdown-link">For Electricians</a></li>
+					<li><a href="/industries/legal-offices" class="dropdown-link">For Legal Offices</a></li>
+					<li><a href="/industries/restaurants" class="dropdown-link">For Restaurants</a></li>
+				</ul>
+			</li>
 			<li><a href="/pricing" class="nav-link">Pricing</a></li>
+			<li><a href="/faq" class="nav-link">FAQ</a></li>
 			<li><a href="/about" class="nav-link">About</a></li>
 			<li><a href="/contact" class="nav-link">Contact</a></li>
 		</ul>
@@ -48,12 +85,25 @@
 	.logo {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 0.75rem;
 		font-size: 1.5rem;
 		font-weight: 700;
 		font-family: var(--font-heading);
 		color: var(--color-neon-blue);
 		text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+		text-decoration: none;
+	}
+
+	.logo-image {
+		height: 40px;
+		width: auto;
+		filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.3));
+		transition: all 0.3s ease;
+	}
+
+	.logo:hover .logo-image {
+		filter: drop-shadow(0 0 12px rgba(0, 163, 255, 0.6));
+		transform: scale(1.05);
 	}
 
 	.nav-links {
@@ -89,6 +139,68 @@
 		width: 100%;
 	}
 
+	/* Dropdown Styles */
+	.dropdown {
+		position: relative;
+	}
+
+	.dropdown-toggle {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		cursor: pointer;
+	}
+
+	.dropdown-arrow {
+		font-size: 0.75rem;
+		transition: transform 0.3s ease;
+	}
+
+	.dropdown:hover .dropdown-arrow {
+		transform: rotate(180deg);
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: rgba(6, 10, 18, 0.95);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border: 1px solid rgba(0, 163, 255, 0.2);
+		border-radius: 0.5rem;
+		padding: 0.5rem 0;
+		min-width: 200px;
+		list-style: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all 0.3s ease;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+		z-index: 1001;
+	}
+
+	.dropdown:hover .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.dropdown-link {
+		display: block;
+		padding: 0.75rem 1.5rem;
+		color: var(--color-text);
+		font-weight: 500;
+		transition: all 0.3s ease;
+		border-left: 3px solid transparent;
+	}
+
+	.dropdown-link:hover {
+		background: rgba(0, 163, 255, 0.1);
+		color: var(--color-neon-blue);
+		border-left-color: var(--color-neon-blue);
+	}
+
 	.mobile-menu-btn {
 		display: none;
 		flex-direction: column;
@@ -109,15 +221,178 @@
 
 	@media (max-width: 768px) {
 		.nav-links {
+			position: fixed;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: rgba(6, 10, 18, 0.98);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border-top: 1px solid rgba(0, 163, 255, 0.2);
+			flex-direction: column;
+			padding: 2rem 0;
+			gap: 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-100%);
+			transition: all 0.3s ease;
+		}
+
+		.nav-links.mobile-open {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+
+		.nav-links li {
+			width: 100%;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.nav-link {
+			display: block;
+			padding: 1rem 2rem;
+			border-bottom: none;
+		}
+
+		.nav-link::after {
 			display: none;
 		}
 
+		/* Mobile Dropdown */
+		.dropdown-menu {
+			position: static;
+			background: rgba(0, 163, 255, 0.05);
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition: max-height 0.3s ease;
+			max-height: 0;
+			overflow: hidden;
+		}
+
+		.dropdown.mobile-dropdown-open .dropdown-menu {
+			max-height: 300px;
+		}
+
+		.dropdown-toggle {
+			justify-content: space-between;
+		}
+
+		.dropdown-link {
+			padding: 0.75rem 3rem;
+			border-left: none;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		}
+
 		.header .btn {
-			display: none;
+			position: fixed;
+			bottom: 2rem;
+			left: 2rem;
+			right: 2rem;
+			z-index: 1002;
+			text-align: center;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(20px);
+			transition: all 0.3s ease;
+		}
+
+		.nav-links.mobile-open ~ .btn {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
 		}
 
 		.mobile-menu-btn {
 			display: flex;
 		}
+
+		.mobile-menu-btn.active span:nth-child(1) {
+			transform: rotate(45deg) translate(5px, 5px);
+		}
+
+		.mobile-menu-btn.active span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.mobile-menu-btn.active span:nth-child(3) {
+			transform: rotate(-45deg) translate(7px, -6px);
+		}
 	}
 </style>
+
+<script>
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+	const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+	const navLinks = document.querySelector('.nav-links');
+	const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+	
+	// Mobile menu toggle
+	if (mobileMenuBtn && navLinks) {
+		mobileMenuBtn.addEventListener('click', function() {
+			mobileMenuBtn.classList.toggle('active');
+			navLinks.classList.toggle('mobile-open');
+			
+			// Update aria-expanded
+			const isExpanded = navLinks.classList.contains('mobile-open');
+			mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+		});
+	}
+	
+	// Mobile dropdown toggle
+	dropdownToggles.forEach(toggle => {
+		toggle.addEventListener('click', function(e) {
+			e.preventDefault();
+			
+			// Check if we're on mobile
+			if (window.innerWidth <= 768) {
+				const dropdown = this.parentElement;
+				dropdown.classList.toggle('mobile-dropdown-open');
+				
+				// Update aria-expanded for accessibility
+				const isExpanded = dropdown.classList.contains('mobile-dropdown-open');
+				this.setAttribute('aria-expanded', isExpanded);
+			}
+		});
+	});
+	
+	// Close mobile menu when clicking outside
+	document.addEventListener('click', function(e) {
+		if (!e.target.closest('.nav') && navLinks.classList.contains('mobile-open')) {
+			mobileMenuBtn.classList.remove('active');
+			navLinks.classList.remove('mobile-open');
+			mobileMenuBtn.setAttribute('aria-expanded', 'false');
+		}
+	});
+	
+	// Close mobile menu when window is resized to desktop
+	window.addEventListener('resize', function() {
+		if (window.innerWidth > 768) {
+			mobileMenuBtn.classList.remove('active');
+			navLinks.classList.remove('mobile-open');
+			mobileMenuBtn.setAttribute('aria-expanded', 'false');
+			
+			// Remove mobile dropdown states
+			document.querySelectorAll('.dropdown').forEach(dropdown => {
+				dropdown.classList.remove('mobile-dropdown-open');
+				dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+			});
+		}
+	});
+	
+	// Keyboard navigation support
+	dropdownToggles.forEach(toggle => {
+		toggle.addEventListener('keydown', function(e) {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				this.click();
+			}
+		});
+	});
+});
+</script>

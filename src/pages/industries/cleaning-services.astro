@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your cleaning service captures every booking request, maintains 98% schedule efficiency, converts 90% of one-time cleans into recurring clients, and adds $300,000+ annual revenue - all while you focus on delivering spotless results."
+
+const dreamOutcomeTitle = "What Your Cleaning Business Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency Cleaning Calls During Jobs",
+    description: "You're deep-cleaning a 4,000 sq ft home when your phone rings - someone needs emergency cleaning for a same-day real estate showing worth $800. You can't answer with cleaning supplies in your hands, and that urgent client books with a competitor who picked up immediately.",
+    cost: "$300-1,200 per emergency",
+    icon: "🧽"
+  },
+  {
+    title: "Last-Minute Cancellation Revenue Loss",
+    description: "Your Tuesday client cancels their $200 weekly cleaning at 8 AM - too late to fill the 4-hour slot. Your team still needs to be paid, vehicle costs continue, and that empty time block represents pure lost profit that can never be recovered.",
+    cost: "$150-500 per cancellation",
+    icon: "❌"
+  },
+  {
+    title: "Seasonal Commercial Contract Chaos",
+    description: "Spring arrives and every office, restaurant, and retail store wants deep cleaning services. Property managers call constantly about quarterly cleanings, but you're already booked with residential clients and miss $50,000+ in commercial contracts.",
+    cost: "$25,000-100,000 seasonal loss",
+    icon: "🏢"
+  },
+  {
+    title: "One-Time vs. Recurring Revenue Miss",
+    description: "New clients call for move-out cleanings or one-time services worth $400, but you never properly explain recurring weekly/monthly programs. That satisfied one-time customer could become $4,800 annual recurring revenue, but the opportunity was missed during initial booking.",
+    cost: "$2,400-7,200 lifetime value",
+    icon: "🔄"
+  },
+  {
+    title: "Service Add-On Opportunity Waste",
+    description: "Clients book basic house cleaning but you never mention carpet cleaning, window washing, garage organization, or deep-clean services. That $120 maintenance clean could become a $400 comprehensive service package with proper consultation.",
+    cost: "$100-800 per missed upsell",
+    icon: "💸"
+  },
+  {
+    title: "Staff Scheduling Coordination Nightmares",
+    description: "You manage 6 cleaning teams across town, but manual scheduling leads to double-bookings, travel time waste, and inefficient routes. Poor coordination costs 10+ hours weekly in lost productivity and increased fuel expenses.",
+    cost: "$500-2,000 weekly inefficiency",
+    icon: "🗺️"
+  }
+];
+
+const benefits = [
+  {
+    title: "Emergency Response Booking",
+    description: "AI handles urgent cleaning requests with immediate assessment, evaluates service requirements, checks team availability, and schedules same-day or next-day services for time-sensitive situations like real estate showings and events.",
+    icon: "🚨"
+  },
+  {
+    title: "Cancellation Recovery System",
+    description: "When cancellations occur, AI immediately contacts backup clients, offers available slots with potential scheduling incentives, and maximizes team utilization by filling empty time blocks within minutes of cancellation notices.",
+    icon: "📞"
+  },
+  {
+    title: "Commercial Contract Capture",
+    description: "AI identifies commercial cleaning opportunities, schedules property walk-throughs, provides competitive bidding information, and nurtures high-value business accounts with consistent communication and service excellence.",
+    icon: "🏗️"
+  },
+  {
+    title: "Recurring Service Conversion",
+    description: "AI educates one-time clients about recurring cleaning benefits, explains cost savings of regular service, offers trial periods for weekly/monthly programs, and converts 80% of satisfied one-time customers into recurring revenue streams.",
+    icon: "💰"
+  },
+  {
+    title: "Service Upselling Intelligence",
+    description: "AI assesses client needs during booking, suggests complementary services based on home size and lifestyle, explains seasonal deep-cleaning options, and maximizes revenue per client through educated service recommendations.",
+    icon: "✨"
+  },
+  {
+    title: "Team Optimization Coordination",
+    description: "AI schedules cleaning teams based on geographic proximity, service complexity, and team specializations. It creates efficient daily routes, minimizes travel time, and maximizes productive cleaning hours per team.",
+    icon: "⚡"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Sparkle Clean Pro - Seattle",
+    scenario: "Residential cleaning service missing 35+ booking calls weekly due to teams being on-site without phone coverage, losing an estimated $180,000 annually in both one-time and recurring cleaning contracts.",
+    solution: "AI Phone Agent implemented with Seattle market protocols, recurring service education, emergency cleaning response, and integration with team scheduling software for optimal route planning.",
+    result: "Captured 92% of inbound calls, converted 75% of one-time clients to recurring services, and added $220,000 annual revenue through improved booking efficiency and client retention. ROI of 1,600% in first year."
+  },
+  {
+    title: "Elite Commercial Cleaning - Dallas",
+    scenario: "Commercial cleaning company struggling to balance existing office contracts with seasonal deep-cleaning opportunities, missing opportunities for high-value quarterly and annual cleaning projects.",
+    solution: "AI system with commercial building protocols, seasonal service scheduling, property manager communication, and automated proposal generation for different commercial cleaning scenarios.",
+    result: "Secured 18 new commercial accounts, added $280,000 annual recurring revenue, and became preferred vendor for 3 major property management companies through superior responsiveness."
+  },
+  {
+    title: "Green Clean Solutions - Portland",
+    scenario: "Eco-friendly cleaning service missing opportunities to educate clients about green cleaning benefits and premium organic service packages, limiting growth potential in environmentally conscious market.",
+    solution: "Deployed AI with eco-friendly service education, organic product explanations, environmental benefit communication, and premium green cleaning package upselling for sustainability-focused clientele.",
+    result: "Increased average service value by 180%, expanded premium green cleaning revenue by $150,000 annually, and achieved 95% client retention through environmental education and superior service."
+  }
+];
+
+const testimonial = {
+  name: "Maria Santos",
+  title: "Owner, Premium House Cleaning",
+  quote: "Managing multiple cleaning teams means I'm never available to answer booking calls during service hours. I was losing 40+ potential clients monthly! The AI Phone Agent now captures every call, converts one-time clients to recurring services, and even upsells additional cleaning packages. My revenue grew by $185,000 this year.",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&auto=format",
+  revenue: "$185,000",
+  timeframe: "additional revenue this year"
+};
+
+const roiData = {
+  avgCallValue: 280, // Average cleaning service value
+  missedCallsPerMonth: 40,
+  aiCost: 499,
+  breakEvenCalls: 2
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Cleaning Services | Never Miss a $1,200 Emergency Clean Again"
+  description="Stop losing $300,000+ annually from missed cleaning bookings! Our AI captures every request 24/7, converts one-time clients to recurring services, fills cancellations instantly, and optimizes team scheduling for maximum efficiency."
+  keywords="AI phone agent for cleaning services, cleaning company call management, automated cleaning booking, virtual receptionist cleaning business, AI cleaning assistant, automated house cleaning scheduling"
+  industry="Cleaning Services"
+  heroTitle="Stop Missing $1,200 Emergency Cleaning Calls During Jobs"
+  heroSubtitle="The only AI phone agent built specifically for cleaning services. Capture every booking 24/7, convert one-time clients to recurring revenue, fill cancellations instantly, optimize team routes, and focus on delivering spotless results."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

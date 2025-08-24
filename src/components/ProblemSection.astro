@@ -52,11 +52,21 @@ const problems = [
 		</div>
 		
 		<div class="problem-solution">
-			<h3 class="solution-title">What if your phone system worked like your best employee—but better?</h3>
-			<p class="solution-description">
-				Transform your business communications with our AI Phone Agent. It handles calls 24/7, books appointments,
-				answers FAQs, and helps you never miss another opportunity again.
-			</p>
+			<div class="solution-content">
+				<h3 class="solution-title">What if your phone system worked like your best employee—but better?</h3>
+				<p class="solution-description">
+					Transform your business communications with our AI Phone Agent. It handles calls 24/7, books appointments,
+					answers FAQs, and helps you never miss another opportunity again.
+				</p>
+			</div>
+			<div class="solution-image">
+				<img 
+					src="/images/problem-missed-calls.jpg" 
+					alt="Business professional frustrated by missed calls and lost opportunities"
+					loading="lazy"
+					class="solution-bg-img"
+				/>
+			</div>
 		</div>
 	</div>
 </section>
@@ -150,13 +160,39 @@ const problems = [
 	}
 
 	.problem-solution {
-		text-align: center;
-		max-width: 800px;
+		position: relative;
+		max-width: 1000px;
 		margin: 0 auto;
-		padding: 3rem;
-		background: rgba(0, 163, 255, 0.05);
 		border-radius: 1rem;
+		overflow: hidden;
 		border: 1px solid rgba(0, 163, 255, 0.2);
+		background: rgba(0, 163, 255, 0.05);
+	}
+
+	.solution-content {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		padding: 3rem;
+		background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(0, 229, 255, 0.05));
+		backdrop-filter: blur(12px);
+	}
+
+	.solution-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40%;
+		height: 100%;
+		opacity: 0.15;
+		overflow: hidden;
+	}
+
+	.solution-bg-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: blur(1px) brightness(0.7);
 	}
 
 	.solution-title {

@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your salon captures every appointment request, maintains 95% booking efficiency, eliminates no-shows, and adds $180,000+ annual revenue - all while you focus on providing beautiful hair, nail, and spa services to delighted clients."
+
+const dreamOutcomeTitle = "What Your Salon Deserves"
+
+const painPoints = [
+  {
+    title: "Appointment Calls During Client Services",
+    description: "You're in the middle of a $300 color and cut service when the phone rings - a client wants to book for this weekend. You can't stop mid-process with foils in, the call goes to voicemail, and that client books with the salon that answered immediately. Lost: a potential regular client worth $3,000+ annually.",
+    cost: "$200-500 per appointment",
+    icon: "💇"
+  },
+  {
+    title: "Last-Minute Cancellation Chaos",
+    description: "It's Friday at 2 PM and your 3 PM client cancels their $250 highlight appointment. You have 60 minutes to fill that slot, but you're busy with the current client. That empty chair costs you money while fixed overhead continues - rent, utilities, and staff wages keep running.",
+    cost: "$150-400 per empty slot",
+    icon: "❌"
+  },
+  {
+    title: "Peak Time Booking Overwhelm",
+    description: "Saturday morning arrives and everyone wants weekend appointments for weddings, events, and special occasions. Your phone rings constantly while you're already double-booked. Clients can't get through, so they book with salons that have available phone coverage.",
+    cost: "$2,000+ weekend revenue loss",
+    icon: "📞"
+  },
+  {
+    title: "Service Upsell Opportunity Loss",
+    description: "Clients call for basic cuts but you never mention add-on services like highlights, deep conditioning, eyebrow shaping, or nail services. That $65 haircut could have been a $200 full service package, but the booking conversation was rushed and incomplete.",
+    cost: "$100-300 per missed upsell",
+    icon: "💸"
+  },
+  {
+    title: "No-Show Revenue Bleeding",
+    description: "25% of appointments result in no-shows because clients forget, don't receive proper reminders, or couldn't easily reschedule when conflicts arose. Each empty appointment slot represents lost revenue that can't be recovered, especially during busy periods.",
+    cost: "$120-350 per no-show",
+    icon: "👻"
+  },
+  {
+    title: "New Client Inquiry Delays",
+    description: "First-time clients call asking about services, pricing, and availability, but you're with clients all day. By the time you return calls hours later, they've already booked introductory services with salons that responded immediately with welcoming information.",
+    cost: "$150-400 new client lifetime value",
+    icon: "🆕"
+  }
+];
+
+const benefits = [
+  {
+    title: "24/7 Appointment Booking System",
+    description: "AI handles appointment requests around the clock, checks real-time availability across all stylists, books services based on duration and stylist specialization, and sends immediate confirmations with appointment details and preparation instructions.",
+    icon: "📅"
+  },
+  {
+    title: "Last-Minute Cancellation Recovery",
+    description: "When cancellations occur, AI immediately contacts waitlist clients, offers the available slot with potential discounts for short notice, and maximizes chair utilization by filling empty appointments within minutes of cancellation notices.",
+    icon: "🔄"
+  },
+  {
+    title: "Intelligent Service Upselling",
+    description: "AI suggests complementary services based on booked treatments, explains package deals and promotions, and educates clients about additional services that enhance their overall salon experience and appearance goals.",
+    icon: "✨"
+  },
+  {
+    title: "Automated Reminder & Confirmation",
+    description: "AI sends personalized appointment reminders via SMS and voice calls, provides pre-service preparation instructions, offers easy rescheduling options, and reduces no-shows by 80% through proactive communication.",
+    icon: "📱"
+  },
+  {
+    title: "New Client Welcome Experience",
+    description: "AI provides detailed service information, explains first-visit processes, collects client preferences and hair history, schedules consultation time, and creates welcoming first impressions that encourage long-term client relationships.",
+    icon: "🤗"
+  },
+  {
+    title: "Peak Time Management",
+    description: "AI manages high-demand periods by optimizing appointment scheduling, maintaining waitlists for popular time slots, and ensuring maximum revenue during busy weekends and special event seasons.",
+    icon: "⏰"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Glamour Studio - Beverly Hills",
+    scenario: "High-end salon missing 40+ appointment requests weekly due to phone coverage gaps during busy services, losing an estimated $200,000 annually in luxury hair and spa treatments to competitors with better availability.",
+    solution: "AI Phone Agent deployed with luxury salon protocols, VIP client prioritization, premium service upselling, and integration with high-end booking system for seamless appointment coordination.",
+    result: "Captured 95% of appointment requests, increased average service value by 45%, and added $280,000 annual revenue through improved booking efficiency and upselling optimization. ROI of 1,800% in first year."
+  },
+  {
+    title: "Bliss Day Spa - Miami",
+    scenario: "Full-service spa struggling with complex multi-service bookings, package coordination, and last-minute scheduling changes, leading to 30% booking efficiency and frequent client dissatisfaction.",
+    solution: "AI system with spa package optimization, multi-service scheduling, therapist availability coordination, and automated relaxation ambiance preparation for enhanced client experiences.",
+    result: "Improved booking efficiency to 92%, increased spa package sales by 180%, and achieved 96% client satisfaction rating through seamless service coordination and personalized attention."
+  },
+  {
+    title: "Urban Hair Collective - Austin",
+    scenario: "Trendy salon popular with young professionals missing weekend and evening appointments due to limited phone coverage, losing millennial clients who expect immediate booking responses.",
+    solution: "Implemented AI with millennial-focused communication, social media integration, flexible scheduling options, and trend-aware service recommendations appealing to young professional clientele.",
+    result: "Increased weekend booking rate by 220%, expanded evening service revenue by $85,000 annually, and became Austin's top-rated salon for working professionals aged 25-35."
+  }
+];
+
+const testimonial = {
+  name: "Isabella Rodriguez",
+  title: "Owner, Luxe Hair Studio",
+  quote: "Running a busy salon means constant appointment requests while I'm working with clients. I was missing so many bookings! The AI Phone Agent now handles every call, books appointments perfectly, and even upsells additional services. My revenue increased by $165,000 this year just from better phone coverage and booking optimization.",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&auto=format",
+  revenue: "$165,000",
+  timeframe: "additional revenue this year"
+};
+
+const roiData = {
+  avgCallValue: 185, // Average salon service value
+  missedCallsPerMonth: 45,
+  aiCost: 499,
+  breakEvenCalls: 3
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Hair Salons & Spas | Never Miss Another $300 Appointment Again"
+  description="Stop losing $180,000+ annually from missed salon appointments! Our AI books services 24/7, eliminates no-shows, maximizes upsells, fills last-minute cancellations, and keeps your chairs full while you focus on beauty services."
+  keywords="AI booking system for salons, salon appointment AI, hair salon virtual receptionist, automated spa booking, AI salon assistant, beauty salon call management, automated hair appointment booking"
+  industry="Beauty & Wellness"
+  heroTitle="Stop Missing $300 Color Appointments While Styling Hair"
+  heroSubtitle="The only AI phone agent built specifically for salons and spas. Book appointments 24/7, eliminate no-shows, maximize service upsells, fill cancellations instantly, and focus on creating beautiful transformations for your clients."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

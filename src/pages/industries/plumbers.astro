@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your plumbing business captures every emergency call, converts 90% of service inquiries into booked jobs, and adds $25,000+ monthly revenue - all while you focus on fixing pipes, not answering phones."
+
+const dreamOutcomeTitle = "What Your Plumbing Business Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency Calls While Under Sinks",
+    description: "You're under a customer's kitchen sink fixing a major leak when your phone rings - another plumbing emergency. You can't answer with wet hands, the caller hears voicemail, and immediately calls the next plumber. That's a $400-800 emergency job gone to your competitor in 30 seconds.",
+    cost: "$400-800 per call",
+    icon: "🚨"
+  },
+  {
+    title: "3 AM Burst Pipe Gold Rush",
+    description: "It's 3 AM Sunday. A pipe bursts in someone's basement, flooding their finished rec room. They're panicking, calling every plumber they can find. The first one to answer gets a $1,200 emergency job plus ongoing restoration work. Your phone rang 4 times - but you were asleep.",
+    cost: "$1,200-3,000 per emergency",
+    icon: "🌊"
+  },
+  {
+    title: "Service Area Revenue Bleeding",
+    description: "Customers outside your service area call for quotes, waste 10 minutes of your time, then you can't serve them anyway. Meanwhile, 3 calls from your actual service area went unanswered. You're losing local jobs to answer irrelevant inquiries.",
+    cost: "$300-600 per missed local call",
+    icon: "🗺️"
+  },
+  {
+    title: "Double-Booking Schedule Disasters",
+    description: "You book a water heater installation for Tuesday 2 PM while on a drain cleaning job. Later, you realize you already had a bathroom renovation scheduled. Now you have two angry customers, one cancelled job, and a reputation problem brewing on Google Reviews.",
+    cost: "$500-1,500 per conflict",
+    icon: "📅"
+  },
+  {
+    title: "Price Quote Phone Tag Hell",
+    description: "Customers call asking 'How much for toilet installation?' You're on a job site, can't give detailed quotes, promise to call back later. 80% of quote callbacks never happen, and those customers hire competitors who answered immediately with pricing.",
+    cost: "$200-800 per missed quote",
+    icon: "📞"
+  },
+  {
+    title: "No Follow-Up Revenue Loss",
+    description: "You complete a $800 drain cleaning job perfectly. Customer is happy, says they'll call for future work. But you never follow up for maintenance, additional services, or Google reviews. That satisfied customer becomes a one-time transaction instead of lifetime value.",
+    cost: "$2,000+ lifetime value",
+    icon: "🔄"
+  }
+];
+
+const benefits = [
+  {
+    title: "Emergency Call Capture System",
+    description: "AI answers every emergency call within 2 rings, assesses urgency using plumbing-specific questions, collects detailed location and problem information, and immediately dispatches you to high-value emergency jobs. Never miss another burst pipe call at 3 AM.",
+    icon: "🏥"
+  },
+  {
+    title: "Intelligent Service Scheduling",
+    description: "AI books appointments based on job type, complexity, and your real-time availability. It understands that water heater installations need 4 hours while drain cleanings need 1 hour, preventing double-bookings and optimizing your daily route.",
+    icon: "📅"
+  },
+  {
+    title: "Instant Price Quote Engine",
+    description: "AI provides immediate pricing for 150+ common plumbing services based on your rates, materials costs, and local market conditions. Customers get quotes instantly while competitors are still playing phone tag.",
+    icon: "💰"
+  },
+  {
+    title: "Geographic Service Filtering",
+    description: "AI only books jobs within your service area, collects precise addresses, and verifies travel time before confirming appointments. No more wasted trips to areas you don't serve or jobs that aren't worth the drive.",
+    icon: "🎯"
+  },
+  {
+    title: "Customer History Intelligence",
+    description: "AI accesses complete service history for repeat customers, mentions previous work, identifies patterns like recurring drain issues, and suggests preventive maintenance based on past services. Customers feel remembered and valued.",
+    icon: "📊"
+  },
+  {
+    title: "Revenue Maximization Follow-Up",
+    description: "After every completed job, AI automatically schedules follow-up calls for warranty checks, maintenance reminders, seasonal services, and requests Google reviews. Transforms one-time customers into lifetime revenue streams.",
+    icon: "📈"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Rodriguez Plumbing - Phoenix",
+    scenario: "Solo plumber missing 20-25 calls daily during peak Arizona summer when AC condensate drain issues spike. Lost an estimated $60,000 in seasonal emergency revenue to competitors who answered their phones faster.",
+    solution: "AI Phone Agent deployed with Phoenix-specific plumbing emergency protocols, seasonal service scheduling, and integration with dispatch software for immediate emergency response coordination.",
+    result: "Captured 94% of previously missed calls, added $73,000 in summer emergency revenue, and expanded service capacity without hiring additional staff. ROI of 1,240% in first season."
+  },
+  {
+    title: "Metro Drain Solutions - Chicago",
+    scenario: "Drain cleaning specialist overwhelmed with calls during winter freeze-thaw cycles causing pipe bursts. Manual scheduling led to 6-hour response delays and customers choosing faster competitors.",
+    solution: "Implemented AI with Chicago weather integration for predictive emergency call volumes, automated emergency prioritization, and real-time technician dispatching based on location and availability.",
+    result: "Reduced average emergency response time from 6 hours to 45 minutes, increased emergency service revenue by 180%, and achieved 4.9-star Google rating from improved customer experience."
+  },
+  {
+    title: "Precision Plumbing Pros - Austin",
+    scenario: "Growing plumbing company struggled with complex residential service scheduling, leading to customer confusion, missed appointments, and declining reputation scores on service review platforms.",
+    solution: "Deployed comprehensive AI system with Austin building code knowledge, multi-service appointment coordination, and automated customer communication for complex multi-day renovation projects.",
+    result: "Eliminated scheduling conflicts, improved project completion time by 25%, increased average job value by 35% through better coordination, and achieved 98% customer satisfaction rating."
+  }
+];
+
+const testimonial = {
+  name: "Mike Rodriguez",
+  title: "Owner, Rodriguez Plumbing Services",
+  quote: "I was skeptical about AI answering my emergency calls, but now I can't imagine working without it. Last month alone, it captured 28 after-hours emergencies I would have missed - that's $31,000 in revenue while I was sleeping. My customers love the instant response, and I love the full schedule.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$31,000",
+  timeframe: "last month"
+};
+
+const roiData = {
+  avgCallValue: 350,
+  missedCallsPerMonth: 15,
+  aiCost: 499,
+  breakEvenCalls: 2
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Plumbers | Capture Every $800 Emergency Call 24/7 - Never Miss Revenue Again"
+  description="Stop losing $25,000+ monthly from missed plumbing calls! Our AI captures every emergency, books service appointments 24/7, provides instant quotes, and dispatches urgent repairs. Transform your plumbing revenue today."
+  keywords="AI phone agent for plumbing company, plumber call answering service, AI receptionist for plumbers, automated plumbing dispatch, 24/7 plumbing calls, virtual receptionist plumbing, AI plumbing emergency calls, automated plumber booking, plumbing AI assistant"
+  industry="Plumbing"
+  heroTitle="Stop Missing $800 Emergency Calls at 3 AM"
+  heroSubtitle="The only AI phone agent built for plumbers. Capture burst pipe emergencies 24/7, book service appointments instantly, provide accurate quotes, and focus on what you do best - fixing plumbing problems."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

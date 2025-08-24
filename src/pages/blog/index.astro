@@ -1,0 +1,497 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = [
+	{
+		title: "Emergency Call Handling with AI: Complete Business Guide",
+		description: "Master emergency call management with AI phone agents. Learn protocols, implementation strategies, and best practices for critical business communications.",
+		slug: "emergency-call-handling-ai",
+		category: "Emergency Response",
+		publishDate: "2024-12-15",
+		readTime: "12 min read",
+		featured: true,
+		tags: ["Emergency Response", "AI Phone Agent", "Business Continuity"]
+	},
+	{
+		title: "Business Phone Automation: Complete Implementation Guide",
+		description: "Transform your business communications with AI phone automation. Step-by-step guide to implementation, benefits, and ROI optimization.",
+		slug: "business-phone-automation-guide",
+		category: "Business Automation",
+		publishDate: "2024-12-14",
+		readTime: "15 min read",
+		featured: true,
+		tags: ["Phone Automation", "Business Efficiency", "AI Implementation"]
+	},
+	{
+		title: "AI Receptionist vs Human: Cost Analysis & Decision Guide",
+		description: "Comprehensive comparison of AI receptionists versus human staff. Includes cost analysis, ROI calculations, and implementation strategies.",
+		slug: "ai-receptionist-vs-human",
+		category: "Cost Analysis",
+		publishDate: "2024-12-13",
+		readTime: "10 min read",
+		featured: false,
+		tags: ["Cost Analysis", "ROI", "AI Receptionist", "Staffing"]
+	}
+];
+
+const categories = [
+	"Emergency Response",
+	"Business Automation", 
+	"Cost Analysis",
+	"AI Implementation",
+	"Customer Service"
+];
+---
+
+<Layout 
+	title="AI Phone Agent Blog - Expert Insights & Implementation Guides"
+	description="Discover expert insights, implementation guides, and best practices for AI phone agents. Learn how to transform your business communication with automation."
+>
+	<Header />
+	
+	<main class="blog-main">
+		<!-- Hero Section -->
+		<section class="blog-hero">
+			<div class="container">
+				<h1 class="hero-title">AI Phone Agent Blog</h1>
+				<p class="hero-description">
+					Expert insights, implementation guides, and best practices for transforming your business communication with AI phone agents.
+				</p>
+			</div>
+		</section>
+
+		<!-- Featured Posts -->
+		<section class="featured-posts">
+			<div class="container">
+				<h2 class="section-title">Featured Articles</h2>
+				<div class="featured-grid">
+					{posts.filter(post => post.featured).map(post => (
+						<article class="featured-card">
+							<div class="card-content">
+								<div class="card-meta">
+									<span class="category">{post.category}</span>
+									<span class="read-time">{post.readTime}</span>
+								</div>
+								<h3 class="card-title">
+									<a href={`/blog/${post.slug}`}>{post.title}</a>
+								</h3>
+								<p class="card-description">{post.description}</p>
+								<div class="card-tags">
+									{post.tags.slice(0, 3).map(tag => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+								<div class="card-footer">
+									<time class="publish-date">{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+									<a href={`/blog/${post.slug}`} class="read-more">Read Article →</a>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- All Posts -->
+		<section class="all-posts">
+			<div class="container">
+				<div class="posts-header">
+					<h2 class="section-title">All Articles</h2>
+					<div class="category-filter">
+						<span class="filter-label">Filter by category:</span>
+						<div class="category-buttons">
+							<button class="category-btn active" data-category="all">All</button>
+							{categories.map(category => (
+								<button class="category-btn" data-category={category.toLowerCase().replace(' ', '-')}>
+									{category}
+								</button>
+							))}
+						</div>
+					</div>
+				</div>
+
+				<div class="posts-grid">
+					{posts.map(post => (
+						<article class="post-card" data-category={post.category.toLowerCase().replace(' ', '-')}>
+							<div class="card-content">
+								<div class="card-meta">
+									<span class="category">{post.category}</span>
+									<time class="publish-date">{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</time>
+								</div>
+								<h3 class="card-title">
+									<a href={`/blog/${post.slug}`}>{post.title}</a>
+								</h3>
+								<p class="card-description">{post.description}</p>
+								<div class="card-footer">
+									<span class="read-time">{post.readTime}</span>
+									<a href={`/blog/${post.slug}`} class="read-more">Read More →</a>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Newsletter CTA -->
+		<section class="newsletter-cta">
+			<div class="container">
+				<div class="cta-content">
+					<h2>Stay Updated with AI Phone Agent Insights</h2>
+					<p>Get the latest insights, implementation guides, and industry best practices delivered to your inbox.</p>
+					<div class="cta-buttons">
+						<a href="/booking" class="btn btn-primary">Book Free Strategy Call</a>
+						<a href="/contact" class="btn btn-secondary">Contact Our Experts</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.blog-main {
+		padding-top: 5rem;
+	}
+
+	.blog-hero {
+		padding: 4rem 0;
+		text-align: center;
+		background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(0, 229, 255, 0.05));
+		border-bottom: 1px solid rgba(0, 163, 255, 0.2);
+	}
+
+	.hero-title {
+		font-family: var(--font-heading);
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.featured-posts {
+		padding: 4rem 0;
+	}
+
+	.section-title {
+		font-family: var(--font-heading);
+		font-size: 2rem;
+		font-weight: 600;
+		margin-bottom: 2rem;
+		color: var(--color-text);
+	}
+
+	.featured-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 2rem;
+	}
+
+	.featured-card {
+		background: rgba(19, 23, 34, 0.8);
+		border: 1px solid rgba(0, 163, 255, 0.2);
+		border-radius: 12px;
+		padding: 2rem;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.featured-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-cyan));
+	}
+
+	.featured-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 163, 255, 0.2);
+		border-color: var(--color-neon-blue);
+	}
+
+	.all-posts {
+		padding: 4rem 0;
+		background: rgba(10, 14, 23, 0.5);
+	}
+
+	.posts-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 2rem;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.category-filter {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-label {
+		font-weight: 600;
+		color: var(--color-text-muted);
+	}
+
+	.category-buttons {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.category-btn {
+		padding: 0.5rem 1rem;
+		border: 1px solid rgba(0, 163, 255, 0.3);
+		background: transparent;
+		color: var(--color-text);
+		border-radius: 20px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-size: 0.9rem;
+	}
+
+	.category-btn:hover,
+	.category-btn.active {
+		background: var(--color-neon-blue);
+		color: white;
+		border-color: var(--color-neon-blue);
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	.post-card {
+		background: rgba(6, 10, 18, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 1.5rem;
+		transition: all 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(0, 163, 255, 0.4);
+		box-shadow: 0 8px 30px rgba(0, 163, 255, 0.15);
+	}
+
+	.card-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+	}
+
+	.category {
+		background: var(--color-neon-blue);
+		color: white;
+		padding: 0.25rem 0.75rem;
+		border-radius: 15px;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+	.card-title {
+		margin-bottom: 0.75rem;
+	}
+
+	.card-title a {
+		color: var(--color-text);
+		text-decoration: none;
+		font-family: var(--font-heading);
+		font-size: 1.25rem;
+		font-weight: 600;
+		line-height: 1.3;
+		transition: color 0.3s ease;
+	}
+
+	.card-title a:hover {
+		color: var(--color-neon-blue);
+	}
+
+	.card-description {
+		color: var(--color-text-muted);
+		margin-bottom: 1rem;
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tag {
+		background: rgba(0, 163, 255, 0.1);
+		color: var(--color-neon-blue);
+		padding: 0.25rem 0.5rem;
+		border-radius: 12px;
+		font-size: 0.75rem;
+		border: 1px solid rgba(0, 163, 255, 0.3);
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+
+	.read-more {
+		color: var(--color-neon-blue);
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.3s ease;
+	}
+
+	.read-more:hover {
+		color: var(--color-neon-cyan);
+	}
+
+	.newsletter-cta {
+		padding: 4rem 0;
+		background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(0, 229, 255, 0.05));
+		border-top: 1px solid rgba(0, 163, 255, 0.2);
+	}
+
+	.cta-content {
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.cta-content h2 {
+		font-family: var(--font-heading);
+		font-size: 2rem;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.cta-content p {
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		font-size: 1.1rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.75rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		border: none;
+		cursor: pointer;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+		color: white;
+		box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(0, 163, 255, 0.4);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--color-text);
+		border: 2px solid var(--color-neon-blue);
+	}
+
+	.btn-secondary:hover {
+		background: var(--color-neon-blue);
+		color: white;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.featured-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.posts-header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.category-filter {
+			width: 100%;
+		}
+
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+</style>
+
+<script>
+	// Category filtering functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const categoryBtns = document.querySelectorAll('.category-btn');
+		const postCards = document.querySelectorAll('.post-card');
+
+		categoryBtns.forEach(btn => {
+			btn.addEventListener('click', function() {
+				const category = this.getAttribute('data-category');
+				
+				// Update active button
+				categoryBtns.forEach(b => b.classList.remove('active'));
+				this.classList.add('active');
+
+				// Filter posts
+				postCards.forEach(card => {
+					const cardCategory = card.getAttribute('data-category');
+					if (category === 'all' || cardCategory === category) {
+						card.style.display = 'block';
+						card.style.animation = 'fadeIn 0.3s ease';
+					} else {
+						card.style.display = 'none';
+					}
+				});
+			});
+		});
+	});
+</script>

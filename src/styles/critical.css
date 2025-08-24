@@ -1,0 +1,224 @@
+/* Critical CSS for Above-the-Fold Content */
+/* This CSS is inlined for immediate rendering */
+
+/* CSS Variables - Critical for color consistency */
+:root {
+  --color-dark-100: #1A1F2C;
+  --color-dark-200: #131722;
+  --color-dark-300: #0A0E17;
+  --color-dark-400: #060A12;
+  --color-neon-blue: #00A3FF;
+  --color-neon-cyan: #00E5FF;
+  --color-neon-glow: rgba(0, 163, 255, 0.5);
+  --color-text: #F5F5F5;
+  --color-text-muted: #94A3B8;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Reset and Base Styles - Critical */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-dark-400);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Critical Layout Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Header Styles - Above the fold */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(6, 10, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.3));
+}
+
+/* Hero Section - Above the fold */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 6rem;
+  position: relative;
+  overflow: hidden;
+  background: 
+    linear-gradient(135deg, rgba(6, 10, 18, 0.95), rgba(10, 14, 23, 0.9)),
+    radial-gradient(circle at 20% 50%, rgba(0, 163, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 163, 255, 0.05) 0%, transparent 50%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/hero-business-team.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 1;
+  filter: blur(1px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 20;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  max-width: 540px;
+  line-height: 1.8;
+}
+
+/* Critical Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-neon-blue);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-neon-blue);
+  border: 2px solid var(--color-neon-blue);
+  box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+}
+
+/* Critical Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.neon-text {
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 5px var(--color-neon-glow);
+}
+
+/* Mobile Critical Styles */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 0 auto 2rem;
+  }
+}
+
+/* Critical Animation */
+.animate-fade-in {
+  animation: fade-in 0.7s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -3,12 +3,31 @@ import PageLayout from '../layouts/PageLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
 ---
 
 <PageLayout 
   title="Contact Us - Voice AI Agency"
   description="Get in touch with the Voice AI Agency team. We're here to help with any questions about our AI phone agent solutions."
 >
+  <ServiceSchema
+    serviceType="general"
+    serviceName="AI Phone Agent Contact & Support"
+    description="Get in touch with our AI phone agent experts. Professional consultation and support for businesses implementing AI receptionist and call automation solutions."
+    serviceUrl="/contact"
+    serviceCategory="ProfessionalService"
+    features={[
+      "Expert Consultation",
+      "Technical Support", 
+      "Implementation Guidance",
+      "Custom Solution Design",
+      "24/7 Customer Service",
+      "Business Process Assessment"
+    ]}
+    targetAudience="Business Decision Makers"
+    availableHours="24/7"
+  />
+  
   <PageHero
     title="Have Questions?"
     highlightText="Let's Talk"

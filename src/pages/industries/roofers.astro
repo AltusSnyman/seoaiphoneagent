@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your roofing business captures every storm damage call, converts 90% of estimates into signed contracts, and adds $500,000+ annual revenue - all while you focus on quality installations and repairs, not chasing phone calls."
+
+const dreamOutcomeTitle = "What Your Roofing Business Deserves"
+
+const painPoints = [
+  {
+    title: "Storm Damage Gold Rush Calls",
+    description: "A hailstorm just hit your area and 200+ homeowners need immediate roof inspections for insurance claims. Your phone rings constantly while you're assessing storm damage, but you can only answer 20% of calls. The roofing companies with 24/7 phone coverage capture the majority of $2M+ in storm work.",
+    cost: "$1,500,000+ storm season",
+    icon: "⛈️"
+  },
+  {
+    title: "Emergency Leak Calls During Jobs",
+    description: "You're installing a $35,000 roof when your phone rings - someone has a severe leak flooding their living room and needs immediate tarping. You can't stop the installation crew, that emergency goes to voicemail, and desperate homeowners hire the first roofer who answers.",
+    cost: "$1,200-8,000 per emergency",
+    icon: "💧"
+  },
+  {
+    title: "Insurance Claim Coordination Chaos",
+    description: "Homeowners need roof replacements covered by insurance, but the process requires detailed estimates, adjuster meetings, and claim documentation. You're too busy with current jobs to properly coordinate, and customers choose roofers who handle insurance paperwork seamlessly.",
+    cost: "$15,000-60,000 per insurance job",
+    icon: "📋"
+  },
+  {
+    title: "Seasonal Installation Rush Overwhelm",
+    description: "Fall arrives and everyone wants roof work completed before winter weather. You get 80+ calls weekly for installations and repairs, but you're already booked for 8 weeks. Customers can't wait and sign with competitors who claim immediate availability.",
+    cost: "$400,000+ seasonal contracts",
+    icon: "🍂"
+  },
+  {
+    title: "Estimate Request Phone Tag Hell",
+    description: "Property owners call wanting roofing estimates but you're on job sites all day. You promise to call back with scheduling, but 60% of estimate callbacks never happen due to busy installation schedules. Those uncalled customers hire responsive competitors.",
+    cost: "$20,000-80,000 per missed estimate",
+    icon: "📞"
+  },
+  {
+    title: "Commercial Roofing Opportunity Loss",
+    description: "Property managers call about warehouse, retail, and office building re-roofing projects worth $100,000+. These calls come during residential jobs, you can't give proper attention, and miss opportunities for high-value commercial contracts that sustain businesses year-round.",
+    cost: "$50,000-300,000 commercial projects",
+    icon: "🏢"
+  }
+];
+
+const benefits = [
+  {
+    title: "Storm Response Command Center",
+    description: "AI handles storm damage calls with immediate severity assessment, prioritizes emergency leaks and dangerous situations, coordinates insurance inspections, and efficiently schedules storm response teams based on damage location and urgency levels.",
+    icon: "🚨"
+  },
+  {
+    title: "Insurance Claim Coordination",
+    description: "AI streamlines insurance processes by collecting policy information, scheduling adjuster meetings, managing documentation requirements, and ensuring all claim procedures are followed correctly for faster approval and payment processing.",
+    icon: "📄"
+  },
+  {
+    title: "Emergency Leak Response System",
+    description: "AI assesses roof emergency severity, provides immediate temporary solutions guidance, dispatches emergency tarping services, and schedules permanent repairs based on weather conditions and crew availability for optimal response timing.",
+    icon: "🛡️"
+  },
+  {
+    title: "Estimate Scheduling Optimization",
+    description: "AI schedules roof estimates based on property type, accessibility, and weather conditions. It coordinates measurement appointments, explains estimate processes, and ensures homeowners are properly prepared for accurate roofing assessments.",
+    icon: "📐"
+  },
+  {
+    title: "Seasonal Capacity Management",
+    description: "AI manages peak season demand by prioritizing high-value projects, scheduling efficiently around weather forecasts, and maintaining optimal project flow while maximizing revenue during prime roofing seasons.",
+    icon: "📊"
+  },
+  {
+    title: "Commercial Project Development",
+    description: "AI identifies commercial roofing opportunities, schedules facility assessments, provides preliminary estimates for different roofing systems, and nurtures high-value business accounts with dedicated project management communication.",
+    icon: "🏗️"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Storm King Roofing - Oklahoma City",
+    scenario: "Tornado Alley roofing company missing 60% of storm damage calls during peak season, losing an estimated $1.8M annually in hail and wind damage repairs to competitors with better emergency response systems.",
+    solution: "AI Phone Agent deployed with Oklahoma weather integration, storm tracking alerts, emergency response protocols, and integration with insurance claim processing for streamlined storm damage coordination.",
+    result: "Captured 85% of storm damage calls, increased seasonal revenue by $2.1M, and became Oklahoma's #1 storm damage restoration contractor. ROI of 4,200% during tornado season."
+  },
+  {
+    title: "Metro Commercial Roofing - Denver",
+    scenario: "Commercial roofing specialist struggling with complex building projects, missing opportunities for high-value warehouse and retail roofing contracts due to inadequate project coordination and communication.",
+    solution: "AI system with Denver building code integration, commercial project management, automated estimate generation for different roofing systems, and coordination with general contractors and property managers.",
+    result: "Secured 15 major commercial projects, added $1.8M annual contract value, and established partnerships with 5 major property management companies through superior project coordination."
+  },
+  {
+    title: "Precision Roofing Solutions - Miami",
+    scenario: "Hurricane-prone roofing company missing pre-storm preparation calls and post-hurricane emergency work due to overwhelming call volumes during weather events and recovery periods.",
+    solution: "Deployed AI with Miami hurricane protocols, pre-storm preparation scheduling, emergency response prioritization, and integration with FEMA disaster response coordination for maximum storm season efficiency.",
+    result: "Increased hurricane season revenue by $950,000, improved emergency response time by 70%, and became preferred vendor for 3 major insurance companies in South Florida market."
+  }
+];
+
+const testimonial = {
+  name: "James Wilson",
+  title: "Owner, Elite Roofing & Storm Restoration",
+  quote: "Storm season means hundreds of calls daily, but I could only handle a fraction while working on roofs. I was losing millions in storm damage work to competitors with better phone coverage. The AI Phone Agent now captures every storm call, coordinates with insurance, and schedules efficiently. Last storm season alone, I captured an additional $1.4M in revenue.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$1.4M",
+  timeframe: "additional revenue last storm season"
+};
+
+const roiData = {
+  avgCallValue: 18000, // Average roofing project value
+  missedCallsPerMonth: 25,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Roofers | Never Miss a $60K Storm Damage Project Again"
+  description="Stop losing $500,000+ annually from missed roofing calls! Our AI captures every storm damage emergency 24/7, coordinates insurance claims, schedules estimates efficiently, and handles seasonal rushes while you focus on quality roofing work."
+  keywords="AI phone agent for roofers, roofing call answering service, automated roofing estimates, AI storm damage response, virtual receptionist roofers, automated roofing scheduling, roofing emergency calls"
+  industry="Roofing"
+  heroTitle="Stop Missing $60,000 Storm Damage Projects During Installations"
+  heroSubtitle="The only AI phone agent built specifically for roofing professionals. Capture every storm damage call 24/7, coordinate insurance claims, schedule estimates efficiently, handle seasonal rushes, and focus on delivering quality roofing solutions."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

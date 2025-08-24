@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your landscaping business captures every project inquiry, converts 90% of design consultations into signed contracts, and adds $400,000+ annual revenue - all while you focus on creating beautiful outdoor spaces, not chasing phone calls."
+
+const dreamOutcomeTitle = "What Your Landscape Business Deserves"
+
+const painPoints = [
+  {
+    title: "Spring Rush Project Calls During Jobs",
+    description: "You're installing a $25,000 backyard landscape design when your phone rings - someone wants a consultation for a $40,000 pool area project. Your crew is waiting, you can't stop work to take detailed notes, and that homeowner books a consultation with your competitor who answered immediately.",
+    cost: "$15,000-80,000 per project",
+    icon: "🌱"
+  },
+  {
+    title: "Storm Damage Emergency Revenue",
+    description: "A severe storm just hit your area with high winds and hail. 50+ homeowners need immediate tree removal, debris cleanup, and landscape restoration. Your phone rings constantly, but you're already on an emergency job. The landscapers who answer first get the bulk of $300,000+ in storm recovery work.",
+    cost: "$200,000+ storm season",
+    icon: "⛈️"
+  },
+  {
+    title: "Seasonal Service Scheduling Chaos",
+    description: "Fall arrives and everyone needs leaf cleanup, winterization, and snow removal contracts. You get 80+ calls weekly for seasonal services, but you're finishing summer installations. Customers can't wait and sign with competitors who respond immediately with availability.",
+    cost: "$150,000+ seasonal contracts",
+    icon: "🍂"
+  },
+  {
+    title: "Design Consultation No-Shows",
+    description: "You schedule on-site consultations for landscape design projects, but 40% don't show up because you never confirmed, provided clear directions, or explained what to expect. Each missed consultation represents hours of lost time and potential $30,000 projects.",
+    cost: "$10,000-50,000 per missed consultation",
+    icon: "📅"
+  },
+  {
+    title: "Maintenance Contract Revenue Bleeding",
+    description: "You complete beautiful landscape installations for $50,000+ but never follow up about ongoing maintenance services. Those satisfied customers hire other companies for weekly lawn care, seasonal cleanups, and plant care worth $2,000+ annually per property.",
+    cost: "$2,000-8,000 annual recurring revenue",
+    icon: "🔄"
+  },
+  {
+    title: "Commercial Property Opportunity Loss",
+    description: "Property managers call about maintaining office complexes, shopping centers, and apartment communities. These calls come during residential jobs, you can't give detailed attention, and miss opportunities for $10,000+ monthly maintenance contracts.",
+    cost: "$5,000-25,000 monthly contracts",
+    icon: "🏢"
+  }
+];
+
+const benefits = [
+  {
+    title: "Project Lead Qualification Engine",
+    description: "AI qualifies landscape design projects by budget, timeline, and scope before booking consultations. It asks detailed questions about project vision, property size, and investment level, ensuring you only meet with serious prospects ready to invest.",
+    icon: "🎯"
+  },
+  {
+    title: "Storm Response Coordination",
+    description: "AI handles storm damage calls with immediate assessment protocols, prioritizes emergency tree removal and safety concerns, and efficiently schedules cleanup crews based on damage severity and geographic proximity to maximize response efficiency.",
+    icon: "🚨"
+  },
+  {
+    title: "Seasonal Service Automation",
+    description: "AI manages seasonal demand by automatically scheduling spring cleanup, summer maintenance, fall leaf removal, and winter snow contracts. It proactively reaches out to existing customers about seasonal services before peak demand hits.",
+    icon: "📊"
+  },
+  {
+    title: "Design Consultation Optimization",
+    description: "AI confirms consultations with detailed preparation instructions, provides property access information, explains the design process, and sends reminder notifications. This reduces no-shows by 75% and ensures productive meetings with prepared homeowners.",
+    icon: "📋"
+  },
+  {
+    title: "Maintenance Contract Maximization",
+    description: "After every installation project, AI automatically follows up about ongoing lawn care, seasonal maintenance, fertilization programs, and plant health services. Transforms one-time projects into recurring revenue streams worth thousands annually.",
+    icon: "💰"
+  },
+  {
+    title: "Commercial Account Development",
+    description: "AI identifies commercial property calls, schedules site evaluations, provides maintenance proposals, and nurtures high-value commercial accounts with dedicated communication and contract renewal management systems.",
+    icon: "🏗️"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Premier Landscapes - Atlanta",
+    scenario: "High-end landscape design company missing 30+ project consultations monthly due to poor call management, losing an estimated $800,000 annually in luxury residential projects to competitors with better responsiveness.",
+    solution: "AI Phone Agent implemented with Atlanta luxury market protocols, detailed project qualification, consultation scheduling optimization, and integration with 3D design software for virtual consultations.",
+    result: "Increased consultation show-rate to 92%, converted 85% of qualified consultations to signed contracts, and added $1.2M in annual luxury project revenue. ROI of 3,200% in first year."
+  },
+  {
+    title: "GreenScape Solutions - Denver",
+    scenario: "Commercial landscaping company struggling to balance residential projects with high-value commercial property management contracts, missing opportunities for consistent monthly maintenance revenue.",
+    solution: "AI system with commercial property protocols, maintenance contract automation, seasonal service scheduling, and dedicated commercial customer communication with property manager integration.",
+    result: "Secured 25 commercial maintenance contracts, added $180,000 monthly recurring revenue, and improved commercial client retention to 94% through superior service coordination."
+  },
+  {
+    title: "Storm Recovery Landscapes - Houston",
+    scenario: "Landscaping company specializing in storm damage restoration but missing emergency calls during hurricane season, losing significant disaster recovery revenue to faster-responding competitors.",
+    solution: "Deployed AI with Houston weather integration, emergency storm protocols, insurance claim coordination, and rapid response team dispatching based on damage assessment and location priority.",
+    result: "Captured 90% of storm damage calls during hurricane season, increased disaster recovery revenue by $850,000, and became preferred vendor for 3 major insurance companies."
+  }
+];
+
+const testimonial = {
+  name: "Carlos Martinez",
+  title: "Owner, Martinez Landscape Design",
+  quote: "Spring season means non-stop project calls, but I was missing consultations while working on installations. The AI Phone Agent qualifies prospects, schedules consultations properly, and follows up on maintenance contracts. This year I've booked $420,000 in additional projects I would have missed - it's transformed my business growth.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$420,000",
+  timeframe: "additional projects this year"
+};
+
+const roiData = {
+  avgCallValue: 2500, // Average landscaping project value
+  missedCallsPerMonth: 25,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Landscapers | Never Miss a $50K Design Project Call Again"
+  description="Stop losing $400,000+ annually from missed landscaping calls! Our AI captures every project inquiry 24/7, qualifies design consultations, schedules storm cleanup, handles seasonal contracts, and maximizes maintenance revenue."
+  keywords="AI phone agent for landscapers, landscaping call answering service, automated landscape booking, AI lawn care assistant, virtual receptionist landscaping, automated design consultations, landscape project management"
+  industry="Landscaping"
+  heroTitle="Stop Missing $50,000 Design Project Calls During Installations"
+  heroSubtitle="The only AI phone agent built specifically for landscaping professionals. Capture every project inquiry 24/7, qualify design consultations, coordinate storm cleanup, manage seasonal contracts, and focus on creating beautiful outdoor spaces."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

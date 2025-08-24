@@ -3,6 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
 
 const includedFeatures = [
   {
@@ -65,6 +66,22 @@ const bonusFeatures = [
   title="Simple, Powerful Pricing - Voice AI Agency"
   description="Incredible value for your business with our all-in-one Voice AI solution. Get enterprise-level phone handling for less than a part-time employee."
 >
+  <ServiceSchema
+    serviceType="pricing"
+    serviceName="AI Phone Agent Pricing Plans"
+    description="Complete AI phone system solution with transparent pricing. Includes virtual receptionist, SMS automation, appointment booking, CRM, and more."
+    serviceUrl="/pricing"
+    serviceCategory="ProfessionalService"
+    price={{
+      value: 997,
+      currency: "USD",
+      per: "MONTH"
+    }}
+    features={[...includedFeatures.map(f => f.name), ...bonusFeatures.map(f => f.name)]}
+    targetAudience="Small and Medium Businesses"
+    availableHours="24/7"
+  />
+  
   <PageHero
     title="Simple, Powerful"
     highlightText="Pricing"

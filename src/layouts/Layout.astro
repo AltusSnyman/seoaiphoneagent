@@ -1,90 +1,523 @@
 ---
 export interface Props {
 	title: string;
+	description?: string;
+	keywords?: string;
+	ogImage?: string;
+	canonical?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title, 
+	description = "AI Phone Agent - Never miss a call again. Handle calls 24/7, book appointments, answer FAQs, and grow your business without adding stress.",
+	keywords = "AI phone agent, AI receptionist, virtual receptionist, 24/7 phone answering service, AI appointment booking, automated phone system",
+	ogImage = "/og-image.jpg",
+	canonical = `https://aiphoneagent.ai${Astro.url.pathname}`
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="AI Phone Agent - Never miss a call again. Handle calls 24/7, book appointments, answer FAQs, and grow your business without adding stress." />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonical} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Performance optimizations -->
+		<link rel="preload" href="/logo.png" as="image" type="image/png" />
+		<link rel="preload" href="/images/hero-business-team.jpg" as="image" type="image/jpeg" />
+		<link rel="dns-prefetch" href="//images.unsplash.com" />
+		<meta name="theme-color" content="#00A3FF" />
+		
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="AI Phone Agent" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonical} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImage} />
+		
+		<!-- Enhanced Professional Service & Software Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": ["ProfessionalService", "SoftwareApplication", "TelecommunicationsService"],
+			"name": "AI Phone Agent",
+			"alternateName": "AI Phone Agent - Virtual Receptionist Service",
+			"description": "Advanced AI phone answering service providing 24/7 virtual receptionist capabilities for businesses across multiple industries. Never miss a call, automate appointment booking, and enhance customer service with intelligent call handling.",
+			"url": "https://aiphoneagent.ai",
+			"applicationCategory": "BusinessApplication",
+			"operatingSystem": "Cloud-based",
+			"softwareVersion": "2025.1",
+			"releaseNotes": "Enhanced AI capabilities with multi-industry specialization",
+			"featureList": [
+				"24/7 AI Phone Answering",
+				"Intelligent Call Routing",
+				"Automated Appointment Scheduling",
+				"Call Recording & Transcription",
+				"Multi-Language Support",
+				"CRM Integration",
+				"Real-time Analytics",
+				"Emergency Call Prioritization",
+				"Industry-Specific Training"
+			],
+			"telephone": ["+1-877-320-7259", "+61-2-3821-3526"],
+			"email": "hello@aiphoneagent.ai",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": ["US", "AU"],
+				"addressRegion": ["California", "Victoria"],
+				"addressLocality": ["San Francisco", "Melbourne"]
+			},
+			"geo": [
+				{
+					"@type": "GeoCoordinates",
+					"latitude": "37.7749",
+					"longitude": "-122.4194",
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "San Francisco",
+						"addressRegion": "California",
+						"addressCountry": "US"
+					}
+				},
+				{
+					"@type": "GeoCoordinates", 
+					"latitude": "-37.8136",
+					"longitude": "144.9631",
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Melbourne",
+						"addressRegion": "Victoria",
+						"addressCountry": "AU"
+					}
+				}
+			],
+			"serviceArea": [
+				{
+					"@type": "Country",
+					"name": "United States"
+				},
+				{
+					"@type": "Country", 
+					"name": "Australia"
+				},
+				{
+					"@type": "Country",
+					"name": "New Zealand"
+				}
+			],
+			"serviceType": "Business Process Outsourcing",
+			"provider": {
+				"@type": "Organization",
+				"name": "AI Phone Agent",
+				"url": "https://aiphoneagent.ai"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "AI Phone Agent Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "AI Virtual Receptionist",
+							"description": "24/7 AI-powered phone answering with intelligent call handling and customer service automation",
+							"category": "Professional Services",
+							"serviceType": "Virtual Receptionist Service"
+						},
+						"price": "499",
+						"priceCurrency": "USD",
+						"priceSpecification": {
+							"@type": "UnitPriceSpecification",
+							"price": "499",
+							"priceCurrency": "USD",
+							"unitText": "per month"
+						}
+					},
+					{
+						"@type": "Offer", 
+						"itemOffered": {
+							"@type": "Service",
+							"name": "AI Appointment Booking System",
+							"description": "Automated appointment scheduling with calendar integration and confirmation systems",
+							"category": "Business Automation",
+							"serviceType": "Appointment Management"
+						},
+						"price": "299",
+						"priceCurrency": "USD",
+						"priceSpecification": {
+							"@type": "UnitPriceSpecification",
+							"price": "299", 
+							"priceCurrency": "USD",
+							"unitText": "per month"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service", 
+							"name": "AI Call Analytics & Reporting",
+							"description": "Advanced call analytics, performance metrics, and business intelligence reporting",
+							"category": "Business Intelligence",
+							"serviceType": "Analytics Service"
+						},
+						"price": "199",
+						"priceCurrency": "USD",
+						"priceSpecification": {
+							"@type": "UnitPriceSpecification",
+							"price": "199",
+							"priceCurrency": "USD", 
+							"unitText": "per month"
+						}
+					}
+				]
+			},
+			"audience": {
+				"@type": "BusinessAudience",
+				"audienceType": [
+					"Small Business",
+					"Healthcare Providers", 
+					"Professional Services",
+					"Home Services",
+					"Real Estate Agencies",
+					"Legal Practices",
+					"Automotive Services"
+				]
+			},
+			"industryServed": [
+				"Healthcare",
+				"Professional Services", 
+				"Home Improvement",
+				"Real Estate",
+				"Legal Services",
+				"Automotive",
+				"Beauty & Wellness",
+				"Food & Hospitality",
+				"Construction",
+				"Financial Services"
+			],
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.9",
+				"reviewCount": "247",
+				"bestRating": "5",
+				"worstRating": "1"
+			},
+			"review": [
+				{
+					"@type": "Review",
+					"reviewRating": {
+						"@type": "Rating",
+						"ratingValue": "5",
+						"bestRating": "5"
+					},
+					"author": {
+						"@type": "Person",
+						"name": "Dr. Sarah Johnson"
+					},
+					"reviewBody": "AI Phone Agent transformed our dental practice. We never miss emergency calls anymore and our appointment booking has increased by 40%."
+				}
+			],
+			"priceRange": "$199-$999",
+			"openingHours": "Mo-Su 00:00-23:59",
+			"availableLanguage": ["English", "Spanish", "French"],
+			"paymentAccepted": ["Credit Card", "Bank Transfer", "Online Payment"],
+			"currenciesAccepted": ["USD", "AUD"],
+			"sameAs": [
+				"https://twitter.com/aiphoneagent",
+				"https://linkedin.com/company/aiphoneagent", 
+				"https://facebook.com/aiphoneagent",
+				"https://youtube.com/@aiphoneagent"
+			],
+			"founder": {
+				"@type": "Person",
+				"name": "AI Phone Agent Team"
+			},
+			"numberOfEmployees": {
+				"@type": "QuantitativeValue",
+				"value": "25-50"
+			},
+			"knowsAbout": [
+				"Artificial Intelligence",
+				"Natural Language Processing", 
+				"Business Process Automation",
+				"Customer Service",
+				"Telecommunications",
+				"Voice Recognition",
+				"Multi-Industry Support"
+			],
+			"makesOffer": [
+				{
+					"@type": "Offer",
+					"name": "Free Strategy Call",
+					"description": "15-minute consultation to discuss your business phone needs",
+					"price": "0",
+					"priceCurrency": "USD"
+				}
+			]
+		}
+		</script>
+		<!-- Optimized Font Loading Strategy -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
+		<!-- Critical fonts for above-the-fold content -->
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" />
+		</noscript>
+		
+		<!-- Critical CSS Inline -->
+		<style>
+			/* Critical CSS - Above the fold styles only */
+			:root {
+				--color-dark-100: #1A1F2C;
+				--color-dark-200: #131722;
+				--color-dark-300: #0A0E17;
+				--color-dark-400: #060A12;
+				--color-neon-blue: #00A3FF;
+				--color-neon-cyan: #00E5FF;
+				--color-neon-glow: rgba(0, 163, 255, 0.5);
+				--color-text: #F5F5F5;
+				--color-text-muted: #94A3B8;
+				--font-body: 'Inter', system-ui, -apple-system, sans-serif;
+				--font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+			}
+			
+			*, *::before, *::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			body {
+				font-family: var(--font-body);
+				background-color: var(--color-dark-400);
+				color: var(--color-text);
+				line-height: 1.6;
+				overflow-x: hidden;
+			}
+			
+			.container {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+			
+			@media (max-width: 768px) {
+				.container { padding: 0 1rem; }
+			}
+			
+			/* Critical header styles */
+			.header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(6, 10, 18, 0.85);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				z-index: 1000;
+				padding: 1rem 0;
+			}
+			
+			.nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 2rem;
+			}
+			
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				font-size: 1.5rem;
+				font-weight: 700;
+				font-family: var(--font-heading);
+				color: var(--color-neon-blue);
+				text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+				text-decoration: none;
+			}
+			
+			.logo-image {
+				height: 40px;
+				width: auto;
+				filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.3));
+			}
+			
+			/* Critical hero styles */
+			.hero {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				padding-top: 6rem;
+				position: relative;
+				overflow: hidden;
+				background: 
+					linear-gradient(135deg, rgba(6, 10, 18, 0.95), rgba(10, 14, 23, 0.9)),
+					radial-gradient(circle at 20% 50%, rgba(0, 163, 255, 0.1) 0%, transparent 50%),
+					radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 50%);
+			}
+			
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				background-image: url('/images/hero-business-team.jpg');
+				background-size: cover;
+				background-position: center;
+				opacity: 0.08;
+				z-index: 1;
+				filter: blur(1px);
+			}
+			
+			.hero-content { position: relative; z-index: 20; }
+			
+			.hero-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: center;
+			}
+			
+			.hero-title {
+				font-size: 3.5rem;
+				line-height: 1.2;
+				margin-bottom: 1.5rem;
+				font-weight: 800;
+				font-family: var(--font-heading);
+			}
+			
+			.hero-subtitle {
+				font-size: 1.25rem;
+				color: var(--color-text-muted);
+				margin-bottom: 2rem;
+				max-width: 540px;
+				line-height: 1.8;
+			}
+			
+			.hero-buttons {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+			
+			/* Critical button styles */
+			.btn {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				border-radius: 0.5rem;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: none;
+				font-family: var(--font-body);
+				font-size: 1rem;
+				text-decoration: none;
+			}
+			
+			.btn-primary {
+				background: var(--color-neon-blue);
+				color: white;
+				box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				color: var(--color-neon-blue);
+				border: 2px solid var(--color-neon-blue);
+				box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+			}
+			
+			/* Critical typography */
+			h1, h2, h3, h4, h5, h6 {
+				font-family: var(--font-heading);
+				font-weight: 700;
+				color: var(--color-text);
+			}
+			
+			a { text-decoration: none; color: inherit; }
+			
+			.neon-text {
+				color: var(--color-neon-blue);
+				text-shadow: 0 0 5px var(--color-neon-glow);
+			}
+			
+			.animate-fade-in {
+				animation: fade-in 0.7s ease-out forwards;
+			}
+			
+			@keyframes fade-in {
+				from { opacity: 0; transform: translateY(20px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+			
+			/* Critical mobile styles */
+			@media (max-width: 1024px) {
+				.hero-grid {
+					grid-template-columns: 1fr;
+					text-align: center;
+				}
+				.hero-title { font-size: 2.5rem; }
+			}
+			
+			@media (max-width: 640px) {
+				.hero-title { font-size: 2rem; }
+				.hero-subtitle { font-size: 1.1rem; margin: 0 auto 2rem; }
+				.hero-buttons { justify-content: center; }
+			}
+		</style>
 	</head>
 	<body>
 		<slot />
+		
+		<!-- Load Non-Critical CSS Asynchronously -->
+		<script>
+			// Load non-critical CSS after critical rendering
+			function loadCSS(href) {
+				var link = document.createElement('link');
+				link.rel = 'stylesheet';
+				link.href = href;
+				link.media = 'print';
+				link.onload = function() { this.media = 'all'; };
+				document.head.appendChild(link);
+			}
+			
+			// Load non-critical fonts and styles after page load
+			if (window.addEventListener) {
+				window.addEventListener('load', function() {
+					// Load remaining font weights
+					loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat:wght@400;500;600&display=swap');
+				});
+			}
+		</script>
 	</body>
 </html>
 
 <style is:global>
-	:root {
-		--color-dark-100: #1A1F2C;
-		--color-dark-200: #131722;
-		--color-dark-300: #0A0E17;
-		--color-dark-400: #060A12;
-		--color-neon-blue: #00A3FF;
-		--color-neon-cyan: #00E5FF;
-		--color-neon-glow: rgba(0, 163, 255, 0.5);
-		--color-text: #F5F5F5;
-		--color-text-muted: #94A3B8;
-		--font-body: 'Inter', sans-serif;
-		--font-heading: 'Montserrat', sans-serif;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	html {
-		scroll-behavior: smooth;
-	}
-
-	body {
-		font-family: var(--font-body);
-		background-color: var(--color-dark-400);
-		color: var(--color-text);
-		line-height: 1.6;
-		overflow-x: hidden;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: var(--font-heading);
-		font-weight: 700;
-		color: var(--color-text);
-	}
-
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
-	.container {
-		max-width: 1280px;
-		margin: 0 auto;
-		padding: 0 2rem;
-	}
-
-	@media (max-width: 768px) {
-		.container {
-			padding: 0 1rem;
-		}
-	}
-
-	.neon-text {
-		color: var(--color-neon-blue);
-		text-shadow: 0 0 5px var(--color-neon-glow);
-	}
-
+	/* Non-Critical Styles - Below the fold content */
+	
 	.neon-border {
 		border: 1px solid rgba(0, 163, 255, 0.8);
 		box-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
@@ -108,35 +541,11 @@ const { title } = Astro.props;
 		}
 	}
 
-	.btn {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		border-radius: 0.5rem;
-		font-weight: 600;
-		transition: all 0.3s ease;
-		cursor: pointer;
-		border: none;
-		font-family: var(--font-body);
-		font-size: 1rem;
-	}
-
-	.btn-primary {
-		background: var(--color-neon-blue);
-		color: white;
-		box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
-	}
-
+	/* Button hover effects - Non-critical */
 	.btn-primary:hover {
 		background: #0080CC;
 		box-shadow: 0 0 30px rgba(0, 163, 255, 0.7);
 		transform: translateY(-2px);
-	}
-
-	.btn-secondary {
-		background: transparent;
-		color: var(--color-neon-blue);
-		border: 2px solid var(--color-neon-blue);
-		box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
 	}
 
 	.btn-secondary:hover {
@@ -145,20 +554,12 @@ const { title } = Astro.props;
 		transform: translateY(-2px);
 	}
 
-	/* Blob Animation */
+	/* Blob Animation - Non-critical */
 	@keyframes blob-animation {
-		0% {
-			transform: translate(0, 0) scale(1);
-		}
-		33% {
-			transform: translate(30px, -50px) scale(1.1);
-		}
-		66% {
-			transform: translate(-20px, 20px) scale(0.9);
-		}
-		100% {
-			transform: translate(0, 0) scale(1);
-		}
+		0% { transform: translate(0, 0) scale(1); }
+		33% { transform: translate(30px, -50px) scale(1.1); }
+		66% { transform: translate(-20px, 20px) scale(0.9); }
+		100% { transform: translate(0, 0) scale(1); }
 	}
 
 	.blob {
@@ -170,7 +571,7 @@ const { title } = Astro.props;
 		animation: blob-animation 15s infinite alternate ease-in-out;
 	}
 
-	/* Circuit Background */
+	/* Circuit Background - Non-critical */
 	.circuit-bg {
 		background-color: var(--color-dark-400);
 		background-image: radial-gradient(var(--color-neon-blue) 0.5px, transparent 0.5px), radial-gradient(var(--color-neon-blue) 0.5px, var(--color-dark-400) 0.5px);
@@ -181,21 +582,5 @@ const { title } = Astro.props;
 		position: absolute;
 		inset: 0;
 		z-index: -1;
-	}
-
-	/* Fade in animation */
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.animate-fade-in {
-		animation: fade-in 0.7s ease-out forwards;
 	}
 </style>

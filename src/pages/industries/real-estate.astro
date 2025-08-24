@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your real estate business captures every lead call, converts 85% of inquiries into appointments, and closes $200,000+ more in commissions annually - all while you focus on showing properties and closing deals, not chasing phone calls."
+
+const dreamOutcomeTitle = "What Your Real Estate Success Deserves"
+
+const painPoints = [
+  {
+    title: "Lost Leads During Showings",
+    description: "You're showing a $500,000 home to serious buyers when your phone rings - another potential client wanting to see properties. You can't answer during the showing, they get voicemail, and immediately call the next agent. That missed call could have been a $15,000 commission.",
+    cost: "$5,000-25,000 per lost lead",
+    icon: "🏠"
+  },
+  {
+    title: "After-Hours Buyer Urgency",
+    description: "It's 8 PM on Sunday. A pre-approved buyer just drove by your listing and wants to schedule a viewing immediately - they're leaving town Monday. Your phone rings, but you're at family dinner. They call three other agents and tour the property with your competitor Tuesday morning.",
+    cost: "$8,000-30,000 per listing",
+    icon: "🌙"
+  },
+  {
+    title: "Lead Qualification Time Waste",
+    description: "You spend 30 minutes on the phone with someone who 'wants to buy a house' only to discover they haven't been pre-approved, won't be ready for 2 years, and are just price shopping. Meanwhile, 4 serious buyer calls went to voicemail.",
+    cost: "$500-2,000 per wasted hour",
+    icon: "⏰"
+  },
+  {
+    title: "Open House Follow-Up Failures",
+    description: "50 people attended your open house. You collected 30 contact cards but only followed up with 12 people because you got busy with new listings. Those 18 uncontacted leads bought homes with agents who called them immediately after the event.",
+    cost: "$3,000-15,000 per lost buyer",
+    icon: "🏘️"
+  },
+  {
+    title: "Listing Inquiry Response Delays",
+    description: "Your premium listing gets 15 inquiries daily. You're in back-to-back appointments and can't respond for 4 hours. By then, motivated buyers have already scheduled viewings with agents who responded in 5 minutes. First response wins in real estate.",
+    cost: "$10,000-40,000 per listing",
+    icon: "📞"
+  },
+  {
+    title: "Price Range Mismatch Disasters",
+    description: "Buyers call about your $800K listing but their budget is $400K. You spend an hour showing inappropriate properties, they get frustrated with unrealistic expectations, and leave negative feedback about wasting their time.",
+    cost: "$200-1,000 per mismatch",
+    icon: "💸"
+  }
+];
+
+const benefits = [
+  {
+    title: "24/7 Lead Capture & Qualification",
+    description: "AI instantly answers every real estate inquiry, qualifies buyers by budget and timeline, pre-approves viewing requests, and schedules appointments based on your availability. Never lose another motivated buyer to a faster-responding competitor.",
+    icon: "🎯"
+  },
+  {
+    title: "Intelligent Property Matching",
+    description: "AI understands buyer preferences, price ranges, location requirements, and property features. It only books showings for appropriate matches, saving hours of unproductive viewings while focusing your time on serious, qualified prospects.",
+    icon: "🔍"
+  },
+  {
+    title: "Automated Listing Information",
+    description: "AI provides detailed property information, pricing history, neighborhood data, school districts, and HOA fees instantly. Interested buyers get comprehensive details immediately, increasing their motivation to schedule viewings.",
+    icon: "📋"
+  },
+  {
+    title: "Open House Follow-Up Automation",
+    description: "After every open house, AI automatically contacts all visitors within 24 hours, gauges interest levels, schedules private showings for serious buyers, and nurtures long-term prospects with market updates and new listings.",
+    icon: "🏡"
+  },
+  {
+    title: "Market Analysis & Pricing",
+    description: "AI provides instant CMA data, recent comparable sales, market trends, and pricing recommendations. Sellers get professional market analysis immediately, positioning you as the knowledgeable expert they want representing them.",
+    icon: "📊"
+  },
+  {
+    title: "Commission Maximization System",
+    description: "AI identifies high-value opportunities, prioritizes luxury listings, focuses on qualified buyers with larger budgets, and ensures you're working on deals with maximum commission potential rather than chasing every small lead.",
+    icon: "💰"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Premium Properties Group - Beverly Hills",
+    scenario: "Luxury real estate team losing 40% of inbound leads due to delayed response times during client meetings and property showings. Average response time of 3.5 hours was causing $2M+ listings to be shown by competitors first.",
+    solution: "AI Phone Agent implemented with luxury real estate protocols, instant property information delivery, and sophisticated buyer qualification for $1M+ properties with integration to their CRM system.",
+    result: "Reduced response time to under 2 minutes, increased lead-to-appointment conversion by 340%, and added $4.2M in additional annual sales volume. ROI of 2,100% in first year."
+  },
+  {
+    title: "Metro Home Solutions - Atlanta",
+    scenario: "High-volume residential team missing 60+ calls weekly from Zillow and Realtor.com leads, losing first-time homebuyers to agents who responded faster in competitive Atlanta market.",
+    solution: "Deployed AI with first-time homebuyer education modules, mortgage pre-qualification assistance, and automated showing scheduling integrated with Georgia MLS and local mortgage lenders.",
+    result: "Captured 95% of online leads, increased closed transactions by 180%, and became #1 team in their brokerage for first-time buyer sales. Added $180,000 in annual commissions."
+  },
+  {
+    title: "Coastal Realty Experts - Miami",
+    scenario: "International buyer specialist struggling with time zone differences and language barriers, missing calls from overseas investors interested in $500K+ South Florida properties.",
+    solution: "AI system with multilingual capabilities, international time zone scheduling, and investment property analysis tools for foreign buyers seeking rental income properties.",
+    result: "Expanded international client base by 250%, closed $8.5M in foreign investor sales, and established reputation as premier international buyer specialist in Miami-Dade market."
+  }
+];
+
+const testimonial = {
+  name: "Sarah Martinez",
+  title: "Top Producer, Sunshine Realty Group",
+  quote: "I was already in the top 10% of agents, but I knew I was missing opportunities. The AI Phone Agent revealed I was losing 20-25 qualified leads monthly! Now every call gets answered professionally, leads are pre-qualified, and my showing appointments are with serious buyers only. My sales volume increased 160% in 8 months.",
+  image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&auto=format",
+  revenue: "$240,000",
+  timeframe: "additional commissions in 8 months"
+};
+
+const roiData = {
+  avgCallValue: 8500, // Average commission per closed lead
+  missedCallsPerMonth: 18,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Real Estate Agents | Never Miss a $25K Commission Call Again"
+  description="Stop losing $200,000+ annually from missed real estate calls! Our AI captures every lead 24/7, qualifies buyers instantly, schedules showings automatically, and focuses your time on high-commission closings."
+  keywords="voice AI for real estate agents, AI phone agent for realtors, automated real estate lead capture, AI real estate assistant, virtual receptionist for real estate, AI listing inquiry system, automated buyer qualification, real estate AI phone system"
+  industry="Real Estate"
+  heroTitle="Stop Missing $25,000 Commission Calls During Showings"
+  heroSubtitle="The only AI phone agent built specifically for real estate professionals. Capture every lead 24/7, qualify buyers instantly, schedule showings automatically, and focus on what you do best - closing deals."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

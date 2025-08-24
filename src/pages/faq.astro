@@ -1,0 +1,84 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<PageLayout 
+	title="AI Phone Agent FAQ | Common Questions About AI Receptionist Service"
+	description="Get answers to frequently asked questions about AI phone agents, virtual receptionists, costs, setup, and how AI call answering works for your business."
+	keywords="AI phone agent FAQ, virtual receptionist questions, AI receptionist cost, how AI phone agent works, AI call answering questions, automated phone system FAQ"
+>
+	<PageHero
+		title="Frequently Asked"
+		highlightText="Questions"
+		subtitle="Everything you need to know about AI phone agents and our service"
+	/>
+	
+	<FAQ />
+	
+	<!-- Additional CTA Section -->
+	<section class="faq-cta-section section-padding">
+		<div class="container">
+			<div class="cta-content">
+				<h2 class="cta-title">Still Have Questions?</h2>
+				<p class="cta-subtitle">
+					Our team is here to help! Book a free consultation to learn how our AI phone agent can transform your business communications.
+				</p>
+				<div class="cta-buttons">
+					<a href="/booking" class="btn btn-primary">Book Free Consultation</a>
+					<a href="/contact" class="btn btn-secondary">Contact Support</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.faq-cta-section {
+		background: var(--color-dark-400);
+		text-align: center;
+	}
+	
+	.cta-content {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	
+	.cta-title {
+		font-size: 2.25rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+	
+	.cta-subtitle {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		line-height: 1.7;
+	}
+	
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	@media (max-width: 768px) {
+		.cta-title {
+			font-size: 1.75rem;
+		}
+		
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.cta-buttons .btn {
+			width: 100%;
+			max-width: 280px;
+		}
+	}
+</style>

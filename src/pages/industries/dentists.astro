@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your dental practice captures every call, books every appointment, and grows revenue by $15,000+ per month - all while you focus on providing exceptional patient care without phone interruptions."
+
+const dreamOutcomeTitle = "What Your Practice Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency Calls During Procedures",
+    description: "You're performing a root canal when the phone rings - another dental emergency. Your staff is busy, the call goes to voicemail, and that patient books with your competitor across town. This happens 8-12 times per day in busy practices.",
+    cost: "$300-800 per call",
+    icon: "🚨"
+  },
+  {
+    title: "After-Hours Revenue Bleeding",
+    description: "It's 7 PM on Thursday. A patient has severe tooth pain and calls your office - but gets voicemail. They're in pain, they need help NOW, so they call the 24/7 dental emergency line and become someone else's patient forever.",
+    cost: "$500-2,000 per patient",
+    icon: "🌙"
+  },
+  {
+    title: "No-Show Appointment Disasters",
+    description: "25% of your dental appointments result in no-shows because patients forget, can't reschedule easily, or never got proper reminders. Each empty chair costs you money while overhead continues running.",
+    cost: "$200-600 per slot",
+    icon: "👻"
+  },
+  {
+    title: "Staff Phone Time Waste",
+    description: "Your dental assistants spend 2-3 hours daily answering the same questions: 'Do you take my insurance?' 'What does a cleaning cost?' 'Can I get an appointment tomorrow?' That's time stolen from actual patient care.",
+    cost: "$50-80 per hour",
+    icon: "⏰"
+  },
+  {
+    title: "Insurance Verification Nightmares",
+    description: "Patients arrive for $800 procedures only to discover their insurance doesn't cover it. Now you have an awkward conversation, a cancelled appointment, and a frustrated patient who feels deceived.",
+    cost: "$300-800 lost revenue",
+    icon: "📋"
+  },
+  {
+    title: "New Patient Intake Bottlenecks",
+    description: "New patients spend 20-30 minutes filling out forms when they arrive, backing up your entire schedule. Meanwhile, your phone rings with more new patients - but your staff is too busy with paperwork to answer.",
+    cost: "$150-400 per delay",
+    icon: "📝"
+  }
+];
+
+const benefits = [
+  {
+    title: "24/7 Emergency Call Capture",
+    description: "Your AI agent answers every emergency call immediately, triages pain levels using a dental-specific protocol, collects insurance information, and books urgent appointments - even at 2 AM on weekends. Never lose another emergency patient to competitors.",
+    icon: "🏥"
+  },
+  {
+    title: "Intelligent Appointment Scheduling",
+    description: "AI automatically books appointments based on procedure type, insurance coverage, and your calendar availability. It handles complex scheduling like 'I need a crown but can only come Tuesdays after 2 PM' and finds the perfect slot every time.",
+    icon: "📅"
+  },
+  {
+    title: "Insurance Pre-Verification System",
+    description: "Before any appointment, AI verifies insurance coverage, explains benefits to patients, collects payment information, and ensures no surprise bills. Patients arrive knowing exactly what they'll pay.",
+    icon: "💳"
+  },
+  {
+    title: "Automated Patient Reminders",
+    description: "AI sends personalized SMS and voice reminders with pre-appointment instructions, parking details, and easy rescheduling options. Reduces no-shows by 70% and keeps your schedule full.",
+    icon: "📱"
+  },
+  {
+    title: "New Patient Intake Automation",
+    description: "AI collects complete medical history, insurance details, and treatment preferences before patients arrive. They check in instantly, and you start treatment immediately - no waiting room delays.",
+    icon: "✅"
+  },
+  {
+    title: "Dental FAQ Expert System",
+    description: "AI answers 200+ dental questions instantly: procedure costs, insurance coverage, post-care instructions, pain management. Your staff focuses on treatment while AI handles education and basic questions.",
+    icon: "🧠"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Metro Dental Associates - Chicago",
+    scenario: "This 4-dentist practice was missing 15-20 calls daily during peak hours, losing an estimated $45,000 monthly in emergency and new patient revenue. Staff spent 4 hours daily on repetitive phone tasks instead of patient care.",
+    solution: "AI Phone Agent implemented with dental-specific protocols for emergency triage, insurance verification, and automated appointment booking integrated with their Dentrix practice management system.",
+    result: "Captured 95% of previously missed calls, increased monthly revenue by $52,000, and freed up 20 hours weekly of staff time for clinical activities. ROI of 890% in first 6 months."
+  },
+  {
+    title: "Bright Smiles Pediatric Dentistry - Austin",
+    scenario: "Parents calling after-hours for child dental emergencies were going to urgent care centers instead of waiting until business hours. The practice was losing 8-10 pediatric emergency cases weekly to ERs and competitors.",
+    solution: "Deployed AI with pediatric dental emergency protocols, parent-friendly language, and integration with on-call dentist notification system for true emergencies requiring immediate attention.",
+    result: "Captured 100% of after-hours emergency calls, converted 85% into appointments, and added $28,000 monthly in emergency visit revenue. Parents report 98% satisfaction with AI response."
+  },
+  {
+    title: "Elite Cosmetic Dentistry - Miami",
+    scenario: "High-end cosmetic practice struggled with complex consultation scheduling for $5,000+ procedures. Manual scheduling led to confusion, double-bookings, and frustrated patients expecting white-glove service.",
+    solution: "Implemented sophisticated AI scheduling system with treatment-specific time blocks, pre-consultation preparation protocols, and personalized patient communication for luxury dental experiences.",
+    result: "Eliminated scheduling errors, increased consultation show-rate to 94%, and improved patient satisfaction scores by 35%. Revenue per consultation increased 23% due to better preparation."
+  }
+];
+
+const testimonial = {
+  name: "Dr. Sarah Chen",
+  title: "Owner, Pacific Dental Excellence",
+  quote: "I thought I was doing fine missing 'just' 6-8 calls daily. The AI Phone Agent revealed we were losing over $30,000 monthly! Now we capture every call, our schedule stays full, and my team focuses on dentistry instead of phones. Best investment I've made for my practice.",
+  image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&auto=format",
+  revenue: "$31,500",
+  timeframe: "first 3 months"
+};
+
+const roiData = {
+  avgCallValue: 250,
+  missedCallsPerMonth: 12,
+  aiCost: 499,
+  breakEvenCalls: 2
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Dentists | 24/7 Dental Emergency Calls & Appointment Booking That Never Sleeps"
+  description="Stop losing $30,000+ monthly from missed dental calls! Our AI phone agent captures every emergency, books appointments 24/7, verifies insurance, and reduces no-shows by 70%. Transform your dental practice revenue today."
+  keywords="AI receptionist for dentists, dental appointment booking AI, AI phone agent for dental practice, virtual receptionist dental office, automated dental scheduling, dental practice phone automation, AI dental emergency calls, dental office AI assistant, automated dental patient intake"
+  industry="Dental"
+  heroTitle="Stop Losing $30,000+ Monthly From Missed Dental Calls"
+  heroSubtitle="The only AI phone agent built specifically for dental practices. Capture emergency calls 24/7, eliminate no-shows, automate insurance verification, and focus on what you do best - exceptional dentistry."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

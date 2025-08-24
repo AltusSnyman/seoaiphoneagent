@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your auto repair shop captures every breakdown call, converts 85% of service inquiries into booked appointments, and adds $250,000+ annual revenue - all while you focus on fixing cars, not answering phones."
+
+const dreamOutcomeTitle = "What Your Auto Shop Deserves"
+
+const painPoints = [
+  {
+    title: "Roadside Emergency Calls During Repairs",
+    description: "You're under the hood diagnosing a transmission problem when your phone rings - someone's car broke down on the highway and needs immediate towing and repair. Your hands are covered in oil, you can't answer, and that stranded driver calls the next shop. That's a $1,200 tow and repair job gone.",
+    cost: "$800-2,500 per emergency",
+    icon: "🚗"
+  },
+  {
+    title: "After-Hours Breakdown Revenue Loss",
+    description: "It's 8 PM Sunday and someone's car won't start in a shopping center parking lot. They need immediate diagnosis and potentially overnight repair to get to work Monday. Your shop is closed, they get voicemail, and call 24-hour competitors who capture the emergency and follow-up maintenance business.",
+    cost: "$600-3,000 per breakdown",
+    icon: "🌙"
+  },
+  {
+    title: "Seasonal Service Rush Chaos",
+    description: "Winter hits and everyone needs battery replacements, antifreeze, and heating repairs. Your phone rings constantly with seasonal service requests, but you're booked solid for 2 weeks. Customers need immediate help and book with competitors who can fit them in sooner.",
+    cost: "$150,000+ seasonal loss",
+    icon: "❄️"
+  },
+  {
+    title: "Estimate Request Phone Tag Hell",
+    description: "Customers call wanting repair estimates for engine work, brake repairs, or transmission services. You're working on cars, promise to call back with pricing, but get caught up in complex diagnoses. 60% of estimate callbacks never happen - that's revenue driving away.",
+    cost: "$1,000-8,000 per missed estimate",
+    icon: "📋"
+  },
+  {
+    title: "Insurance Claim Coordination Nightmares",
+    description: "Accident victims need body work and mechanical repairs, but insurance requires specific procedures, approved parts, and detailed estimates. Manual coordination takes hours while customers wait anxiously, and many choose shops that handle insurance paperwork seamlessly.",
+    cost: "$2,000-15,000 per insurance job",
+    icon: "📄"
+  },
+  {
+    title: "Fleet Customer Service Bottlenecks",
+    description: "Local businesses with delivery trucks, contractor fleets, or service vehicles need priority scheduling and bulk services. But you're too busy with individual customers to properly court these high-value accounts that could bring consistent monthly revenue.",
+    cost: "$5,000-25,000 monthly fleet revenue",
+    icon: "🚛"
+  }
+];
+
+const benefits = [
+  {
+    title: "24/7 Emergency Breakdown Capture",
+    description: "AI handles roadside emergencies immediately, assesses breakdown severity, coordinates towing services, and schedules repair appointments based on part availability and your shop capacity. Never lose another stranded driver to faster-responding competitors.",
+    icon: "🚨"
+  },
+  {
+    title: "Intelligent Repair Scheduling",
+    description: "AI books appointments based on service type complexity, part availability, and technician specialization. It understands that brake jobs need 2 hours while engine rebuilds need 2 days, preventing scheduling conflicts and customer disappointment.",
+    icon: "🔧"
+  },
+  {
+    title: "Instant Estimate Automation",
+    description: "AI provides preliminary repair estimates using your labor rates, parts costs, and diagnostic complexity. Customers get ballpark pricing immediately for common repairs, keeping them engaged while competitors are still playing phone tag.",
+    icon: "💰"
+  },
+  {
+    title: "Insurance Coordination System",
+    description: "AI streamlines insurance claim processes by collecting policy information, coordinating with adjusters, managing approved repair procedures, and ensuring all documentation requirements are met before customers arrive for service.",
+    icon: "📋"
+  },
+  {
+    title: "Fleet Account Development",
+    description: "AI identifies commercial callers, assesses fleet service needs, schedules bulk maintenance appointments, and nurtures high-value business accounts with dedicated communication and priority scheduling systems.",
+    icon: "🏢"
+  },
+  {
+    title: "Seasonal Service Optimization",
+    description: "AI manages seasonal demand by prioritizing urgent repairs, scheduling preventive maintenance during off-peak hours, and proactively reaching out to customers about seasonal services like winterization and summer AC checks.",
+    icon: "📊"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Highway Auto Center - Interstate 95",
+    scenario: "Shop near major highway missing 50+ breakdown calls daily during peak travel seasons, losing an estimated $400,000 annually in emergency towing and repair revenue to competitors with 24/7 phone coverage.",
+    solution: "AI Phone Agent deployed with highway emergency protocols, towing coordination integration, and GPS-based response time calculations for stranded motorists needing immediate assistance.",
+    result: "Captured 88% of highway breakdown calls, increased emergency revenue by $520,000 annually, and became the preferred auto service for state police emergency referrals. ROI of 1,900% in first year."
+  },
+  {
+    title: "Metro Fleet Services - Chicago",
+    scenario: "Auto repair shop wanting to expand into fleet services but struggling to manage individual customer volume while courting commercial accounts requiring specialized scheduling and bulk service coordination.",
+    solution: "AI system with fleet account management, commercial vehicle scheduling, bulk service coordination, and dedicated business customer communication protocols for delivery companies and contractors.",
+    result: "Secured 12 commercial fleet accounts, added $180,000 monthly recurring revenue, and expanded shop capacity by 40% through efficient commercial scheduling optimization."
+  },
+  {
+    title: "German Auto Specialists - Austin",
+    scenario: "European car specialist missing opportunities to capture high-value customers needing specialized BMW, Mercedes, and Audi services due to complex scheduling and parts coordination requirements.",
+    solution: "Implemented AI with European vehicle databases, specialized parts availability integration, and luxury car owner communication protocols emphasizing expertise and quality service standards.",
+    result: "Increased luxury vehicle service revenue by 260%, improved customer retention to 92%, and established reputation as premier European auto service center in Austin market."
+  }
+];
+
+const testimonial = {
+  name: "Mike Torres",
+  title: "Owner, Torres Auto Repair & Towing",
+  quote: "Being located near the interstate means constant breakdown calls, but I was missing 40+ emergency calls daily while working on cars. The AI Phone Agent now captures every breakdown, coordinates towing, and books follow-up repairs. I've added over $280,000 in emergency revenue this year alone - it's been incredible for business.",
+  image: "https://images.unsplash.com/photo-1582071389077-d80fb34d0d3c?w=200&h=200&fit=crop&auto=format",
+  revenue: "$280,000",
+  timeframe: "additional emergency revenue this year"
+};
+
+const roiData = {
+  avgCallValue: 750, // Average auto repair job value
+  missedCallsPerMonth: 40,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Auto Repair Shops | Never Miss a $2,500 Breakdown Call Again"
+  description="Stop losing $250,000+ annually from missed auto repair calls! Our AI captures every breakdown emergency 24/7, schedules service appointments, coordinates towing, and handles insurance claims while you focus on fixing cars."
+  keywords="AI phone agent for auto repair shops, auto repair call answering service, automated auto shop booking, AI car repair assistant, virtual receptionist auto repair, automated breakdown response, 24/7 auto emergency calls"
+  industry="Automotive"
+  heroTitle="Stop Missing $2,500 Breakdown Calls While Under the Hood"
+  heroSubtitle="The only AI phone agent built specifically for auto repair professionals. Capture every breakdown emergency 24/7, coordinate towing services, schedule repairs efficiently, and focus on what you do best - keeping cars running."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

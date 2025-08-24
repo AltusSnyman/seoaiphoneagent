@@ -1,0 +1,325 @@
+---
+const faqItems = [
+  {
+    question: "What is an AI phone agent?",
+    answer: "An AI phone agent is an artificial intelligence system that answers your business phone calls 24/7. Our AI receptionist handles calls professionally, answers common questions, books appointments, and routes urgent calls to the right person. It works like a human receptionist but never takes breaks, sick days, or vacations."
+  },
+  {
+    question: "How much does an AI phone agent cost?",
+    answer: "Our AI phone agent service starts at $499 per month, which is significantly less than hiring a full-time receptionist (typically $3,000-$4,500 monthly). You get 24/7 coverage, unlimited concurrent calls, and no additional costs for training, benefits, or sick days."
+  },
+  {
+    question: "Can AI really answer business phone calls effectively?",
+    answer: "Yes! Our AI phone agent is trained specifically for business communications. It can handle appointment booking, answer FAQs, take detailed messages, and route calls intelligently. The AI understands context and can have natural conversations while maintaining professionalism."
+  },
+  {
+    question: "How does AI appointment booking work?",
+    answer: "Our AI appointment booking system integrates with your calendar and can schedule appointments in real-time during phone calls. Callers can choose available time slots, receive confirmation messages, and get automated reminders. The AI handles rescheduling and cancellations too."
+  },
+  {
+    question: "Is an AI phone agent better than a human receptionist?",
+    answer: "AI phone agents offer several advantages: 24/7 availability, consistent professional service, no sick days or vacations, lower cost, and ability to handle unlimited concurrent calls. However, they work best alongside humans for complex issues that require empathy and nuanced judgment."
+  },
+  {
+    question: "What businesses need AI phone agents?",
+    answer: "Any business that receives phone calls can benefit from AI phone agents. They're especially valuable for dentists, plumbers, contractors, real estate agents, medical clinics, salons, spas, and service businesses that get calls outside business hours or during busy periods."
+  },
+  {
+    question: "How do I set up an AI phone answering system?",
+    answer: "Setting up our AI phone agent is simple: 1) Contact us for a free consultation, 2) We customize the AI for your business needs, 3) Forward your calls to our system, 4) The AI starts handling calls immediately. Setup typically takes 1-2 business days with full support from our team."
+  },
+  {
+    question: "Will an AI phone agent work for my industry?",
+    answer: "Our AI phone agents work across many industries including healthcare, home services, professional services, retail, and more. We customize the AI's responses and capabilities for your specific business type, ensuring industry-appropriate communication and compliance with relevant regulations."
+  },
+  {
+    question: "What happens to calls the AI can't handle?",
+    answer: "When the AI encounters complex issues or urgent situations, it seamlessly transfers calls to designated team members. You can set custom rules for what should be escalated. The AI also takes detailed messages and sends real-time notifications for important calls."
+  },
+  {
+    question: "Can the AI phone agent integrate with my existing systems?",
+    answer: "Yes! Our AI phone agent integrates with popular CRM systems, calendars (Google Calendar, Outlook), and business tools. We also provide APIs for custom integrations and can sync with your existing workflows and databases."
+  },
+  {
+    question: "How accurate is AI call recording and transcription?",
+    answer: "Our AI provides highly accurate call recording and transcription (95%+ accuracy). Every call is automatically recorded, transcribed, and searchable. You can review conversations, analyze customer needs, and use the data for training and quality improvement."
+  },
+  {
+    question: "Does the AI phone agent support multiple languages?",
+    answer: "Yes, our AI phone agent can be configured to handle multiple languages based on your customer base. This is particularly valuable for businesses serving diverse communities or operating in multilingual markets."
+  },
+  {
+    question: "What's the difference between AI phone agents and traditional voicemail?",
+    answer: "Traditional voicemail just records messages, while AI phone agents have interactive conversations, answer questions in real-time, book appointments, and provide immediate assistance. Customers get instant help instead of waiting for callbacks, resulting in higher satisfaction and conversion rates."
+  },
+  {
+    question: "How quickly can an AI phone agent start working for my business?",
+    answer: "Most businesses can have their AI phone agent operational within 1-2 business days. This includes customizing the AI for your business, setting up call routing, integrating with your calendar, and training the system on your specific FAQs and procedures."
+  },
+  {
+    question: "Is my customer data secure with an AI phone agent?",
+    answer: "Absolutely. We use enterprise-grade security measures including encrypted data transmission, secure cloud storage, and compliance with privacy regulations like HIPAA (for healthcare) and GDPR. Your customer data is protected with the same standards used by major corporations."
+  }
+];
+---
+
+<section class="faq-section section-padding">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">
+        Get answers to common questions about AI phone agents and our service
+      </p>
+    </div>
+    
+    <div class="faq-container">
+      {faqItems.map((item, index) => (
+        <div class="faq-item animate-fade-in" style={`animation-delay: ${index * 50}ms`}>
+          <button class="faq-question" data-faq-toggle>
+            <span class="question-text">{item.question}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="answer-text">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI phone agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI phone agent is an artificial intelligence system that answers your business phone calls 24/7. Our AI receptionist handles calls professionally, answers common questions, books appointments, and routes urgent calls to the right person. It works like a human receptionist but never takes breaks, sick days, or vacations."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "How much does an AI phone agent cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our AI phone agent service starts at $499 per month, which is significantly less than hiring a full-time receptionist (typically $3,000-$4,500 monthly). You get 24/7 coverage, unlimited concurrent calls, and no additional costs for training, benefits, or sick days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AI really answer business phone calls effectively?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Our AI phone agent is trained specifically for business communications. It can handle appointment booking, answer FAQs, take detailed messages, and route calls intelligently. The AI understands context and can have natural conversations while maintaining professionalism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AI appointment booking work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our AI appointment booking system integrates with your calendar and can schedule appointments in real-time during phone calls. Callers can choose available time slots, receive confirmation messages, and get automated reminders. The AI handles rescheduling and cancellations too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an AI phone agent better than a human receptionist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI phone agents offer several advantages: 24/7 availability, consistent professional service, no sick days or vacations, lower cost, and ability to handle unlimited concurrent calls. However, they work best alongside humans for complex issues that require empathy and nuanced judgment."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+// FAQ Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqToggles = document.querySelectorAll('[data-faq-toggle]');
+  
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const faqItem = this.parentElement;
+      const answer = faqItem.querySelector('.faq-answer');
+      const icon = this.querySelector('.faq-icon');
+      
+      const isOpen = faqItem.classList.contains('active');
+      
+      // Close all other FAQs
+      faqToggles.forEach(otherToggle => {
+        const otherItem = otherToggle.parentElement;
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        const otherIcon = otherToggle.querySelector('.faq-icon');
+        
+        if (otherItem !== faqItem) {
+          otherItem.classList.remove('active');
+          otherAnswer.style.maxHeight = '0';
+          otherIcon.textContent = '+';
+        }
+      });
+      
+      // Toggle current FAQ
+      if (isOpen) {
+        faqItem.classList.remove('active');
+        answer.style.maxHeight = '0';
+        icon.textContent = '+';
+      } else {
+        faqItem.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '−';
+      }
+    });
+  });
+});
+</script>
+
+<style>
+  .faq-section {
+    background: var(--color-dark-300);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(10, 14, 23, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(0, 163, 255, 0.3);
+  }
+
+  .faq-item.active {
+    border-color: rgba(0, 163, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(0, 163, 255, 0.05);
+  }
+
+  .question-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    color: var(--color-neon-blue);
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .answer-text {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      padding: 1.25rem;
+    }
+
+    .question-text {
+      font-size: 1rem;
+    }
+
+    .answer-text {
+      padding: 0 1.25rem 1.25rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .faq-question {
+      padding: 1rem;
+    }
+
+    .answer-text {
+      padding: 0 1rem 1rem;
+    }
+  }
+</style>

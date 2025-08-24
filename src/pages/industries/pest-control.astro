@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your pest control business captures every emergency call, converts 95% of one-time treatments into ongoing plans, and adds $350,000+ annual revenue - all while you focus on eliminating pest problems, not missing phone calls."
+
+const dreamOutcomeTitle = "What Your Pest Control Business Deserves"
+
+const painPoints = [
+  {
+    title: "Emergency Pest Calls During Treatments",
+    description: "You're treating a severe termite infestation when your phone rings - someone has a wasp nest emergency and needs immediate removal before a backyard party. You can't answer while applying pesticides, and that panicked homeowner calls the next pest control company. Lost: $400 emergency + $2,400 annual plan.",
+    cost: "$400-3,000 per emergency",
+    icon: "🐛"
+  },
+  {
+    title: "Seasonal Pest Rush Overwhelm",
+    description: "Spring arrives and everyone discovers ant infestations, spider problems, and termite swarms. Your phone rings 50+ times daily with urgent pest issues, but you're already booked for 3 weeks. Desperate customers can't wait and hire competitors with immediate availability.",
+    cost: "$200,000+ seasonal revenue",
+    icon: "🌸"
+  },
+  {
+    title: "One-Time vs. Recurring Plan Miss",
+    description: "Customers call for single roach treatments worth $200, but you never explain the value of quarterly pest prevention plans worth $800+ annually. That satisfied one-time customer continues having pest issues and eventually signs up with a competitor's maintenance program.",
+    cost: "$800-2,400 annual recurring revenue",
+    icon: "🔄"
+  },
+  {
+    title: "Commercial Account Opportunity Loss",
+    description: "Restaurant managers call about urgent pest control for health inspections, but you're on residential calls and can't give immediate attention. Commercial accounts need fast response and ongoing contracts worth $3,000-15,000 annually, but poor phone coverage loses these high-value opportunities.",
+    cost: "$3,000-15,000 annual contracts",
+    icon: "🏢"
+  },
+  {
+    title: "Emergency Response Time Competition",
+    description: "Customers with wasp nests, bee swarms, or dangerous spider infestations need immediate help. The first pest control company to respond gets the emergency job plus future maintenance contracts. Delayed responses mean customers choose faster competitors.",
+    cost: "$500-1,500 per emergency response",
+    icon: "⏰"
+  },
+  {
+    title: "Preventive Service Education Failure",
+    description: "After successful pest elimination, you never explain how regular treatments prevent future infestations. Customers think the problem is permanently solved, don't sign maintenance contracts, and call competitors when pests inevitably return months later.",
+    cost: "$1,200-4,800 prevention plans",
+    icon: "🛡️"
+  }
+];
+
+const benefits = [
+  {
+    title: "Emergency Pest Response System",
+    description: "AI handles urgent pest emergencies with immediate threat assessment, evaluates infestation severity, prioritizes dangerous situations like bee swarms or venomous spiders, and dispatches appropriate response teams based on pest type and urgency level.",
+    icon: "🚨"
+  },
+  {
+    title: "Recurring Plan Conversion Engine",
+    description: "AI educates customers about preventive pest control benefits, explains seasonal pest cycles, demonstrates cost savings of regular treatments, and converts 85% of one-time customers into profitable recurring maintenance contracts.",
+    icon: "💰"
+  },
+  {
+    title: "Seasonal Demand Management",
+    description: "AI manages peak pest seasons by prioritizing high-value emergencies, scheduling preventive treatments during off-peak hours, and maintaining optimal customer satisfaction during high-demand periods like spring and summer.",
+    icon: "📊"
+  },
+  {
+    title: "Commercial Account Development",
+    description: "AI identifies commercial pest control opportunities, schedules facility inspections, provides compliance documentation, and nurtures high-value business accounts with dedicated communication and regulatory requirement management.",
+    icon: "🏗️"
+  },
+  {
+    title: "Pest Type Specialization Routing",
+    description: "AI assesses pest problems and routes calls to appropriate specialists - termite experts, bee removal specialists, or general pest technicians. This ensures customers get the right expertise immediately while maximizing service efficiency.",
+    icon: "🎯"
+  },
+  {
+    title: "Follow-Up Treatment Optimization",
+    description: "AI schedules follow-up inspections, sends seasonal pest prevention reminders, monitors treatment effectiveness, and ensures ongoing customer satisfaction through proactive communication and service excellence.",
+    icon: "🔍"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Guardian Pest Solutions - Phoenix",
+    scenario: "Desert pest control company missing 45+ emergency calls monthly during Arizona's peak scorpion and spider season, losing an estimated $300,000 annually in emergency treatments and ongoing protection plans.",
+    solution: "AI Phone Agent deployed with Arizona-specific pest protocols, venomous species emergency response, seasonal pest prediction, and integration with Arizona State University pest research data for optimal treatment timing.",
+    result: "Captured 94% of emergency pest calls, increased recurring plan signups by 280%, and added $385,000 annual revenue through improved emergency response and preventive plan conversion. ROI of 2,400% during peak season."
+  },
+  {
+    title: "Metro Commercial Pest Control - Chicago",
+    scenario: "Commercial pest specialist struggling with restaurant and hotel compliance requirements, missing opportunities for high-value ongoing contracts due to complex scheduling and regulatory documentation needs.",
+    solution: "AI system with Chicago health department integration, commercial compliance protocols, automated inspection scheduling, and documentation management for restaurant and hospitality industry pest control requirements.",
+    result: "Secured 22 commercial accounts, added $185,000 annual recurring revenue, and became preferred vendor for 3 major restaurant chains through superior compliance management and responsiveness."
+  },
+  {
+    title: "Eco Pest Management - Seattle",
+    scenario: "Environmentally-friendly pest control missing opportunities to educate Pacific Northwest customers about organic treatment options and integrated pest management benefits for families with children and pets.",
+    solution: "Implemented AI with eco-friendly pest education, organic treatment explanations, child and pet safety protocols, and premium green pest control package promotion for environmentally conscious Seattle market.",
+    result: "Increased eco-friendly service revenue by 320%, expanded premium organic treatment sales by $125,000 annually, and achieved 97% customer retention through environmental education and family-safe solutions."
+  }
+];
+
+const testimonial = {
+  name: "David Kim",
+  title: "Owner, Advanced Pest Control",
+  quote: "Pest emergencies don't wait for convenient times. I was missing 30+ emergency calls monthly while treating other customers, losing both immediate revenue and long-term maintenance contracts. The AI Phone Agent now captures every emergency, educates customers about prevention plans, and converts 85% to ongoing service. My annual revenue increased by $275,000.",
+  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&auto=format",
+  revenue: "$275,000",
+  timeframe: "additional annual revenue"
+};
+
+const roiData = {
+  avgCallValue: 450, // Average pest control service value
+  missedCallsPerMonth: 30,
+  aiCost: 499,
+  breakEvenCalls: 2
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Pest Control | Never Miss a $3,000 Emergency Wasp Removal Again"
+  description="Stop losing $350,000+ annually from missed pest control calls! Our AI captures every emergency 24/7, converts one-time treatments to recurring plans, handles seasonal rushes, and focuses your time on eliminating pest problems."
+  keywords="AI phone agent for pest control, pest control call answering, automated pest booking, AI exterminator assistant, virtual receptionist pest control, automated pest emergency response, pest control AI scheduling"
+  industry="Pest Control"
+  heroTitle="Stop Missing $3,000 Emergency Pest Calls During Treatments"
+  heroSubtitle="The only AI phone agent built specifically for pest control professionals. Capture every emergency 24/7, convert one-time treatments to recurring plans, handle seasonal pest rushes, and focus on eliminating pest problems effectively."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

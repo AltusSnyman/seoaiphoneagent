@@ -1,0 +1,545 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Card from '../../components/Card.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+---
+
+<PageLayout 
+  title="AI Phone Agent Locations - Global Voice AI Services USA Australia New Zealand"
+  description="AI phone agent services available globally. Professional voice AI reception services in the United States, Australia, and New Zealand with local expertise and 24/7 coverage."
+>
+  <ServiceSchema
+    serviceType="general"
+    serviceName="AI Phone Agent Global Services"
+    description="Professional AI phone agent services available globally with local expertise in United States, Australia, and New Zealand. 24/7 voice AI reception services tailored for each market."
+    serviceUrl="/locations"
+    serviceCategory="ProfessionalService"
+    features={[
+      "Global 24/7 AI Reception",
+      "Local Market Expertise", 
+      "Regional Accent Support",
+      "Local Business Hour Optimization",
+      "Multi-language Support",
+      "Regulatory Compliance",
+      "Time Zone Optimization"
+    ]}
+    targetAudience="Global Business Owners"
+    availableHours="24/7 worldwide coverage"
+  />
+  
+  <PageHero
+    title="Global AI Phone Agent"
+    highlightText="Locations"
+    subtitle="Professional voice AI reception services tailored for businesses in the United States, Australia, and New Zealand"
+  />
+
+  <!-- Locations Overview Section -->
+  <section class="section-padding">
+    <div class="container">
+      <SectionHeading 
+        title="AI Phone Agents Serving Businesses Worldwide"
+        subtitle="Local expertise, global availability. Our AI phone agents understand regional business cultures and provide professional service tailored to your market."
+      />
+
+      <!-- Location Cards Grid -->
+      <div class="locations-grid">
+        <!-- United States -->
+        <Card className="location-card usa-card">
+          <div class="location-flag">🇺🇸</div>
+          <h3>United States</h3>
+          <p>Professional AI phone agents serving American businesses from coast to coast. Available 24/7 across all US time zones with authentic American accents and business culture understanding.</p>
+          
+          <div class="location-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Regional American accent options</li>
+              <li>HIPAA compliance ready</li>
+              <li>All US time zone support</li>
+              <li>State-specific regulations</li>
+              <li>Federal holiday calendar</li>
+            </ul>
+          </div>
+
+          <div class="location-cities">
+            <h4>Major Cities Served:</h4>
+            <div class="cities-list">
+              <span>New York</span>
+              <span>Los Angeles</span>
+              <span>Chicago</span>
+              <span>Houston</span>
+              <span>Phoenix</span>
+              <span>Philadelphia</span>
+              <span>San Antonio</span>
+              <span>San Diego</span>
+            </div>
+          </div>
+
+          <div class="location-contact">
+            <p><strong>Phone:</strong> +1 (903) 776-0587</p>
+            <p><strong>Email:</strong> usa@aiphoneagent.ai</p>
+          </div>
+
+          <a href="/locations/usa" class="btn btn-primary">View USA Details</a>
+        </Card>
+
+        <!-- Australia -->
+        <Card className="location-card australia-card">
+          <div class="location-flag">🇦🇺</div>
+          <h3>Australia</h3>
+          <p>AI phone agents designed for Australian businesses from Sydney to Perth. Authentic Australian accents, local business culture understanding, and 24/7 coverage across all Australian time zones.</p>
+          
+          <div class="location-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Authentic Australian accents</li>
+              <li>Fair Work Act compliant</li>
+              <li>GST/ABN integration ready</li>
+              <li>All Australian time zones</li>
+              <li>Australian holiday calendar</li>
+            </ul>
+          </div>
+
+          <div class="location-cities">
+            <h4>Major Cities Served:</h4>
+            <div class="cities-list">
+              <span>Sydney</span>
+              <span>Melbourne</span>
+              <span>Brisbane</span>
+              <span>Perth</span>
+              <span>Adelaide</span>
+              <span>Gold Coast</span>
+              <span>Newcastle</span>
+              <span>Canberra</span>
+            </div>
+          </div>
+
+          <div class="location-contact">
+            <p><strong>Phone:</strong> +61 3 4160 2423</p>
+            <p><strong>Email:</strong> australia@aiphoneagent.ai</p>
+          </div>
+
+          <a href="/locations/australia" class="btn btn-primary">View Australia Details</a>
+        </Card>
+
+        <!-- New Zealand -->
+        <Card className="location-card nz-card">
+          <div class="location-flag">🇳🇿</div>
+          <h3>New Zealand</h3>
+          <p>Specialized AI phone agents for Kiwi businesses from Auckland to Christchurch. Understanding of New Zealand business culture, local terminology, and seasonal business patterns.</p>
+          
+          <div class="location-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>New Zealand accent voice AI</li>
+              <li>NZDT/NZST optimization</li>
+              <li>GST compliance ready</li>
+              <li>Te Reo Māori awareness</li>
+              <li>NZ holiday integration</li>
+            </ul>
+          </div>
+
+          <div class="location-cities">
+            <h4>Major Cities Served:</h4>
+            <div class="cities-list">
+              <span>Auckland</span>
+              <span>Wellington</span>
+              <span>Christchurch</span>
+              <span>Hamilton</span>
+              <span>Tauranga</span>
+              <span>Dunedin</span>
+              <span>Palmerston North</span>
+              <span>Nelson</span>
+            </div>
+          </div>
+
+          <div class="location-contact">
+            <p><strong>Phone:</strong> +61 3 4160 2423</p>
+            <p><strong>Email:</strong> nz.solutions@aiphoneagent.ai</p>
+          </div>
+
+          <a href="/locations/new-zealand" class="btn btn-primary">View New Zealand Details</a>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Features Section -->
+  <section class="section-padding features-section">
+    <div class="container">
+      <SectionHeading 
+        title="Why Choose Our Global AI Phone Agent Services"
+        subtitle="Local expertise with global reliability. Our AI phone agents combine regional knowledge with world-class technology."
+      />
+
+      <div class="features-grid">
+        <Card className="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Local Market Expertise</h3>
+          <p>Each region's AI agents are trained with local business culture, terminology, regulations, and customer service expectations for authentic interactions.</p>
+        </Card>
+
+        <Card className="feature-card">
+          <div class="feature-icon">🕐</div>
+          <h3>24/7 Global Coverage</h3>
+          <p>Round-the-clock availability across all time zones with intelligent routing and regional business hour awareness for optimal customer service.</p>
+        </Card>
+
+        <Card className="feature-card">
+          <div class="feature-icon">🗣️</div>
+          <h3>Authentic Regional Accents</h3>
+          <p>Natural-sounding voice AI with authentic accents for each region - American, Australian, and New Zealand English variations available.</p>
+        </Card>
+
+        <Card className="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Regulatory Compliance</h3>
+          <p>Full compliance with local regulations including HIPAA (US), Privacy Acts (AU/NZ), and industry-specific requirements for each market.</p>
+        </Card>
+
+        <Card className="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Multi-Language Support</h3>
+          <p>Support for major languages in each region including Spanish (US), Mandarin/Italian (AU), and Te Reo Māori (NZ) for diverse customer bases.</p>
+        </Card>
+
+        <Card className="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>High-Performance Technology</h3>
+          <p>Advanced AI technology with low latency, high availability, and seamless integration capabilities for professional business operations.</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section class="section-padding industries-section">
+    <div class="container">
+      <SectionHeading 
+        title="Industries We Serve Globally"
+        subtitle="Specialized AI phone agent solutions tailored for major industries across all our markets."
+      />
+
+      <div class="industries-grid">
+        <div class="industry-column">
+          <h3>Healthcare & Medical</h3>
+          <ul>
+            <li>Medical practices and clinics</li>
+            <li>Hospitals and healthcare systems</li>
+            <li>Specialist medical services</li>
+            <li>Mental health providers</li>
+            <li>Dental and orthodontic practices</li>
+          </ul>
+        </div>
+
+        <div class="industry-column">
+          <h3>Professional Services</h3>
+          <ul>
+            <li>Legal offices and law firms</li>
+            <li>Accounting and financial services</li>
+            <li>Consulting and advisory services</li>
+            <li>Real estate agencies</li>
+            <li>Insurance companies</li>
+          </ul>
+        </div>
+
+        <div class="industry-column">
+          <h3>Technology & Innovation</h3>
+          <ul>
+            <li>Software companies</li>
+            <li>IT services and support</li>
+            <li>Telecommunications</li>
+            <li>Digital agencies</li>
+            <li>Startups and scale-ups</li>
+          </ul>
+        </div>
+
+        <div class="industry-column">
+          <h3>Trade & Services</h3>
+          <ul>
+            <li>Manufacturing and industrial</li>
+            <li>Construction and contractors</li>
+            <li>Retail and e-commerce</li>
+            <li>Hospitality and tourism</li>
+            <li>Education and training</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Business Communications?</h2>
+        <p>Choose your location to discover how AI phone agents can revolutionize your customer service and boost your business efficiency.</p>
+        
+        <div class="cta-buttons">
+          <a href="/locations/usa" class="btn btn-primary">🇺🇸 USA Services</a>
+          <a href="/locations/australia" class="btn btn-primary">🇦🇺 Australia Services</a>
+          <a href="/locations/new-zealand" class="btn btn-primary">🇳🇿 New Zealand Services</a>
+        </div>
+
+        <div class="global-contact">
+          <p><strong>Or contact us directly:</strong></p>
+          <p>📞 US: +1 (903) 776-0587 | AU/NZ: +61 3 4160 2423</p>
+          <p>✉️ Global: hello@aiphoneagent.ai</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .location-card {
+    background: rgba(19, 23, 34, 0.8);
+    border: 1px solid rgba(0, 163, 255, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 163, 255, 0.2);
+    border-color: var(--color-neon-blue);
+  }
+
+  .location-flag {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .location-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .location-card p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .location-features, .location-cities, .location-contact {
+    text-align: left;
+    margin: 1.5rem 0;
+  }
+
+  .location-features h4, .location-cities h4 {
+    font-family: var(--font-heading);
+    color: var(--color-neon-blue);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .location-features li {
+    padding: 0.25rem 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .location-features li::before {
+    content: "✓ ";
+    color: var(--color-neon-cyan);
+    font-weight: bold;
+  }
+
+  .cities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cities-list span {
+    background: rgba(0, 163, 255, 0.1);
+    color: var(--color-neon-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+  }
+
+  .location-contact {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .features-section {
+    background: rgba(10, 14, 23, 0.5);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: rgba(6, 10, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 163, 255, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 163, 255, 0.15);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .industry-column h3 {
+    font-family: var(--font-heading);
+    color: var(--color-neon-blue);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .industry-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .industry-column li {
+    padding: 0.5rem 0;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+  }
+
+  .industry-column li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(0, 229, 255, 0.05));
+    border-top: 1px solid rgba(0, 163, 255, 0.2);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .cta-content p {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .global-contact {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .industries-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

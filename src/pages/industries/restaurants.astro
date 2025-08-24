@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your restaurant captures every reservation and takeout order, maintains 98% table booking efficiency, eliminates no-shows, and adds $250,000+ annual revenue - all while you focus on creating exceptional dining experiences."
+
+const dreamOutcomeTitle = "What Your Restaurant Deserves"
+
+const painPoints = [
+  {
+    title: "Peak Hour Reservation Chaos",
+    description: "It's Friday at 7 PM, your restaurant is packed, and the phone rings constantly with reservation requests for tonight and weekend bookings. Your staff is serving customers, can't answer phones properly, and you lose 30+ reservations to restaurants with dedicated phone coverage.",
+    cost: "$50-200 per lost reservation",
+    icon: "📞"
+  },
+  {
+    title: "Takeout Order Phone Tag Hell",
+    description: "Customers call wanting takeout orders during dinner rush, but your kitchen staff and servers are overwhelmed with dine-in service. Orders go to voicemail, customers get frustrated waiting for callbacks, and they order from competitors with immediate phone response.",
+    cost: "$25-100 per lost order",
+    icon: "🥡"
+  },
+  {
+    title: "Large Party Booking Coordination",
+    description: "Someone calls about hosting a 50-person corporate dinner or wedding reception worth $3,000+. You're managing dinner service, can't give proper attention to explain private dining options, and that high-value event books with competitors who responded professionally.",
+    cost: "$2,000-15,000 per event",
+    icon: "🎉"
+  },
+  {
+    title: "Menu Information and Dietary Requests",
+    description: "Customers call asking about gluten-free options, allergen information, or tonight's specials. Your busy staff gives incomplete information, customers feel uncertain about dining choices, and choose restaurants that provide detailed menu guidance.",
+    cost: "$40-150 per lost customer",
+    icon: "📋"
+  },
+  {
+    title: "Reservation No-Show Revenue Loss",
+    description: "25% of reservations result in no-shows because customers forgot, didn't receive confirmations, or couldn't easily modify bookings. Each empty table during peak hours represents lost revenue that can never be recovered.",
+    cost: "$100-400 per no-show table",
+    icon: "👻"
+  },
+  {
+    title: "Delivery Coordination and Third-Party Apps",
+    description: "You manage multiple delivery platforms (DoorDash, Uber Eats, Grubhub) plus direct phone orders. Manual coordination leads to order confusion, delivery delays, and negative reviews that hurt your restaurant's online reputation.",
+    cost: "$30-120 per delivery issue",
+    icon: "🚗"
+  }
+];
+
+const benefits = [
+  {
+    title: "Intelligent Reservation Management",
+    description: "AI handles reservation requests with real-time table availability, optimizes seating arrangements based on party size and dining preferences, and manages waitlists efficiently during peak dining hours for maximum revenue generation.",
+    icon: "🍽️"
+  },
+  {
+    title: "Takeout Order Optimization",
+    description: "AI processes takeout orders with accurate timing estimates, coordinates with kitchen capacity, manages order modifications, and provides customers with realistic pickup times based on current order volume and preparation complexity.",
+    icon: "⏰"
+  },
+  {
+    title: "Event and Private Dining Sales",
+    description: "AI identifies large party opportunities, explains private dining options, coordinates event planning details, and schedules venue tours to convert high-value catering and event bookings that significantly boost monthly revenue.",
+    icon: "🎊"
+  },
+  {
+    title: "Menu Information Excellence",
+    description: "AI provides comprehensive menu information including allergen details, dietary accommodations, daily specials, wine pairings, and preparation methods, ensuring customers feel confident about their dining choices and experience.",
+    icon: "📖"
+  },
+  {
+    title: "No-Show Prevention System",
+    description: "AI sends reservation confirmations and reminders via SMS and voice calls, offers easy modification options, manages waitlists for popular time slots, and reduces no-shows by 75% through proactive customer communication.",
+    icon: "✅"
+  },
+  {
+    title: "Multi-Platform Order Coordination",
+    description: "AI integrates with all delivery platforms and manages direct orders through a unified system, preventing order conflicts, optimizing kitchen workflow, and ensuring consistent customer experience across all ordering channels.",
+    icon: "🌐"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Bella Vista Italian - San Francisco",
+    scenario: "Upscale Italian restaurant missing 50+ reservations weekly during peak dinner hours, losing an estimated $180,000 annually in lost dining revenue to competitors with dedicated reservation management systems.",
+    solution: "AI Phone Agent deployed with San Francisco dining protocols, premium restaurant reservation management, wine pairing suggestions, and integration with OpenTable for seamless reservation coordination and customer experience.",
+    result: "Captured 92% of reservation requests, increased average table revenue by 35%, and added $240,000 annual dining revenue through optimized seating efficiency and enhanced customer service. ROI of 2,100% in first year."
+  },
+  {
+    title: "Metro Fusion Kitchen - Chicago",
+    scenario: "Fast-casual restaurant struggling with high-volume takeout orders and delivery coordination across multiple platforms, leading to order errors, customer complaints, and negative online reviews.",
+    solution: "AI system with Chicago delivery zone integration, multi-platform order management, kitchen capacity optimization, and customer communication for order tracking and estimated delivery times.",
+    result: "Reduced order errors by 80%, improved delivery customer satisfaction to 94%, and increased takeout revenue by $125,000 annually through superior order management and customer experience."
+  },
+  {
+    title: "Coastal Seafood Grill - Miami",
+    scenario: "Waterfront restaurant missing opportunities for large party events, corporate dinners, and wedding receptions due to inadequate event coordination and private dining sales management.",
+    solution: "Implemented AI with Miami event planning integration, private dining package presentation, corporate catering coordination, and special event management for oceanfront dining experiences.",
+    result: "Secured 35 private events annually, added $185,000 event revenue, and became Miami's preferred waterfront venue for corporate entertainment through superior event planning coordination and customer service."
+  }
+];
+
+const testimonial = {
+  name: "Marco Giuseppe",
+  title: "Owner, Giuseppe's Authentic Pizzeria",
+  quote: "Running a busy pizzeria means constant phone calls for reservations, takeout orders, and delivery during dinner rush. My staff couldn't keep up with phones while serving customers. The AI Phone Agent now handles everything - reservations, orders, menu questions, and special requests. My revenue increased by $145,000 this year from capturing every call.",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format",
+  revenue: "$145,000",
+  timeframe: "additional revenue this year"
+};
+
+const roiData = {
+  avgCallValue: 65, // Average restaurant order/reservation value
+  missedCallsPerMonth: 120,
+  aiCost: 499,
+  breakEvenCalls: 8
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Restaurants | Never Miss a $3,000 Private Event Booking Again"
+  description="Stop losing $250,000+ annually from missed restaurant calls! Our AI captures every reservation and takeout order 24/7, eliminates no-shows, coordinates events, manages delivery platforms, and keeps your tables full."
+  keywords="AI phone agent for restaurants, restaurant reservation system, automated takeout orders, AI restaurant assistant, virtual restaurant receptionist, automated restaurant booking, restaurant call management"
+  industry="Restaurant"
+  heroTitle="Stop Missing $3,000 Event Bookings During Dinner Rush"
+  heroSubtitle="The only AI phone agent built specifically for restaurants. Capture every reservation and takeout order 24/7, eliminate no-shows, coordinate private events, manage delivery platforms, and focus on creating exceptional dining experiences."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

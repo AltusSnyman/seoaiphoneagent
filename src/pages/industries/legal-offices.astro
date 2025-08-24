@@ -1,0 +1,132 @@
+---
+import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+
+const dreamOutcome = "Your law practice captures every consultation request, converts 85% of initial calls into retained clients, and adds $600,000+ annual revenue - all while you focus on practicing law, not managing phone calls."
+
+const dreamOutcomeTitle = "What Your Law Practice Deserves"
+
+const painPoints = [
+  {
+    title: "Urgent Legal Consultation Calls",
+    description: "You're in court when your phone rings - someone needs immediate legal consultation for a business dispute worth $500,000. Court proceedings can't be interrupted, the call goes to voicemail, and that high-value client hires another attorney who answered immediately.",
+    cost: "$25,000-150,000 retainer fees",
+    icon: "⚖️"
+  },
+  {
+    title: "After-Hours Legal Emergency Calls",
+    description: "It's 8 PM and someone was just arrested, served with papers, or facing an immediate legal deadline. They need urgent legal advice, but your office is closed. The attorney who answers gets a new client plus their family's future legal needs.",
+    cost: "$10,000-75,000 per case",
+    icon: "🌙"
+  },
+  {
+    title: "Consultation Scheduling Coordination",
+    description: "Potential clients call wanting to schedule consultations for personal injury, divorce, or business matters. You're in meetings all day, promise to call back with availability, but 50% of consultation callbacks never happen due to busy case schedules.",
+    cost: "$15,000-100,000 per missed client",
+    icon: "📅"
+  },
+  {
+    title: "Practice Area Specialization Communication",
+    description: "Clients call about divorce but you specialize in personal injury, or they need business law but you focus on criminal defense. Without proper screening, you waste time with incompatible cases while missing qualified prospects in your specialty areas.",
+    cost: "$5,000-50,000 opportunity cost",
+    icon: "🎯"
+  },
+  {
+    title: "Referral Network Coordination Failure",
+    description: "You receive calls outside your practice area but never properly refer clients to qualified attorneys in your network. Those potential referral relationships could generate reciprocal business worth hundreds of thousands annually.",
+    cost: "$100,000+ referral network value",
+    icon: "🤝"
+  },
+  {
+    title: "Retainer Collection and Intake Process",
+    description: "New clients are ready to retain your services but the intake process is slow, retainer collection is manual, and case setup takes days. Clients get frustrated with delays and sometimes choose more efficient law practices.",
+    cost: "$20,000-80,000 per lost retainer",
+    icon: "💼"
+  }
+];
+
+const benefits = [
+  {
+    title: "Legal Consultation Scheduling",
+    description: "AI schedules consultations based on practice area specialization, case complexity, and attorney availability. It qualifies potential clients, collects case details, and ensures consultations are productive and well-prepared meetings.",
+    icon: "📋"
+  },
+  {
+    title: "Practice Area Qualification",
+    description: "AI identifies client legal needs and matches them with appropriate practice areas, ensuring you only consult on cases within your expertise while properly referring incompatible matters to qualified network attorneys.",
+    icon: "🔍"
+  },
+  {
+    title: "Emergency Legal Response",
+    description: "AI handles urgent legal matters with immediate assessment, evaluates case urgency and complexity, and connects clients with appropriate legal resources based on the time-sensitive nature of their legal issues.",
+    icon: "🚨"
+  },
+  {
+    title: "Client Intake Automation",
+    description: "AI streamlines client onboarding by collecting case information, explaining legal processes, gathering required documentation, and preparing comprehensive intake packets before consultation appointments.",
+    icon: "📄"
+  },
+  {
+    title: "Referral Network Optimization",
+    description: "AI manages referral relationships by identifying cases outside your practice area, connecting clients with appropriate specialists, and tracking referral reciprocity to maximize your professional network value.",
+    icon: "🌐"
+  },
+  {
+    title: "Retainer and Fee Communication",
+    description: "AI explains legal fee structures, discusses payment options, collects retainer information, and ensures clients understand billing practices before engaging legal services, reducing payment disputes and collection issues.",
+    icon: "💰"
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Metro Personal Injury Law - Atlanta",
+    scenario: "Personal injury firm missing 30+ consultation requests monthly due to court schedules and case preparation time, losing an estimated $450,000 annually in retainer fees to competitors with better client intake systems.",
+    solution: "AI Phone Agent deployed with Georgia personal injury protocols, case value assessment, consultation scheduling optimization, and integration with case management software for streamlined client acquisition.",
+    result: "Captured 88% of consultation requests, increased retainer conversion rate by 65%, and added $580,000 annual revenue through improved client intake and consultation efficiency. ROI of 3,800% in first year."
+  },
+  {
+    title: "Business Law Associates - Chicago",
+    scenario: "Corporate law practice struggling with complex business legal inquiries, missing opportunities for high-value commercial litigation and business transaction work due to inadequate initial client screening.",
+    solution: "AI system with Illinois business law protocols, corporate client qualification, commercial case assessment, and automated business legal consultation scheduling with C-suite executive availability coordination.",
+    result: "Secured 12 major corporate clients, added $1.2M annual business revenue, and established preferred counsel relationships with 8 Chicago corporations through superior business client service."
+  },
+  {
+    title: "Family Law Center - Phoenix",
+    scenario: "Divorce and family law practice missing opportunities to educate Arizona clients about family law processes, mediation options, and collaborative divorce benefits, limiting practice growth potential.",
+    solution: "Implemented AI with Arizona family court integration, divorce process education, mediation option explanation, and sensitive family law client communication protocols for emotional legal situations.",
+    result: "Increased family law case retention by 180%, expanded mediation services revenue by $225,000 annually, and achieved 92% client satisfaction through compassionate and efficient family law services."
+  }
+];
+
+const testimonial = {
+  name: "Sarah Thompson",
+  title: "Partner, Thompson & Associates Law",
+  quote: "Being in court means missing potential client calls constantly. I was losing 20+ consultation requests monthly to competitors who answered immediately. The AI Phone Agent now captures every inquiry, qualifies cases properly, and schedules consultations efficiently. My practice revenue increased by $485,000 this year from better client acquisition.",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&auto=format",
+  revenue: "$485,000",
+  timeframe: "additional practice revenue this year"
+};
+
+const roiData = {
+  avgCallValue: 15000, // Average legal case value
+  missedCallsPerMonth: 20,
+  aiCost: 499,
+  breakEvenCalls: 1
+};
+---
+
+<EnhancedIndustryLayout
+  title="AI Phone Agent for Law Firms | Never Miss a $150K Client Call in Court Again"
+  description="Stop losing $600,000+ annually from missed legal calls! Our AI captures every consultation request 24/7, qualifies cases properly, schedules efficiently, manages referrals, and focuses your time on practicing law."
+  keywords="AI phone agent for law firms, legal consultation scheduling, AI lawyer assistant, virtual receptionist legal offices, automated legal intake, law firm call management, legal consultation booking"
+  industry="Legal Services"
+  heroTitle="Stop Missing $150,000 Client Calls While in Court"
+  heroSubtitle="The only AI phone agent built specifically for law practices. Capture every consultation request 24/7, qualify cases properly, schedule efficiently, manage referral networks, and focus on what you do best - practicing law."
+  dreamOutcome={dreamOutcome}
+  dreamOutcomeTitle={dreamOutcomeTitle}
+  painPoints={painPoints}
+  benefits={benefits}
+  caseStudies={caseStudies}
+  testimonial={testimonial}
+  roiData={roiData}
+/>

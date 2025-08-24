@@ -1,0 +1,465 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	publishDate: string;
+	author: string;
+	category: string;
+	tags: string[];
+	readTime: string;
+	keywords: string;
+}
+
+const { title, description, publishDate, author, category, tags, readTime, keywords } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="article:published_time" content={publishDate} />
+		<meta property="article:author" content={author} />
+		<meta property="article:section" content={category} />
+		{tags.map(tag => <meta property="article:tag" content={tag} />)}
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Schema.org Article Markup -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Article",
+			"headline": title,
+			"description": description,
+			"author": {
+				"@type": "Person",
+				"name": author
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "AI Phone Agent",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://aiphoneagent.ai/logo.svg"
+				}
+			},
+			"datePublished": publishDate,
+			"dateModified": publishDate,
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": Astro.url.toString()
+			},
+			"keywords": tags,
+			"articleSection": category
+		})} />
+		
+		<title>{title}</title>
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+		
+		<!-- Global Styles -->
+		<style>
+			:root {
+				--color-dark-400: #060A12;
+				--color-dark-300: #0A0E17;
+				--color-dark-200: #131722;
+				--color-neon-blue: #00A3FF;
+				--color-neon-cyan: #00E5FF;
+				--color-text: #F5F5F5;
+				--color-text-muted: #94A3B8;
+				--font-body: 'Inter', sans-serif;
+				--font-heading: 'Montserrat', sans-serif;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			body {
+				font-family: var(--font-body);
+				background: var(--color-dark-400);
+				color: var(--color-text);
+				line-height: 1.6;
+				overflow-x: hidden;
+			}
+			
+			.container {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+			
+			@media (max-width: 768px) {
+				.container {
+					padding: 0 1rem;
+				}
+			}
+		</style>
+	</head>
+	
+	<body>
+		<!-- Header Navigation -->
+		<header class="blog-header">
+			<nav class="container nav">
+				<a href="/" class="logo">
+					<img src="/logo.png" alt="AI Phone Agent" class="logo-image" />
+					<span class="logo-text">AI Phone Agent</span>
+				</a>
+				<div class="nav-links">
+					<a href="/blog" class="nav-link">← Back to Blog</a>
+					<a href="/contact" class="btn btn-primary">Get Started</a>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Article Content -->
+		<main class="article-main">
+			<article class="container article">
+				<!-- Article Header -->
+				<header class="article-header">
+					<div class="article-meta">
+						<span class="category">{category}</span>
+						<time datetime={publishDate} class="publish-date">
+							{new Date(publishDate).toLocaleDateString('en-US', { 
+								year: 'numeric', 
+								month: 'long', 
+								day: 'numeric' 
+							})}
+						</time>
+						<span class="read-time">{readTime}</span>
+					</div>
+					
+					<h1 class="article-title">{title}</h1>
+					<p class="article-description">{description}</p>
+					
+					<div class="article-tags">
+						{tags.map(tag => <span class="tag">{tag}</span>)}
+					</div>
+				</header>
+
+				<!-- Article Body -->
+				<div class="article-content">
+					<slot />
+				</div>
+
+				<!-- Article Footer -->
+				<footer class="article-footer">
+					<div class="author-info">
+						<div class="author-details">
+							<h3>Written by {author}</h3>
+							<p>AI Phone Agent expertise and industry insights</p>
+						</div>
+					</div>
+					
+					<div class="cta-section">
+						<h3>Ready to Transform Your Business Communication?</h3>
+						<p>Discover how AI phone agents can revolutionize your customer service and boost your revenue.</p>
+						<div class="cta-buttons">
+							<a href="/booking" class="btn btn-primary">Book Free Strategy Call</a>
+							<a href="/contact" class="btn btn-secondary">Contact Us</a>
+						</div>
+					</div>
+				</footer>
+			</article>
+		</main>
+
+		<style>
+			.blog-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(6, 10, 18, 0.95);
+				backdrop-filter: blur(12px);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				z-index: 1000;
+				padding: 1rem 0;
+			}
+
+			.nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				font-size: 1.5rem;
+				font-weight: 700;
+				font-family: var(--font-heading);
+				color: var(--color-neon-blue);
+				text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+				text-decoration: none;
+			}
+
+			.logo-image {
+				height: 40px;
+				width: auto;
+				filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.3));
+				transition: all 0.3s ease;
+			}
+
+			.logo:hover .logo-image {
+				filter: drop-shadow(0 0 12px rgba(0, 163, 255, 0.6));
+				transform: scale(1.05);
+			}
+
+			.nav-links {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+			}
+
+			.nav-link {
+				color: var(--color-text);
+				text-decoration: none;
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+
+			.nav-link:hover {
+				color: var(--color-neon-blue);
+			}
+
+			.btn {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				border-radius: 8px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				border: none;
+				cursor: pointer;
+			}
+
+			.btn-primary {
+				background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+				color: white;
+				box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+			}
+
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(0, 163, 255, 0.4);
+			}
+
+			.btn-secondary {
+				background: transparent;
+				color: var(--color-text);
+				border: 2px solid var(--color-neon-blue);
+			}
+
+			.btn-secondary:hover {
+				background: var(--color-neon-blue);
+				color: white;
+			}
+
+			.article-main {
+				padding-top: 6rem;
+				min-height: 100vh;
+			}
+
+			.article {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.article-header {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.article-meta {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+				font-size: 0.9rem;
+				color: var(--color-text-muted);
+			}
+
+			.category {
+				background: var(--color-neon-blue);
+				color: white;
+				padding: 0.25rem 0.75rem;
+				border-radius: 15px;
+				font-size: 0.8rem;
+				font-weight: 600;
+			}
+
+			.article-title {
+				font-family: var(--font-heading);
+				font-size: 2.5rem;
+				font-weight: 700;
+				line-height: 1.2;
+				margin-bottom: 1rem;
+				color: var(--color-text);
+			}
+
+			.article-description {
+				font-size: 1.2rem;
+				color: var(--color-text-muted);
+				margin-bottom: 1.5rem;
+			}
+
+			.article-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			.tag {
+				background: rgba(0, 163, 255, 0.1);
+				color: var(--color-neon-blue);
+				padding: 0.25rem 0.75rem;
+				border-radius: 15px;
+				font-size: 0.8rem;
+				border: 1px solid rgba(0, 163, 255, 0.3);
+			}
+
+			.article-content {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 3rem;
+			}
+
+			.article-content h2 {
+				font-family: var(--font-heading);
+				font-size: 1.8rem;
+				font-weight: 600;
+				margin: 2.5rem 0 1rem 0;
+				color: var(--color-text);
+			}
+
+			.article-content h3 {
+				font-family: var(--font-heading);
+				font-size: 1.4rem;
+				font-weight: 600;
+				margin: 2rem 0 0.75rem 0;
+				color: var(--color-text);
+			}
+
+			.article-content p {
+				margin-bottom: 1.5rem;
+			}
+
+			.article-content ul, .article-content ol {
+				margin: 1.5rem 0;
+				padding-left: 2rem;
+			}
+
+			.article-content li {
+				margin-bottom: 0.5rem;
+			}
+
+			.article-content strong {
+				color: var(--color-neon-blue);
+			}
+
+			.article-content blockquote {
+				border-left: 3px solid var(--color-neon-blue);
+				padding-left: 1.5rem;
+				margin: 2rem 0;
+				font-style: italic;
+				background: rgba(0, 163, 255, 0.05);
+				padding: 1.5rem;
+				border-radius: 8px;
+			}
+
+			.article-footer {
+				margin-top: 3rem;
+				padding-top: 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.author-info {
+				margin-bottom: 2rem;
+			}
+
+			.author-details h3 {
+				font-family: var(--font-heading);
+				color: var(--color-text);
+				margin-bottom: 0.5rem;
+			}
+
+			.author-details p {
+				color: var(--color-text-muted);
+			}
+
+			.cta-section {
+				background: rgba(0, 163, 255, 0.05);
+				border: 1px solid rgba(0, 163, 255, 0.2);
+				border-radius: 12px;
+				padding: 2rem;
+				text-align: center;
+			}
+
+			.cta-section h3 {
+				font-family: var(--font-heading);
+				margin-bottom: 1rem;
+				color: var(--color-text);
+			}
+
+			.cta-section p {
+				color: var(--color-text-muted);
+				margin-bottom: 1.5rem;
+			}
+
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+			}
+
+			@media (max-width: 768px) {
+				.nav-links {
+					gap: 1rem;
+				}
+
+				.article-title {
+					font-size: 2rem;
+				}
+
+				.article-description {
+					font-size: 1.1rem;
+				}
+
+				.article-meta {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 0.5rem;
+				}
+
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,562 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+	industry: string;
+	heroTitle: string;
+	heroSubtitle: string;
+	painPoints: Array<{
+		title: string;
+		description: string;
+		icon: string;
+	}>;
+	benefits: Array<{
+		title: string;
+		description: string;
+		icon: string;
+	}>;
+	testimonial?: {
+		name: string;
+		title: string;
+		quote: string;
+		image: string;
+	};
+}
+
+const { 
+	title, 
+	description, 
+	keywords,
+	industry,
+	heroTitle,
+	heroSubtitle,
+	painPoints,
+	benefits,
+	testimonial
+} = Astro.props;
+
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ChatbotWidget from '../components/ChatbotWidget.astro';
+---
+
+<Layout 
+	title={title}
+	description={description}
+	keywords={keywords}
+>
+	<Header />
+	
+	<main class="industry-main">
+		<!-- Hero Section -->
+		<section class="industry-hero section-padding">
+			<div class="circuit-bg"></div>
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			
+			<div class="container hero-content">
+				<div class="hero-text animate-fade-in">
+					<h1 class="hero-title">
+						{heroTitle}
+					</h1>
+					<p class="hero-subtitle">
+						{heroSubtitle}
+					</p>
+					<div class="hero-buttons">
+						<a href="/booking" class="btn btn-primary">Book Free Consultation</a>
+						<a href="tel:+18773207259" class="btn btn-secondary">Call Now: +1 877-320-7259</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Pain Points Section -->
+		<section class="pain-points-section section-padding">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">Common Challenges for {industry} Businesses</h2>
+					<p class="section-subtitle">
+						These problems are costing you customers and revenue every day
+					</p>
+				</div>
+				<div class="pain-points-grid">
+					{painPoints.map((point, index) => (
+						<div class="pain-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+							<div class="pain-icon">
+								<span>{point.icon}</span>
+							</div>
+							<h3 class="pain-title">{point.title}</h3>
+							<p class="pain-description">{point.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+		
+		<!-- Benefits Section -->
+		<section class="benefits-section section-padding">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">How AI Phone Agent Solves These Problems</h2>
+					<p class="section-subtitle">
+						Transform your {industry.toLowerCase()} practice with intelligent phone automation
+					</p>
+				</div>
+				<div class="benefits-grid">
+					{benefits.map((benefit, index) => (
+						<div class="benefit-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+							<div class="benefit-icon neon-border">
+								<span>{benefit.icon}</span>
+							</div>
+							<h3 class="benefit-title">{benefit.title}</h3>
+							<p class="benefit-description">{benefit.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+		
+		<!-- Testimonial Section (if provided) -->
+		{testimonial && (
+			<section class="testimonial-section section-padding">
+				<div class="container">
+					<div class="testimonial-card glass-card animate-fade-in">
+						<div class="testimonial-header">
+							<img 
+								src={testimonial.image} 
+								alt={testimonial.name}
+								class="testimonial-image"
+								loading="lazy"
+							/>
+							<div class="testimonial-info">
+								<h3 class="testimonial-name">{testimonial.name}</h3>
+								<p class="testimonial-title">{testimonial.title}</p>
+							</div>
+						</div>
+						<div class="testimonial-rating">
+							<span class="star">⭐</span>
+							<span class="star">⭐</span>
+							<span class="star">⭐</span>
+							<span class="star">⭐</span>
+							<span class="star">⭐</span>
+						</div>
+						<p class="testimonial-quote">"{testimonial.quote}"</p>
+					</div>
+				</div>
+			</section>
+		)}
+		
+		<!-- ROI Section -->
+		<section class="roi-section section-padding">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">Stop Losing Revenue. Start Saving Today.</h2>
+					<p class="section-subtitle">
+						See how much your {industry.toLowerCase()} practice could save and earn
+					</p>
+				</div>
+				<div class="roi-cards">
+					<div class="roi-card glass-card">
+						<h3 class="roi-card-title">MISSED CALLS COST</h3>
+						<div class="roi-value red">$150+ per call</div>
+						<p class="roi-description">Average lost revenue from each missed {industry.toLowerCase()} appointment</p>
+					</div>
+					<div class="roi-card glass-card">
+						<h3 class="roi-card-title">AI AGENT COST</h3>
+						<div class="roi-value blue">$499/month</div>
+						<p class="roi-description">Fixed monthly fee for unlimited call handling and booking</p>
+					</div>
+					<div class="roi-card glass-card">
+						<h3 class="roi-card-title">BREAK-EVEN POINT</h3>
+						<div class="roi-value green">3-4 calls/month</div>
+						<p class="roi-description">Just capture 3-4 missed calls monthly to see positive ROI</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Final CTA -->
+		<section class="final-cta-section">
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="circuit-bg"></div>
+			<div class="container">
+				<div class="cta-content animate-fade-in">
+					<h2 class="cta-title">Ready to Transform Your {industry} Practice?</h2>
+					<p class="cta-subtitle">
+						Never miss another {industry.toLowerCase()} appointment. Start capturing every lead with our AI phone agent.
+					</p>
+					<div class="cta-buttons">
+						<a href="/booking" class="btn btn-primary cta-button">
+							Book Your Free Strategy Call
+						</a>
+						<a href="tel:+18773207259" class="btn btn-secondary cta-button">
+							Call Now: +1 877-320-7259
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+	<ChatbotWidget />
+</Layout>
+
+<style>
+	.industry-main {
+		overflow-x: hidden;
+	}
+
+	/* Hero Section */
+	.industry-hero {
+		min-height: 80vh;
+		display: flex;
+		align-items: center;
+		position: relative;
+		background: 
+			radial-gradient(circle at 25% 40%, rgba(0, 163, 255, 0.12) 0%, transparent 50%),
+			radial-gradient(circle at 75% 60%, rgba(0, 229, 255, 0.08) 0%, transparent 50%);
+	}
+
+	.blob-1 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-blue);
+		top: -200px;
+		right: -100px;
+	}
+
+	.blob-2 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-cyan);
+		bottom: -150px;
+		left: -100px;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+	}
+
+	.hero-text {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		line-height: 1.2;
+		margin-bottom: 1.5rem;
+		font-weight: 800;
+		color: var(--color-text);
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		line-height: 1.7;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* Sections */
+	.pain-points-section {
+		background: var(--color-dark-300);
+	}
+
+	.benefits-section {
+		background: var(--color-dark-400);
+	}
+
+	.testimonial-section {
+		background: var(--color-dark-300);
+	}
+
+	.roi-section {
+		background: var(--color-dark-400);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.section-subtitle {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	/* Pain Points Grid */
+	.pain-points-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.pain-card {
+		padding: 2rem;
+		text-align: center;
+		border-radius: 1rem;
+	}
+
+	.pain-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.pain-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.pain-description {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* Benefits Grid */
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.benefit-card {
+		padding: 2rem;
+		text-align: center;
+		border-radius: 1rem;
+	}
+
+	.benefit-icon {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 1.5rem;
+		font-size: 2rem;
+		background: rgba(0, 163, 255, 0.1);
+	}
+
+	.benefit-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.benefit-description {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* Testimonial */
+	.testimonial-card {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 3rem;
+		text-align: center;
+		border-radius: 1rem;
+	}
+
+	.testimonial-header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.testimonial-image {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	.testimonial-info {
+		text-align: left;
+	}
+
+	.testimonial-name {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin-bottom: 0.25rem;
+	}
+
+	.testimonial-title {
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+	}
+
+	.testimonial-rating {
+		margin-bottom: 1.5rem;
+		font-size: 1.5rem;
+	}
+
+	.testimonial-quote {
+		font-size: 1.125rem;
+		color: var(--color-text);
+		line-height: 1.7;
+		font-style: italic;
+	}
+
+	/* ROI Cards */
+	.roi-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.roi-card {
+		padding: 2rem;
+		text-align: center;
+		border-radius: 1rem;
+	}
+
+	.roi-card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		letter-spacing: 0.1em;
+		margin-bottom: 1rem;
+	}
+
+	.roi-value {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	.roi-value.red { color: #ef4444; }
+	.roi-value.blue { color: var(--color-neon-blue); }
+	.roi-value.green { color: #10b981; }
+
+	.roi-description {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		font-size: 0.9rem;
+	}
+
+	/* Final CTA */
+	.final-cta-section {
+		padding: 5rem 0;
+		position: relative;
+		background: linear-gradient(to bottom, var(--color-dark-300), var(--color-dark-400));
+		text-align: center;
+	}
+
+	.cta-content {
+		position: relative;
+		z-index: 10;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.cta-title {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.cta-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		line-height: 1.7;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.cta-button {
+		font-size: 1.1rem;
+		padding: 1rem 2rem;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.testimonial-header {
+			flex-direction: column;
+		}
+
+		.testimonial-info {
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.cta-title {
+			font-size: 2rem;
+		}
+
+		.hero-buttons,
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.hero-buttons .btn,
+		.cta-buttons .btn {
+			width: 100%;
+			max-width: 280px;
+		}
+
+		.pain-points-grid,
+		.benefits-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.testimonial-card {
+			padding: 2rem;
+		}
+	}
+</style>

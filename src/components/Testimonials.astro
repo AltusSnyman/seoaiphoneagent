@@ -1,4 +1,6 @@
 ---
+import PerformanceImage from './PerformanceImage.astro';
+
 const testimonials = [
 	{
 		name: "Sarah Johnson",
@@ -40,11 +42,14 @@ const testimonials = [
 			{testimonials.map((testimonial, index) => (
 				<div class="testimonial-card glass-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
 					<div class="testimonial-header">
-						<img
+						<PerformanceImage
 							src={testimonial.image}
-							alt={testimonial.name}
+							alt={`${testimonial.name} - ${testimonial.title}`}
+							width={200}
+							height={200}
 							class="testimonial-image"
 							loading="lazy"
+							sizes="(max-width: 768px) 80px, 200px"
 						/>
 						<div class="testimonial-info">
 							<h3 class="testimonial-name">{testimonial.name}</h3>

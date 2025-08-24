@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- HOMEPAGE - Maximum Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- PRIMARY CONVERSION PAGES - Critical Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/booking/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/contact/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- CORE SERVICE PAGES - High Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/features/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/pricing/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>biweekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- HIGH-VALUE INDUSTRY PAGES - Premium Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/industries/dentists/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/medical-clinics/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/real-estate/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/contractors/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- STANDARD INDUSTRY PAGES - High Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/industries/plumbers/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/hvac/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/electricians/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/roofers/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/auto-repair/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/landscaping/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/cleaning-services/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/pest-control/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/salons/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/legal-offices/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/industries/restaurants/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- COMPANY & INFORMATION PAGES - Medium Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/about/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://aiphoneagent.ai/faq/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- UTILITY PAGES - Low Priority -->
+  <url>
+    <loc>https://aiphoneagent.ai/404/</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+</urlset>
