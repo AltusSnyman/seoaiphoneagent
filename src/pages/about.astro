@@ -1,0 +1,507 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Card from '../components/Card.astro';
+---
+
+<PageLayout 
+	title="About The Voice AI Agency - Leading Business Communication Revolution"
+	description="Learn about The Voice AI Agency's mission to transform business communications with cutting-edge AI technology. Serving businesses globally with enterprise-grade solutions."
+>
+	<PageHero
+		title="About"
+		highlightText="The Voice AI Agency"
+		subtitle="Leading the Revolution in Business Communication"
+	/>
+
+	<!-- Our Mission -->
+	<section class="section-padding mission-section">
+		<div class="blob blob-3"></div>
+		<div class="blob blob-4"></div>
+		<div class="container">
+			<div class="mission-grid">
+				<div class="mission-content animate-fade-in">
+					<SectionHeading 
+						title="Our Mission"
+						subtitle="Empowering businesses with next-generation AI communication technology that saves time, reduces costs, and boosts growth."
+					/>
+					
+					<p class="mission-text">
+						At The Voice AI Agency, we're on a mission to transform how businesses handle communications.
+						We believe that small and medium businesses shouldn't need to choose between missing opportunities
+						and spending thousands on staff. Our AI solutions bridge this gap, providing enterprise-level
+						phone solutions at a fraction of the cost.
+					</p>
+					
+					<p class="mission-text">
+						Founded by a team of AI engineers and business efficiency experts, we've developed a system that
+						doesn't just answer calls, but creates meaningful connections with customers, books appointments,
+						and helps businesses grow while owners focus on what they do best.
+					</p>
+				</div>
+				
+				<div class="mission-image animate-fade-in" style="animation-delay: 200ms">
+					<div class="image-wrapper glass-card">
+						<img 
+							src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format" 
+							alt="Cutting-edge AI technology workspace" 
+							loading="lazy"
+						/>
+						<div class="image-overlay">
+							<div class="overlay-content">
+								<h4 class="overlay-title">Cutting-Edge AI Technology</h4>
+								<p class="overlay-text">Leveraging the latest in voice AI to create exceptional experiences</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Global Presence -->
+	<section class="section-padding presence-section">
+		<div class="blob blob-5"></div>
+		<div class="blob blob-6"></div>
+		<div class="container">
+			<SectionHeading 
+				title="Our Global Presence"
+				subtitle="Serving businesses around the world with local expertise and global insights."
+				centered={true}
+			/>
+			
+			<div class="presence-grid">
+				<Card variant="default" delay={100}>
+					<div class="presence-icon">
+						<div class="icon-glow red"></div>
+						<span class="flag">🇺🇸</span>
+					</div>
+					<h3 class="presence-title">United States</h3>
+					<p>Our headquarters in Silicon Valley brings cutting-edge AI technology to businesses across North America.</p>
+				</Card>
+				
+				<Card variant="default" delay={200}>
+					<div class="presence-icon">
+						<div class="icon-glow blue"></div>
+						<span class="flag">🇦🇺</span>
+					</div>
+					<h3 class="presence-title">Australia</h3>
+					<p>Our Melbourne office serves the growing Australian market with localized AI voice solutions.</p>
+				</Card>
+				
+				<Card variant="default" delay={300}>
+					<div class="presence-icon">
+						<div class="icon-glow green"></div>
+						<span class="flag">🇳🇿</span>
+					</div>
+					<h3 class="presence-title">New Zealand</h3>
+					<p>Expanding operations in New Zealand to bring AI receptionist technology to local businesses.</p>
+				</Card>
+			</div>
+		</div>
+	</section>
+
+	<!-- Company Facts -->
+	<section class="section-padding facts-section">
+		<div class="blob blob-7"></div>
+		<div class="blob blob-8"></div>
+		<div class="container">
+			<SectionHeading 
+				title="Company Facts"
+				subtitle="Learn more about who we are and what drives us forward."
+				centered={true}
+			/>
+			
+			<div class="facts-grid">
+				<Card variant="feature" delay={100}>
+					<div class="fact-icon">
+						<span class="icon">👥</span>
+					</div>
+					<h3 class="fact-title">Global Team</h3>
+					<p>Our diverse team includes AI scientists, voice recognition experts, and business consultants from around the world.</p>
+				</Card>
+				
+				<Card variant="feature" delay={200}>
+					<div class="fact-icon">
+						<span class="icon">🏢</span>
+					</div>
+					<h3 class="fact-title">Multiple Offices</h3>
+					<p>With offices across three countries, we maintain a global perspective while delivering localized service.</p>
+				</Card>
+				
+				<Card variant="feature" delay={300}>
+					<div class="fact-icon">
+						<span class="icon">🌍</span>
+					</div>
+					<h3 class="fact-title">International Reach</h3>
+					<p>Our AI solutions are designed to work in multiple languages and adapt to regional business practices.</p>
+				</Card>
+				
+				<Card variant="feature" delay={400}>
+					<div class="fact-icon">
+						<span class="icon">🏆</span>
+					</div>
+					<h3 class="fact-title">Innovation Leaders</h3>
+					<p>Recognized for pioneering advancements in conversational AI and business communication technology.</p>
+				</Card>
+			</div>
+		</div>
+	</section>
+
+	<!-- Strategic Partnerships -->
+	<section class="section-padding partnerships-section">
+		<div class="blob blob-9"></div>
+		<div class="blob blob-10"></div>
+		<div class="container">
+			<SectionHeading 
+				title="Strategic Partnerships for Cutting-Edge Tech"
+				subtitle="We collaborate with industry leaders to deliver the best possible solutions."
+				centered={true}
+			/>
+			
+			<Card variant="highlight" className="partnership-card animate-fade-in">
+				<div class="partnership-content">
+					<div class="partnership-icon">
+						<div class="icon-container glass-card">
+							<span class="rocket-icon">🚀</span>
+						</div>
+					</div>
+					
+					<div class="partnership-text">
+						<h3 class="partnership-title">Key Technology Partners</h3>
+						<p class="partnership-description">
+							Our partnership with AIPhoneAgent.ai gives us access to the most advanced voice recognition technologies,
+							while our integrations with Go HighLevel and Stripe ensure seamless operation and payment processing.
+						</p>
+						<p class="partnership-description">
+							These collaborations allow us to focus on what we do best: creating customized AI solutions that transform
+							how businesses communicate with their customers, while maintaining enterprise-grade security and reliability.
+						</p>
+					</div>
+				</div>
+				
+				<div class="partner-logos">
+					<div class="partner-logo glass-card">
+						<span class="logo-text">AIPhoneAgent</span>
+					</div>
+					<div class="partner-logo glass-card">
+						<span class="logo-text">Go HighLevel</span>
+					</div>
+					<div class="partner-logo glass-card">
+						<span class="logo-text">Stripe</span>
+					</div>
+				</div>
+			</Card>
+		</div>
+	</section>
+
+	<!-- Final CTA -->
+	<section class="final-cta-section">
+		<div class="blob blob-11"></div>
+		<div class="blob blob-12"></div>
+		<div class="circuit-bg"></div>
+		<div class="container">
+			<div class="cta-content animate-fade-in">
+				<h2 class="cta-title">Join the Voice AI Revolution</h2>
+				<p class="cta-subtitle">
+					Be part of the future of business communication. Let's transform your phone system into a powerful growth engine.
+				</p>
+				<a href="/booking" class="btn btn-primary cta-button">
+					Book Your Free Strategy Call
+				</a>
+			</div>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	/* Mission Section */
+	.mission-section {
+		background: var(--color-dark-300);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.mission-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.mission-text {
+		color: var(--color-text-muted);
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	.mission-image {
+		position: relative;
+	}
+
+	.image-wrapper {
+		border-radius: 1rem;
+		overflow: hidden;
+		position: relative;
+		min-height: 300px;
+	}
+
+	.image-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.image-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, var(--color-dark-400) 0%, transparent 50%);
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.overlay-content {
+		padding: 2rem;
+		color: white;
+	}
+
+	.overlay-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: var(--color-text);
+	}
+
+	.overlay-text {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* Global Presence Section */
+	.presence-section {
+		background: var(--color-dark-400);
+	}
+
+	.presence-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.presence-icon {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.icon-glow {
+		position: absolute;
+		inset: -10px;
+		border-radius: 50%;
+		blur: 20px;
+		opacity: 0.3;
+	}
+
+	.icon-glow.red { background: #ef4444; }
+	.icon-glow.blue { background: #3b82f6; }
+	.icon-glow.green { background: #10b981; }
+
+	.flag {
+		font-size: 3rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.presence-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		text-align: center;
+		color: var(--color-text);
+	}
+
+	/* Company Facts Section */
+	.facts-section {
+		background: var(--color-dark-300);
+	}
+
+	.facts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.fact-icon {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+
+	.fact-icon .icon {
+		font-size: 2.5rem;
+		width: 80px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background: rgba(0, 163, 255, 0.1);
+		border: 2px solid rgba(0, 163, 255, 0.3);
+	}
+
+	.fact-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 0.75rem;
+		text-align: center;
+		color: var(--color-text);
+	}
+
+	/* Partnerships Section */
+	.partnerships-section {
+		background: var(--color-dark-400);
+	}
+
+	.partnership-card {
+		max-width: none !important;
+	}
+
+	.partnership-content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+
+	.partnership-icon .icon-container {
+		width: 100px;
+		height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 1rem;
+	}
+
+	.rocket-icon {
+		font-size: 3rem;
+	}
+
+	.partnership-text {
+		flex: 1;
+		text-align: center;
+	}
+
+	.partnership-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.partnership-description {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		margin-bottom: 1rem;
+	}
+
+	.partner-logos {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding-top: 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.partner-logo {
+		padding: 1rem 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 140px;
+		height: 60px;
+	}
+
+	.logo-text {
+		font-weight: 700;
+		font-size: 1.1rem;
+		color: var(--color-text);
+	}
+
+	/* Final CTA Section */
+	.final-cta-section {
+		padding: 5rem 0;
+		position: relative;
+		background: linear-gradient(to bottom, var(--color-dark-300), var(--color-dark-400));
+	}
+
+	.cta-content {
+		text-align: center;
+		position: relative;
+		z-index: 10;
+	}
+
+	.cta-title {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.cta-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto 2rem;
+		line-height: 1.7;
+	}
+
+	.cta-button {
+		font-size: 1.1rem;
+		padding: 1rem 2rem;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.mission-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.mission-image {
+			order: -1;
+		}
+
+		.partnership-content {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.presence-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.facts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-title {
+			font-size: 2rem;
+		}
+
+		.cta-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.partner-logos {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+</style>

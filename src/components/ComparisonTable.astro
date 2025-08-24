@@ -1,0 +1,273 @@
+---
+const features = [
+	{
+		name: '24/7 Availability',
+		voicemail: false,
+		assistant: false,
+		aiAgent: true
+	},
+	{
+		name: 'Answer Customer Questions',
+		voicemail: false,
+		assistant: true,
+		aiAgent: true
+	},
+	{
+		name: 'Book Appointments',
+		voicemail: false,
+		assistant: true,
+		aiAgent: true
+	},
+	{
+		name: 'Automated Follow-ups',
+		voicemail: false,
+		assistant: false,
+		aiAgent: true
+	},
+	{
+		name: 'Call Recording & Insights',
+		voicemail: false,
+		assistant: false,
+		aiAgent: true
+	},
+	{
+		name: 'Review Generation',
+		voicemail: false,
+		assistant: false,
+		aiAgent: true
+	}
+];
+
+const costs = {
+	voicemail: 'Free/Low Cost',
+	assistant: '$3,000 - $4,500',
+	aiAgent: '$499'
+};
+---
+
+<section class="section-padding comparison-section">
+	<div class="blob blob-9"></div>
+	<div class="blob blob-10"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Compare Your Options</h2>
+			<p class="section-subtitle">
+				See how our AI Agent stacks up against traditional solutions.
+			</p>
+		</div>
+		
+		<div class="table-wrapper animate-fade-in">
+			<table class="comparison-table">
+				<thead>
+					<tr>
+						<th class="feature-col">Features</th>
+						<th class="option-col">Traditional Voicemail</th>
+						<th class="option-col">Hiring an Assistant</th>
+						<th class="option-col highlight">AI Agent</th>
+					</tr>
+				</thead>
+				<tbody>
+					{features.map((feature) => (
+						<tr>
+							<td class="feature-name">{feature.name}</td>
+							<td class="option-value">
+								{feature.voicemail ? (
+									<span class="check">✓</span>
+								) : (
+									<span class="cross">✕</span>
+								)}
+							</td>
+							<td class="option-value">
+								{feature.assistant ? (
+									<span class="check">✓</span>
+								) : (
+									<span class="cross">✕</span>
+								)}
+							</td>
+							<td class="option-value highlight">
+								{feature.aiAgent ? (
+									<span class="check-highlight">✓</span>
+								) : (
+									<span class="cross">✕</span>
+								)}
+							</td>
+						</tr>
+					))}
+					<tr class="cost-row">
+						<td class="feature-name">Monthly Cost</td>
+						<td class="cost-value">{costs.voicemail}</td>
+						<td class="cost-value">{costs.assistant}</td>
+						<td class="cost-value highlight">
+							<span class="cost-highlight">{costs.aiAgent}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+<style>
+	.comparison-section {
+		background: var(--color-dark-400);
+		position: relative;
+	}
+
+	.blob-9 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-blue);
+		top: 50%;
+		left: -175px;
+		opacity: 0.05;
+	}
+
+	.blob-10 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-cyan);
+		bottom: 10%;
+		right: -200px;
+		opacity: 0.05;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+	}
+
+	.table-wrapper {
+		overflow-x: auto;
+		position: relative;
+		z-index: 1;
+		border-radius: 1rem;
+		opacity: 0;
+	}
+
+	.table-wrapper.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+		animation-delay: 200ms;
+	}
+
+	.comparison-table {
+		width: 100%;
+		border-collapse: collapse;
+		background: rgba(10, 14, 23, 0.6);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+
+	.comparison-table th,
+	.comparison-table td {
+		padding: 1.5rem;
+		text-align: center;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.comparison-table th {
+		background: rgba(0, 0, 0, 0.3);
+		font-weight: 600;
+		color: var(--color-text);
+		font-family: var(--font-heading);
+	}
+
+	.feature-col {
+		text-align: left !important;
+		width: 35%;
+	}
+
+	.option-col {
+		width: 21.67%;
+	}
+
+	.feature-name {
+		text-align: left;
+		color: var(--color-text-muted);
+		font-weight: 500;
+	}
+
+	.option-value {
+		font-size: 1.25rem;
+	}
+
+	.check {
+		color: #4CAF50;
+	}
+
+	.cross {
+		color: #FF5252;
+	}
+
+	.check-highlight {
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+		font-weight: 700;
+	}
+
+	.highlight {
+		background: rgba(0, 163, 255, 0.05);
+		border-left: 1px solid rgba(0, 163, 255, 0.3);
+		border-right: 1px solid rgba(0, 163, 255, 0.3);
+	}
+
+	.comparison-table th.highlight {
+		background: rgba(0, 163, 255, 0.1);
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+		border-top: 2px solid var(--color-neon-blue);
+	}
+
+	.cost-row td {
+		font-weight: 600;
+		padding: 2rem 1.5rem;
+		background: rgba(0, 0, 0, 0.2);
+		border-bottom: none;
+	}
+
+	.cost-value {
+		font-size: 1.125rem;
+	}
+
+	.cost-highlight {
+		color: var(--color-neon-blue);
+		font-size: 1.5rem;
+		font-weight: 700;
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.comparison-table th,
+		.comparison-table td {
+			padding: 1rem 0.5rem;
+			font-size: 0.875rem;
+		}
+
+		.option-value {
+			font-size: 1rem;
+		}
+
+		.cost-highlight {
+			font-size: 1.25rem;
+		}
+	}
+</style>

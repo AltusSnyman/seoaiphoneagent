@@ -1,0 +1,192 @@
+---
+const problems = [
+	{
+		icon: '📞',
+		iconColor: 'red',
+		title: 'Missed Calls',
+		description: 'Every missed call is a potential customer lost to your competition.'
+	},
+	{
+		icon: '📞✕',
+		iconColor: 'red',
+		title: 'Repetitive Questions',
+		description: 'Answering the same basic questions drains your time and energy.'
+	},
+	{
+		icon: '👤',
+		iconColor: 'red',
+		title: 'Low Google Reviews',
+		description: 'Poor phone experiences lead to fewer positive reviews and damaged reputation.'
+	},
+	{
+		icon: '⏰',
+		iconColor: 'red',
+		title: 'Lost Time & Money',
+		description: 'Your phone system should be making you money, not draining your resources.'
+	}
+];
+---
+
+<section id="problem" class="section-padding problem-section">
+	<div class="blob blob-3"></div>
+	<div class="blob blob-4"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">You're Losing Money And Don't Even Know!</h2>
+			<p class="section-subtitle">
+				Your current phone system is likely costing you thousands in lost leads and wasted time.
+			</p>
+		</div>
+		
+		<div class="problems-grid">
+			{problems.map((problem, index) => (
+				<div class="problem-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+					<div class={`problem-icon ${problem.iconColor}`}>
+						<span>{problem.icon}</span>
+					</div>
+					<h3 class="problem-title">{problem.title}</h3>
+					<p class="problem-description">{problem.description}</p>
+				</div>
+			))}
+		</div>
+		
+		<div class="problem-solution">
+			<h3 class="solution-title">What if your phone system worked like your best employee—but better?</h3>
+			<p class="solution-description">
+				Transform your business communications with our AI Phone Agent. It handles calls 24/7, books appointments,
+				answers FAQs, and helps you never miss another opportunity again.
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.problem-section {
+		background: var(--color-dark-300);
+		position: relative;
+	}
+
+	.blob-3 {
+		width: 300px;
+		height: 300px;
+		background: #FF0066;
+		top: 50%;
+		left: -150px;
+		opacity: 0.1;
+	}
+
+	.blob-4 {
+		width: 350px;
+		height: 350px;
+		background: #FF3366;
+		bottom: 20%;
+		right: -175px;
+		opacity: 0.1;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.problems-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.problem-card {
+		padding: 2rem;
+		border-radius: 1rem;
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.problem-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+	}
+
+	.problem-icon {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto 1.5rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+	}
+
+	.problem-icon.red {
+		background: rgba(255, 59, 48, 0.2);
+		border: 2px solid rgba(255, 59, 48, 0.5);
+	}
+
+	.problem-title {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+		font-weight: 700;
+	}
+
+	.problem-description {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	.problem-solution {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 3rem;
+		background: rgba(0, 163, 255, 0.05);
+		border-radius: 1rem;
+		border: 1px solid rgba(0, 163, 255, 0.2);
+	}
+
+	.solution-title {
+		font-size: 2rem;
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+
+	.solution-description {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		line-height: 1.8;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.problems-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.problem-solution {
+			padding: 2rem;
+		}
+
+		.solution-title {
+			font-size: 1.5rem;
+		}
+	}
+</style>

@@ -1,0 +1,271 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+	company: [
+		{ name: 'About Us', href: '/about' },
+		{ name: 'Features', href: '/features' },
+		{ name: 'Pricing', href: '/pricing' },
+		{ name: 'Contact', href: '/contact' }
+	],
+	support: [
+		{ name: 'Help Center', href: '/help' },
+		{ name: 'Documentation', href: '/docs' },
+		{ name: 'Book a Call', href: '/booking' },
+		{ name: 'Demo', href: '/features' }
+	],
+	legal: [
+		{ name: 'Privacy Policy', href: '/privacy' },
+		{ name: 'Terms of Service', href: '/terms' },
+		{ name: 'Cookie Policy', href: '/cookies' },
+		{ name: 'GDPR', href: '/gdpr' }
+	]
+};
+
+const socialLinks = [
+	{ name: 'Twitter', href: '#', icon: '𝕏' },
+	{ name: 'LinkedIn', href: '#', icon: '💼' },
+	{ name: 'Facebook', href: '#', icon: '📘' },
+	{ name: 'YouTube', href: '#', icon: '📺' }
+];
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-brand">
+				<a href="/" class="footer-logo">
+					<span class="logo-text">AI Phone Agent</span>
+				</a>
+				<p class="footer-description">
+					Transform your business communications with our AI Phone Agent. 
+					Never miss a call, book appointments 24/7, and grow your business without adding stress.
+				</p>
+				<div class="footer-contact">
+					<p class="contact-item">
+						<strong>USA:</strong> <a href="tel:+18773207259">+1 877-320-7259</a>
+					</p>
+					<p class="contact-item">
+						<strong>Australia:</strong> <a href="tel:+61238213526">+61 2 3821 3526</a>
+					</p>
+					<p class="contact-item">
+						<strong>Email:</strong> <a href="mailto:hello@aiphoneagent.com">hello@aiphoneagent.com</a>
+					</p>
+				</div>
+			</div>
+			
+			<div class="footer-links">
+				<div class="footer-column">
+					<h4 class="footer-heading">Company</h4>
+					<ul class="footer-list">
+						{footerLinks.company.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4 class="footer-heading">Support</h4>
+					<ul class="footer-list">
+						{footerLinks.support.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4 class="footer-heading">Legal</h4>
+					<ul class="footer-list">
+						{footerLinks.legal.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="footer-bottom-content">
+				<p class="footer-copyright">
+					© {currentYear} AI Phone Agent. All rights reserved.
+				</p>
+				
+				<div class="footer-social">
+					{socialLinks.map((social) => (
+						<a href={social.href} class="social-link" aria-label={social.name}>
+							<span>{social.icon}</span>
+						</a>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--color-dark-400);
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 4rem 0 2rem;
+		position: relative;
+	}
+
+	.footer-main {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		gap: 4rem;
+		margin-bottom: 3rem;
+	}
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.footer-logo {
+		display: inline-block;
+		font-size: 1.75rem;
+		font-weight: 700;
+		font-family: var(--font-heading);
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+	}
+
+	.footer-description {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		max-width: 400px;
+		font-size: 1rem;
+	}
+
+	.footer-contact {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.contact-item {
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+	}
+
+	.contact-item a {
+		color: var(--color-neon-blue);
+		transition: color 0.3s ease;
+	}
+
+	.contact-item a:hover {
+		color: var(--color-neon-cyan);
+		text-decoration: underline;
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.footer-column {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.footer-heading {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin-bottom: 0.5rem;
+	}
+
+	.footer-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.footer-link {
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		transition: color 0.3s ease;
+	}
+
+	.footer-link:hover {
+		color: var(--color-neon-blue);
+	}
+
+	.footer-bottom {
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		padding-top: 2rem;
+	}
+
+	.footer-bottom-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.footer-copyright {
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+	}
+
+	.footer-social {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-link {
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text-muted);
+		transition: all 0.3s ease;
+		font-size: 1.25rem;
+	}
+
+	.social-link:hover {
+		background: rgba(0, 163, 255, 0.1);
+		border-color: rgba(0, 163, 255, 0.3);
+		color: var(--color-neon-blue);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 1024px) {
+		.footer-main {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.footer-links {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 3rem 0 2rem;
+		}
+
+		.footer-links {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.footer-bottom-content {
+			flex-direction: column;
+			text-align: center;
+			gap: 1.5rem;
+		}
+	}
+</style>

@@ -1,0 +1,201 @@
+---
+const testimonials = [
+	{
+		name: "Sarah Johnson",
+		title: "Dental Office Manager",
+		quote: "We were missing 5-6 calls daily during busy periods. The Voice AI Agent has captured those calls, scheduled appointments, and increased our revenue by over $10,000 per month!",
+		rating: 5,
+		image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&auto=format"
+	},
+	{
+		name: "Michael Rodriguez",
+		title: "Plumbing Company Owner",
+		quote: "As a service business, calls are everything. This AI system has been a game-changer - it's like having a perfect receptionist that works 24/7 and never complains. Our Google reviews have doubled since implementing it.",
+		rating: 5,
+		image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&auto=format"
+	},
+	{
+		name: "Jennifer Lewis",
+		title: "Spa Director",
+		quote: "The Voice AI Agency delivered exactly what they promised. Our calls are handled professionally, appointments are booked accurately, and I've reclaimed hours of my week. Worth every penny!",
+		rating: 5,
+		image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&auto=format"
+	}
+];
+---
+
+<section class="section-padding testimonials-section">
+	<div class="blob blob-13"></div>
+	<div class="blob blob-14"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">What Our Clients Say</h2>
+			<p class="section-subtitle">
+				Join hundreds of businesses already transforming their communications with our AI Phone Agent.
+			</p>
+		</div>
+		
+		<div class="testimonials-grid">
+			{testimonials.map((testimonial, index) => (
+				<div class="testimonial-card glass-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
+					<div class="testimonial-header">
+						<img
+							src={testimonial.image}
+							alt={testimonial.name}
+							class="testimonial-image"
+							loading="lazy"
+						/>
+						<div class="testimonial-info">
+							<h3 class="testimonial-name">{testimonial.name}</h3>
+							<p class="testimonial-title">{testimonial.title}</p>
+						</div>
+					</div>
+					
+					<div class="testimonial-rating">
+						{[...Array(testimonial.rating)].map(() => (
+							<span class="star">⭐</span>
+						))}
+					</div>
+					
+					<p class="testimonial-quote">"{testimonial.quote}"</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonials-section {
+		background: var(--color-dark-400);
+		position: relative;
+	}
+
+	.blob-13 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-blue);
+		top: 30%;
+		left: -200px;
+		opacity: 0.05;
+	}
+
+	.blob-14 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-cyan);
+		bottom: 20%;
+		right: -175px;
+		opacity: 0.05;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.testimonial-card {
+		padding: 2.5rem;
+		border-radius: 1rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		opacity: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.testimonial-card.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+	}
+
+	.testimonial-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+		border-color: rgba(0, 163, 255, 0.2);
+	}
+
+	.testimonial-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.testimonial-image {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 3px solid rgba(0, 163, 255, 0.3);
+	}
+
+	.testimonial-info {
+		flex: 1;
+	}
+
+	.testimonial-name {
+		font-size: 1.125rem;
+		font-weight: 700;
+		margin-bottom: 0.25rem;
+	}
+
+	.testimonial-title {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.testimonial-rating {
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	.star {
+		font-size: 1rem;
+		filter: saturate(2);
+	}
+
+	.testimonial-quote {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		font-style: italic;
+		font-size: 1rem;
+		flex: 1;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.testimonial-card {
+			padding: 2rem;
+		}
+	}
+</style>

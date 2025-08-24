@@ -1,0 +1,194 @@
+---
+const features = [
+	{
+		icon: '🎧',
+		title: 'Virtual Receptionist',
+		description: 'Our AI handles all incoming calls 24/7, routing urgent calls to your team and managing routine inquiries automatically.'
+	},
+	{
+		icon: '📅',
+		title: 'AI Appointment Booking',
+		description: 'Let callers book appointments directly into your calendar, eliminating scheduling back-and-forth.'
+	},
+	{
+		icon: '💬',
+		title: 'AI SMS Texting',
+		description: 'Automated follow-ups and reminders via text messaging keep your clients engaged and reduce no-shows.'
+	},
+	{
+		icon: '🎙️',
+		title: 'Call Recording',
+		description: 'Every call is recorded and transcribed, giving you valuable insights and training material.'
+	},
+	{
+		icon: '✅',
+		title: 'Automate Reviews',
+		description: 'Generate more positive Google reviews automatically after successful appointments or calls.'
+	},
+	{
+		icon: '🔔',
+		title: 'Real-Time Notification',
+		description: 'Get instant alerts about important calls, new bookings, or urgent matters that need your attention.'
+	}
+];
+---
+
+<section id="features" class="section-padding features-section">
+	<div class="blob blob-5"></div>
+	<div class="blob blob-6"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Powerful Features That Drive Results</h2>
+			<p class="section-subtitle">
+				Our AI Phone Agent comes fully equipped with everything you need to transform your business communications and boost your bottom line.
+			</p>
+		</div>
+		
+		<div class="features-grid">
+			{features.map((feature, index) => (
+				<div class="feature-card glass-card animate-fade-in" style={`animation-delay: ${index * 100}ms`}>
+					<div class="feature-icon">
+						<span>{feature.icon}</span>
+					</div>
+					<h3 class="feature-title">{feature.title}</h3>
+					<p class="feature-description">{feature.description}</p>
+					<div class="feature-glow"></div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.features-section {
+		background: var(--color-dark-400);
+		position: relative;
+	}
+
+	.blob-5 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-blue);
+		top: 20%;
+		right: -200px;
+		opacity: 0.08;
+	}
+
+	.blob-6 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-cyan);
+		bottom: 10%;
+		left: -175px;
+		opacity: 0.08;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 700px;
+		margin: 0 auto;
+		line-height: 1.8;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.feature-card {
+		padding: 2.5rem;
+		border-radius: 1rem;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+		border-color: rgba(0, 163, 255, 0.3);
+	}
+
+	.feature-card:hover .feature-glow {
+		opacity: 1;
+	}
+
+	.feature-icon {
+		width: 60px;
+		height: 60px;
+		margin-bottom: 1.5rem;
+		background: rgba(0, 163, 255, 0.1);
+		border: 2px solid rgba(0, 163, 255, 0.3);
+		border-radius: 0.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.75rem;
+		transition: all 0.3s ease;
+	}
+
+	.feature-card:hover .feature-icon {
+		background: rgba(0, 163, 255, 0.2);
+		border-color: var(--color-neon-blue);
+		transform: scale(1.1);
+		box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+	}
+
+	.feature-title {
+		font-size: 1.375rem;
+		margin-bottom: 1rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	.feature-description {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		font-size: 1rem;
+	}
+
+	.feature-glow {
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		pointer-events: none;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.feature-card {
+			padding: 2rem;
+		}
+	}
+</style>

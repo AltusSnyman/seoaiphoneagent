@@ -1,0 +1,173 @@
+---
+const cards = [
+	{
+		title: 'THE PROBLEM',
+		value: 'Missed Revenue = $100+',
+		description: 'Each missed call can cost you $100+ in potential revenue, and that adds up quickly.',
+		color: 'red'
+	},
+	{
+		title: 'THE SOLUTION',
+		value: 'AI Agent = $499/month',
+		description: 'For a fixed monthly fee, never miss another call or opportunity again.',
+		color: 'blue'
+	},
+	{
+		title: 'THE ALTERNATIVE',
+		value: 'Receptionist = $3,000+/month',
+		description: 'Hiring staff costs significantly more and comes with limitations.',
+		color: 'gray'
+	}
+];
+---
+
+<section class="section-padding roi-section">
+	<div class="blob blob-11"></div>
+	<div class="blob blob-12"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Stop Losing Revenue. Start Saving Thousands.</h2>
+			<p class="section-subtitle">
+				Our AI Agent helps you capture missed opportunities and save on staffing costs.
+			</p>
+		</div>
+		
+		<div class="roi-cards">
+			{cards.map((card, index) => (
+				<div class="roi-card glass-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
+					<h3 class="roi-card-title">{card.title}</h3>
+					<div class={`roi-value ${card.color}`}>
+						{card.value}
+					</div>
+					<p class="roi-description">{card.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.roi-section {
+		background: var(--color-dark-300);
+		position: relative;
+	}
+
+	.blob-11 {
+		width: 400px;
+		height: 400px;
+		background: #FFD700;
+		top: 20%;
+		right: -200px;
+		opacity: 0.05;
+	}
+
+	.blob-12 {
+		width: 350px;
+		height: 350px;
+		background: #FFA500;
+		bottom: 15%;
+		left: -175px;
+		opacity: 0.05;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.roi-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.roi-card {
+		padding: 3rem 2rem;
+		border-radius: 1rem;
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		opacity: 0;
+	}
+
+	.roi-card.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+	}
+
+	.roi-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+	}
+
+	.roi-card-title {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		margin-bottom: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.roi-value {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	.roi-value.red {
+		color: #FF5252;
+		text-shadow: 0 0 10px rgba(255, 82, 82, 0.3);
+	}
+
+	.roi-value.blue {
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+	}
+
+	.roi-value.gray {
+		color: var(--color-text-muted);
+	}
+
+	.roi-description {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		font-size: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.roi-cards {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.roi-card {
+			padding: 2rem 1.5rem;
+		}
+
+		.roi-value {
+			font-size: 1.5rem;
+		}
+	}
+</style>

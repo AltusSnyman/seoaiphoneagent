@@ -1,0 +1,191 @@
+---
+const demoLines = [
+	{
+		region: 'USA Demo Line',
+		number: '+1 877-320-7259',
+		flag: '🇺🇸'
+	},
+	{
+		region: 'Australia/Pacific Demo',
+		number: '+61 2 3821 3526',
+		flag: '🇦🇺'
+	}
+];
+---
+
+<section class="section-padding demo-section">
+	<div class="blob blob-15"></div>
+	<div class="blob blob-16"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Try Our Voice AI Agent Now</h2>
+			<p class="section-subtitle">
+				Call our demo line to experience the future of business communications.
+			</p>
+		</div>
+		
+		<div class="demo-cards">
+			{demoLines.map((demo, index) => (
+				<div class="demo-card glass-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
+					<div class="demo-icon neon-border">
+						<span>📞</span>
+					</div>
+					<div class="demo-flag">{demo.flag}</div>
+					<h3 class="demo-region">{demo.region}</h3>
+					<a href={`tel:${demo.number.replace(/\s/g, '')}`} class="demo-number">
+						{demo.number}
+					</a>
+					<p class="demo-availability">Call anytime, 24/7</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.demo-section {
+		background: var(--color-dark-300);
+		position: relative;
+	}
+
+	.blob-15 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-blue);
+		top: 20%;
+		right: -175px;
+		opacity: 0.06;
+	}
+
+	.blob-16 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-cyan);
+		bottom: 10%;
+		left: -200px;
+		opacity: 0.06;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.demo-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.demo-card {
+		padding: 3rem 2rem;
+		border-radius: 1rem;
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		opacity: 0;
+		position: relative;
+	}
+
+	.demo-card.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+	}
+
+	.demo-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+		border-color: rgba(0, 163, 255, 0.3);
+	}
+
+	.demo-card:hover .demo-icon {
+		transform: scale(1.1);
+		box-shadow: 0 0 30px rgba(0, 163, 255, 0.5);
+	}
+
+	.demo-icon {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto 1.5rem;
+		background: rgba(0, 163, 255, 0.1);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		transition: all 0.3s ease;
+	}
+
+	.demo-flag {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		font-size: 2rem;
+	}
+
+	.demo-region {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.demo-number {
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+		display: block;
+		margin-bottom: 0.75rem;
+		transition: all 0.3s ease;
+		font-family: var(--font-heading);
+	}
+
+	.demo-number:hover {
+		text-decoration: underline;
+		text-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+		transform: scale(1.05);
+	}
+
+	.demo-availability {
+		color: var(--color-text-muted);
+		font-size: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.demo-cards {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.demo-card {
+			padding: 2rem 1.5rem;
+		}
+
+		.demo-number {
+			font-size: 1.5rem;
+		}
+	}
+</style>

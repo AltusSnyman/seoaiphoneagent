@@ -1,0 +1,571 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const features = [
+  {
+    title: "Virtual Receptionist",
+    icon: "phone",
+    description: "Our AI receptionist handles every call professionally, 24/7, ensuring no opportunity slips through the cracks.",
+    details: [
+      "Answers calls with customized greetings",
+      "Handles FAQs without human intervention", 
+      "Transfers calls to the right department",
+      "Takes detailed messages",
+      "Ensures consistent, professional interactions"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&auto=format"
+  },
+  {
+    title: "AI Appointment Booking",
+    icon: "calendar", 
+    description: "Let AI handle your scheduling and send automatic reminders, reducing no-shows and maximizing your calendar.",
+    details: [
+      "Syncs with your existing calendar",
+      "Sends automatic confirmation emails",
+      "Provides reminder texts before appointments", 
+      "Handles reschedules and cancellations",
+      "Optimizes your schedule based on preferences"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=800&auto=format"
+  },
+  {
+    title: "AI SMS Texting",
+    icon: "message",
+    description: "Respond to customer questions instantly via text, even when you're busy with other tasks.",
+    details: [
+      "Instant responses to common questions",
+      "Ability to handle complex conversations",
+      "Seamless handoff to human agents when needed",
+      "Follow-up messages to ensure satisfaction", 
+      "Multilingual support for diverse customers"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&auto=format"
+  },
+  {
+    title: "Call Recording & Transcription", 
+    icon: "file",
+    description: "Access recordings and transcripts anytime to improve service quality and train your team.",
+    details: [
+      "Searchable transcript database",
+      "Sentiment analysis of customer calls",
+      "Keyword alerts for important conversations",
+      "Quality assurance monitoring",
+      "Compliance with industry regulations"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&auto=format"
+  },
+  {
+    title: "Automated Review Management",
+    icon: "star",
+    description: "Build your online reputation on autopilot with automated review requests and response management.",
+    details: [
+      "Triggers review requests at optimal moments",
+      "Responds to negative reviews promptly", 
+      "Routes critical feedback to management",
+      "Analyzes review trends over time",
+      "Helps improve your Google Business rating"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1569098644584-210bcd375b59?w=800&auto=format"
+  },
+  {
+    title: "Real-Time Notifications",
+    icon: "bell",
+    description: "Stay in the loop with instant alerts about important customer interactions and business events.",
+    details: [
+      "Customizable notification preferences",
+      "Priority alerts for urgent matters",
+      "Daily summary reports",
+      "Performance metrics and analytics", 
+      "Integration with your existing tools"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format"
+  },
+  {
+    title: "Business CRM System",
+    icon: "database",
+    description: "Manage your customer relationships efficiently with our integrated CRM solution.",
+    details: [
+      "Complete customer interaction history",
+      "Automated follow-up sequences",
+      "Lead scoring and qualification",
+      "Sales pipeline management",
+      "Performance reporting and analytics"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format"
+  },
+  {
+    title: "Social Media AI Bot",
+    icon: "social", 
+    description: "Extend your reach with AI-powered social media management for Facebook and Instagram.",
+    details: [
+      "Automated post scheduling",
+      "Intelligent comment responses",
+      "Direct message handling",
+      "Content suggestion based on trends",
+      "Performance analytics and optimization"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format"
+  }
+];
+
+function getIconSVG(iconType: string) {
+  const icons = {
+    phone: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>`,
+    calendar: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/>
+      <line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>`,
+    message: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>`,
+    file: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14,2 14,8 20,8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+      <polyline points="10,9 9,9 8,9"/>
+    </svg>`,
+    star: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+    </svg>`,
+    bell: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+    </svg>`,
+    database: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+    </svg>`,
+    social: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>`
+  };
+  return icons[iconType] || icons.phone;
+}
+---
+
+<PageLayout 
+  title="Our Features - AI-Powered Business Communication"
+  description="Discover how our comprehensive AI-powered features can transform your business communication with virtual receptionists, appointment booking, SMS texting, and more."
+>
+  <!-- Hero Section -->
+  <section class="hero-section section-padding">
+    <div class="circuit-bg"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    
+    <div class="container hero-content">
+      <div class="hero-text animate-fade-in">
+        <h1 class="hero-title">
+          Our <span class="neon-text">Features</span>
+        </h1>
+        <p class="hero-subtitle">
+          Discover how our AI-powered features can transform your business communication
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Sections -->
+  {features.map((feature, index) => (
+    <section class={`feature-section section-padding ${index % 2 !== 0 ? 'reversed' : ''}`}>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="container feature-container">
+        <div class="feature-grid">
+          <div class="feature-content animate-fade-in">
+            <div class="glass-card feature-card">
+              <div class="feature-header">
+                <div class="feature-icon">
+                  <Fragment set:html={getIconSVG(feature.icon)} />
+                </div>
+                <h2 class="feature-title">{feature.title}</h2>
+              </div>
+              <p class="feature-description">{feature.description}</p>
+              <ul class="feature-details">
+                {feature.details.map((detail) => (
+                  <li class="detail-item">
+                    <span class="detail-bullet">•</span>
+                    <span class="detail-text">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div class="feature-image animate-fade-in" style={`animation-delay: 200ms`}>
+            <div class="image-wrapper">
+              <img 
+                src={feature.imageUrl} 
+                alt={feature.title}
+                loading="lazy"
+                class="feature-img"
+              />
+              <div class="image-overlay"></div>
+              <div class="image-glow image-glow-1"></div>
+              <div class="image-glow image-glow-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Video Section -->
+  <section class="video-section section-padding">
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="container">
+      <SectionHeading
+        title="See Our AI in Action"
+        subtitle="Watch how our Voice AI agent transforms business communication"
+        centered={true}
+      />
+      <div class="video-container animate-fade-in">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/jG4wthmTLYs?si=yq2GrdFcesIBu_R6"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            class="video-iframe"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: 
+      radial-gradient(circle at 25% 40%, rgba(0, 163, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 75% 60%, rgba(0, 229, 255, 0.08) 0%, transparent 50%);
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.15;
+    z-index: -1;
+    animation: blob-animation 15s infinite alternate ease-in-out;
+  }
+
+  .hero-blob-1 {
+    width: 350px;
+    height: 350px;
+    background: var(--color-neon-blue);
+    top: -150px;
+    right: -100px;
+    animation-delay: 0s;
+  }
+
+  .hero-blob-2 {
+    width: 280px;
+    height: 280px;
+    background: var(--color-neon-cyan);
+    bottom: -120px;
+    left: -80px;
+    animation-delay: 7s;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-family: var(--font-body);
+  }
+
+  /* Feature Sections */
+  .feature-section {
+    background: var(--color-dark-300);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-section:nth-child(even) {
+    background: var(--color-dark-400);
+  }
+
+  .feature-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .feature-section.reversed .feature-grid {
+    direction: rtl;
+  }
+
+  .feature-section.reversed .feature-grid > * {
+    direction: ltr;
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-icon {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(0, 163, 255, 0.1);
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    margin-right: 1rem;
+    color: var(--color-neon-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .feature-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .detail-bullet {
+    color: var(--color-neon-blue);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  .detail-text {
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  /* Feature Images */
+  .feature-image {
+    position: relative;
+  }
+
+  .image-wrapper {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .feature-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-dark-400) 0%, transparent 60%);
+    opacity: 0.6;
+  }
+
+  .image-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.4;
+  }
+
+  .image-glow-1 {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 163, 255, 0.3);
+    top: -24px;
+    right: -24px;
+  }
+
+  .image-glow-2 {
+    width: 128px;
+    height: 128px;
+    background: rgba(0, 163, 255, 0.2);
+    bottom: -16px;
+    left: -16px;
+  }
+
+  /* Video Section */
+  .video-section {
+    background: var(--color-dark-300);
+  }
+
+  .video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    border: none;
+  }
+
+  /* Animations */
+  @keyframes blob-animation {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .feature-section.reversed .feature-grid {
+      direction: ltr;
+    }
+
+    .feature-image {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+    }
+
+    .feature-description {
+      font-size: 1rem;
+    }
+
+    .hero-blob-1 {
+      width: 250px;
+      height: 250px;
+    }
+
+    .hero-blob-2 {
+      width: 200px;
+      height: 200px;
+    }
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "AI Phone Agent - Transform your business communications with our 24/7 AI phone agent." } = Astro.props;
+
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ChatbotWidget from '../components/ChatbotWidget.astro';
+---
+
+<Layout title={title}>
+	<Header />
+	<main class="page-main">
+		<slot />
+	</main>
+	<Footer />
+	<ChatbotWidget />
+</Layout>
+
+<style>
+	.page-main {
+		min-height: calc(100vh - 120px);
+		padding-top: 6rem;
+		position: relative;
+		overflow-x: hidden;
+	}
+
+	/* Page background effects */
+	.page-main::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 15% 30%, rgba(0, 163, 255, 0.08) 0%, transparent 40%),
+			radial-gradient(circle at 85% 70%, rgba(0, 229, 255, 0.06) 0%, transparent 40%);
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	/* Animated background particles */
+	.page-main::after {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: 
+			radial-gradient(2px 2px at 20px 30px, rgba(0, 163, 255, 0.3), transparent),
+			radial-gradient(2px 2px at 40px 70px, rgba(0, 229, 255, 0.2), transparent),
+			radial-gradient(1px 1px at 90px 40px, rgba(0, 163, 255, 0.4), transparent),
+			radial-gradient(1px 1px at 130px 80px, rgba(0, 229, 255, 0.3), transparent);
+		background-repeat: repeat;
+		background-size: 150px 100px;
+		animation: particleFloat 20s linear infinite;
+		pointer-events: none;
+		z-index: -1;
+		opacity: 0.3;
+	}
+
+	@keyframes particleFloat {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-100px);
+		}
+	}
+</style>

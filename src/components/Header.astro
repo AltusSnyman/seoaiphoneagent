@@ -1,0 +1,123 @@
+---
+---
+
+<header class="header">
+	<nav class="container nav">
+		<a href="/" class="logo">
+			<span class="logo-text">AI Phone Agent</span>
+		</a>
+		
+		<ul class="nav-links">
+			<li><a href="/features" class="nav-link">Features</a></li>
+			<li><a href="/pricing" class="nav-link">Pricing</a></li>
+			<li><a href="/about" class="nav-link">About</a></li>
+			<li><a href="/contact" class="nav-link">Contact</a></li>
+		</ul>
+		
+		<a href="/booking" class="btn btn-primary">Book Your Free Strategy Call</a>
+		
+		<button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</nav>
+</header>
+
+<style>
+	.header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(6, 10, 18, 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		z-index: 1000;
+		padding: 1rem 0;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.5rem;
+		font-weight: 700;
+		font-family: var(--font-heading);
+		color: var(--color-neon-blue);
+		text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+	}
+
+	.nav-links {
+		display: flex;
+		list-style: none;
+		gap: 2rem;
+		margin: 0 auto;
+	}
+
+	.nav-link {
+		color: var(--color-text);
+		font-weight: 500;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-cyan));
+		transition: width 0.3s ease;
+	}
+
+	.nav-link:hover {
+		color: var(--color-neon-blue);
+	}
+
+	.nav-link:hover::after {
+		width: 100%;
+	}
+
+	.mobile-menu-btn {
+		display: none;
+		flex-direction: column;
+		gap: 4px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 4px;
+	}
+
+	.mobile-menu-btn span {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: var(--color-text);
+		transition: all 0.3s ease;
+	}
+
+	@media (max-width: 768px) {
+		.nav-links {
+			display: none;
+		}
+
+		.header .btn {
+			display: none;
+		}
+
+		.mobile-menu-btn {
+			display: flex;
+		}
+	}
+</style>

@@ -1,0 +1,211 @@
+---
+const benefits = [
+	{
+		icon: '👥',
+		title: 'Enhanced Customer Experience',
+		points: [
+			'Never miss another call or opportunity',
+			'Instant responses at any time of day',
+			'Consistent, professional customer service'
+		]
+	},
+	{
+		icon: '📊',
+		title: 'Cost Efficiency & Scalability',
+		points: [
+			'85% cost savings vs. traditional receptionist',
+			'Handle unlimited concurrent calls',
+			'No sick days, training, or turnover costs'
+		]
+	},
+	{
+		icon: '🎯',
+		title: 'Advanced Data Insights',
+		points: [
+			'Analyze call patterns and customer needs',
+			'Identify business improvement opportunities',
+			'AI-powered reporting and analytics'
+		]
+	},
+	{
+		icon: '👤',
+		title: 'Time Freedom For Business Owners',
+		points: [
+			'Focus on growth instead of administrative tasks',
+			'Reduced stress from managing phone operations',
+			'Better work-life balance without sacrificing service'
+		]
+	}
+];
+---
+
+<section class="section-padding why-section">
+	<div class="blob blob-7"></div>
+	<div class="blob blob-8"></div>
+	
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Why Voice AI Is Transforming Business</h2>
+			<p class="section-subtitle">
+				Smart businesses are switching to AI-powered communications to stay competitive and efficient.
+			</p>
+		</div>
+		
+		<div class="benefits-grid">
+			{benefits.map((benefit, index) => (
+				<div class="benefit-card animate-fade-in" style={`animation-delay: ${index * 150}ms`}>
+					<div class="benefit-header">
+						<div class="benefit-icon neon-border">
+							<span>{benefit.icon}</span>
+						</div>
+						<h3 class="benefit-title">{benefit.title}</h3>
+					</div>
+					<ul class="benefit-points">
+						{benefit.points.map((point) => (
+							<li class="benefit-point">
+								<span class="point-marker"></span>
+								<span>{point}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.why-section {
+		background: var(--color-dark-300);
+		position: relative;
+	}
+
+	.blob-7 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-blue);
+		top: 10%;
+		left: -200px;
+		opacity: 0.06;
+	}
+
+	.blob-8 {
+		width: 300px;
+		height: 300px;
+		background: var(--color-neon-cyan);
+		bottom: 20%;
+		right: -150px;
+		opacity: 0.06;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+		gap: 3rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.benefit-card {
+		opacity: 0;
+	}
+
+	.benefit-card.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+	}
+
+	.benefit-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.benefit-icon {
+		width: 56px;
+		height: 56px;
+		background: rgba(0, 163, 255, 0.1);
+		border-radius: 0.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+		flex-shrink: 0;
+	}
+
+	.benefit-title {
+		font-size: 1.375rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	.benefit-points {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.benefit-point {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	.point-marker {
+		width: 6px;
+		height: 6px;
+		background: var(--color-neon-blue);
+		border-radius: 50%;
+		flex-shrink: 0;
+		margin-top: 0.5rem;
+		box-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+	}
+
+	@media (max-width: 1024px) {
+		.benefits-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.benefit-header {
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+		}
+
+		.benefit-title {
+			font-size: 1.25rem;
+		}
+	}
+</style>

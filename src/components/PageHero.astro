@@ -1,0 +1,149 @@
+---
+interface Props {
+	title: string;
+	subtitle?: string;
+	highlightText?: string;
+	className?: string;
+}
+
+const { title, subtitle, highlightText, className = "" } = Astro.props;
+---
+
+<section class={`page-hero section-padding ${className}`}>
+	<div class="circuit-bg"></div>
+	<div class="hero-blob hero-blob-1"></div>
+	<div class="hero-blob hero-blob-2"></div>
+	
+	<div class="container hero-content">
+		<div class="hero-text">
+			<h1 class="hero-title animate-fade-in">
+				{title}
+				{highlightText && <span class="neon-text">{highlightText}</span>}
+			</h1>
+			{subtitle && 
+				<p class="hero-subtitle animate-fade-in">
+					{subtitle}
+				</p>
+			}
+			<slot />
+		</div>
+	</div>
+</section>
+
+<style>
+	.page-hero {
+		min-height: 70vh;
+		display: flex;
+		align-items: center;
+		position: relative;
+		overflow: hidden;
+		background: 
+			radial-gradient(circle at 25% 40%, rgba(0, 163, 255, 0.12) 0%, transparent 50%),
+			radial-gradient(circle at 75% 60%, rgba(0, 229, 255, 0.08) 0%, transparent 50%);
+	}
+
+	.hero-blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(60px);
+		opacity: 0.15;
+		z-index: -1;
+		animation: blob-animation 15s infinite alternate ease-in-out;
+	}
+
+	.hero-blob-1 {
+		width: 350px;
+		height: 350px;
+		background: var(--color-neon-blue);
+		top: -150px;
+		right: -100px;
+		animation-delay: 0s;
+	}
+
+	.hero-blob-2 {
+		width: 280px;
+		height: 280px;
+		background: var(--color-neon-cyan);
+		bottom: -120px;
+		left: -80px;
+		animation-delay: 7s;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+	}
+
+	.hero-text {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		line-height: 1.2;
+		margin-bottom: 1.5rem;
+		font-weight: 800;
+		font-family: var(--font-heading);
+		color: var(--color-text);
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		line-height: 1.8;
+		font-family: var(--font-body);
+	}
+
+	@keyframes blob-animation {
+		0% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+		100% {
+			transform: translate(0, 0) scale(1);
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.page-hero {
+			min-height: 60vh;
+			padding-top: 4rem;
+		}
+
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.1rem;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-title {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1rem;
+		}
+
+		.hero-blob-1 {
+			width: 250px;
+			height: 250px;
+		}
+
+		.hero-blob-2 {
+			width: 200px;
+			height: 200px;
+		}
+	}
+</style>

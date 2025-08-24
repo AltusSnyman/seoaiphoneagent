@@ -1,0 +1,125 @@
+---
+interface Props {
+	title?: string;
+	className?: string;
+	variant?: 'default' | 'feature' | 'pricing' | 'highlight';
+	delay?: number;
+}
+
+const { title, className = "", variant = "default", delay = 0 } = Astro.props;
+---
+
+<div 
+	class={`card glass-card animate-fade-in ${variant} ${className}`}
+	style={`animation-delay: ${delay}ms`}
+>
+	{title && <h3 class="card-title">{title}</h3>}
+	<slot />
+	{variant === 'feature' && <div class="card-glow"></div>}
+	{variant === 'highlight' && <div class="card-highlight-border"></div>}
+</div>
+
+<style>
+	.card {
+		position: relative;
+		padding: 2rem;
+		border-radius: 1rem;
+		transition: all 0.3s ease;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		background: rgba(10, 14, 23, 0.8);
+		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	}
+
+	.card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+		border-color: rgba(0, 163, 255, 0.3);
+	}
+
+	.card-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+		font-family: var(--font-heading);
+	}
+
+	/* Feature card variant */
+	.card.feature {
+		text-align: center;
+	}
+
+	.card.feature:hover .card-glow {
+		opacity: 1;
+		transform: scale(1.1);
+	}
+
+	.card-glow {
+		position: absolute;
+		inset: -20px;
+		background: radial-gradient(circle, var(--color-neon-blue) 0%, transparent 70%);
+		opacity: 0;
+		transition: all 0.3s ease;
+		border-radius: inherit;
+		z-index: -1;
+		filter: blur(20px);
+	}
+
+	/* Pricing card variant */
+	.card.pricing {
+		border: 2px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.card.pricing:hover {
+		border-color: var(--color-neon-blue);
+		box-shadow: 
+			0 12px 40px rgba(0, 0, 0, 0.5),
+			0 0 30px rgba(0, 163, 255, 0.3);
+	}
+
+	/* Highlight variant */
+	.card.highlight {
+		border: 2px solid var(--color-neon-blue);
+		background: rgba(0, 163, 255, 0.05);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.card-highlight-border {
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		padding: 2px;
+		background: linear-gradient(45deg, var(--color-neon-blue), var(--color-neon-cyan));
+		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		mask-composite: exclude;
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	/* Default card spacing */
+	.card > :global(p) {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		margin-bottom: 1rem;
+	}
+
+	.card > :global(p:last-child) {
+		margin-bottom: 0;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.card {
+			padding: 1.5rem;
+		}
+
+		.card-title {
+			font-size: 1.25rem;
+		}
+	}
+</style>

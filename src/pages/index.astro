@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import Features from '../components/Features.astro';
+import WhyVoiceAI from '../components/WhyVoiceAI.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import ROISection from '../components/ROISection.astro';
+import ROICalculator from '../components/ROICalculator.astro';
+import Testimonials from '../components/Testimonials.astro';
+import DemoSection from '../components/DemoSection.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+import ChatbotWidget from '../components/ChatbotWidget.astro';
+---
+
+<Layout title="AI Phone Agent - Stop Missing Leads. Start Growing 24/7.">
+	<Header />
+	<main>
+		<Hero />
+		<ProblemSection />
+		<Features />
+		<WhyVoiceAI />
+		<ComparisonTable />
+		<ROISection />
+		<ROICalculator />
+		<Testimonials />
+		<DemoSection />
+		<FinalCTA />
+	</main>
+	<Footer />
+	<ChatbotWidget />
+</Layout>
+
+<style>
+	main {
+		overflow-x: hidden;
+	}
+</style>

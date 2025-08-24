@@ -1,0 +1,273 @@
+---
+---
+
+<section class="section-padding calculator-section">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Calculate Your Return on Investment</h2>
+			<p class="section-subtitle">
+				See how much revenue you could be generating with our AI Phone Agent.
+			</p>
+		</div>
+		
+		<div class="calculator-wrapper glass-card animate-fade-in">
+			<form id="roi-calculator" class="calculator-form">
+				<div class="form-group">
+					<label for="missed-calls">Missed Calls Per Week</label>
+					<input
+						type="number"
+						id="missed-calls"
+						name="missedCalls"
+						min="0"
+						max="1000"
+						value="10"
+						class="form-input"
+					/>
+					<span class="input-help">Average number of calls you miss weekly</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="avg-value">Average Customer Value ($)</label>
+					<input
+						type="number"
+						id="avg-value"
+						name="avgValue"
+						min="0"
+						max="10000"
+						value="100"
+						class="form-input"
+					/>
+					<span class="input-help">Average transaction or service value</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="conversion-rate">Conversion Rate (%)</label>
+					<input
+						type="number"
+						id="conversion-rate"
+						name="conversionRate"
+						min="0"
+						max="100"
+						value="30"
+						class="form-input"
+					/>
+					<span class="input-help">Percentage of calls that become customers</span>
+				</div>
+			</form>
+			
+			<div class="results-panel">
+				<h3 class="results-title">Your Potential Monthly Revenue Recovery</h3>
+				
+				<div class="result-item">
+					<span class="result-label">Lost Revenue (Current)</span>
+					<span class="result-value red" id="lost-revenue">$1,200</span>
+				</div>
+				
+				<div class="result-item">
+					<span class="result-label">AI Agent Cost</span>
+					<span class="result-value">$499</span>
+				</div>
+				
+				<div class="result-item featured">
+					<span class="result-label">Net Revenue Gain</span>
+					<span class="result-value neon-text" id="net-gain">$701</span>
+				</div>
+				
+				<div class="result-item">
+					<span class="result-label">Annual Impact</span>
+					<span class="result-value green" id="annual-impact">$8,412</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.calculator-section {
+		background: var(--color-dark-300);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.calculator-wrapper {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 3rem;
+		border-radius: 1rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		opacity: 0;
+	}
+
+	.calculator-wrapper.animate-fade-in {
+		animation: fade-in 0.7s ease-out forwards;
+		animation-delay: 200ms;
+	}
+
+	.calculator-form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-group label {
+		font-weight: 600;
+		color: var(--color-text);
+		font-size: 1rem;
+	}
+
+	.form-input {
+		padding: 1rem;
+		background: rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 0.5rem;
+		color: var(--color-text);
+		font-size: 1.125rem;
+		font-weight: 500;
+		transition: all 0.3s ease;
+		font-family: var(--font-body);
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: var(--color-neon-blue);
+		box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+	}
+
+	.input-help {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.results-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: 2rem;
+		background: rgba(0, 163, 255, 0.05);
+		border-radius: 0.75rem;
+		border: 1px solid rgba(0, 163, 255, 0.2);
+	}
+
+	.results-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	.result-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.result-item.featured {
+		padding: 1.25rem 0;
+		border-bottom: 2px solid rgba(0, 163, 255, 0.3);
+		border-top: 2px solid rgba(0, 163, 255, 0.3);
+		margin: 0.5rem 0;
+	}
+
+	.result-label {
+		color: var(--color-text-muted);
+		font-size: 1rem;
+	}
+
+	.result-value {
+		font-size: 1.75rem;
+		font-weight: 700;
+		font-family: var(--font-heading);
+	}
+
+	.result-value.red {
+		color: #FF5252;
+	}
+
+	.result-value.green {
+		color: #4CAF50;
+	}
+
+	.featured .result-value {
+		font-size: 2.25rem;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.calculator-wrapper {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem;
+		}
+
+		.results-panel {
+			padding: 1.5rem;
+		}
+
+		.result-value {
+			font-size: 1.5rem;
+		}
+
+		.featured .result-value {
+			font-size: 1.875rem;
+		}
+	}
+</style>
+
+<script>
+	const calculator = document.getElementById('roi-calculator') as HTMLFormElement;
+	const inputs = calculator.querySelectorAll('input');
+	
+	function calculateROI() {
+		const missedCalls = parseInt((document.getElementById('missed-calls') as HTMLInputElement).value) || 0;
+		const avgValue = parseInt((document.getElementById('avg-value') as HTMLInputElement).value) || 0;
+		const conversionRate = parseInt((document.getElementById('conversion-rate') as HTMLInputElement).value) || 0;
+		
+		const monthlyMissedCalls = missedCalls * 4;
+		const lostRevenue = Math.round(monthlyMissedCalls * avgValue * (conversionRate / 100));
+		const agentCost = 499;
+		const netGain = lostRevenue - agentCost;
+		const annualImpact = netGain * 12;
+		
+		document.getElementById('lost-revenue')!.textContent = `$${lostRevenue.toLocaleString()}`;
+		document.getElementById('net-gain')!.textContent = `$${netGain.toLocaleString()}`;
+		document.getElementById('annual-impact')!.textContent = `$${annualImpact.toLocaleString()}`;
+	}
+	
+	inputs.forEach(input => {
+		input.addEventListener('input', calculateROI);
+	});
+	
+	// Initial calculation
+	calculateROI();
+</script>

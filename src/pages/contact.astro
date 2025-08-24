@@ -1,0 +1,443 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Card from '../components/Card.astro';
+---
+
+<PageLayout 
+  title="Contact Us - Voice AI Agency"
+  description="Get in touch with the Voice AI Agency team. We're here to help with any questions about our AI phone agent solutions."
+>
+  <PageHero
+    title="Have Questions?"
+    highlightText="Let's Talk"
+    subtitle="We're here to help with any questions about our Voice AI solutions"
+  />
+
+  <!-- Contact Information Section -->
+  <section class="section-padding contact-section">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Information -->
+        <div class="contact-info animate-fade-in">
+          <SectionHeading title="Get In Touch" />
+          
+          <div class="contact-methods">
+            <!-- Email -->
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <div class="contact-label">Email Us</div>
+                <a href="mailto:alt@altcutman.com" class="contact-link">
+                  alt@altcutman.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <div class="contact-label">Call Us</div>
+                <div class="phone-numbers">
+                  <a href="tel:+19037760587" class="contact-link">
+                    US: +1 (903) 776-0587
+                  </a>
+                  <a href="tel:+61341602423" class="contact-link">
+                    AUS: +61 3 4160 2423
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <div class="contact-label">Our Location</div>
+                <div class="contact-text">
+                  Silicon Valley, CA 94025, USA
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Strategy Call CTA -->
+          <div class="strategy-call-cta">
+            <Card variant="default">
+              <h3 class="cta-title">Schedule a Strategy Call</h3>
+              <p class="cta-description">
+                Want to see a personalized demo of our AI Phone Agent and discuss your specific needs? Schedule a free strategy call with our team.
+              </p>
+              <a href="/booking" class="btn btn-primary cta-button">
+                Book Your Free Strategy Call
+              </a>
+            </Card>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form animate-fade-in" style="animation-delay: 300ms">
+          <Card variant="default">
+            <h3 class="form-title">Send Us a Message</h3>
+            
+            <div class="form-container">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/BKHaXUCha0NwZSY16TYq"
+                class="contact-form-iframe"
+                id="inline-BKHaXUCha0NwZSY16TYq" 
+                data-layout='{"id":"INLINE"}'
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="ai phone agent website message"
+                data-height="447"
+                data-layout-iframe-id="inline-BKHaXUCha0NwZSY16TYq"
+                data-form-id="BKHaXUCha0NwZSY16TYq"
+                title="ai phone agent website message"
+              >
+              </iframe>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="section-padding map-section">
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="container">
+      <div class="map-container animate-fade-in">
+        <Card variant="default" className="map-card">
+          <div class="map-placeholder">
+            <div class="map-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="map-icon">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <p class="map-title">Interactive Map Would Be Displayed Here</p>
+              <p class="map-subtitle">Voice AI Agency Headquarters</p>
+              <p class="map-address">Silicon Valley, CA 94025, USA</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta-section">
+    <div class="blob blob-5"></div>
+    <div class="blob blob-6"></div>
+    <div class="circuit-bg"></div>
+    <div class="container">
+      <div class="cta-content animate-fade-in">
+        <h2 class="cta-title">Experience AI Phone Agent Today</h2>
+        <p class="cta-subtitle">
+          Transform your business communications with our cutting-edge Voice AI technology.
+        </p>
+        <a href="/booking" class="btn btn-primary cta-button">
+          Book Your Free Strategy Call
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  // Load the Go HighLevel form embed script
+  const script = document.createElement('script');
+  script.src = 'https://link.msgsndr.com/js/form_embed.js';
+  script.async = true;
+  document.head.appendChild(script);
+</script>
+
+<style>
+  /* Contact Section */
+  .contact-section {
+    background: var(--color-dark-300);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Contact Methods */
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    background: rgba(0, 163, 255, 0.1);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    color: var(--color-neon-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
+  }
+
+  .contact-details {
+    flex: 1;
+  }
+
+  .contact-label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  .contact-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-neon-blue);
+  }
+
+  .phone-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-text {
+    color: var(--color-text-muted);
+  }
+
+  /* Strategy Call CTA */
+  .strategy-call-cta {
+    margin-top: 3rem;
+  }
+
+  .cta-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .cta-description {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .form-container {
+    height: 447px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .contact-form-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+  }
+
+  /* Map Section */
+  .map-section {
+    background: var(--color-dark-400);
+  }
+
+  .map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .map-card {
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--color-dark-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+  }
+
+  .map-content {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .map-icon {
+    color: var(--color-neon-blue);
+    margin-bottom: 1rem;
+  }
+
+  .map-title {
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .map-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .map-address {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Final CTA Section */
+  .final-cta-section {
+    padding: 5rem 0;
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-dark-400), var(--color-dark-300));
+  }
+
+  .cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .cta-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-form {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-method {
+      align-items: flex-start;
+    }
+
+    .phone-numbers {
+      gap: 0.25rem;
+    }
+
+    .form-container {
+      height: 400px;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .map-content {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-icon {
+      padding: 0.5rem;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .form-container {
+      height: 350px;
+    }
+
+    .map-placeholder {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

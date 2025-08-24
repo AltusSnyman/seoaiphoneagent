@@ -1,0 +1,603 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Card from '../components/Card.astro';
+---
+
+<PageLayout 
+  title="Book Your Free AI Strategy Session - Voice AI Agency"
+  description="Schedule your free strategy call with our Voice AI experts. Get a personalized demo and custom implementation plan for your business."
+>
+  <PageHero
+    title="Schedule Your"
+    highlightText="Free AI Strategy Session"
+    subtitle="Let's discuss how our AI Phone Agent can transform your business communications"
+  />
+
+  <!-- Booking Information Section -->
+  <section class="section-padding booking-info-section">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container">
+      <div class="info-container animate-fade-in">
+        <h2 class="section-title">What Happens On Your Strategy Call</h2>
+        
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-title">Discuss Your Business Challenges</div>
+              <p class="info-description">We'll explore your current phone system pain points and understand your specific needs.</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-title">See A Live Demo For Your Industry</div>
+              <p class="info-description">Experience how our AI Phone Agent works for businesses similar to yours.</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-title">Get A Custom Implementation Plan</div>
+              <p class="info-description">We'll create a tailored plan for implementing the AI Phone Agent in your business.</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-title">Have All Your Questions Answered</div>
+              <p class="info-description">Our experts will address any concerns about technology, implementation, or ROI.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="no-pressure-notice">
+          <Card variant="default">
+            <div class="notice-content">
+              <div class="notice-icon">
+                <div class="exclamation-mark">!</div>
+              </div>
+              <div class="notice-text">
+                <h3 class="notice-title">No Pressure, Just Value</h3>
+                <p class="notice-description">
+                  This isn't a high-pressure sales call. We're here to provide information, answer questions, and help you determine if our solution is right for your business.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section class="section-padding calendar-section">
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="container">
+      <div class="calendar-container">
+        <div class="calendar-header animate-fade-in">
+          <h2 class="calendar-title">
+            Book Your <span class="neon-text">Free Strategy Call</span>
+          </h2>
+          <p class="calendar-subtitle">
+            Select a date and time that works for you, and we'll be in touch to confirm your appointment.
+          </p>
+        </div>
+        
+        <div class="calendar-embed animate-fade-in" style="animation-delay: 200ms">
+          <Card variant="default" className="calendar-card">
+            <!-- Calendar Header -->
+            <div class="embed-header">
+              <h3 class="embed-title">Book Your Call</h3>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="calendar-icon">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            
+            <!-- Go HighLevel Calendar Embed -->
+            <div class="embed-content">
+              <div class="calendar-iframe-container">
+                <iframe 
+                  src="https://api.leadconnectorhq.com/widget/booking/L9a1VqF4ljVNaUhi30Df" 
+                  class="calendar-iframe"
+                  id="L9a1VqF4ljVNaUhi30Df_1745928083958"
+                  title="Book Your Call"
+                >
+                </iframe>
+              </div>
+              
+              <div class="calendar-features">
+                <div class="feature">
+                  <div class="feature-dot"></div>
+                  <span>Quick & Easy</span>
+                </div>
+                <div class="feature">
+                  <div class="feature-dot"></div>
+                  <span>Real-Time Availability</span>
+                </div>
+                <div class="feature">
+                  <div class="feature-dot"></div>
+                  <span>Instant Zoom Link</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="section-padding testimonial-section">
+    <div class="blob blob-5"></div>
+    <div class="blob blob-6"></div>
+    <div class="container">
+      <div class="testimonial-container animate-fade-in">
+        <Card variant="default" className="testimonial-card">
+          <blockquote class="testimonial-quote">
+            "The strategy call was incredibly helpful. They showed me exactly how the AI would handle our most common calls and 
+            questions. We implemented the system the following week, and it's been a game-changer for our business. Highly recommend 
+            taking the time for this call!"
+          </blockquote>
+          
+          <div class="testimonial-author">
+            <img 
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&auto=format" 
+              alt="David Williams" 
+              class="author-avatar"
+              loading="lazy"
+            />
+            <div class="author-info">
+              <div class="author-name">David Williams</div>
+              <div class="author-title">Property Management Company</div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta-section">
+    <div class="blob blob-7"></div>
+    <div class="blob blob-8"></div>
+    <div class="circuit-bg"></div>
+    <div class="container">
+      <div class="cta-content animate-fade-in">
+        <h2 class="cta-title">Ready to transform your business?</h2>
+        <p class="cta-subtitle">
+          Book your free strategy call today and see how our AI Phone Agent can revolutionize your customer communications.
+        </p>
+        <a 
+          href="https://api.leadconnectorhq.com/widget/booking/L9a1VqF4ljVNaUhi30Df" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-primary cta-button animate-glow"
+        >
+          Schedule Your Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  // Load the Go HighLevel booking script
+  const script = document.createElement('script');
+  script.src = 'https://link.msgsndr.com/js/form_embed.js';
+  script.type = 'text/javascript';
+  script.async = true;
+  document.head.appendChild(script);
+</script>
+
+<style>
+  /* Booking Info Section */
+  .booking-info-section {
+    background: var(--color-dark-300);
+  }
+
+  .info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .info-icon {
+    background: rgba(0, 163, 255, 0.1);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    color: var(--color-neon-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
+  }
+
+  .info-content {
+    flex: 1;
+  }
+
+  .info-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  .info-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* No Pressure Notice */
+  .no-pressure-notice {
+    margin-top: 2rem;
+  }
+
+  .notice-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .notice-icon {
+    flex-shrink: 0;
+  }
+
+  .exclamation-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 163, 255, 0.2);
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-neon-blue);
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
+  }
+
+  .notice-text {
+    flex: 1;
+  }
+
+  .notice-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  .notice-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Calendar Section */
+  .calendar-section {
+    background: var(--color-dark-400);
+  }
+
+  .calendar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .calendar-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .calendar-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .calendar-card {
+    overflow: hidden;
+    border: 2px solid var(--color-neon-blue);
+    background: rgba(0, 163, 255, 0.05);
+  }
+
+  .embed-header {
+    background: linear-gradient(135deg, rgba(0, 163, 255, 0.2) 0%, rgba(0, 229, 255, 0.2) 100%);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 163, 255, 0.3);
+  }
+
+  .embed-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .calendar-icon {
+    color: var(--color-neon-blue);
+  }
+
+  .embed-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .calendar-iframe-container {
+    height: 750px;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .calendar-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    z-index: 10;
+  }
+
+  .calendar-features {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .feature-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 163, 255, 0.5);
+  }
+
+  /* Testimonial Section */
+  .testimonial-section {
+    background: var(--color-dark-400);
+  }
+
+  .testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    text-align: left;
+  }
+
+  .testimonial-quote {
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    quotes: """ """;
+  }
+
+  .testimonial-quote::before {
+    content: open-quote;
+  }
+
+  .testimonial-quote::after {
+    content: close-quote;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-neon-blue);
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .author-title {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Final CTA Section */
+  .final-cta-section {
+    padding: 5rem 0;
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-dark-400), var(--color-dark-300));
+  }
+
+  .cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .cta-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .calendar-iframe-container {
+      height: 600px;
+    }
+
+    .calendar-features {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .calendar-title {
+      font-size: 1.75rem;
+    }
+
+    .calendar-subtitle {
+      font-size: 1rem;
+    }
+
+    .embed-content {
+      padding: 1rem;
+    }
+
+    .calendar-iframe-container {
+      height: 500px;
+    }
+
+    .testimonial-quote {
+      font-size: 1rem;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .info-item {
+      align-items: flex-start;
+    }
+
+    .notice-content {
+      align-items: flex-start;
+    }
+
+    .exclamation-mark {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+
+    .embed-header {
+      padding: 1rem;
+    }
+
+    .embed-title {
+      font-size: 1.125rem;
+    }
+
+    .calendar-iframe-container {
+      height: 400px;
+    }
+
+    .testimonial-author {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
