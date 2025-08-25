@@ -4,6 +4,47 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
+
+// Related content for Australia location page
+const australiaRelatedContent = [
+  {
+    title: "For Dentists",
+    href: "/industries/dentists",
+    type: "industry" as const,
+    description: "AI phone agents designed for Australian dental practices and patient scheduling."
+  },
+  {
+    title: "HVAC Contractors",
+    href: "/industries/hvac",
+    type: "industry" as const,
+    description: "Specialized AI solutions for Australian heating, cooling, and air conditioning businesses."
+  },
+  {
+    title: "Real Estate Agents",
+    href: "/industries/real-estate",
+    type: "industry" as const,
+    description: "AI phone systems for Australian real estate agencies and property management."
+  },
+  {
+    title: "United States Services",
+    href: "/locations/usa",
+    type: "location" as const,
+    description: "Professional AI phone agents serving American businesses nationwide."
+  },
+  {
+    title: "New Zealand Services", 
+    href: "/locations/new-zealand",
+    type: "location" as const,
+    description: "AI phone agents for New Zealand businesses with local cultural understanding."
+  },
+  {
+    title: "Emergency Call Handling",
+    href: "/blog/emergency-call-handling-ai",
+    type: "guide" as const,
+    description: "Essential emergency protocols tailored for Australian business environments."
+  }
+];
 ---
 
 <PageLayout 
@@ -54,7 +95,7 @@ import ServiceSchema from '../../components/ServiceSchema.astro';
 
             <p>Whether your business operates from Sydney's iconic Circular Quay, Melbourne's bustling Flinders Street Station precinct, or Perth's thriving CBD, our AI phone agents understand Australian business culture and integrate seamlessly with local operational requirements.</p>
 
-            <h2>Why Australian Businesses Choose AI Phone Agents</h2>
+            <h2>Smart Communication Solutions for Australian Enterprise</h2>
             
             <h3>Addressing Australia's Unique Business Environment</h3>
             <p>Australia's vast geography and concentrated urban populations create specific challenges that traditional phone systems struggle to address:</p>
@@ -447,6 +488,15 @@ import ServiceSchema from '../../components/ServiceSchema.astro';
             <p class="timezone-note">AI agents automatically adjust for daylight saving changes</p>
           </Card>
         </aside>
+      </div>
+      
+      <!-- Related Content Section -->
+      <div class="container" style="margin-top: 4rem;">
+        <RelatedContent 
+          items={australiaRelatedContent}
+          title="Related Australian Business Resources"
+          layout="horizontal"
+        />
       </div>
     </div>
   </section>

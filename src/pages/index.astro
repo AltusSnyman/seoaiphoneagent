@@ -13,6 +13,7 @@ import DemoSection from '../components/DemoSection.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import ChatbotWidget from '../components/ChatbotWidget.astro';
+import InternalLinkGrid from '../components/InternalLinkGrid.astro';
 ---
 
 <Layout 
@@ -31,6 +32,56 @@ import ChatbotWidget from '../components/ChatbotWidget.astro';
 		<ROICalculator />
 		<Testimonials />
 		<DemoSection />
+		<InternalLinkGrid 
+			title="Explore AI Phone Agent Solutions"
+			subtitle="Discover industry-specific guides, location information, and comprehensive resources to maximize your business potential"
+			variant="featured"
+			columns={3}
+			links={[
+				{
+					title: "Industry-Specific Solutions",
+					href: "/industries/dentists",
+					description: "Tailored AI phone solutions for dental practices, medical clinics, contractors, and more industries.",
+					category: "Industries",
+					icon: "🏢"
+				},
+				{
+					title: "United States Services", 
+					href: "/locations/usa",
+					description: "Professional AI phone agents serving American businesses nationwide with local expertise.",
+					category: "Locations",
+					icon: "🇺🇸"
+				},
+				{
+					title: "Emergency Call Handling",
+					href: "/blog/emergency-call-handling-ai", 
+					description: "Master emergency call management with AI protocols and best practices for critical situations.",
+					category: "Guides",
+					icon: "🚨"
+				},
+				{
+					title: "Business Phone Automation", 
+					href: "/blog/business-phone-automation-guide",
+					description: "Complete implementation guide for transforming your communications with AI automation.",
+					category: "Guides", 
+					icon: "📞"
+				},
+				{
+					title: "AI vs Human Receptionist",
+					href: "/blog/ai-receptionist-vs-human",
+					description: "Comprehensive cost analysis and decision guide for choosing AI or human reception staff.",
+					category: "Analysis",
+					icon: "⚖️"
+				},
+				{
+					title: "Complete AI Phone Guide",
+					href: "/ai-phone-agents",
+					description: "Everything you need to know about AI phone agents, implementation, and business benefits.",
+					category: "Resource",
+					icon: "📚"
+				}
+			]}
+		/>
 		<FinalCTA />
 	</main>
 	<Footer />

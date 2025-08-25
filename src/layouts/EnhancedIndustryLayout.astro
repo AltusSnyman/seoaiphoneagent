@@ -63,6 +63,7 @@ import Footer from '../components/Footer.astro';
 import ChatbotWidget from '../components/ChatbotWidget.astro';
 import IndustrySchema from '../components/IndustrySchema.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import RelatedContent from '../components/RelatedContent.astro';
 
 // Generate industry-specific data for schema
 const industryKeywords = [
@@ -105,6 +106,131 @@ const getTargetAudience = (industry: string) => {
 		'Construction': 'General Contractors'
 	};
 	return audienceMap[industry] || `${industry} Businesses`;
+};
+
+// Generate related content based on industry
+const getRelatedContent = (industry: string) => {
+	const baseContent = [
+		{
+			title: "United States Services",
+			href: "/locations/usa",
+			type: "location" as const,
+			description: "Professional AI phone agents serving American businesses nationwide with local expertise."
+		},
+		{
+			title: "Emergency Call Handling",
+			href: "/blog/emergency-call-handling-ai",
+			type: "guide" as const,
+			description: "Master emergency call management with AI protocols and best practices for critical situations."
+		},
+		{
+			title: "Business Phone Automation",
+			href: "/blog/business-phone-automation-guide",
+			type: "guide" as const,
+			description: "Complete implementation guide for transforming your communications with AI automation."
+		},
+		{
+			title: "AI vs Human Receptionist",
+			href: "/blog/ai-receptionist-vs-human",
+			type: "blog" as const,
+			description: "Comprehensive cost analysis and decision guide for choosing AI or human reception staff."
+		}
+	];
+
+	// Add industry-specific related content
+	const industrySpecific = getIndustryRelatedContent(industry);
+	
+	return [...industrySpecific, ...baseContent].slice(0, 6);
+};
+
+const getIndustryRelatedContent = (industry: string) => {
+	const industryMap: Record<string, Array<{title: string, href: string, type: "industry" | "location" | "blog" | "service" | "guide", description: string}>> = {
+		'Dental': [
+			{
+				title: "Medical Clinics AI Phone",
+				href: "/industries/medical-clinics", 
+				type: "industry",
+				description: "Specialized AI phone solutions for medical practices and healthcare providers."
+			},
+			{
+				title: "Emergency Call Protocols",
+				href: "/blog/emergency-call-handling-ai",
+				type: "guide", 
+				description: "Essential protocols for handling dental emergencies with AI phone agents."
+			}
+		],
+		'Medical': [
+			{
+				title: "For Dentists",
+				href: "/industries/dentists",
+				type: "industry",
+				description: "Specialized AI phone systems designed specifically for dental practices and patient care."
+			},
+			{
+				title: "Legal Offices",
+				href: "/industries/legal-offices",
+				type: "industry", 
+				description: "Professional AI phone solutions for law firms and legal practices."
+			}
+		],
+		'Plumbing': [
+			{
+				title: "HVAC Contractors",
+				href: "/industries/hvac",
+				type: "industry",
+				description: "AI phone agents specifically designed for heating, cooling, and ventilation contractors."
+			},
+			{
+				title: "Electricians",
+				href: "/industries/electricians", 
+				type: "industry",
+				description: "Professional AI phone solutions for electrical contractors and service providers."
+			}
+		],
+		'HVAC': [
+			{
+				title: "For Plumbers", 
+				href: "/industries/plumbers",
+				type: "industry",
+				description: "AI phone systems designed for plumbing contractors and emergency service calls."
+			},
+			{
+				title: "Roofers",
+				href: "/industries/roofers",
+				type: "industry",
+				description: "Specialized AI phone agents for roofing contractors and storm damage services."
+			}
+		],
+		'Real Estate': [
+			{
+				title: "Legal Offices",
+				href: "/industries/legal-offices", 
+				type: "industry",
+				description: "AI phone solutions for law firms handling real estate transactions and legal matters."
+			},
+			{
+				title: "For Contractors",
+				href: "/industries/contractors",
+				type: "industry",
+				description: "Professional AI phone systems for general contractors and construction businesses."
+			}
+		]
+	};
+	
+	return industryMap[industry] || [
+		{
+			title: "For Contractors",
+			href: "/industries/contractors",
+			type: "industry" as const,
+			description: "Professional AI phone systems for contractors and service-based businesses."
+		},
+		{
+			title: "Australia Services",
+			href: "/locations/australia", 
+			type: "location" as const,
+			description: "AI phone agents serving Australian businesses with local expertise and cultural understanding."
+		}
+	];
 };
 ---
 
@@ -391,6 +517,17 @@ const getTargetAudience = (industry: string) => {
 					</div>
 					<p class="testimonial-quote">"{testimonial.quote}"</p>
 				</div>
+			</div>
+		</section>
+
+		<!-- Related Content Section -->
+		<section class="related-content-section section-padding">
+			<div class="container">
+				<RelatedContent 
+					items={getRelatedContent(industry)}
+					title={`Related ${industry} Resources`}
+					layout="horizontal"
+				/>
 			</div>
 		</section>
 
@@ -1040,6 +1177,11 @@ const getTargetAudience = (industry: string) => {
 		color: var(--color-text);
 		line-height: 1.7;
 		font-style: italic;
+	}
+
+	/* Related Content Section */
+	.related-content-section {
+		background: var(--color-dark-400);
 	}
 
 	/* Final CTA */
