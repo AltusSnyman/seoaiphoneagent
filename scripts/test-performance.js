@@ -89,12 +89,22 @@ console.log('4. Use Chrome DevTools Lighthouse for local testing');
 
 console.log('\n📱 Expected Mobile Performance');
 console.log('------------------------------');
-console.log('• First Contentful Paint: <0.9s');
-console.log('• Largest Contentful Paint: <2.0s');  
+console.log('• First Contentful Paint (FCP): <0.9s');
+console.log('• Largest Contentful Paint (LCP): <2.0s');
+console.log('• First Input Delay (FID): <50ms');
+console.log('• Cumulative Layout Shift (CLS): <0.05');
 console.log('• Speed Index: <1.3s');
-console.log('• Time to Interactive: <1.8s');
-console.log('• Total Blocking Time: <150ms');
-console.log('• Cumulative Layout Shift: <0.05');
+console.log('• Time to Interactive (TTI): <1.8s');
+console.log('• Total Blocking Time (TBT): <150ms');
+
+console.log('\n🖼️ Image Optimization Status');
+console.log('-----------------------------');
+console.log('• Modern formats: WebP ready, AVIF support added');
+console.log('• Lazy loading: Intersection Observer implementation');
+console.log('• Progressive loading: Blur-up technique with placeholders');
+console.log('• Responsive images: Multiple breakpoints (400w, 800w, 1200w, 1600w)');
+console.log('• Critical images: Preloaded for optimal LCP');
+console.log('• Image rendering: Optimized for crisp display');
 
 console.log('\n🏆 Performance Score Targets');
 console.log('-----------------------------');

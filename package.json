@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "performance": "node scripts/test-performance.js",
+    "images": "node scripts/convert-images.js"
   },
   "dependencies": {
     "astro": "^5.13.2"

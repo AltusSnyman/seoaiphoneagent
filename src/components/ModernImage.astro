@@ -1,0 +1,156 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  priority?: boolean;
+  objectFit?: 'cover' | 'contain' | 'fill';
+  sizes?: string;
+  formats?: ('webp' | 'avif')[];
+}
+
+const { 
+  src, 
+  alt, 
+  width = 800, 
+  height = 600, 
+  class: className, 
+  priority = false,
+  objectFit = 'cover',
+  sizes = '100vw',
+  formats = ['webp']
+} = Astro.props;
+
+// Generate modern format sources
+const generateModernSrc = (originalSrc: string, format: string): string => {
+  if (originalSrc.includes('unsplash.com')) {
+    const baseUrl = originalSrc.split('?')[0];
+    const params = new URLSearchParams(originalSrc.split('?')[1] || '');
+    params.set('fm', format);
+    params.set('q', '80');
+    return `${baseUrl}?${params.toString()}`;
+  }
+  
+  // For local images, assume converted versions exist
+  return originalSrc.replace(/\.(jpg|jpeg|png)$/i, `.${format}`);
+};
+
+// Generate responsive srcsets for modern formats
+const generateSrcSet = (baseSrc: string, format?: string): string => {
+  if (baseSrc.includes('unsplash.com')) {
+    const baseUrl = baseSrc.split('?')[0];
+    const params = new URLSearchParams(baseSrc.split('?')[1] || '');
+    
+    if (format) {
+      params.set('fm', format);
+      params.set('q', '80');
+    }
+    
+    return [400, 800, 1200, 1600]
+      .map(w => {
+        params.set('w', w.toString());
+        return `${baseUrl}?${params.toString()} ${w}w`;
+      })
+      .join(', ');
+  }
+  
+  return baseSrc;
+};
+
+const fallbackSrc = src;
+---
+
+<picture class={className}>
+  <!-- Modern formats (AVIF, WebP) -->
+  {formats.includes('avif') && (
+    <source 
+      srcset={generateSrcSet(generateModernSrc(src, 'avif'), 'avif')} 
+      type="image/avif" 
+      sizes={sizes}
+    />
+  )}
+  
+  {formats.includes('webp') && (
+    <source 
+      srcset={generateSrcSet(generateModernSrc(src, 'webp'), 'webp')} 
+      type="image/webp" 
+      sizes={sizes}
+    />
+  )}
+  
+  <!-- Fallback JPEG/PNG -->
+  <img
+    src={fallbackSrc}
+    srcset={generateSrcSet(fallbackSrc)}
+    alt={alt}
+    width={width}
+    height={height}
+    sizes={sizes}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    class="modern-image"
+    style={{
+      objectFit,
+      aspectRatio: `${width}/${height}`,
+      '--aspect-ratio': `${width}/${height}`
+    }}
+  />
+</picture>
+
+<style>
+  picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+  
+  .modern-image {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    
+    /* Performance optimizations */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    /* Modern CSS features */
+    aspect-ratio: var(--aspect-ratio, auto);
+    
+    /* Smooth loading transitions */
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  
+  /* Loading state styling */
+  .modern-image:not([src]) {
+    background: linear-gradient(90deg, 
+      rgba(0, 163, 255, 0.1) 0%, 
+      rgba(0, 229, 255, 0.2) 50%, 
+      rgba(0, 163, 255, 0.1) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Focus and interaction states */
+  .modern-image:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Print optimization */
+  @media print {
+    .modern-image {
+      image-rendering: auto;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
