@@ -1,5 +1,6 @@
 ---
 import EnhancedIndustryLayout from '../../layouts/EnhancedIndustryLayout.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 
 const dreamOutcome = "Your dental practice captures every call, books every appointment, and grows revenue by $15,000+ per month - all while you focus on providing exceptional patient care without phone interruptions."
 
@@ -113,6 +114,42 @@ const roiData = {
   aiCost: 499,
   breakEvenCalls: 2
 };
+
+// FAQ data for dental practices
+const dentistFAQs = [
+  {
+    question: "How does an AI phone agent handle HIPAA compliance for dental practices?",
+    answer: "Our AI phone agents are fully HIPAA-compliant, designed specifically for healthcare environments. They never record or store patient information inappropriately, use secure encrypted communication, and follow strict protocols for handling protected health information (PHI). The system can schedule appointments and answer general questions while maintaining complete patient privacy."
+  },
+  {
+    question: "Can AI phone agents book dental appointments and handle cancellations?",
+    answer: "Yes, our AI phone agents integrate directly with popular dental practice management software like Dentrix, Eaglesoft, and Open Dental. They can check real-time availability, book appointments, handle cancellations and reschedules, send confirmation messages, and manage waiting lists - all while following your practice's specific scheduling protocols."
+  },
+  {
+    question: "How do AI phone agents handle dental emergencies and after-hours calls?",
+    answer: "AI phone agents are programmed with sophisticated dental emergency protocols. They can identify true emergencies (severe pain, trauma, swelling), immediately connect patients to the on-call dentist or emergency service, provide appropriate first-aid guidance, and schedule urgent appointments. For after-hours calls, they offer emergency contact information and can escalate critical situations."
+  },
+  {
+    question: "Will patients be able to tell they're speaking to an AI agent?",
+    answer: "Our AI phone agents are designed to provide natural, professional conversations that many patients find indistinguishable from human receptionists. They're trained in dental terminology, understand insurance questions, and maintain a warm, professional tone. However, we believe in transparency and can configure the system to identify itself as an AI assistant if preferred by your practice."
+  },
+  {
+    question: "How much can a dental practice save by using an AI phone agent instead of hiring additional staff?",
+    answer: "Dental practices typically save $35,000-$45,000 annually compared to hiring a full-time receptionist. Beyond salary savings, you eliminate costs for benefits, sick days, vacation coverage, and training. At $499/month, the AI agent pays for itself by capturing just 2-3 additional appointments monthly while providing 24/7 coverage."
+  },
+  {
+    question: "Can AI phone agents handle insurance verification and pre-authorization for dental procedures?",
+    answer: "Yes, our AI phone agents can handle basic insurance verification, check benefits, explain coverage details, and initiate pre-authorization requests. They integrate with insurance databases and can provide patients with copay estimates, coverage limits, and treatment plan financing options, streamlining the administrative burden on your staff."
+  },
+  {
+    question: "How quickly can an AI phone agent be set up for a dental practice?",
+    answer: "Most dental practices have their AI phone agent operational within 24-48 hours. This includes integration with your practice management system, customization of greeting and messaging, setup of appointment scheduling protocols, HIPAA compliance configuration, and staff training. We handle all technical aspects while ensuring seamless integration with your existing workflow."
+  },
+  {
+    question: "What happens if a patient has a complex question the AI agent can't handle?",
+    answer: "AI phone agents are trained to recognize when questions exceed their scope and seamlessly transfer calls to appropriate staff members. They can identify when a patient needs to speak with the dentist, hygienist, or treatment coordinator, provide the caller with wait time estimates, and ensure all relevant information is captured and passed along to your team."
+  }
+];
 ---
 
 <EnhancedIndustryLayout
@@ -129,4 +166,11 @@ const roiData = {
   caseStudies={caseStudies}
   testimonial={testimonial}
   roiData={roiData}
+/>
+
+<!-- FAQ Schema for Dentists -->
+<FAQSchema 
+  faqs={dentistFAQs}
+  title="Frequently Asked Questions - AI Phone Agents for Dental Practices"
+  subtitle="Get answers to common questions about implementing AI phone agents in dental practices"
 />

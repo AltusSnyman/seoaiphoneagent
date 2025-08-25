@@ -3,111 +3,165 @@ import PageLayout from '../layouts/PageLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
+import SecurityCompliance from '../components/SecurityCompliance.astro';
+import FAQSchema from '../components/FAQSchema.astro';
 
 const features = [
   {
     title: "Virtual Receptionist",
     icon: "phone",
-    description: "Our AI receptionist handles every call professionally, 24/7, ensuring no opportunity slips through the cracks.",
+    description: "Transform your business communications with our advanced AI virtual receptionist that never sleeps, never takes a sick day, and treats every caller with the professionalism your business deserves. Our intelligent virtual receptionist system provides comprehensive call handling capabilities that rival the best human receptionists while offering consistency, availability, and cost-effectiveness that traditional staffing simply cannot match.",
     details: [
-      "Answers calls with customized greetings",
-      "Handles FAQs without human intervention", 
-      "Transfers calls to the right department",
-      "Takes detailed messages",
-      "Ensures consistent, professional interactions"
+      "Customized greeting protocols tailored to your brand voice and industry requirements, ensuring every caller receives a warm, professional welcome that reflects your business values and maintains consistent brand messaging across all interactions",
+      "Comprehensive FAQ handling system trained on your specific business knowledge base, capable of answering complex customer questions about services, hours, policies, and procedures without requiring human intervention or callback delays",
+      "Intelligent call routing and transfer capabilities that assess caller needs, determine urgency levels, and seamlessly connect customers to the appropriate team member, department, or service specialist based on predetermined criteria and real-time availability",
+      "Detailed message capture with complete caller information including contact details, inquiry specifics, preferred callback times, and conversation context, ensuring nothing important gets lost and follow-up communications are informed and productive",
+      "Quality assurance protocols that maintain professional tone, accurate information delivery, and consistent customer experience standards across all interactions, with continuous learning capabilities that improve performance based on customer feedback and business outcomes",
+      "Multilingual support options to serve diverse customer bases, breaking down language barriers and expanding your market reach without additional staffing costs or training requirements",
+      "Integration capabilities with existing business systems, CRM platforms, and communication tools to ensure seamless data flow and unified customer experience management across all touchpoints"
     ],
     imageUrl: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&auto=format"
   },
   {
     title: "AI Appointment Booking",
     icon: "calendar", 
-    description: "Let AI handle your scheduling and send automatic reminders, reducing no-shows and maximizing your calendar.",
+    description: "Revolutionize your scheduling operations with our sophisticated AI appointment booking system that eliminates the back-and-forth confusion of traditional scheduling while maximizing your calendar efficiency and reducing costly no-shows. This intelligent system understands your business requirements, customer preferences, and operational constraints to deliver seamless appointment management that works around the clock, ensuring your schedule stays full and your customers remain satisfied with convenient, professional booking experiences.",
     details: [
-      "Syncs with your existing calendar",
-      "Sends automatic confirmation emails",
-      "Provides reminder texts before appointments", 
-      "Handles reschedules and cancellations",
-      "Optimizes your schedule based on preferences"
+      "Advanced calendar synchronization with popular platforms including Google Calendar, Outlook, and industry-specific scheduling systems, maintaining real-time availability accuracy and preventing double-bookings while preserving your existing workflow preferences and calendar organization",
+      "Automated confirmation and communication workflows that send professional email confirmations, text message reminders, and follow-up communications with appointment details, preparation instructions, and easy rescheduling options to enhance customer experience and reduce no-show rates",
+      "Intelligent reminder systems that deliver timely notifications via multiple channels including SMS, email, and voice calls, with customizable timing options and escalation protocols that adapt to customer preferences and significantly improve appointment attendance rates",
+      "Flexible rescheduling and cancellation management that handles customer requests professionally and efficiently, automatically updating calendars, notifying relevant staff members, and offering alternative appointment slots to minimize disruption and maintain customer relationships",
+      "Smart scheduling optimization that considers appointment types, duration requirements, travel time between locations, staff preferences, and peak business hours to maximize daily productivity while ensuring adequate time allocation for quality service delivery",
+      "Customer preference learning that remembers individual client scheduling patterns, preferred time slots, communication preferences, and service requirements to streamline future bookings and enhance personalized customer service experiences",
+      "Comprehensive reporting and analytics that track booking patterns, no-show trends, customer behavior insights, and schedule optimization opportunities to help you make data-driven decisions that improve business efficiency and customer satisfaction"
     ],
     imageUrl: "https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=800&auto=format"
   },
   {
     title: "AI SMS Texting",
     icon: "message",
-    description: "Respond to customer questions instantly via text, even when you're busy with other tasks.",
+    description: "Meet your customers where they are with our advanced AI SMS texting system that provides instant, intelligent text message responses while you focus on running your business. Modern customers expect quick, convenient communication through their preferred channels, and our AI-powered texting solution ensures you never miss an opportunity to engage, assist, or convert prospects into loyal customers, regardless of when they reach out or how busy your schedule becomes.",
     details: [
-      "Instant responses to common questions",
-      "Ability to handle complex conversations",
-      "Seamless handoff to human agents when needed",
-      "Follow-up messages to ensure satisfaction", 
-      "Multilingual support for diverse customers"
+      "Lightning-fast response capabilities that deliver immediate replies to customer text inquiries within seconds, eliminating the frustration of delayed responses and keeping potential customers engaged during their decision-making process when timing is most critical for conversions",
+      "Sophisticated conversation handling that manages complex, multi-message exchanges with context awareness, maintaining conversation flow, remembering previous interactions, and providing coherent, helpful responses that address customer needs comprehensively and professionally",
+      "Intelligent escalation protocols that recognize when conversations require human intervention, smoothly transitioning customers to available team members while preserving conversation history and ensuring seamless handoffs that maintain customer satisfaction and service continuity",
+      "Proactive follow-up messaging systems that check customer satisfaction, confirm appointment details, send service reminders, and nurture leads through automated sequences that feel personal and timely, driving engagement and building stronger customer relationships over time",
+      "Comprehensive multilingual support that breaks down language barriers and expands your market reach by communicating effectively with diverse customer bases in their preferred languages, ensuring inclusive service delivery and broader business opportunities",
+      "Text message analytics and insights that track response rates, conversation outcomes, customer engagement patterns, and communication preferences to help you optimize messaging strategies and improve overall customer experience and business results",
+      "Integration capabilities with existing business systems, customer databases, and marketing platforms to ensure unified customer communications and data synchronization across all business touchpoints and communication channels"
     ],
     imageUrl: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&auto=format"
   },
   {
     title: "Call Recording & Transcription", 
     icon: "file",
-    description: "Access recordings and transcripts anytime to improve service quality and train your team.",
+    description: "Unlock valuable business insights with our comprehensive call recording and transcription system that transforms every customer conversation into actionable intelligence. This powerful feature goes beyond simple recording to provide detailed transcriptions, sentiment analysis, and performance insights that help you understand your customers better, improve service quality, train your team more effectively, and ensure compliance with industry regulations while maintaining the highest standards of data security and privacy.",
     details: [
-      "Searchable transcript database",
-      "Sentiment analysis of customer calls",
-      "Keyword alerts for important conversations",
-      "Quality assurance monitoring",
-      "Compliance with industry regulations"
+      "Advanced searchable transcript database with intelligent indexing that allows you to quickly locate specific conversations, customer interactions, or topics across thousands of calls, enabling rapid information retrieval and comprehensive customer history analysis for improved service delivery",
+      "Sophisticated sentiment analysis technology that evaluates customer emotions, satisfaction levels, and interaction quality throughout each call, providing valuable feedback on customer experience trends, staff performance, and areas for improvement in your customer service approach",
+      "Intelligent keyword alerting systems that monitor calls for specific terms, phrases, or topics relevant to your business, automatically flagging important conversations about complaints, compliments, competitor mentions, or business opportunities that require immediate attention or follow-up action",
+      "Comprehensive quality assurance monitoring tools that track call handling standards, response times, resolution rates, and customer satisfaction metrics, enabling data-driven decisions about staff training needs, process improvements, and service enhancement opportunities",
+      "Robust compliance management features that ensure all recordings and transcriptions meet industry-specific regulatory requirements including HIPAA for healthcare, PCI DSS for financial services, and general data protection regulations, with secure storage and access controls",
+      "Advanced analytics and reporting capabilities that identify trends in customer inquiries, peak call times, common issues, and resolution patterns, providing strategic insights that help you optimize staffing, improve processes, and enhance overall business operations",
+      "Secure cloud storage with encryption, access controls, and retention policies that protect sensitive customer information while ensuring authorized personnel can access recorded conversations and transcripts when needed for training, quality assurance, or customer service purposes"
     ],
     imageUrl: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&auto=format"
   },
   {
     title: "Automated Review Management",
     icon: "star",
-    description: "Build your online reputation on autopilot with automated review requests and response management.",
+    description: "Strengthen your online reputation and attract more customers with our intelligent automated review management system that proactively generates positive reviews while professionally addressing negative feedback. In today's digital marketplace, online reviews significantly impact customer decisions and business success. Our system ensures you maintain a strong, positive online presence across all major review platforms while saving countless hours of manual reputation management work.",
     details: [
-      "Triggers review requests at optimal moments",
-      "Responds to negative reviews promptly", 
-      "Routes critical feedback to management",
-      "Analyzes review trends over time",
-      "Helps improve your Google Business rating"
+      "Strategic review request timing that identifies optimal moments to request reviews from satisfied customers, typically after successful service completion, positive customer interactions, or milestone achievements, maximizing the likelihood of receiving genuine, positive feedback that enhances your online reputation",
+      "Professional negative review response management that monitors all major review platforms and generates thoughtful, diplomatic responses to critical feedback, demonstrating your commitment to customer satisfaction while protecting your business reputation and showing potential customers how you handle concerns",
+      "Intelligent feedback routing systems that automatically alert management to critical reviews, customer complaints, or recurring issues identified in feedback patterns, enabling rapid response and resolution of problems before they impact your business reputation or customer relationships significantly",
+      "Comprehensive review analytics and trend analysis that tracks rating improvements, identifies common themes in customer feedback, monitors competitor review performance, and provides actionable insights to improve service quality and customer satisfaction over time",
+      "Multi-platform review optimization that helps improve your ratings across Google Business Profile, Yelp, Facebook, industry-specific review sites, and other relevant platforms, ensuring consistent positive representation wherever potential customers research your business online",
+      "Review generation campaign automation that sends personalized review requests through customers' preferred communication channels including email, text message, or phone calls, with customizable messaging that reflects your brand voice and encourages authentic, detailed feedback",
+      "Response template customization and compliance features that ensure all automated responses comply with platform guidelines, maintain professional standards, and align with your business values while addressing customer concerns effectively and appropriately"
     ],
     imageUrl: "https://images.unsplash.com/photo-1569098644584-210bcd375b59?w=800&auto=format"
   },
   {
     title: "Real-Time Notifications",
     icon: "bell",
-    description: "Stay in the loop with instant alerts about important customer interactions and business events.",
+    description: "Stay connected to your business operations with our intelligent real-time notification system that keeps you informed about critical customer interactions, business opportunities, and operational events without overwhelming you with unnecessary alerts. Our smart notification engine learns your preferences and priorities to deliver the right information at the right time through your preferred communication channels, ensuring you never miss important business developments while maintaining focus on your core responsibilities.",
     details: [
-      "Customizable notification preferences",
-      "Priority alerts for urgent matters",
-      "Daily summary reports",
-      "Performance metrics and analytics", 
-      "Integration with your existing tools"
+      "Fully customizable notification preferences that allow you to define which events trigger alerts, how you receive notifications (email, SMS, mobile app, or dashboard), and when notifications are delivered, ensuring you stay informed without being overwhelmed by irrelevant information or disrupted during important activities",
+      "Intelligent priority-based alerting system that categorizes notifications by urgency and importance, ensuring critical business events like emergency calls, high-value leads, or system issues receive immediate attention while routine notifications are appropriately batched and delivered at convenient times",
+      "Comprehensive daily and weekly summary reports that provide strategic insights into business performance, customer interaction trends, call volumes, appointment bookings, and key metrics, enabling data-driven decision making and strategic planning for business growth and improvement",
+      "Advanced performance analytics and business intelligence features that track key performance indicators, customer satisfaction metrics, revenue opportunities, and operational efficiency measures, providing actionable insights that help you optimize business operations and identify growth opportunities",
+      "Seamless integration capabilities with existing business tools including CRM systems, project management platforms, calendar applications, and communication tools, ensuring all notifications and alerts work within your established workflow and business ecosystem without disrupting existing processes",
+      "Smart escalation protocols that automatically increase notification urgency or expand recipient lists based on response time, issue severity, or business impact, ensuring critical matters receive appropriate attention and resolution without delays that could affect customer satisfaction or business operations",
+      "Mobile-optimized delivery systems that ensure you receive important notifications regardless of location or device, with offline synchronization capabilities that update you on missed events when connectivity is restored, maintaining business continuity even during travel or remote work situations"
     ],
     imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format"
   },
   {
     title: "Business CRM System",
     icon: "database",
-    description: "Manage your customer relationships efficiently with our integrated CRM solution.",
+    description: "Transform your customer relationship management with our comprehensive CRM system that centralizes all customer interactions, automates follow-up processes, and provides powerful analytics to help you build stronger relationships and drive more sales. This integrated solution eliminates the need for multiple disconnected tools by bringing together contact management, communication history, sales pipeline tracking, and performance analytics in one powerful platform designed specifically for growing businesses.",
     details: [
-      "Complete customer interaction history",
-      "Automated follow-up sequences",
-      "Lead scoring and qualification",
-      "Sales pipeline management",
-      "Performance reporting and analytics"
+      "Comprehensive customer interaction history that maintains detailed records of every phone call, text message, email, appointment, and transaction across all touchpoints, creating a complete customer profile that enables personalized service delivery and informed decision-making for enhanced customer relationships and satisfaction",
+      "Intelligent automated follow-up sequences that trigger based on customer behavior, interaction history, or predetermined timelines, ensuring no prospect or customer falls through the cracks while maintaining consistent, professional communication that nurtures relationships and drives conversions without manual intervention",
+      "Advanced lead scoring and qualification systems that automatically evaluate prospects based on engagement level, demographic information, buying signals, and interaction patterns, helping you prioritize high-value opportunities and allocate resources effectively for maximum sales conversion and business growth",
+      "Comprehensive sales pipeline management tools that track prospects through every stage of your sales process, from initial contact through closing and beyond, providing clear visibility into sales performance, bottlenecks, and opportunities while enabling accurate forecasting and strategic planning",
+      "Detailed performance reporting and analytics that measure customer lifetime value, sales conversion rates, customer acquisition costs, retention rates, and revenue trends, providing actionable insights that help you optimize business strategies, improve customer satisfaction, and accelerate profitable growth",
+      "Seamless integration capabilities with existing business tools including accounting software, email marketing platforms, calendar systems, and other business applications, ensuring unified data management and workflow efficiency without disrupting established business processes or requiring extensive system changes",
+      "Mobile accessibility and cloud-based architecture that enables access to customer information, interaction history, and business analytics from anywhere, ensuring you can maintain customer relationships and manage business operations effectively whether you're in the office, on the road, or working remotely"
     ],
     imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format"
   },
   {
     title: "Social Media AI Bot",
     icon: "social", 
-    description: "Extend your reach with AI-powered social media management for Facebook and Instagram.",
+    description: "Amplify your social media presence and customer engagement with our intelligent social media AI bot that manages your Facebook and Instagram interactions while maintaining authentic, professional communication with your audience. This powerful tool extends your customer service capabilities to social platforms where modern customers spend their time, ensuring consistent brand representation and timely responses that build community, drive engagement, and convert followers into customers.",
     details: [
-      "Automated post scheduling",
-      "Intelligent comment responses",
-      "Direct message handling",
-      "Content suggestion based on trends",
-      "Performance analytics and optimization"
+      "Strategic automated post scheduling that optimizes content delivery based on audience activity patterns, time zones, and engagement analytics, ensuring your content reaches maximum audience when they're most active while maintaining consistent brand presence across platforms without manual intervention or scheduling conflicts",
+      "Intelligent comment response management that monitors your social media posts for customer comments, questions, and interactions, providing thoughtful, brand-appropriate responses that engage your community, address customer inquiries, and maintain positive brand sentiment while escalating complex issues to human team members when necessary",
+      "Professional direct message handling that manages private messages and customer inquiries received through social media platforms, providing immediate responses to common questions, collecting contact information for follow-up, and seamlessly transitioning conversations to appropriate communication channels or team members",
+      "AI-powered content suggestion engine that analyzes trending topics, competitor activity, customer interests, and industry developments to recommend relevant, engaging content ideas that resonate with your audience while supporting your business goals and marketing objectives through strategic content planning",
+      "Comprehensive social media analytics and performance optimization that tracks engagement rates, follower growth, reach metrics, conversion rates, and audience demographics, providing actionable insights that help you refine social media strategies, improve content performance, and maximize return on social media marketing investments",
+      "Brand voice consistency management that ensures all automated responses and interactions maintain your established brand personality, tone, and messaging guidelines while adapting communication style appropriately for different social media platforms and audience expectations",
+      "Multi-platform integration capabilities that coordinate social media activities with your other business systems including CRM, email marketing, and appointment booking, creating unified customer experiences across all digital touchpoints and marketing channels"
     ],
     imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format"
+  }
+];
+
+// FAQ data for features page
+const featuresFAQs = [
+  {
+    question: "How does the AI phone agent integrate with existing business phone systems?",
+    answer: "Our AI phone agent seamlessly integrates with all major phone systems including VoIP, traditional landlines, and cloud-based systems. Integration typically takes 24 hours and works with providers like RingCentral, Twilio, 8x8, and traditional carriers. No hardware changes are required - the AI agent works through software integration."
+  },
+  {
+    question: "Can the AI phone agent handle multiple calls simultaneously?",
+    answer: "Yes, our AI phone agent can handle unlimited concurrent calls without any degradation in service quality. Unlike human receptionists who can only handle one call at a time, the AI system scales automatically to handle peak call volumes, ensuring no customer ever gets a busy signal."
+  },
+  {
+    question: "How accurate is the appointment booking feature?",
+    answer: "Our appointment booking system maintains 99.8% accuracy by integrating directly with your calendar system and following your specific business rules. It understands availability, service durations, staff schedules, and can handle complex scheduling scenarios including buffer times, recurring appointments, and multi-staff coordination."
+  },
+  {
+    question: "What happens if the AI phone agent doesn't understand a customer request?",
+    answer: "The AI phone agent is trained to recognize when it encounters questions beyond its scope and will seamlessly transfer the call to appropriate staff members. It captures all conversation context and provides a summary to your team, ensuring no information is lost during the transfer."
+  },
+  {
+    question: "How customizable is the AI phone agent's personality and responses?",
+    answer: "Highly customizable. You can adjust the AI's personality, tone, greetings, and responses to match your brand voice. It can be professional and formal for legal offices, warm and friendly for healthcare practices, or energetic and approachable for service businesses. All responses are tailored to your industry and business culture."
+  },
+  {
+    question: "Does the AI phone agent work during holidays and weekends?",
+    answer: "Yes, the AI phone agent operates 24/7/365 including all holidays and weekends. You can configure different messaging and protocols for after-hours calls, holidays, and weekends. It can handle emergency calls, take detailed messages, schedule callbacks, or transfer urgent calls according to your preferences."
+  },
+  {
+    question: "How does the AI phone agent handle sensitive or confidential information?",
+    answer: "Our AI phone agent follows strict security protocols including HIPAA compliance for healthcare, PCI DSS for payment information, and SOC 2 Type II standards. It never stores sensitive information inappropriately, uses encrypted communication, and can be configured to transfer sensitive conversations to human staff when needed."
+  },
+  {
+    question: "What kind of reporting and analytics does the AI phone agent provide?",
+    answer: "Comprehensive analytics including call volume, peak times, conversion rates, appointment booking success rates, most common questions, customer satisfaction scores, and ROI metrics. All data is presented in easy-to-understand dashboards with exportable reports for business analysis and optimization."
   }
 ];
 
@@ -155,9 +209,9 @@ function getIconSVG(iconType: string) {
 ---
 
 <PageLayout 
-  title="AI Phone Features | Virtual Receptionist & Call Automation Features"
-  description="Discover powerful AI phone features: 24/7 call answering, appointment booking, SMS automation, call recording, and review generation. Transform your business communications today."
-  keywords="AI phone features, virtual receptionist features, AI call answering, AI appointment booking, automated phone system, call recording, SMS automation, AI phone system features"
+  title="AI Phone System Features | Complete Business Communication Automation Suite"
+  description="Comprehensive AI phone system with virtual receptionist, automated appointment booking, SMS automation, call recording & transcription, review management, CRM integration, and social media automation. Transform your customer service with intelligent business communication features."
+  keywords="AI phone system features, virtual receptionist automation, AI appointment booking system, automated SMS texting, call recording transcription, review management automation, business CRM integration, social media AI bot, customer service automation, business communication features"
 >
   <ServiceSchema
     serviceType="feature"
@@ -179,10 +233,10 @@ function getIconSVG(iconType: string) {
     <div class="container hero-content">
       <div class="hero-text animate-fade-in">
         <h1 class="hero-title">
-          Our <span class="neon-text">Features</span>
+          Comprehensive <span class="neon-text">AI Features</span> for Modern Business
         </h1>
         <p class="hero-subtitle">
-          Discover how our AI-powered features can transform your business communication
+          Transform your business operations with our complete suite of AI-powered communication, customer service, and automation features. From virtual receptionist services to advanced CRM integration, discover how intelligent technology can streamline your operations, improve customer satisfaction, and drive sustainable business growth.
         </p>
       </div>
     </div>
@@ -234,6 +288,16 @@ function getIconSVG(iconType: string) {
       </div>
     </section>
   ))}
+
+  <!-- Security & Compliance Section -->
+  <SecurityCompliance showTitle={true} variant="detailed" />
+
+  <!-- FAQ Section -->
+  <FAQSchema 
+    faqs={featuresFAQs}
+    title="Frequently Asked Questions - AI Phone Agent Features"
+    subtitle="Get detailed answers about our AI phone agent features and capabilities"
+  />
 
   <!-- Video Section -->
   <section class="video-section section-padding">

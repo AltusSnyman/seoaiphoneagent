@@ -1,0 +1,279 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+export interface Props {
+  faqs: FAQ[];
+  showVisual?: boolean;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+const { 
+  faqs, 
+  showVisual = true, 
+  title = "Frequently Asked Questions", 
+  subtitle = "Get answers to common questions about our AI phone agent services",
+  className = ""
+} = Astro.props;
+
+// Generate JSON-LD structured data for FAQ schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+{showVisual && (
+  <section class={`faq-section section-padding ${className}`}>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{title}</h2>
+        <p class="section-subtitle">{subtitle}</p>
+      </div>
+      
+      <div class="faq-list">
+        {faqs.map((faq, index) => (
+          <div class="faq-item" data-faq={index}>
+            <div class="faq-question">
+              <h3>{faq.question}</h3>
+              <button class="faq-toggle" aria-label="Toggle answer">
+                <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-content">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+{showVisual && (
+  <script>
+    // FAQ toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const toggle = item.querySelector('.faq-toggle');
+        const icon = item.querySelector('.faq-icon');
+        
+        question.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              const otherAnswer = otherItem.querySelector('.faq-answer');
+              const otherIcon = otherItem.querySelector('.faq-icon');
+              if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+              if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+            }
+          });
+          
+          // Toggle current item
+          if (isOpen) {
+            item.classList.remove('active');
+            answer.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+          } else {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.style.transform = 'rotate(45deg)';
+          }
+        });
+      });
+    });
+  </script>
+)}
+
+<style>
+  .faq-section {
+    background: rgba(0, 163, 255, 0.02);
+    border-top: 1px solid rgba(0, 163, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 163, 255, 0.3);
+  }
+
+  .faq-item.active {
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 4px 20px rgba(0, 163, 255, 0.1);
+  }
+
+  .faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(0, 163, 255, 0.05);
+  }
+
+  .faq-question h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.4;
+    flex: 1;
+    padding-right: 1rem;
+  }
+
+  .faq-toggle {
+    background: none;
+    border: none;
+    color: var(--color-neon-blue);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .faq-toggle:hover {
+    background: rgba(0, 163, 255, 0.1);
+  }
+
+  .faq-icon {
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-content {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .faq-content p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      padding: 1rem;
+    }
+
+    .faq-question h3 {
+      font-size: 1rem;
+      padding-right: 0.5rem;
+    }
+
+    .faq-content {
+      padding: 0 1rem 1rem;
+    }
+
+    .faq-toggle {
+      min-width: 36px;
+      min-height: 36px;
+    }
+
+    .faq-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-question {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .faq-question h3 {
+      padding-right: 0;
+    }
+
+    .faq-toggle {
+      align-self: flex-end;
+    }
+  }
+</style>

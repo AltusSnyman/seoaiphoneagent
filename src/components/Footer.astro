@@ -3,33 +3,42 @@ const currentYear = new Date().getFullYear();
 
 const footerLinks = {
 	company: [
+		{ name: 'Home', href: '/' },
 		{ name: 'About Us', href: '/about' },
 		{ name: 'Features', href: '/features' },
 		{ name: 'Pricing', href: '/pricing' },
-		{ name: 'Contact', href: '/contact' }
+		{ name: 'Contact', href: '/contact' },
+		{ name: 'FAQ', href: '/faq' }
 	],
-	services: [
-		{ name: 'AI Phone Agent Guide', href: '/ai-phone-agents' },
-		{ name: 'Emergency Call Handling', href: '/blog/emergency-call-handling-ai' },
-		{ name: 'Business Automation', href: '/blog/business-phone-automation-guide' },
-		{ name: 'Cost Analysis Guide', href: '/blog/ai-receptionist-vs-human' }
+	solutions: [
+		{ name: 'AI Phone Agent', href: '/ai-phone-agents' },
+		{ name: 'Virtual Receptionist', href: '/features' },
+		{ name: 'Appointment Booking', href: '/features' },
+		{ name: 'Call Recording', href: '/features' },
+		{ name: 'SMS Automation', href: '/features' },
+		{ name: 'Review Management', href: '/features' }
 	],
-	industries: [
-		{ name: 'For Dentists', href: '/industries/dentists' },
-		{ name: 'For Plumbers', href: '/industries/plumbers' },
-		{ name: 'For Real Estate', href: '/industries/real-estate' },
-		{ name: 'For Contractors', href: '/industries/contractors' },
-		{ name: 'For Medical Clinics', href: '/industries/medical-clinics' },
-		{ name: 'For HVAC', href: '/industries/hvac' },
-		{ name: 'For Auto Repair', href: '/industries/auto-repair' },
-		{ name: 'For Landscaping', href: '/industries/landscaping' },
-		{ name: 'For Salons & Spas', href: '/industries/salons' },
-		{ name: 'For Cleaning Services', href: '/industries/cleaning-services' },
-		{ name: 'For Pest Control', href: '/industries/pest-control' },
-		{ name: 'For Roofers', href: '/industries/roofers' },
-		{ name: 'For Electricians', href: '/industries/electricians' },
-		{ name: 'For Legal Offices', href: '/industries/legal-offices' },
-		{ name: 'For Restaurants', href: '/industries/restaurants' }
+	healthcareServices: [
+		{ name: 'Dentists', href: '/industries/dentists' },
+		{ name: 'Medical Clinics', href: '/industries/medical-clinics' },
+		{ name: 'Legal Offices', href: '/industries/legal-offices' },
+		{ name: 'Salons & Spas', href: '/industries/salons' },
+		{ name: 'Restaurants', href: '/industries/restaurants' }
+	],
+	homeServices: [
+		{ name: 'Plumbers', href: '/industries/plumbers' },
+		{ name: 'HVAC Contractors', href: '/industries/hvac' },
+		{ name: 'Electricians', href: '/industries/electricians' },
+		{ name: 'Roofers', href: '/industries/roofers' },
+		{ name: 'Auto Repair', href: '/industries/auto-repair' },
+		{ name: 'Contractors', href: '/industries/contractors' },
+		{ name: 'Landscaping', href: '/industries/landscaping' },
+		{ name: 'Cleaning Services', href: '/industries/cleaning-services' },
+		{ name: 'Pest Control', href: '/industries/pest-control' }
+	],
+	businessServices: [
+		{ name: 'Real Estate', href: '/industries/real-estate' },
+		{ name: 'All Industries', href: '/' }
 	],
 	locations: [
 		{ name: 'United States', href: '/locations/usa' },
@@ -37,17 +46,18 @@ const footerLinks = {
 		{ name: 'New Zealand', href: '/locations/new-zealand' },
 		{ name: 'All Locations', href: '/locations' }
 	],
-	support: [
-		{ name: 'FAQ', href: '/faq' },
+	resources: [
 		{ name: 'Blog', href: '/blog' },
-		{ name: 'Book a Call', href: '/booking' },
-		{ name: 'Demo', href: '/features' }
+		{ name: 'AI vs Human Guide', href: '/blog/ai-receptionist-vs-human' },
+		{ name: 'Emergency Handling', href: '/blog/emergency-call-handling-ai' },
+		{ name: 'Business Automation', href: '/blog/business-phone-automation-guide' },
+		{ name: 'Book Demo Call', href: '/booking' }
 	],
-	legal: [
-		{ name: 'Privacy Policy', href: '/privacy' },
-		{ name: 'Terms of Service', href: '/terms' },
-		{ name: 'Cookie Policy', href: '/cookies' },
-		{ name: 'GDPR', href: '/gdpr' }
+	support: [
+		{ name: 'Help Center', href: '/faq' },
+		{ name: 'Contact Support', href: '/contact' },
+		{ name: 'Schedule Demo', href: '/booking' },
+		{ name: 'Technical Support', href: '/contact' }
 	]
 };
 
@@ -95,21 +105,38 @@ const socialLinks = [
 				</div>
 				
 				<div class="footer-column">
-					<h4 class="footer-heading">Services & Guides</h4>
+					<h4 class="footer-heading">AI Solutions</h4>
 					<ul class="footer-list">
-						{footerLinks.services.map((link) => (
+						{footerLinks.solutions.map((link) => (
 							<li><a href={link.href} class="footer-link">{link.name}</a></li>
 						))}
 					</ul>
 				</div>
 				
 				<div class="footer-column">
-					<h4 class="footer-heading">Industries</h4>
+					<h4 class="footer-heading">Healthcare & Services</h4>
 					<ul class="footer-list">
-						{footerLinks.industries.slice(0, 8).map((link) => (
+						{footerLinks.healthcareServices.map((link) => (
 							<li><a href={link.href} class="footer-link">{link.name}</a></li>
 						))}
-						<li><a href="/industries/restaurants" class="footer-link">See All Industries</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4 class="footer-heading">Home Services</h4>
+					<ul class="footer-list">
+						{footerLinks.homeServices.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4 class="footer-heading">Business Services</h4>
+					<ul class="footer-list">
+						{footerLinks.businessServices.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
 					</ul>
 				</div>
 				
@@ -123,6 +150,15 @@ const socialLinks = [
 				</div>
 				
 				<div class="footer-column">
+					<h4 class="footer-heading">Resources</h4>
+					<ul class="footer-list">
+						{footerLinks.resources.map((link) => (
+							<li><a href={link.href} class="footer-link">{link.name}</a></li>
+						))}
+					</ul>
+				</div>
+				
+				<div class="footer-column">
 					<h4 class="footer-heading">Support</h4>
 					<ul class="footer-list">
 						{footerLinks.support.map((link) => (
@@ -130,14 +166,31 @@ const socialLinks = [
 						))}
 					</ul>
 				</div>
-				
-				<div class="footer-column">
-					<h4 class="footer-heading">Legal</h4>
-					<ul class="footer-list">
-						{footerLinks.legal.map((link) => (
-							<li><a href={link.href} class="footer-link">{link.name}</a></li>
-						))}
-					</ul>
+			</div>
+		</div>
+		
+		<div class="footer-trust-bar">
+			<div class="trust-content">
+				<div class="trust-badges">
+					<div class="trust-item">
+						<span class="trust-icon">🔒</span>
+						<span class="trust-text">HIPAA Compliant</span>
+					</div>
+					<div class="trust-item">
+						<span class="trust-icon">⭐</span>
+						<span class="trust-text">4.9/5 Rating</span>
+					</div>
+					<div class="trust-item">
+						<span class="trust-icon">📞</span>
+						<span class="trust-text">24/7 Support</span>
+					</div>
+					<div class="trust-item">
+						<span class="trust-icon">🚀</span>
+						<span class="trust-text">Setup in 24 Hours</span>
+					</div>
+				</div>
+				<div class="quick-action">
+					<a href="/booking" class="footer-cta-btn">Get Started Today</a>
 				</div>
 			</div>
 		</div>
@@ -145,7 +198,7 @@ const socialLinks = [
 		<div class="footer-bottom">
 			<div class="footer-bottom-content">
 				<p class="footer-copyright">
-					© {currentYear} AI Phone Agent. All rights reserved.
+					© {currentYear} AI Phone Agent. All rights reserved. Professional AI virtual receptionist and automated phone answering services for businesses nationwide.
 				</p>
 				
 				<div class="footer-social">
@@ -236,7 +289,7 @@ const socialLinks = [
 
 	.footer-links {
 		display: grid;
-		grid-template-columns: repeat(6, 1fr);
+		grid-template-columns: repeat(8, 1fr);
 		gap: 2rem;
 	}
 
@@ -270,6 +323,59 @@ const socialLinks = [
 
 	.footer-link:hover {
 		color: var(--color-neon-blue);
+	}
+
+	.footer-trust-bar {
+		background: rgba(0, 163, 255, 0.05);
+		border-top: 1px solid rgba(0, 163, 255, 0.1);
+		border-bottom: 1px solid rgba(0, 163, 255, 0.1);
+		padding: 2rem 0;
+		margin-top: 2rem;
+	}
+
+	.trust-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.trust-badges {
+		display: flex;
+		gap: 3rem;
+	}
+
+	.trust-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-text);
+	}
+
+	.trust-icon {
+		font-size: 1.25rem;
+	}
+
+	.trust-text {
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.footer-cta-btn {
+		padding: 0.75rem 2rem;
+		background: var(--color-neon-blue);
+		color: white;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		box-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
+	}
+
+	.footer-cta-btn:hover {
+		background: #0080CC;
+		box-shadow: 0 0 30px rgba(0, 163, 255, 0.5);
+		transform: translateY(-2px);
 	}
 
 	.footer-bottom {
@@ -315,9 +421,10 @@ const socialLinks = [
 		transform: translateY(-2px);
 	}
 
-	@media (max-width: 1200px) {
+	@media (max-width: 1400px) {
 		.footer-links {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.5rem;
 		}
 	}
 
@@ -328,7 +435,8 @@ const socialLinks = [
 		}
 
 		.footer-links {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
 		}
 	}
 
@@ -338,14 +446,32 @@ const socialLinks = [
 		}
 
 		.footer-links {
-			grid-template-columns: 1fr;
+			grid-template-columns: repeat(2, 1fr);
 			gap: 2rem;
+		}
+
+		.trust-content {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.trust-badges {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1.5rem;
 		}
 
 		.footer-bottom-content {
 			flex-direction: column;
 			text-align: center;
 			gap: 1.5rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.footer-links {
+			grid-template-columns: 1fr;
+			gap: 2rem;
 		}
 	}
 </style>

@@ -4,6 +4,43 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+
+// FAQ data for New Zealand location page
+const newZealandFAQs = [
+  {
+    question: "Do AI phone agents work with New Zealand business hours and NZST/NZDT time zones?",
+    answer: "Yes, our AI phone agents are configured for New Zealand Standard Time (NZST) and New Zealand Daylight Time (NZDT). They automatically handle daylight saving transitions and understand New Zealand business hours, public holidays, and after-hours protocols for businesses from Auckland to Christchurch."
+  },
+  {
+    question: "Are AI phone agents compliant with New Zealand privacy laws including the Privacy Act 2020?",
+    answer: "Absolutely. Our AI phone agents fully comply with New Zealand's Privacy Act 2020, Commerce Commission guidelines, and Telecommunications Act requirements. We maintain data sovereignty with New Zealand and Australian data centers and follow all ACMA and New Zealand regulatory standards."
+  },
+  {
+    question: "Can AI phone agents integrate with popular New Zealand business software like Xero and local systems?",
+    answer: "Yes, our AI phone agents integrate seamlessly with popular New Zealand business platforms including Xero (NZ's most popular accounting software), MYOB, local CRM systems, and government portals. We understand the unique business software preferences of New Zealand companies and can integrate with industry-specific tools."
+  },
+  {
+    question: "How quickly can an AI phone agent be set up for my New Zealand business?",
+    answer: "Most New Zealand businesses have their AI phone agent operational within 24 hours. This includes New Zealand accent configuration, local business hour setup, integration with New Zealand phone systems, and compliance with local telecommunications standards. We understand the unique needs of Kiwi businesses."
+  },
+  {
+    question: "What's the cost difference between an AI phone agent and hiring a receptionist in New Zealand?",
+    answer: "New Zealand businesses typically save 60-75% compared to hiring full-time reception staff. While a full-time receptionist in major New Zealand cities costs NZD $45,000-$60,000+ annually (plus KiwiSaver and benefits), our AI phone agent starts at NZD $799/month with 24/7 coverage and no additional costs."
+  },
+  {
+    question: "Do AI phone agents understand New Zealand business culture and Kiwi communication styles?",
+    answer: "Yes, our AI phone agents are specifically trained in New Zealand business communication standards, including friendly Kiwi phone etiquette, appropriate greetings, understanding of local business terminology, and cultural nuances. They adapt their communication style for different New Zealand regions and industries, from Auckland's business district to rural communities."
+  },
+  {
+    question: "Can AI phone agents handle calls during New Zealand public holidays like Waitangi Day and ANZAC Day?",
+    answer: "Absolutely. Our AI phone agents operate 24/7 including all New Zealand public holidays such as Waitangi Day, ANZAC Day, Queen's Birthday, Labour Day, and regional holidays. They're programmed with New Zealand holiday schedules and can provide appropriate messaging while maintaining professional Kiwi service standards."
+  },
+  {
+    question: "How do AI phone agents handle emergency calls for New Zealand businesses?",
+    answer: "Our AI phone agents are programmed with New Zealand emergency protocols, understanding when to direct calls to 111, local emergency services, or urgent business contacts. This is particularly important for healthcare practices, legal offices, and service businesses operating across New Zealand's North and South Islands."
+  }
+];
 ---
 
 <PageLayout 
@@ -361,6 +398,13 @@ import ServiceSchema from '../../components/ServiceSchema.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQ Section -->
+  <FAQSchema 
+    faqs={newZealandFAQs}
+    title="Frequently Asked Questions - AI Phone Agents for New Zealand Businesses"
+    subtitle="Get answers to common questions about implementing AI phone agents in New Zealand business environments"
+  />
 
 </PageLayout>
 

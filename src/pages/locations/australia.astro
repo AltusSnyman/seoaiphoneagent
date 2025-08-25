@@ -5,6 +5,7 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 
 // Related content for Australia location page
 const australiaRelatedContent = [
@@ -43,6 +44,42 @@ const australiaRelatedContent = [
     href: "/blog/emergency-call-handling-ai",
     type: "guide" as const,
     description: "Essential emergency protocols tailored for Australian business environments."
+  }
+];
+
+// FAQ data for Australia location page
+const australiaFAQs = [
+  {
+    question: "Do AI phone agents work with Australian business hours and time zones (AEST, AEDT, AWST)?",
+    answer: "Yes, our AI phone agents are configured for all Australian time zones including Australian Eastern Standard Time (AEST), Australian Eastern Daylight Time (AEDT), and Australian Western Standard Time (AWST). They automatically handle daylight saving transitions and can manage after-hours calls with appropriate Australian business etiquette."
+  },
+  {
+    question: "Are AI phone agents compliant with Australian privacy laws like the Privacy Act 1988?",
+    answer: "Absolutely. Our AI phone agents fully comply with the Australian Privacy Act 1988, Australian Prudential Regulation Authority (APRA) requirements, and Telecommunications Consumer Protections Code. We maintain strict data sovereignty with Australian data centers and comply with all ACMA regulations."
+  },
+  {
+    question: "Can AI phone agents integrate with popular Australian business software like Xero, MYOB, and local CRM systems?",
+    answer: "Yes, our AI phone agents seamlessly integrate with popular Australian business platforms including Xero, MYOB, BankLink, local CRM systems, and government portals. We understand Australian business software preferences and can integrate with industry-specific tools used across Sydney, Melbourne, and Brisbane businesses."
+  },
+  {
+    question: "How quickly can an AI phone agent be set up for my Australian business?",
+    answer: "Most Australian businesses have their AI phone agent operational within 24 hours. This includes Australian accent configuration, local business hour setup, integration with Australian phone systems, and compliance with local telecommunications standards. Complex integrations may take 2-3 business days."
+  },
+  {
+    question: "What's the cost comparison between an AI phone agent and hiring a receptionist in Australia?",
+    answer: "Australian businesses typically save 65-75% compared to hiring full-time reception staff. While a full-time receptionist in major Australian cities costs AUD $45,000-$65,000+ annually (plus superannuation and benefits), our AI phone agent starts at AUD $749/month with 24/7 coverage and no additional costs."
+  },
+  {
+    question: "Do AI phone agents understand Australian business culture and communication styles?",
+    answer: "Yes, our AI phone agents are specifically trained in Australian business communication standards, including professional phone etiquette, appropriate Australian greetings, understanding of local business terminology, and cultural nuances. They can adapt their communication style for different Australian regions and industries."
+  },
+  {
+    question: "Can AI phone agents handle calls during Australian public holidays and long weekends?",
+    answer: "Absolutely. Our AI phone agents operate 24/7 including all Australian public holidays, long weekends, Melbourne Cup Day, and state-specific holidays. They're programmed with Australian holiday schedules and can provide appropriate messaging while maintaining professional service standards."
+  },
+  {
+    question: "How do AI phone agents handle emergency calls for Australian businesses?",
+    answer: "Our AI phone agents are programmed with Australian emergency protocols, understanding when to direct calls to 000, local emergency services, or urgent business contacts. This is particularly important for healthcare practices, legal offices, and service businesses operating across Australia's major cities and regional areas."
   }
 ];
 ---
@@ -489,6 +526,13 @@ const australiaRelatedContent = [
           </Card>
         </aside>
       </div>
+      
+      <!-- FAQ Section -->
+      <FAQSchema 
+        faqs={australiaFAQs}
+        title="Frequently Asked Questions - AI Phone Agents for Australian Businesses"
+        subtitle="Get answers to common questions about implementing AI phone agents in Australian business environments"
+      />
       
       <!-- Related Content Section -->
       <div class="container" style="margin-top: 4rem;">

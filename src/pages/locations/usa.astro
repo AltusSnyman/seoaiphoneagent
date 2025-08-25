@@ -5,6 +5,7 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 
 // Related content for USA location page
 const usaRelatedContent = [
@@ -43,6 +44,42 @@ const usaRelatedContent = [
     href: "/blog/business-phone-automation-guide", 
     type: "guide" as const,
     description: "Complete guide to implementing phone automation in American business environments."
+  }
+];
+
+// FAQ data for USA location page
+const usaFAQs = [
+  {
+    question: "Do AI phone agents work with US business hours across different time zones?",
+    answer: "Yes, our AI phone agents operate 24/7 across all US time zones (Eastern, Central, Mountain, and Pacific). They automatically adjust responses based on your business hours and can handle after-hours calls with appropriate messaging, appointment scheduling for the next business day, and emergency call routing when needed."
+  },
+  {
+    question: "Are AI phone agents compliant with US business regulations like HIPAA?",
+    answer: "Absolutely. Our AI phone agents are fully HIPAA-compliant for healthcare providers, PCI DSS compliant for businesses handling payments, and meet SOC 2 Type II standards. We maintain strict data privacy protocols and comply with all applicable US federal and state business communication regulations."
+  },
+  {
+    question: "Can AI phone agents integrate with popular US business software like Salesforce, QuickBooks, and Microsoft 365?",
+    answer: "Yes, our AI phone agents seamlessly integrate with over 100+ popular US business platforms including Salesforce, HubSpot, QuickBooks, Microsoft 365, Google Workspace, Slack, and industry-specific software. Integration typically takes 24-48 hours with our technical support team handling the setup."
+  },
+  {
+    question: "How quickly can an AI phone agent be set up for my US business?",
+    answer: "Most US businesses have their AI phone agent operational within 24 hours. This includes custom greeting setup, business hour configuration, call routing rules, integration with your existing phone system, and staff training. Complex integrations with multiple systems may take 2-3 business days."
+  },
+  {
+    question: "What's the cost difference between an AI phone agent and hiring a receptionist in the US?",
+    answer: "US businesses typically save 60-80% compared to hiring full-time reception staff. While a full-time receptionist costs $35,000-$50,000+ annually (plus benefits), our AI phone agent starts at $499/month with 24/7 coverage, no sick days, holidays, or training costs."
+  },
+  {
+    question: "Can AI phone agents handle multiple languages for diverse US markets?",
+    answer: "Yes, our AI phone agents support Spanish, Mandarin, French, and other languages commonly used in US business markets. This is particularly valuable for businesses in diverse metropolitan areas like Los Angeles, New York, Miami, and San Francisco where multilingual customer service is essential."
+  },
+  {
+    question: "How do AI phone agents handle emergency calls for US businesses?",
+    answer: "Our AI phone agents are programmed with sophisticated emergency protocols. They can identify urgent situations, immediately escalate to appropriate personnel, contact emergency services when necessary, and maintain detailed logs. This is especially important for medical practices, legal offices, and service businesses."
+  },
+  {
+    question: "Do AI phone agents understand American business etiquette and communication styles?",
+    answer: "Yes, our AI phone agents are specifically trained in American business communication standards, including professional phone etiquette, appropriate greetings, polite hold procedures, and regional communication preferences. They adapt their tone to match your business culture and industry standards."
   }
 ];
 ---
@@ -550,6 +587,13 @@ const usaRelatedContent = [
           </Card>
         </aside>
       </div>
+      
+      <!-- FAQ Section -->
+      <FAQSchema 
+        faqs={usaFAQs}
+        title="Frequently Asked Questions - AI Phone Agents for US Businesses"
+        subtitle="Get answers to common questions about implementing AI phone agents in American business environments"
+      />
       
       <!-- Related Content Section -->
       <div class="container" style="margin-top: 4rem;">

@@ -28,11 +28,50 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
-		<!-- Performance optimizations -->
+		<!-- Mobile-First Performance optimizations -->
 		<link rel="preload" href="/logo.png" as="image" type="image/png" />
-		<link rel="preload" href="/images/hero-business-team.jpg" as="image" type="image/jpeg" />
+		<link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
+		
+		<!-- Mobile-optimized hero image preloading -->
+		<link rel="preload" href="/images/hero-business-team.jpg" as="image" type="image/jpeg" media="(min-width: 768px)" />
+		<link rel="preload" href="/images/hero-business-team-mobile.jpg" as="image" type="image/jpeg" media="(max-width: 767px)" />
+		
+		<!-- Critical image optimization hints -->
+		<link rel="preload" href="/images/professional-woman-phone.jpg" as="image" type="image/jpeg" media="(min-width: 768px)" />
+		<link rel="preload" href="/images/business-dashboard.jpg" as="image" type="image/jpeg" media="(min-width: 768px)" />
+		
+		<!-- DNS prefetch for third-party resources -->
 		<link rel="dns-prefetch" href="//images.unsplash.com" />
+		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="//fonts.gstatic.com" />
+		<link rel="dns-prefetch" href="//unsplash.com" />
 		<meta name="theme-color" content="#00A3FF" />
+		
+		<!-- Mobile-first image format hints -->
+		<link rel="preload" href="/images/hero-business-team.webp" as="image" type="image/webp" media="(min-width: 768px)" />
+		<link rel="preload" href="/images/hero-business-team-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" />
+		
+		<!-- Reduce layout shift with size hints -->
+		<style>
+			/* Prevent font swap layout shift */
+			@font-face {
+				font-family: 'Inter Fallback';
+				src: local('Arial'), local('Helvetica'), local('sans-serif');
+				font-display: swap;
+				ascent-override: 90.20%;
+				descent-override: 22.48%; 
+				line-gap-override: 0.00%;
+			}
+			
+			@font-face {
+				font-family: 'Montserrat Fallback';
+				src: local('Arial Black'), local('Impact'), local('sans-serif');
+				font-display: swap;
+				ascent-override: 96.82%;
+				descent-override: 25.84%;
+				line-gap-override: 0.00%;
+			}
+		</style>
 		
 		<title>{title}</title>
 		
@@ -272,15 +311,19 @@ const {
 			]
 		}
 		</script>
-		<!-- Optimized Font Loading Strategy -->
+		<!-- Mobile-First Font Loading Strategy -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		
-		<!-- Critical fonts for above-the-fold content -->
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<!-- Load only critical font weights first for mobile LCP -->
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap&subset=latin" />
 		</noscript>
+		
+		<!-- Mobile-first font loading optimization -->
+		<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin />
 		
 		<!-- Critical CSS Inline -->
 		<style>
@@ -295,8 +338,8 @@ const {
 				--color-neon-glow: rgba(0, 163, 255, 0.5);
 				--color-text: #F5F5F5;
 				--color-text-muted: #94A3B8;
-				--font-body: 'Inter', system-ui, -apple-system, sans-serif;
-				--font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+				--font-body: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+				--font-heading: 'Montserrat', 'Montserrat Fallback', system-ui, -apple-system, sans-serif;
 			}
 			
 			*, *::before, *::after {
@@ -362,11 +405,12 @@ const {
 			
 			.logo-image {
 				height: 40px;
-				width: auto;
+				width: 40px; /* Fixed width to prevent CLS */
+				object-fit: contain;
 				filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.3));
 			}
 			
-			/* Critical hero styles */
+			/* Mobile-first hero styles optimized for LCP */
 			.hero {
 				min-height: 100vh;
 				display: flex;
@@ -374,22 +418,41 @@ const {
 				padding-top: 6rem;
 				position: relative;
 				overflow: hidden;
+				/* Mobile-first: Solid background first, image loaded progressively */
 				background: 
-					linear-gradient(135deg, rgba(6, 10, 18, 0.95), rgba(10, 14, 23, 0.9)),
-					radial-gradient(circle at 20% 50%, rgba(0, 163, 255, 0.1) 0%, transparent 50%),
-					radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 50%);
+					linear-gradient(135deg, rgba(6, 10, 18, 0.98), rgba(10, 14, 23, 0.95)),
+					radial-gradient(circle at 20% 50%, rgba(0, 163, 255, 0.12) 0%, transparent 50%),
+					radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.12) 0%, transparent 50%);
 			}
 			
+			/* Mobile-first background image loading */
 			.hero::before {
 				content: '';
 				position: absolute;
 				top: 0; left: 0; right: 0; bottom: 0;
-				background-image: url('/images/hero-business-team.jpg');
-				background-size: cover;
-				background-position: center;
-				opacity: 0.08;
+				opacity: 0.06;
 				z-index: 1;
 				filter: blur(1px);
+				/* Progressive enhancement: load background image */
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			
+			/* Load mobile-optimized image on small screens */
+			@media (max-width: 767px) {
+				.hero::before {
+					background-image: url('/images/hero-business-team-mobile.jpg');
+					opacity: 0.04;
+				}
+			}
+			
+			/* Load full image on desktop */
+			@media (min-width: 768px) {
+				.hero::before {
+					background-image: url('/images/hero-business-team.jpg');
+					opacity: 0.08;
+				}
 			}
 			
 			.hero-content { position: relative; z-index: 20; }
@@ -448,19 +511,89 @@ const {
 				to { opacity: 1; transform: translateY(0); }
 			}
 			
-			/* Critical mobile styles */
+			/* Mobile-first responsive design for Core Web Vitals */
 			@media (max-width: 1024px) {
 				.hero-grid {
 					grid-template-columns: 1fr;
 					text-align: center;
+					gap: 2rem;
 				}
-				.hero-title { font-size: 2.5rem; }
+				.hero-title { 
+					font-size: 2.5rem; 
+					line-height: 1.1;
+					margin-bottom: 1rem;
+				}
+				.hero { padding-top: 5rem; }
 			}
 			
+			/* Optimize for mobile devices */
 			@media (max-width: 640px) {
-				.hero-title { font-size: 2rem; }
-				.hero-subtitle { font-size: 1.1rem; margin: 0 auto 2rem; }
-				.hero-buttons { justify-content: center; }
+				.hero-title { 
+					font-size: 1.875rem; 
+					line-height: 1.1;
+					margin-bottom: 0.875rem;
+				}
+				.hero-subtitle { 
+					font-size: 1rem; 
+					margin: 0 auto 1.5rem;
+					line-height: 1.6;
+				}
+				.hero-buttons { 
+					justify-content: center;
+					flex-direction: column;
+					align-items: center;
+					gap: 0.75rem;
+				}
+				.hero { 
+					min-height: 85vh;
+					padding-top: 4rem; 
+				}
+				.container { padding: 0 0.875rem; }
+			}
+			
+			/* Extra small screens optimization */
+			@media (max-width: 360px) {
+				.hero-title { font-size: 1.625rem; }
+				.hero-subtitle { font-size: 0.95rem; }
+				.hero { min-height: 80vh; }
+			}
+			
+			/* CLS Prevention for dynamic content */
+			.loading-placeholder {
+				min-height: 200px;
+				background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%);
+				background-size: 200% 100%;
+				animation: loading-shimmer 1.5s infinite;
+				border-radius: 8px;
+			}
+			
+			@keyframes loading-shimmer {
+				0% { background-position: -200% 0; }
+				100% { background-position: 200% 0; }
+			}
+			
+			/* Prevent layout shift from images */
+			img:not([width]):not([height]) {
+				height: auto;
+				max-width: 100%;
+				aspect-ratio: 16/9; /* Default aspect ratio to reserve space */
+			}
+			
+			/* Reserve space for common image sizes */
+			.hero-image-container {
+				aspect-ratio: 16/9;
+				background: rgba(0, 163, 255, 0.05);
+				border-radius: 12px;
+				overflow: hidden;
+			}
+			
+			/* Prevent CLS from testimonials and cards */
+			.testimonial-card {
+				min-height: 200px; /* Reserve space for testimonial content */
+			}
+			
+			.feature-card {
+				min-height: 180px; /* Reserve space for feature cards */
 			}
 		</style>
 	</head>
@@ -479,13 +612,161 @@ const {
 				document.head.appendChild(link);
 			}
 			
-			// Load non-critical fonts and styles after page load
+			// Optimized First Input Delay (FID) and interaction responsiveness
+			function optimizeInteractivity() {
+				// Enable passive event listeners for better scroll performance
+				var passiveOptions = { passive: true };
+				
+				// Pre-warm interaction handlers for critical elements
+				document.addEventListener('touchstart', function() {}, passiveOptions);
+				document.addEventListener('touchmove', function() {}, passiveOptions);
+				
+				// Optimize button hover states for mobile
+				var buttons = document.querySelectorAll('.btn');
+				buttons.forEach(function(btn) {
+					btn.addEventListener('touchstart', function() {
+						this.style.transform = 'scale(0.98)';
+					}, passiveOptions);
+					btn.addEventListener('touchend', function() {
+						this.style.transform = 'scale(1)';
+					}, passiveOptions);
+				});
+				
+				// Preload critical interactive components with requestIdleCallback
+				if ('requestIdleCallback' in window) {
+					requestIdleCallback(function() {
+						// Pre-warm form handlers and interactive elements
+						var forms = document.querySelectorAll('form');
+						var inputs = document.querySelectorAll('input, textarea, select');
+						// Touch preparation for better FID scores
+						forms.forEach(function(form) {
+							form.addEventListener('submit', function() {}, { once: true });
+						});
+					});
+				}
+			}
+			
+			// Load non-critical resources after page load
 			if (window.addEventListener) {
 				window.addEventListener('load', function() {
-					// Load remaining font weights
-					loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat:wght@400;500;600&display=swap');
+					// Load remaining font weights with lower priority
+					loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat:wght@400;500;600&display=swap&subset=latin');
+					
+					// Initialize interaction optimizations
+					optimizeInteractivity();
+					
+					// Progressive image loading for below-the-fold content
+					if ('IntersectionObserver' in window) {
+						var imageObserver = new IntersectionObserver(function(entries, observer) {
+							entries.forEach(function(entry) {
+								if (entry.isIntersecting) {
+									var img = entry.target;
+									if (img.dataset.src) {
+										img.src = img.dataset.src;
+										img.classList.add('loaded');
+										observer.unobserve(img);
+									}
+								}
+							});
+						}, {
+							rootMargin: '50px'
+						});
+						
+						// Observe all lazy-loaded images
+						var lazyImages = document.querySelectorAll('img[data-src]');
+						lazyImages.forEach(function(img) {
+							imageObserver.observe(img);
+						});
+					}
 				});
 			}
+			
+			// Early interaction readiness - improve FID
+			document.addEventListener('DOMContentLoaded', function() {
+				// Enable immediate interaction on critical buttons
+				var criticalButtons = document.querySelectorAll('.btn-primary, .cta-button');
+				criticalButtons.forEach(function(btn) {
+					btn.style.cursor = 'pointer';
+					// Pre-attach event listeners to reduce FID
+					btn.addEventListener('click', function() {}, { once: true, passive: false });
+				});
+			});
+			
+			// Core Web Vitals measurement and validation
+			(function() {
+				function measureWebVitals() {
+					// Simple Web Vitals measurement for validation
+					var metrics = {};
+					
+					// Measure LCP (Largest Contentful Paint)
+					if ('PerformanceObserver' in window) {
+						try {
+							var lcpObserver = new PerformanceObserver(function(entryList) {
+								var entries = entryList.getEntries();
+								var lastEntry = entries[entries.length - 1];
+								metrics.lcp = Math.round(lastEntry.startTime);
+								if (window.console && metrics.lcp) {
+									console.log('LCP (Largest Contentful Paint):', metrics.lcp + 'ms', 
+										metrics.lcp < 2500 ? '✅ Good' : metrics.lcp < 4000 ? '⚠️ Needs Improvement' : '❌ Poor');
+								}
+							});
+							lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+						} catch(e) {}
+						
+						// Measure FID (First Input Delay)
+						try {
+							var fidObserver = new PerformanceObserver(function(entryList) {
+								entryList.getEntries().forEach(function(entry) {
+									metrics.fid = Math.round(entry.processingStart - entry.startTime);
+									if (window.console && metrics.fid >= 0) {
+										console.log('FID (First Input Delay):', metrics.fid + 'ms', 
+											metrics.fid < 100 ? '✅ Good' : metrics.fid < 300 ? '⚠️ Needs Improvement' : '❌ Poor');
+									}
+								});
+							});
+							fidObserver.observe({ entryTypes: ['first-input'] });
+						} catch(e) {}
+						
+						// Measure CLS (Cumulative Layout Shift)
+						try {
+							var clsValue = 0;
+							var clsObserver = new PerformanceObserver(function(entryList) {
+								entryList.getEntries().forEach(function(entry) {
+									if (!entry.hadRecentInput) {
+										clsValue += entry.value;
+									}
+								});
+								metrics.cls = Math.round(clsValue * 1000) / 1000;
+								if (window.console && metrics.cls >= 0) {
+									console.log('CLS (Cumulative Layout Shift):', metrics.cls, 
+										metrics.cls < 0.1 ? '✅ Good' : metrics.cls < 0.25 ? '⚠️ Needs Improvement' : '❌ Poor');
+								}
+							});
+							clsObserver.observe({ entryTypes: ['layout-shift'] });
+						} catch(e) {}
+					}
+					
+					// Basic performance metrics
+					window.addEventListener('load', function() {
+						setTimeout(function() {
+							if (window.performance && window.performance.timing) {
+								var timing = window.performance.timing;
+								var loadTime = timing.loadEventEnd - timing.navigationStart;
+								var domContentLoaded = timing.domContentLoadedEventEnd - timing.navigationStart;
+								
+								if (window.console) {
+									console.log('Page Load Time:', loadTime + 'ms');
+									console.log('DOM Content Loaded:', domContentLoaded + 'ms');
+									console.log('Performance Optimizations: Mobile-first Core Web Vitals focused');
+								}
+							}
+						}, 1000);
+					});
+				}
+				
+				// Initialize measurement after a brief delay
+				setTimeout(measureWebVitals, 100);
+			})();
 		</script>
 	</body>
 </html>
@@ -499,12 +780,19 @@ const {
 		padding: 0.75rem 1.5rem;
 		border-radius: 0.5rem;
 		font-weight: 600;
-		transition: all 0.3s ease;
+		transition: transform 0.2s ease, box-shadow 0.2s ease; /* Optimized for mobile */
 		cursor: pointer;
 		border: none;
 		font-family: var(--font-body);
 		font-size: 1rem;
 		text-decoration: none;
+		/* Mobile-first touch optimization */
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
+		min-height: 44px; /* iOS accessibility minimum touch target */
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 	}
 	
 	.btn-primary {
@@ -518,6 +806,29 @@ const {
 		color: var(--color-neon-blue);
 		border: 2px solid var(--color-neon-blue);
 		box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+	}
+	
+	/* Mobile-first button optimizations */
+	@media (max-width: 768px) {
+		.btn {
+			padding: 0.875rem 2rem; /* Larger touch targets on mobile */
+			font-size: 1.125rem;
+			min-width: 140px;
+		}
+		
+		.hero-buttons .btn {
+			width: 100%;
+			max-width: 300px; /* Consistent mobile button width */
+			margin: 0 auto;
+		}
+	}
+	
+	/* Performance-optimized mobile interactions */
+	@media (hover: none) and (pointer: coarse) {
+		.btn:active {
+			transform: scale(0.98);
+			transition: transform 0.1s ease;
+		}
 	}
 	
 	.neon-border {
@@ -541,6 +852,57 @@ const {
 		.section-padding {
 			padding: 3rem 0;
 		}
+	}
+	
+	/* Mobile-first content optimizations */
+	@media (max-width: 640px) {
+		.section-padding {
+			padding: 2rem 0;
+		}
+		
+		/* Optimize text sizes for mobile reading */
+		h2 { 
+			font-size: 1.875rem; 
+			line-height: 1.2;
+			margin-bottom: 1rem;
+		}
+		
+		h3 { 
+			font-size: 1.5rem; 
+			line-height: 1.3;
+			margin-bottom: 0.75rem;
+		}
+		
+		p, li { 
+			font-size: 1rem; 
+			line-height: 1.6;
+			margin-bottom: 1rem;
+		}
+		
+		/* Improve mobile card spacing */
+		.glass-card {
+			margin-bottom: 1.5rem;
+			padding: 1.5rem;
+		}
+		
+		/* Mobile-optimized grid layouts */
+		.grid-2 { grid-template-columns: 1fr; gap: 1rem; }
+		.grid-3 { grid-template-columns: 1fr; gap: 1rem; }
+		.grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+	}
+	
+	/* Ultra-mobile optimization (small phones) */
+	@media (max-width: 375px) {
+		.section-padding {
+			padding: 1.5rem 0;
+		}
+		
+		.glass-card {
+			padding: 1.25rem;
+		}
+		
+		/* Single column on very small screens */
+		.grid-4 { grid-template-columns: 1fr; }
 	}
 
 	/* Button hover effects - Non-critical */

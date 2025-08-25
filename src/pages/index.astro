@@ -14,6 +14,9 @@ import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import ChatbotWidget from '../components/ChatbotWidget.astro';
 import InternalLinkGrid from '../components/InternalLinkGrid.astro';
+import TrustSignals from '../components/TrustSignals.astro';
+import ServiceGuarantees from '../components/ServiceGuarantees.astro';
+import SecurityCompliance from '../components/SecurityCompliance.astro';
 ---
 
 <Layout 
@@ -24,12 +27,28 @@ import InternalLinkGrid from '../components/InternalLinkGrid.astro';
 	<Header />
 	<main>
 		<Hero />
+		
+		<!-- Trust Signals Right After Hero -->
+		<section class="section-padding trust-intro">
+			<div class="container">
+				<TrustSignals variant="horizontal" />
+			</div>
+		</section>
+		
 		<ProblemSection />
 		<Features />
 		<WhyVoiceAI />
+		
+		<!-- Security & Compliance Section -->
+		<SecurityCompliance variant="minimal" showTitle={false} />
+		
 		<ComparisonTable />
 		<ROISection />
 		<ROICalculator />
+		
+		<!-- Service Guarantees Section -->
+		<ServiceGuarantees variant="banner" showTitle={false} />
+		
 		<Testimonials />
 		<DemoSection />
 		<InternalLinkGrid 
@@ -91,5 +110,18 @@ import InternalLinkGrid from '../components/InternalLinkGrid.astro';
 <style>
 	main {
 		overflow-x: hidden;
+	}
+	
+	.trust-intro {
+		background: rgba(0, 163, 255, 0.02);
+		border-top: 1px solid rgba(0, 163, 255, 0.1);
+		border-bottom: 1px solid rgba(0, 163, 255, 0.1);
+		padding: 1.5rem 0;
+	}
+	
+	@media (max-width: 768px) {
+		.trust-intro {
+			padding: 1rem 0;
+		}
 	}
 </style>

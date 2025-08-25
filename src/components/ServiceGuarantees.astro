@@ -1,0 +1,522 @@
+---
+export interface Props {
+  showTitle?: boolean;
+  variant?: 'cards' | 'list' | 'banner';
+  className?: string;
+}
+
+const { showTitle = true, variant = 'cards', className = '' } = Astro.props;
+
+const guarantees = [
+  {
+    name: "99.9% Uptime Guarantee",
+    description: "Enterprise-grade reliability with service level agreements. Our redundant infrastructure ensures your AI phone agent is always available when customers call.",
+    icon: "⚡",
+    value: "99.9%",
+    details: "Less than 8.7 hours downtime per year",
+    color: "success"
+  },
+  {
+    name: "30-Day Money Back",
+    description: "Not satisfied? Get a full refund within 30 days, no questions asked. We're confident our AI phone agent will transform your business communications.",
+    icon: "💰", 
+    value: "30 Days",
+    details: "Risk-free trial period",
+    color: "primary"
+  },
+  {
+    name: "Setup in 24 Hours",
+    description: "From signup to first call answered, we'll have your AI phone agent operational within 24 hours. Fast deployment without compromising on quality.",
+    icon: "🚀",
+    value: "24 Hours",
+    details: "Quick deployment guarantee",
+    color: "info"
+  },
+  {
+    name: "24/7 Expert Support",
+    description: "Round-the-clock technical support from AI specialists. Get help whenever you need it with our dedicated customer success team.",
+    icon: "📞",
+    value: "24/7",
+    details: "Live chat, phone, and email support",
+    color: "warning"
+  },
+  {
+    name: "HIPAA Compliance",
+    description: "Full healthcare privacy compliance for medical practices. Your patient information is protected with enterprise-grade security measures.",
+    icon: "🏥",
+    value: "Certified",
+    details: "Healthcare data protection",
+    color: "success"
+  },
+  {
+    name: "No Setup Fees",
+    description: "Get started without any upfront costs or hidden fees. Transparent pricing with no surprises - just results for your business.",
+    icon: "🎯",
+    value: "$0",
+    details: "Transparent pricing",
+    color: "primary"
+  }
+];
+
+const stats = [
+  {
+    value: "10,000+",
+    label: "Businesses Served",
+    description: "Successfully deployed AI phone agents"
+  },
+  {
+    value: "2M+", 
+    label: "Calls Handled",
+    description: "Monthly call volume processed"
+  },
+  {
+    value: "4.9/5",
+    label: "Customer Rating",
+    description: "Average satisfaction score"
+  },
+  {
+    value: "5+",
+    label: "Years Experience",
+    description: "Serving businesses since 2019"
+  }
+];
+---
+
+<section class={`service-guarantees ${className}`}>
+  {showTitle && (
+    <div class="section-header">
+      <h2 class="section-title">Our Service Guarantees</h2>
+      <p class="section-subtitle">
+        We stand behind our AI phone agent with industry-leading guarantees and service level agreements designed to give you complete confidence in our solution.
+      </p>
+    </div>
+  )}
+
+  {variant === 'cards' && (
+    <div class="guarantees-grid">
+      {guarantees.map((guarantee, index) => (
+        <div class={`guarantee-card guarantee-card--${guarantee.color} animate-fade-in`} style={`animation-delay: ${index * 100}ms`}>
+          <div class="card-header">
+            <span class="card-icon">{guarantee.icon}</span>
+            <div class="card-value">{guarantee.value}</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">{guarantee.name}</h3>
+            <p class="card-description">{guarantee.description}</p>
+            <p class="card-details">{guarantee.details}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {variant === 'list' && (
+    <div class="guarantees-list">
+      {guarantees.map((guarantee) => (
+        <div class="guarantee-item">
+          <div class="item-icon-wrapper">
+            <span class="item-icon">{guarantee.icon}</span>
+          </div>
+          <div class="item-content">
+            <div class="item-header">
+              <h3 class="item-title">{guarantee.name}</h3>
+              <span class="item-value">{guarantee.value}</span>
+            </div>
+            <p class="item-description">{guarantee.description}</p>
+            <p class="item-details">{guarantee.details}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {variant === 'banner' && (
+    <div class="guarantees-banner">
+      <div class="banner-content">
+        <h3 class="banner-title">Backed by Industry-Leading Guarantees</h3>
+        <div class="banner-guarantees">
+          {guarantees.slice(0, 4).map((guarantee) => (
+            <div class="banner-item">
+              <span class="banner-icon">{guarantee.icon}</span>
+              <div class="banner-text">
+                <strong>{guarantee.value}</strong>
+                <span>{guarantee.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+
+  <div class="stats-section">
+    <h3 class="stats-title">Trusted by Thousands of Businesses</h3>
+    <div class="stats-grid">
+      {stats.map((stat, index) => (
+        <div class="stat-item animate-fade-in" style={`animation-delay: ${(index + 6) * 100}ms`}>
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+          <div class="stat-description">{stat.description}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-guarantees {
+    --guarantee-success: #00D4AA;
+    --guarantee-primary: var(--color-neon-blue);
+    --guarantee-info: #17A2B8;
+    --guarantee-warning: #FFC107;
+    --guarantee-bg: rgba(0, 163, 255, 0.05);
+    --guarantee-border: rgba(0, 163, 255, 0.1);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Cards Layout */
+  .guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .guarantee-card {
+    background: var(--guarantee-bg);
+    border: 1px solid var(--guarantee-border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guarantee-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--guarantee-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .guarantee-card--success::before {
+    background: var(--guarantee-success);
+  }
+
+  .guarantee-card--info::before {
+    background: var(--guarantee-info);
+  }
+
+  .guarantee-card--warning::before {
+    background: var(--guarantee-warning);
+  }
+
+  .guarantee-card:hover {
+    background: rgba(0, 163, 255, 0.08);
+    border-color: var(--guarantee-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.15);
+  }
+
+  .guarantee-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .card-value {
+    background: var(--guarantee-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .guarantee-card--success .card-value {
+    background: var(--guarantee-success);
+  }
+
+  .guarantee-card--info .card-value {
+    background: var(--guarantee-info);
+  }
+
+  .guarantee-card--warning .card-value {
+    background: var(--guarantee-warning);
+    color: #333;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-details {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* List Layout */
+  .guarantees-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .guarantee-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--guarantee-bg);
+    border: 1px solid var(--guarantee-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .guarantee-item:hover {
+    background: rgba(0, 163, 255, 0.08);
+    border-color: var(--guarantee-primary);
+  }
+
+  .item-icon-wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--guarantee-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item-icon {
+    font-size: 1.5rem;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .item-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .item-value {
+    background: var(--guarantee-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .item-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .item-details {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* Banner Layout */
+  .guarantees-banner {
+    background: linear-gradient(135deg, var(--guarantee-primary), var(--guarantee-success));
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .banner-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .banner-guarantees {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .banner-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .banner-icon {
+    font-size: 1.25rem;
+  }
+
+  .banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .banner-text strong {
+    font-weight: 700;
+  }
+
+  .banner-text span {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    text-align: center;
+  }
+
+  .stats-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .stat-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--guarantee-primary);
+    transform: translateY(-2px);
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--guarantee-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-description {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .guarantees-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .guarantee-card {
+      padding: 1.5rem;
+    }
+
+    .guarantee-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .item-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .banner-guarantees {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+    }
+  }
+</style>
