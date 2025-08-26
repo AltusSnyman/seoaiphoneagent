@@ -1,10 +1,20 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
 ---
 
 <header class="header">
 	<nav class="container nav">
 		<a href="/" class="logo">
-			<img src="/logo.png" alt="AI Phone Agent" class="logo-image" />
+			<OptimizedImage 
+				src="/logo.png" 
+				alt="AI Phone Agent" 
+				width={48}
+				height={48}
+				priority={true}
+				class="logo-image"
+				sizes="48px"
+				quality="low"
+			/>
 			<span class="logo-text">AI Phone Agent</span>
 		</a>
 		

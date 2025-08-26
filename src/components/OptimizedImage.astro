@@ -1,13 +1,15 @@
 ---
 export interface Props {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-  class?: string;
+  src: string;              // Base image name (e.g., 'hero-business-team')
+  alt: string;              // Alt text for accessibility
+  width?: number;           // Intrinsic width
+  height?: number;          // Intrinsic height
+  class?: string;           // Additional CSS classes
   loading?: 'lazy' | 'eager';
-  priority?: boolean;
+  priority?: boolean;       // Whether to prioritize loading (LCP images)
   objectFit?: 'cover' | 'contain' | 'fill';
+  sizes?: string;           // Responsive sizes attribute
+  quality?: 'low' | 'medium' | 'high'; // Quality preset
 }
 
 const { 
@@ -18,33 +20,129 @@ const {
   class: className, 
   loading = 'lazy',
   priority = false,
-  objectFit = 'cover'
+  objectFit = 'cover',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  quality = 'medium'
 } = Astro.props;
 
-// Convert to WebP if it's not already
-const isWebP = src.includes('.webp');
-const webpSrc = isWebP ? src : src.replace(/\.(jpg|jpeg|png)(\?.*)?$/i, '.webp$2');
+// Generate responsive image URLs
+const generateResponsiveSources = (baseName: string) => {
+  const qualityMap = {
+    low: [300, 400],
+    medium: [300, 400, 600, 800], 
+    high: [300, 400, 600, 800, 1200, 1600]
+  };
+  
+  const responsiveSizes = qualityMap[quality] || qualityMap.medium;
+  
+  return responsiveSizes.map(size => ({
+    size,
+    webp: `/images/optimized/${baseName}-${size}.webp`,
+    fallback: `/images/${baseName}.jpg`
+  }));
+};
 
-// Create fallback src for non-WebP browsers
-const fallbackSrc = src;
+// Check if this is an external URL
+const isExternalUrl = src.startsWith('http://') || src.startsWith('https://');
+
+// Handle logo (special case for PNG logos)
+const isLogo = src.includes('logo');
+const logoSizes = [48, 96, 192, 256];
+
+// Determine if this is an optimized image path
+const isOptimizedPath = src.includes('/images/optimized/') || src.includes('.webp');
+
+let sources = [];
+let webpSrcset = '';
+let fallbackSrcset = '';
+let defaultSrc = src;
+
+if (isExternalUrl) {
+  // External URLs - use as-is without optimization
+  webpSrcset = '';
+  fallbackSrcset = '';
+  defaultSrc = src;
+} else if (isOptimizedPath) {
+  // Use the provided optimized path directly
+  webpSrcset = src;
+  fallbackSrc = src.replace('.webp', '.jpg').replace('/optimized/', '/');
+} else if (isLogo) {
+  // Logo optimization
+  sources = logoSizes.map(size => ({
+    size,
+    webp: `/images/optimized/logo-${size}.webp`,
+    fallback: '/logo.png'
+  }));
+  webpSrcset = sources.map(({ webp, size }) => `${webp} ${size}w`).join(', ');
+  fallbackSrcset = sources.map(({ fallback, size }) => `${fallback} ${size}w`).join(', ');
+  defaultSrc = '/logo.png';
+} else {
+  // Extract basename for responsive images
+  const baseName = src.replace(/^\/images\//, '').replace(/\.(jpg|jpeg|png)$/, '');
+  sources = generateResponsiveSources(baseName);
+  webpSrcset = sources.map(({ webp, size }) => `${webp} ${size}w`).join(', ');
+  fallbackSrcset = sources.map(({ fallback, size }) => `${fallback} ${size}w`).join(', ');
+  defaultSrc = src;
+}
+
+const fallbackSrc = defaultSrc;
 ---
 
-<picture class={className}>
-  <!-- WebP source for modern browsers -->
-  <source srcset={webpSrc} type="image/webp" />
-  
-  <!-- Fallback for older browsers -->
+<!-- Preload critical images for LCP optimization -->
+{priority && !isExternalUrl && webpSrcset && (
+  <Fragment>
+    <link rel="preload" as="image" href={sources[0]?.webp || defaultSrc} type="image/webp" />
+  </Fragment>
+)}
+
+{isExternalUrl ? (
+  <!-- External URL - simple img element -->
   <img
-    src={fallbackSrc}
+    src={defaultSrc}
     alt={alt}
     width={width}
     height={height}
     loading={priority ? 'eager' : loading}
     decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
     style={objectFit ? `object-fit: ${objectFit}` : undefined}
-    class="optimized-image"
+    class={className ? `${className} optimized-image` : "optimized-image"}
   />
-</picture>
+) : (
+  <!-- Local optimized images - picture element with sources -->
+  <picture class={className}>
+    <!-- WebP source with responsive sizes -->
+    {webpSrcset && (
+      <source 
+        type="image/webp" 
+        srcset={webpSrcset}
+        sizes={sizes}
+      />
+    )}
+    
+    <!-- Fallback source with responsive sizes -->
+    {fallbackSrcset && (
+      <source 
+        type={isLogo ? "image/png" : "image/jpeg"}
+        srcset={fallbackSrcset}
+        sizes={sizes}
+      />
+    )}
+    
+    <!-- Main img element -->
+    <img
+      src={defaultSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={priority ? 'eager' : loading}
+      decoding={priority ? 'sync' : 'async'}
+      fetchpriority={priority ? 'high' : 'auto'}
+      style={objectFit ? `object-fit: ${objectFit}` : undefined}
+      class="optimized-image"
+    />
+  </picture>
+)}
 
 <style>
   .optimized-image {

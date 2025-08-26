@@ -1,7 +1,96 @@
 ---
 ---
 
-<!-- Eleven Labs ConvAI Widget -->
-<elevenlabs-convai agent-id="q1NTWuTRzgI0SAs4MSsu"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<!-- Eleven Labs ConvAI Widget with Performance Optimizations -->
+<div id="convai-container" class="convai-widget-container">
+  <elevenlabs-convai 
+    agent-id="q1NTWuTRzgI0SAs4MSsu"
+    class="convai-widget"
+  ></elevenlabs-convai>
+</div>
+
+<!-- Performance-optimized script loading -->
+<script>
+  // Prevent forced reflows with optimized loading
+  (function() {
+    // Defer widget loading until page is fully loaded
+    function loadConvaiWidget() {
+      // Create script element with optimal attributes
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+      script.async = true;
+      script.defer = true;
+      
+      // Add loading performance optimizations
+      script.setAttribute('importance', 'low');
+      
+      // Simple load confirmation
+      script.onload = function() {
+        console.log('ConvAI widget loaded successfully');
+      };
+      
+      // Handle errors gracefully
+      script.onerror = function() {
+        console.warn('ConvAI widget failed to load');
+        // Hide container if widget fails
+        const container = document.getElementById('convai-container');
+        if (container) container.style.display = 'none';
+      };
+      
+      document.head.appendChild(script);
+    }
+    
+    // Optimized loading strategy for development and production
+    function initializeWidget() {
+      if (document.readyState === 'complete') {
+        // Page already loaded - load immediately
+        loadConvaiWidget();
+      } else if (document.readyState === 'interactive') {
+        // DOM ready - load after short delay
+        setTimeout(loadConvaiWidget, 50);
+      } else {
+        // Still loading - wait for DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(loadConvaiWidget, 50);
+        });
+      }
+    }
+    
+    // Initialize immediately
+    initializeWidget();
+  })();
+</script>
+
+<style>
+  /* Simple, reliable widget positioning */
+  .convai-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    
+    /* Show immediately - no opacity hiding */
+    width: auto;
+    height: auto;
+  }
+  
+  /* Optimize widget performance */
+  .convai-widget {
+    /* Allow natural widget sizing */
+    display: block;
+    width: auto;
+    height: auto;
+    
+    /* Ensure visibility */
+    overflow: visible;
+  }
+  
+  /* Simple mobile adjustment */
+  @media (max-width: 768px) {
+    .convai-widget-container {
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+</style>
 

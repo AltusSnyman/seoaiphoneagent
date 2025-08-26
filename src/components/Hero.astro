@@ -2,6 +2,20 @@
 import TrustBadge from './TrustBadge.astro';
 ---
 
+<!-- WebP support detection -->
+<script>
+// Detect WebP support and add class to document
+(function() {
+	var webP = new Image();
+	webP.onload = webP.onerror = function () {
+		if (webP.height != 2) {
+			document.documentElement.classList.add('no-webp');
+		}
+	};
+	webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+})();
+</script>
+
 <section class="hero section-padding">
 	<div class="circuit-bg"></div>
 	<div class="blob blob-1"></div>
@@ -127,7 +141,7 @@ import TrustBadge from './TrustBadge.astro';
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: url('/images/hero-business-team.jpg');
+		background-image: url('/images/optimized/hero-business-team-800.webp');
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
@@ -135,6 +149,11 @@ import TrustBadge from './TrustBadge.astro';
 		z-index: 1;
 		filter: blur(1px);
 		will-change: transform;
+	}
+	
+	/* Fallback for browsers that don't support WebP */
+	.no-webp .hero::before {
+		background-image: url('/images/hero-business-team.jpg');
 	}
 
 	.blob-1 {
