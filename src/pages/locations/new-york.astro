@@ -1,0 +1,553 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Card from '../../components/Card.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import LocalBusinessSchema from '../../components/LocalBusinessSchema.astro';
+import OrganizationSchema from '../../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+
+// NYC-specific FAQs
+const nycFAQs = [
+  {
+    question: "Do AI phone agents work during MTA delays and subway disruptions in NYC?",
+    answer: "Absolutely! Unlike human receptionists who may be delayed by subway issues, MTA service disruptions, or traffic, our AI phone agents provide completely reliable 24/7 coverage regardless of transportation problems. This is especially valuable in Manhattan where commute delays are unpredictable."
+  },
+  {
+    question: "Can AI phone agents handle the fast-paced, direct communication style expected in New York business?",
+    answer: "Yes, our AI phone agents are specifically trained for New York's business culture - direct, efficient, and results-oriented communication. They understand the urgency of Manhattan business operations and provide quick, professional responses that match the city's pace."
+  },
+  {
+    question: "How much do NYC businesses save with AI phone agents versus hiring Manhattan reception staff?",
+    answer: "New York businesses typically save $40,000-$70,000+ annually compared to hiring Manhattan-based reception staff. With reception salaries ranging from $45,000-$65,000 plus benefits, plus Manhattan office space costs of $80-$200+ per square foot, AI phone agents provide massive cost savings."
+  },
+  {
+    question: "Do AI phone agents understand NYC-specific business needs like Wall Street trading hours and international time zones?",
+    answer: "Yes! Our NYC-configured AI agents understand financial market operations, international business hours for global trading, and the unique scheduling needs of industries concentrated in Manhattan including finance, law, media, and technology."
+  },
+  {
+    question: "Can AI phone agents handle emergency situations during NYC weather events or crises?",
+    answer: "Our AI phone agents are designed with NYC-specific emergency protocols for situations like nor'easter storms, heat waves, power outages, and other urban emergencies. They can immediately escalate urgent calls and provide appropriate emergency contact information."
+  },
+  {
+    question: "How quickly can AI phone agents be deployed for New York businesses?",
+    answer: "Most NYC businesses have their AI phone agent operational within 24 hours. This includes NYC business culture training, appropriate accent selection, integration with local systems, and configuration for Manhattan's unique business environment."
+  }
+];
+---
+
+<PageLayout 
+  title="AI Phone Agents New York NYC - Manhattan Financial District Business Services"
+  description="Leading AI phone agents for New York City businesses. Professional 24/7 automated reception services for Manhattan, Brooklyn, Queens, Bronx - NYC business automation solutions."
+>
+  <ServiceSchema
+    serviceType="location"
+    serviceName="AI Phone Agent Services - New York City"
+    description="Professional AI phone agent and voice automation services for New York businesses. Serving Manhattan Financial District, Midtown, Brooklyn, Queens, Bronx with 24/7 automated reception services."
+    serviceUrl="/locations/new-york"
+    serviceCategory="ProfessionalService"
+    areaServed={["New York City", "Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"]}
+    features={[
+      "24/7 NYC Business Coverage",
+      "Wall Street Trading Hours Support", 
+      "Manhattan Accent Options",
+      "NYC Emergency Protocols",
+      "Multi-Borough Service",
+      "International Time Zone Coordination",
+      "NYC Business Culture Training",
+      "MTA Delay-Independent Service"
+    ]}
+    targetAudience="New York Business Owners"
+    availableHours="24/7 across all NYC boroughs and tri-state area"
+  />
+  
+  <LocalBusinessSchema
+    country="US"
+    businessName="AI Phone Agent New York"
+    description="Professional AI phone agent services for New York City businesses. 24/7 virtual receptionist solutions with Manhattan expertise and NYC business culture understanding."
+    telephone="+1-877-320-7259"
+    address={{
+      streetAddress: "123 Wall Street",
+      addressLocality: "New York", 
+      addressRegion: "NY",
+      postalCode: "10005",
+      addressCountry: "US"
+    }}
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Locations", url: "https://aiphoneagent.ai/locations" },
+      { name: "United States", url: "https://aiphoneagent.ai/locations/usa" },
+      { name: "New York", url: "https://aiphoneagent.ai/locations/new-york" }
+    ]}
+  />
+  
+  <PageHero
+    title="AI Phone Agents"
+    highlightText="New York City"
+    subtitle="Professional 24/7 voice AI reception services designed for the fast-paced Manhattan business environment"
+  />
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <SectionHeading 
+            title="AI Phone Agents Transforming New York City Business Operations"
+            subtitle="From Wall Street's financial powerhouse to Silicon Alley's tech innovation, Manhattan's Midtown corporate headquarters to Brooklyn's thriving small businesses - AI phone agents are revolutionizing how NYC companies handle customer communications."
+          />
+          
+          <div class="location-content">
+            <p class="lead-text">
+              <strong>New York City operates at the center of global business</strong> - where split-second decisions drive million-dollar deals, where transportation delays can cost opportunities, and where 24/7 availability isn't optional. In this environment, AI phone agents don't just improve efficiency - they provide the competitive edge that separates NYC success stories from missed opportunities.
+            </p>
+
+            <h2>The Manhattan Business Advantage</h2>
+            
+            <h3>NYC-Specific Business Challenges</h3>
+            <p>New York City's unique business environment creates communication challenges that traditional phone systems can't address:</p>
+            
+            <ul>
+              <li><strong>Transportation Unpredictability:</strong> MTA delays, subway service disruptions, and traffic gridlock regularly affect staff punctuality</li>
+              <li><strong>Premium Real Estate Costs:</strong> Manhattan office space at $80-$200+ per square foot makes dedicated reception areas extremely expensive</li>
+              <li><strong>24/7 Global Markets:</strong> Financial and trading firms need coverage for international markets operating across all time zones</li>
+              <li><strong>High Staff Turnover:</strong> Competitive job market and living costs create frequent reception staff turnover</li>
+              <li><strong>Intense Competition:</strong> Businesses can't afford to miss calls or provide substandard service in NYC's competitive environment</li>
+              <li><strong>Weather Extremes:</strong> Nor'easters, heat waves, and severe weather regularly disrupt business operations</li>
+            </ul>
+
+            <h3>NYC Business Culture Expertise</h3>
+            <p>Our AI phone agents are specifically trained for New York's distinctive business culture:</p>
+            
+            <ul>
+              <li><strong>Direct Communication Style:</strong> Fast-paced, results-oriented responses that match Manhattan's business tempo</li>
+              <li><strong>Professional Efficiency:</strong> Understanding of NYC's time-is-money mentality and urgency requirements</li>
+              <li><strong>Financial Market Awareness:</strong> Knowledge of trading hours, market terminology, and financial industry protocols</li>
+              <li><strong>International Business Coordination:</strong> Support for global business operations common in NYC</li>
+              <li><strong>Crisis Management:</strong> NYC-specific emergency protocols for urban emergencies and disruptions</li>
+              <li><strong>Accent and Tone Options:</strong> Choice of various American accents including neutral professional or regional preferences</li>
+            </ul>
+
+            <h2>Manhattan Financial District Solutions</h2>
+
+            <h3>Wall Street and Financial Services</h3>
+            <p>The Financial District demands precision, reliability, and 24/7 availability that traditional reception staff simply cannot provide:</p>
+            
+            <p><strong>Financial Industry Challenges:</strong></p>
+            <ul>
+              <li><strong>Global Trading Hours:</strong> Markets operate across Asian, European, and American time zones</li>
+              <li><strong>Regulatory Compliance:</strong> SEC, FINRA, and other regulatory communication requirements</li>
+              <li><strong>Client Confidentiality:</strong> Secure handling of sensitive financial information</li>
+              <li><strong>Market Sensitivity:</strong> Immediate escalation of time-sensitive trading and investment calls</li>
+              <li><strong>Emergency Protocols:</strong> Crisis communication during market volatility or systemic events</li>
+            </ul>
+
+            <p><strong>AI Financial District Solutions:</strong></p>
+            <ul>
+              <li><strong>24/7 Global Coverage:</strong> Never miss calls from international clients or markets</li>
+              <li><strong>Compliance-Ready:</strong> Systems designed to meet financial industry regulatory requirements</li>
+              <li><strong>Secure Communication:</strong> Bank-level security for sensitive financial conversations</li>
+              <li><strong>Market Hours Integration:</strong> Automatic adjustment for trading hours and market holidays</li>
+              <li><strong>Client Priority Routing:</strong> Intelligent call routing based on client importance and urgency</li>
+            </ul>
+
+            <h3>Midtown Corporate Headquarters</h3>
+            <p>Midtown Manhattan hosts numerous Fortune 500 headquarters requiring enterprise-level communication solutions:</p>
+            
+            <p><strong>Corporate Communication Needs:</strong></p>
+            <ul>
+              <li><strong>Multi-Department Routing:</strong> Complex organizational structures with hundreds of departments</li>
+              <li><strong>Executive Support:</strong> High-level executive communication and screening</li>
+              <li><strong>Vendor Coordination:</strong> Managing complex supplier and vendor relationships</li>
+              <li><strong>Media Relations:</strong> Professional handling of press inquiries and media contacts</li>
+              <li><strong>International Operations:</strong> Support for global business operations and time zones</li>
+            </ul>
+
+            <h2>Brooklyn and Outer Borough Business Solutions</h2>
+
+            <h3>Brooklyn's Growing Business Scene</h3>
+            <p>Brooklyn's diverse business landscape, from DUMBO's tech startups to Bay Ridge's family businesses, requires flexible AI phone solutions:</p>
+            
+            <ul>
+              <li><strong>Tech Startups:</strong> Scalable communication solutions that grow with rapid business expansion</li>
+              <li><strong>Creative Industries:</strong> Support for Brooklyn's thriving creative and design businesses</li>
+              <li><strong>Local Service Businesses:</strong> Community-focused communication for local Brooklyn businesses</li>
+              <li><strong>Manufacturing and Industrial:</strong> Support for Brooklyn's industrial and manufacturing operations</li>
+            </ul>
+
+            <h3>Queens and Bronx Business Support</h3>
+            <p>Diverse business communities across Queens and the Bronx benefit from AI phone agent flexibility:</p>
+            
+            <ul>
+              <li><strong>Multilingual Support:</strong> Spanish, Mandarin, Korean, and other languages common in diverse communities</li>
+              <li><strong>Small Business Focus:</strong> Affordable solutions for Queens and Bronx small businesses</li>
+              <li><strong>Healthcare and Professional Services:</strong> Support for the large healthcare and professional service sectors</li>
+              <li><strong>Airport Proximity Services:</strong> Business support for companies serving JFK and LaGuardia airports</li>
+            </ul>
+
+            <h2>NYC Transportation and Weather Independence</h2>
+
+            <h3>MTA and Transportation Challenges</h3>
+            <p>New York's transportation system creates unique business challenges that AI phone agents eliminate:</p>
+            
+            <p><strong>Common NYC Transportation Issues:</strong></p>
+            <ul>
+              <li><strong>Subway Delays:</strong> MTA service disruptions affect millions of commuters daily</li>
+              <li><strong>Rush Hour Gridlock:</strong> Traffic congestion particularly severe during business hours</li>
+              <li><strong>Weather Impact:</strong> Snow, ice, and severe weather significantly disrupt transportation</li>
+              <li><strong>Construction Delays:</strong> Ongoing infrastructure projects create unpredictable delays</li>
+              <li><strong>Bridge and Tunnel Closures:</strong> Major routes frequently affected by accidents or maintenance</li>
+            </ul>
+
+            <p><strong>AI Transportation Independence:</strong></p>
+            <ul>
+              <li><strong>100% Reliability:</strong> AI agents never delayed by transportation issues</li>
+              <li><strong>Weather Resistant:</strong> Operate normally during severe weather when staff can't reach office</li>
+              <li><strong>Rush Hour Consistency:</strong> Peak performance during high-traffic periods</li>
+              <li><strong>Emergency Coverage:</strong> Maintain operations during transportation emergencies</li>
+            </ul>
+
+            <h3>NYC Weather and Crisis Management</h3>
+            <p>New York faces regular weather and urban challenges requiring robust communication systems:</p>
+            
+            <p><strong>NYC Weather Challenges:</strong></p>
+            <ul>
+              <li><strong>Nor'easter Storms:</strong> Major winter storms can shut down the city for days</li>
+              <li><strong>Hurricane Threats:</strong> Annual hurricane season affects coastal areas and infrastructure</li>
+              <li><strong>Heat Waves:</strong> Extreme heat strains electrical grids and affects office operations</li>
+              <li><strong>Flooding Events:</strong> Heavy rainfall and coastal flooding disrupt business districts</li>
+              <li><strong>Power Outages:</strong> Electrical system strain during peak usage periods</li>
+            </ul>
+
+            <p><strong>AI Weather Resilience:</strong></p>
+            <ul>
+              <li><strong>Redundant Systems:</strong> Multiple data centers ensure continuous operation</li>
+              <li><strong>Emergency Protocols:</strong> Automatic activation of crisis communication procedures</li>
+              <li><strong>Weather-Aware Messaging:</strong> Contextual responses during weather events</li>
+              <li><strong>Rapid Recovery:</strong> Immediate restoration when systems come back online</li>
+            </ul>
+
+            <h2>NYC Industry-Specific Solutions</h2>
+
+            <h3>Legal Services and Law Firms</h3>
+            <p>NYC's massive legal industry requires sophisticated client communication and case management:</p>
+            
+            <ul>
+              <li><strong>Client Confidentiality:</strong> Attorney-client privilege protection in all communications</li>
+              <li><strong>Court Schedule Coordination:</strong> Integration with NYC court systems and scheduling</li>
+              <li><strong>Emergency Legal Services:</strong> 24/7 availability for urgent legal matters</li>
+              <li><strong>Multi-Language Support:</strong> Service for NYC's diverse client population</li>
+            </ul>
+
+            <h3>Healthcare and Medical Services</h3>
+            <p>NYC's healthcare system requires HIPAA-compliant, patient-focused communication:</p>
+            
+            <ul>
+              <li><strong>HIPAA Compliance:</strong> Full medical privacy protection for patient communications</li>
+              <li><strong>Insurance Navigation:</strong> Understanding of complex NYC insurance and healthcare systems</li>
+              <li><strong>Emergency Triage:</strong> Appropriate medical emergency assessment and escalation</li>
+              <li><strong>Appointment Optimization:</strong> Efficient scheduling for high-volume NYC medical practices</li>
+            </ul>
+
+            <h3>Real Estate and Property Management</h3>
+            <p>NYC's competitive real estate market demands immediate response and professional service:</p>
+            
+            <ul>
+              <li><strong>Property Inquiries:</strong> Immediate response to rental and purchase inquiries</li>
+              <li><strong>Maintenance Coordination:</strong> Emergency and routine maintenance request handling</li>
+              <li><strong>Showing Coordination:</strong> Automated scheduling for property viewings</li>
+              <li><strong>Tenant Services:</strong> 24/7 support for tenant issues and concerns</li>
+            </ul>
+
+            <h2>NYC Economic Impact and ROI</h2>
+
+            <h3>Manhattan Cost Savings Analysis</h3>
+            <p>The economic benefits of AI phone agents are particularly compelling in NYC's high-cost environment:</p>
+            
+            <p><strong>Traditional Reception Staff Costs (Manhattan):</strong></p>
+            <ul>
+              <li><strong>Base Salary:</strong> $45,000-$65,000 annually for experienced reception staff</li>
+              <li><strong>Benefits Package:</strong> $15,000-$25,000 annually (health, dental, vision, 401k)</li>
+              <li><strong>Payroll Taxes:</strong> $5,000-$8,000 annually (FICA, unemployment, workers' comp)</li>
+              <li><strong>Office Space:</strong> $8,000-$20,000 annually (100 sqft @ $80-$200/sqft)</li>
+              <li><strong>Equipment and Setup:</strong> $2,000-$5,000 annually (desk, phone, computer)</li>
+              <li><strong>Recruitment and Training:</strong> $5,000-$15,000 per hire (high turnover market)</li>
+              <li><strong>Total Annual Cost:</strong> $80,000-$138,000 per reception position</li>
+            </ul>
+
+            <p><strong>AI Phone Agent Alternative:</strong></p>
+            <ul>
+              <li><strong>Service Cost:</strong> $18,000-$35,000 annually for comprehensive 24/7 coverage</li>
+              <li><strong>Setup and Integration:</strong> $2,000-$5,000 one-time implementation</li>
+              <li><strong>No Additional Costs:</strong> No office space, equipment, benefits, or turnover costs</li>
+              <li><strong>Total First-Year Cost:</strong> $20,000-$40,000</li>
+              <li><strong>Annual Savings:</strong> $40,000-$98,000 per reception position replaced</li>
+            </ul>
+
+            <h3>Productivity and Revenue Impact</h3>
+            <p>Beyond cost savings, AI phone agents drive revenue growth for NYC businesses:</p>
+            
+            <ul>
+              <li><strong>24/7 Availability:</strong> Capture after-hours opportunities from global markets and time zones</li>
+              <li><strong>No Missed Calls:</strong> Professional response to every call regardless of volume or timing</li>
+              <li><strong>Faster Response Times:</strong> Immediate call handling improves customer satisfaction and conversion</li>
+              <li><strong>Scalable Capacity:</strong> Handle high call volumes during peak business periods</li>
+              <li><strong>Consistent Quality:</strong> Professional service quality maintained regardless of external factors</li>
+            </ul>
+
+            <h2>Implementation for NYC Businesses</h2>
+
+            <h3>Getting Started in New York</h3>
+            <p>Deploying AI phone agents for your NYC business follows a streamlined process designed for the city's fast-paced environment:</p>
+            
+            <ol>
+              <li><strong>NYC Business Assessment:</strong> Analysis of your specific New York operational requirements</li>
+              <li><strong>Cultural Configuration:</strong> Setup with appropriate NYC business culture and communication style</li>
+              <li><strong>Industry Specialization:</strong> Configuration for your specific industry (financial, legal, healthcare, etc.)</li>
+              <li><strong>System Integration:</strong> Connection with your existing NYC business systems and infrastructure</li>
+              <li><strong>Emergency Protocols:</strong> Setup of NYC-specific emergency and crisis communication procedures</li>
+              <li><strong>Staff Training:</strong> Comprehensive training for your team on AI phone agent integration</li>
+              <li><strong>Go-Live and Optimization:</strong> Launch with ongoing monitoring and optimization for NYC conditions</li>
+            </ol>
+
+            <h3>NYC-Specific Features and Configuration</h3>
+            <p>Your AI phone agents come pre-configured with New York business expertise:</p>
+            
+            <ul>
+              <li><strong>NYC Business Hours:</strong> Automatic handling of Eastern Time Zone and daylight saving transitions</li>
+              <li><strong>Holiday Integration:</strong> Awareness of federal, state, and major NYC business holidays</li>
+              <li><strong>Emergency Contacts:</strong> Integration with NYC emergency services and business support systems</li>
+              <li><strong>Language Options:</strong> Multi-language support for NYC's diverse business community</li>
+              <li><strong>Industry Compliance:</strong> Pre-configured compliance features for major NYC industries</li>
+            </ul>
+
+            <h2>Success Stories from NYC Businesses</h2>
+
+            <h3>Manhattan Law Firm</h3>
+            <p><strong>Challenge:</strong> 150-attorney Manhattan law firm struggling with high reception staff turnover (45% annually) and missed client calls during subway delays.</p>
+            <p><strong>Solution:</strong> AI phone agents with legal industry specialization and NYC business culture training.</p>
+            <p><strong>Results:</strong> 100% call coverage, $95,000 annual savings, 40% improvement in client satisfaction, zero staff turnover issues.</p>
+
+            <h3>Brooklyn Healthcare Practice</h3>
+            <p><strong>Challenge:</strong> Multi-specialty medical practice with HIPAA compliance requirements and diverse patient population.</p>
+            <p><strong>Solution:</strong> HIPAA-compliant AI phone agents with multilingual support and medical emergency protocols.</p>
+            <p><strong>Results:</strong> 24/7 patient support, 35% improvement in appointment scheduling efficiency, full HIPAA compliance, multilingual patient service.</p>
+
+            <h3>Midtown Financial Advisory</h3>
+            <p><strong>Challenge:</strong> Investment advisory firm needing 24/7 client support for global markets and emergency financial situations.</p>
+            <p><strong>Solution:</strong> AI phone agents with financial industry expertise and global time zone coordination.</p>
+            <p><strong>Results:</strong> Round-the-clock client support, 50% improvement in client retention, seamless global market coverage.</p>
+
+            <p><strong>Ready to give your New York business the competitive advantage only AI phone agents can provide?</strong> Join hundreds of NYC businesses already benefiting from reliable, professional, 24/7 phone coverage that never gets delayed by the subway, never calls in sick during blizzards, and never misses the opportunity that could transform your business.</p>
+
+            <p>Don't let inefficient phone operations cost you opportunities in the world's most competitive business environment. Implement AI phone agents today and experience the productivity, cost savings, and customer satisfaction improvements that are transforming New York business communications.</p>
+
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <Card className="cta-card">
+            <h3>NYC Business Consultation</h3>
+            <p>Get expert guidance on implementing AI phone agents specifically for your New York City business operations.</p>
+            <div class="contact-info">
+              <p><strong>NYC Phone:</strong> +1 (877) 320-7259</p>
+              <p><strong>Email:</strong> nyc@aiphoneagent.ai</p>
+            </div>
+            <a href="/booking" class="btn btn-primary">Book Free NYC Consultation</a>
+          </Card>
+
+          <Card className="location-card">
+            <h3>NYC Coverage Areas</h3>
+            <ul class="location-list">
+              <li>Manhattan Financial District</li>
+              <li>Midtown Corporate Centers</li>
+              <li>Upper East & West Side</li>
+              <li>Brooklyn Business Districts</li>
+              <li>Queens Commercial Areas</li>
+              <li>Bronx Professional Services</li>
+              <li>Staten Island Businesses</li>
+              <li>Long Island Extensions</li>
+              <li>Westchester County</li>
+              <li>New Jersey Tri-State</li>
+            </ul>
+          </Card>
+
+          <Card className="industries-card">
+            <h3>NYC Key Industries</h3>
+            <ul class="industries-list">
+              <li>Financial Services & Banking</li>
+              <li>Legal Services & Law Firms</li>
+              <li>Healthcare & Medical</li>
+              <li>Real Estate & Property</li>
+              <li>Technology & Startups</li>
+              <li>Media & Entertainment</li>
+              <li>Professional Services</li>
+              <li>Manufacturing & Industrial</li>
+              <li>Fashion & Retail</li>
+              <li>Education & Non-Profit</li>
+            </ul>
+          </Card>
+
+          <Card className="benefits-card">
+            <h3>NYC-Specific Benefits</h3>
+            <ul class="benefits-list">
+              <li>MTA Delay Independence</li>
+              <li>Weather-Proof Operations</li>
+              <li>Manhattan Cost Savings</li>
+              <li>24/7 Global Market Support</li>
+              <li>Crisis Management Ready</li>
+              <li>NYC Business Culture</li>
+              <li>Multi-Language Support</li>
+              <li>Fast NYC Implementation</li>
+            </ul>
+          </Card>
+        </aside>
+      </div>
+      
+      <!-- FAQ Section -->
+      <FAQSchema 
+        faqs={nycFAQs}
+        title="Frequently Asked Questions - AI Phone Agents for NYC Businesses"
+        subtitle="Get answers to common questions about implementing AI phone agents in New York City business environments"
+      />
+      
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .content-main {
+    max-width: none;
+  }
+
+  .location-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .location-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-neon-blue);
+    padding-bottom: 0.5rem;
+  }
+
+  .location-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    color: var(--color-neon-blue);
+  }
+
+  .location-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .location-content ul, .location-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .location-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .lead-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-neon-cyan);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 163, 255, 0.05);
+    border-left: 4px solid var(--color-neon-blue);
+    border-radius: 8px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cta-card, .location-card, .industries-card, .benefits-card {
+    background: rgba(19, 23, 34, 0.8);
+    border: 1px solid rgba(0, 163, 255, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .cta-card h3, .location-card h3, .industries-card h3, .benefits-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .contact-info {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .location-list, .industries-list, .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .location-list li, .industries-list li, .benefits-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+  }
+
+  .location-list li:last-child, .industries-list li:last-child, .benefits-list li:last-child {
+    border-bottom: none;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .location-content h2 {
+      font-size: 1.5rem;
+    }
+    
+    .location-content h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

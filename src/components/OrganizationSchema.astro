@@ -1,0 +1,129 @@
+---
+export interface Props {
+  name?: string;
+  alternateName?: string;
+  description?: string;
+  url?: string;
+  logo?: string;
+  telephone?: string;
+  email?: string;
+  address?: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  sameAs?: string[];
+  services?: string[];
+}
+
+const {
+  name = "AI Phone Agent",
+  alternateName = "AI Phone Agent - Virtual Receptionist Service",
+  description = "Leading provider of AI phone agents and virtual receptionist services for businesses. 24/7 automated call handling, appointment booking, and customer service solutions.",
+  url = "https://aiphoneagent.ai",
+  logo = "https://aiphoneagent.ai/logo.png",
+  telephone = "+1-877-320-7259",
+  email = "contact@aiphoneagent.ai",
+  address = {
+    streetAddress: "123 Business Ave",
+    addressLocality: "Los Angeles",
+    addressRegion: "CA",
+    postalCode: "90210",
+    addressCountry: "US"
+  },
+  sameAs = [
+    "https://www.facebook.com/aiphoneagent",
+    "https://www.linkedin.com/company/aiphoneagent",
+    "https://twitter.com/aiphoneagent"
+  ],
+  services = [
+    "AI Virtual Receptionist",
+    "24/7 Phone Answering Service",
+    "Appointment Booking Automation",
+    "Customer Service AI",
+    "Emergency Call Handling",
+    "Multi-language Phone Support"
+  ]
+} = Astro.props;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": name,
+  "alternateName": alternateName,
+  "description": description,
+  "url": url,
+  "logo": {
+    "@type": "ImageObject",
+    "url": logo,
+    "width": "600",
+    "height": "200"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": telephone,
+    "contactType": "customer service",
+    "availableLanguage": ["English"],
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": address.streetAddress,
+    "addressLocality": address.addressLocality,
+    "addressRegion": address.addressRegion,
+    "postalCode": address.postalCode,
+    "addressCountry": address.addressCountry
+  },
+  "sameAs": sameAs,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Phone Agent Services",
+    "itemListElement": services.map(service => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": service,
+        "description": `Professional ${service.toLowerCase()} powered by advanced AI technology`
+      }
+    }))
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "Country", 
+      "name": "Australia"
+    },
+    {
+      "@type": "Country",
+      "name": "New Zealand"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "AI Phone Agent Team"
+  },
+  "foundingDate": "2023",
+  "numberOfEmployees": "10-50",
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Voice Technology",
+    "Customer Service Automation",
+    "Business Process Optimization",
+    "Telecommunications"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema, null, 2)}></script>

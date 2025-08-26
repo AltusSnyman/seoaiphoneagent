@@ -1,0 +1,570 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Card from '../../components/Card.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import LocalBusinessSchema from '../../components/LocalBusinessSchema.astro';
+import OrganizationSchema from '../../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+
+// LA-specific FAQs
+const laFAQs = [
+  {
+    question: "Do AI phone agents work during LA traffic jams and commute delays?",
+    answer: "Absolutely! Unlike human receptionists who may be stuck in LA's notorious traffic on the 405, 101, or 110 freeways, our AI phone agents provide 100% reliable coverage regardless of traffic conditions. This is especially valuable in Los Angeles where commute delays are unpredictable and can last hours."
+  },
+  {
+    question: "Can AI phone agents handle the entertainment industry's unique scheduling needs in Hollywood?",
+    answer: "Yes! Our LA-configured AI agents understand entertainment industry requirements including production schedules, talent availability, casting calls, and the unique timing needs of film, TV, music, and digital media productions throughout Los Angeles."
+  },
+  {
+    question: "How much do LA businesses save with AI phone agents versus hiring California reception staff?",
+    answer: "Los Angeles businesses typically save $35,000-$60,000+ annually compared to hiring LA-based reception staff. With California's high minimum wages ($16+/hour), mandatory benefits, and LA's expensive office space, AI phone agents provide massive cost savings while ensuring 24/7 coverage."
+  },
+  {
+    question: "Do AI phone agents understand LA's diverse multicultural business environment?",
+    answer: "Yes! Our AI agents support Spanish, Mandarin, Korean, Armenian, and other languages common in LA's diverse business community. They understand cultural nuances and communication preferences across Los Angeles' varied multicultural markets."
+  },
+  {
+    question: "Can AI phone agents handle emergency situations during LA wildfires or earthquakes?",
+    answer: "Our AI phone agents include comprehensive California emergency protocols for wildfires, earthquakes, mudslides, and other regional emergencies. They can immediately escalate urgent calls, provide emergency contact information, and maintain operations when traditional communication systems fail."
+  },
+  {
+    question: "How quickly can AI phone agents be deployed for Los Angeles businesses?",
+    answer: "Most LA businesses have their AI phone agent operational within 24 hours. This includes California business culture training, multilingual configuration, industry-specific setup (entertainment, tech, healthcare), and integration with local LA business systems."
+  }
+];
+---
+
+<PageLayout 
+  title="AI Phone Agents Los Angeles CA - Hollywood Entertainment Tech Business Services"
+  description="Leading AI phone agents for Los Angeles businesses. Professional 24/7 automated reception services for Hollywood, Santa Monica, Downtown LA, Beverly Hills - California business automation."
+>
+  <ServiceSchema
+    serviceType="location"
+    serviceName="AI Phone Agent Services - Los Angeles"
+    description="Professional AI phone agent and voice automation services for Los Angeles businesses. Serving Hollywood, Santa Monica, Downtown LA, Beverly Hills, Pasadena with 24/7 automated reception services."
+    serviceUrl="/locations/los-angeles"
+    serviceCategory="ProfessionalService"
+    areaServed={["Los Angeles", "Hollywood", "Santa Monica", "Beverly Hills", "Pasadena", "West Hollywood", "Culver City"]}
+    features={[
+      "24/7 LA Business Coverage",
+      "Entertainment Industry Expertise", 
+      "Multilingual LA Support",
+      "California Emergency Protocols",
+      "Traffic-Independent Service",
+      "Pacific Time Zone Coordination",
+      "LA Business Culture Training",
+      "Earthquake and Wildfire Ready"
+    ]}
+    targetAudience="Los Angeles Business Owners"
+    availableHours="24/7 across all LA counties and Greater Los Angeles Area"
+  />
+  
+  <LocalBusinessSchema
+    country="US"
+    businessName="AI Phone Agent Los Angeles"
+    description="Professional AI phone agent services for Los Angeles businesses. 24/7 virtual receptionist solutions with Hollywood expertise and LA multicultural business understanding."
+    telephone="+1-877-320-7259"
+    address={{
+      streetAddress: "456 Sunset Boulevard",
+      addressLocality: "Los Angeles", 
+      addressRegion: "CA",
+      postalCode: "90028",
+      addressCountry: "US"
+    }}
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Locations", url: "https://aiphoneagent.ai/locations" },
+      { name: "United States", url: "https://aiphoneagent.ai/locations/usa" },
+      { name: "Los Angeles", url: "https://aiphoneagent.ai/locations/los-angeles" }
+    ]}
+  />
+  
+  <PageHero
+    title="AI Phone Agents"
+    highlightText="Los Angeles"
+    subtitle="Professional 24/7 voice AI reception services designed for the creative energy and diverse business landscape of the City of Angels"
+  />
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <SectionHeading 
+            title="AI Phone Agents Revolutionizing Los Angeles Business Communications"
+            subtitle="From Hollywood's entertainment empire to Santa Monica's tech beach culture, Downtown LA's financial district to Beverly Hills' luxury services - AI phone agents are transforming how Los Angeles companies connect with their diverse, global customer base."
+          />
+          
+          <div class="location-content">
+            <p class="lead-text">
+              <strong>Los Angeles drives global culture and innovation</strong> - where entertainment trends are born, where technology meets creativity, and where multicultural business opportunities span the Pacific Rim. In this sprawling metropolis, AI phone agents provide the consistent, professional, multilingual communication that helps LA businesses thrive across diverse markets and time zones.
+            </p>
+
+            <h2>The Los Angeles Business Advantage</h2>
+            
+            <h3>LA-Specific Business Challenges</h3>
+            <p>Los Angeles' unique business environment creates communication challenges that traditional phone systems struggle to address:</p>
+            
+            <ul>
+              <li><strong>Traffic and Transportation:</strong> World-famous traffic jams on the 405, 101, and 110 freeways regularly delay staff and affect business operations</li>
+              <li><strong>Geographic Sprawl:</strong> LA's massive geographic area makes coordinating operations across different regions challenging</li>
+              <li><strong>Entertainment Industry Schedules:</strong> Irregular production schedules, location shoots, and creative industry timing requirements</li>
+              <li><strong>Multicultural Markets:</strong> Diverse customer base requiring multiple language support and cultural awareness</li>
+              <li><strong>High Operating Costs:</strong> California's expensive labor laws, high minimum wages, and costly real estate</li>
+              <li><strong>Natural Disasters:</strong> Wildfires, earthquakes, and mudslides regularly disrupt business operations</li>
+            </ul>
+
+            <h3>LA Business Culture Expertise</h3>
+            <p>Our AI phone agents are specifically trained for Los Angeles' distinctive business characteristics:</p>
+            
+            <ul>
+              <li><strong>Creative Industry Understanding:</strong> Knowledge of entertainment, media, and creative business operations</li>
+              <li><strong>Laid-Back Professionalism:</strong> Balancing California's casual culture with professional business requirements</li>
+              <li><strong>Multicultural Communication:</strong> Appropriate responses for LA's diverse business community</li>
+              <li><strong>Pacific Time Awareness:</strong> Understanding of West Coast business hours and international market coordination</li>
+              <li><strong>Lifestyle Business Integration:</strong> Support for LA's work-life balance and flexible business models</li>
+              <li><strong>Innovation Orientation:</strong> Appreciation for LA's growing tech and startup ecosystem</li>
+            </ul>
+
+            <h2>Hollywood Entertainment Industry Solutions</h2>
+
+            <h3>Film, TV, and Media Production</h3>
+            <p>Hollywood's entertainment industry demands flexible, always-available communication that adapts to unpredictable production schedules:</p>
+            
+            <p><strong>Entertainment Industry Challenges:</strong></p>
+            <ul>
+              <li><strong>Irregular Schedules:</strong> Production schedules that change rapidly based on location availability, weather, and talent schedules</li>
+              <li><strong>Multi-Location Coordination:</strong> Managing communication across multiple studios, locations, and production facilities</li>
+              <li><strong>Talent Management:</strong> Coordinating with agents, managers, and talent across different time zones</li>
+              <li><strong>Confidentiality Requirements:</strong> Protecting sensitive project information and celebrity privacy</li>
+              <li><strong>Crisis Communication:</strong> Managing public relations and crisis situations in high-profile environments</li>
+            </ul>
+
+            <p><strong>AI Entertainment Solutions:</strong></p>
+            <ul>
+              <li><strong>24/7 Production Support:</strong> Round-the-clock availability for international productions and emergency situations</li>
+              <li><strong>Confidential Communication:</strong> Secure handling of sensitive entertainment industry information</li>
+              <li><strong>Flexible Scheduling:</strong> Adaptive scheduling that accommodates changing production requirements</li>
+              <li><strong>Multi-Time Zone Coordination:</strong> Support for global distribution and international co-productions</li>
+              <li><strong>Talent Relations:</strong> Professional handling of high-profile talent and industry VIP communications</li>
+            </ul>
+
+            <h3>Music and Recording Industry</h3>
+            <p>LA's music industry requires specialized communication for studios, labels, and creative professionals:</p>
+            
+            <ul>
+              <li><strong>Studio Booking:</strong> Complex scheduling for recording studios and equipment rental</li>
+              <li><strong>Artist Coordination:</strong> Managing communication with musicians, producers, and creative teams</li>
+              <li><strong>Event Promotion:</strong> Support for concerts, album releases, and promotional events</li>
+              <li><strong>Rights Management:</strong> Professional handling of licensing and rights-related communications</li>
+            </ul>
+
+            <h2>Silicon Beach Technology Hub</h2>
+
+            <h3>Santa Monica and Venice Tech Scene</h3>
+            <p>Silicon Beach's growing technology sector combines innovation with LA's creative culture:</p>
+            
+            <p><strong>Tech Industry Needs:</strong></p>
+            <ul>
+              <li><strong>Startup Scalability:</strong> Communication solutions that grow rapidly with expanding companies</li>
+              <li><strong>Innovation-Focused Culture:</strong> Understanding of tech industry pace and innovation requirements</li>
+              <li><strong>Investor Relations:</strong> Professional communication with VCs and angel investors</li>
+              <li><strong>Global Operations:</strong> Support for international tech companies and remote team coordination</li>
+              <li><strong>Creative-Tech Integration:</strong> Understanding of the intersection between technology and creative industries</li>
+            </ul>
+
+            <p><strong>AI Silicon Beach Solutions:</strong></p>
+            <ul>
+              <li><strong>Rapid Deployment:</strong> Quick implementation for fast-growing startups</li>
+              <li><strong>Scalable Architecture:</strong> Systems that expand seamlessly with business growth</li>
+              <li><strong>Technical Integration:</strong> Advanced API integrations with modern business tools</li>
+              <li><strong>Innovation Support:</strong> Communication solutions that match the pace of innovation</li>
+            </ul>
+
+            <h2>Downtown LA Financial and Business District</h2>
+
+            <h3>Corporate Headquarters and Financial Services</h3>
+            <p>Downtown LA's growing business district hosts major corporations and financial institutions:</p>
+            
+            <ul>
+              <li><strong>Corporate Communication:</strong> Enterprise-level communication for large organizations</li>
+              <li><strong>Financial Services:</strong> Compliance-ready systems for banks and financial institutions</li>
+              <li><strong>Legal Services:</strong> Professional communication for LA's growing legal sector</li>
+              <li><strong>International Business:</strong> Support for Pacific Rim trade and international operations</li>
+            </ul>
+
+            <h3>Professional Services and Consulting</h3>
+            <p>LA's diverse professional services sector requires sophisticated client communication:</p>
+            
+            <ul>
+              <li><strong>Client Relationship Management:</strong> Professional handling of high-value client communications</li>
+              <li><strong>Project Coordination:</strong> Complex project management communication across multiple stakeholders</li>
+              <li><strong>Compliance Support:</strong> Understanding of industry-specific regulatory requirements</li>
+              <li><strong>Global Coordination:</strong> Support for international consulting and professional service projects</li>
+            </ul>
+
+            <h2>LA's Multicultural Business Environment</h2>
+
+            <h3>Language and Cultural Diversity</h3>
+            <p>Los Angeles' incredible diversity creates unique opportunities and communication requirements:</p>
+            
+            <p><strong>LA Language Communities:</strong></p>
+            <ul>
+              <li><strong>Spanish:</strong> Large Latino business community throughout Los Angeles</li>
+              <li><strong>Mandarin and Cantonese:</strong> Significant Chinese business presence, especially in international trade</li>
+              <li><strong>Korean:</strong> Strong Korean business community in Koreatown and throughout LA</li>
+              <li><strong>Armenian:</strong> Substantial Armenian business community in Glendale and surrounding areas</li>
+              <li><strong>Persian/Farsi:</strong> Iranian business community concentrated in Beverly Hills and West LA</li>
+              <li><strong>Russian:</strong> Russian-speaking business community in West Hollywood and surrounding areas</li>
+            </ul>
+
+            <p><strong>AI Multicultural Solutions:</strong></p>
+            <ul>
+              <li><strong>Native Language Support:</strong> Fluent communication in multiple languages with cultural awareness</li>
+              <li><strong>Cultural Protocol Understanding:</strong> Appropriate business etiquette for different cultural communities</li>
+              <li><strong>International Business Hours:</strong> Support for businesses operating across Pacific Rim time zones</li>
+              <li><strong>Holiday Calendar Integration:</strong> Awareness of diverse religious and cultural holidays affecting business</li>
+            </ul>
+
+            <h2>Transportation Independence in LA</h2>
+
+            <h3>LA Traffic and Commute Challenges</h3>
+            <p>Los Angeles' transportation challenges are legendary, creating unique advantages for AI phone agents:</p>
+            
+            <p><strong>LA Transportation Challenges:</strong></p>
+            <ul>
+              <li><strong>Freeway Congestion:</strong> 405, 101, 110, and other major freeways experience severe daily congestion</li>
+              <li><strong>Unpredictable Delays:</strong> Accidents, construction, and events can create hours-long delays</li>
+              <li><strong>Limited Public Transit:</strong> LA's sprawling geography makes public transportation challenging</li>
+              <li><strong>Parking and Access:</strong> Difficult parking and building access in major business districts</li>
+              <li><strong>Event Impact:</strong> Major events, filming, and entertainment industry activities affect transportation</li>
+            </ul>
+
+            <p><strong>AI Traffic Independence:</strong></p>
+            <ul>
+              <li><strong>100% Availability:</strong> Never affected by traffic delays or transportation disruptions</li>
+              <li><strong>Consistent Service:</strong> Professional response regardless of external transportation conditions</li>
+              <li><strong>Rush Hour Reliability:</strong> Peak performance during high-traffic periods when humans struggle to reach office</li>
+              <li><strong>Event Continuity:</strong> Maintain operations during major LA events that disrupt transportation</li>
+            </ul>
+
+            <h2>Natural Disaster Preparedness</h2>
+
+            <h3>California Emergency Readiness</h3>
+            <p>Los Angeles faces regular natural disasters requiring robust communication systems:</p>
+            
+            <p><strong>LA Natural Disaster Risks:</strong></p>
+            <ul>
+              <li><strong>Wildfires:</strong> Annual fire season threatens throughout LA County and surrounding areas</li>
+              <li><strong>Earthquakes:</strong> Seismic activity requires earthquake-resistant communication systems</li>
+              <li><strong>Mudslides and Flooding:</strong> Heavy rainfall creates dangerous conditions in hillside areas</li>
+              <li><strong>Power Outages:</strong> Grid strain during heat waves and natural disasters</li>
+              <li><strong>Air Quality Events:</strong> Smoke and pollution affecting business operations</li>
+            </ul>
+
+            <p><strong>AI Disaster Resilience:</strong></p>
+            <ul>
+              <li><strong>Redundant Infrastructure:</strong> Multiple data centers ensure continuous operation during outages</li>
+              <li><strong>Emergency Protocol Integration:</strong> Automatic connection to emergency services during disasters</li>
+              <li><strong>Real-Time Updates:</strong> Contextual messaging during emergency situations</li>
+              <li><strong>Rapid Recovery:</strong> Immediate restoration of service when infrastructure comes back online</li>
+            </ul>
+
+            <h2>LA Industry-Specific Solutions</h2>
+
+            <h3>Healthcare and Medical Services</h3>
+            <p>LA's massive healthcare system requires specialized communication solutions:</p>
+            
+            <ul>
+              <li><strong>HIPAA Compliance:</strong> Full medical privacy protection for patient communications</li>
+              <li><strong>Multi-Language Medical Support:</strong> Healthcare communication in patients' preferred languages</li>
+              <li><strong>Emergency Medical Protocols:</strong> Appropriate medical emergency assessment and escalation</li>
+              <li><strong>Insurance Navigation:</strong> Understanding of California's complex healthcare and insurance systems</li>
+            </ul>
+
+            <h3>Fashion and Retail</h3>
+            <p>LA's fashion and retail industry requires trend-aware, customer-focused communication:</p>
+            
+            <ul>
+              <li><strong>Customer Service Excellence:</strong> High-end customer service for fashion and luxury retail</li>
+              <li><strong>Seasonal Coordination:</strong> Support for fashion seasons and retail calendar coordination</li>
+              <li><strong>International Fashion:</strong> Support for global fashion industry operations and trade</li>
+              <li><strong>Celebrity and VIP Services:</strong> Discreet, professional handling of high-profile customers</li>
+            </ul>
+
+            <h3>Real Estate and Property Development</h3>
+            <p>LA's competitive real estate market demands immediate response and professional service:</p>
+            
+            <ul>
+              <li><strong>Property Inquiries:</strong> Immediate response to rental and purchase inquiries in competitive markets</li>
+              <li><strong>Showing Coordination:</strong> Complex scheduling for property viewings across LA's geographic area</li>
+              <li><strong>Investment Coordination:</strong> Support for real estate investment and development projects</li>
+              <li><strong>Luxury Services:</strong> High-end service for luxury property markets in Beverly Hills, Malibu, and premium areas</li>
+            </ul>
+
+            <h2>LA Economic Impact and ROI</h2>
+
+            <h3>California Cost Savings Analysis</h3>
+            <p>The economic benefits of AI phone agents are compelling in California's high-cost environment:</p>
+            
+            <p><strong>Traditional Reception Staff Costs (Los Angeles):</strong></p>
+            <ul>
+              <li><strong>Base Salary:</strong> $35,000-$55,000 annually for experienced reception staff</li>
+              <li><strong>California Benefits:</strong> $12,000-$20,000 annually (health, dental, vision, mandatory benefits)</li>
+              <li><strong>Payroll Taxes:</strong> $4,000-$7,000 annually (FICA, unemployment, CA disability insurance)</li>
+              <li><strong>Office Space:</strong> $6,000-$15,000 annually (100 sqft @ $60-$150/sqft depending on location)</li>
+              <li><strong>Equipment and Setup:</strong> $2,000-$4,000 annually (desk, phone, computer, California compliance)</li>
+              <li><strong>Recruitment and Training:</strong> $4,000-$10,000 per hire (competitive California job market)</li>
+              <li><strong>Total Annual Cost:</strong> $63,000-$111,000 per reception position</li>
+            </ul>
+
+            <p><strong>AI Phone Agent Alternative:</strong></p>
+            <ul>
+              <li><strong>Service Cost:</strong> $18,000-$32,000 annually for comprehensive 24/7 coverage</li>
+              <li><strong>Setup and Integration:</strong> $2,000-$4,000 one-time implementation</li>
+              <li><strong>No Additional Costs:</strong> No office space, equipment, benefits, or California compliance costs</li>
+              <li><strong>Total First-Year Cost:</strong> $20,000-$36,000</li>
+              <li><strong>Annual Savings:</strong> $27,000-$75,000 per reception position replaced</li>
+            </ul>
+
+            <h2>Implementation for LA Businesses</h2>
+
+            <h3>Getting Started in Los Angeles</h3>
+            <p>Deploying AI phone agents for your LA business follows a streamlined process designed for California's business environment:</p>
+            
+            <ol>
+              <li><strong>LA Business Assessment:</strong> Analysis of your specific Los Angeles operational requirements</li>
+              <li><strong>Industry Specialization:</strong> Configuration for your industry (entertainment, tech, healthcare, fashion, etc.)</li>
+              <li><strong>Cultural and Language Setup:</strong> Configuration for your specific customer demographics and language needs</li>
+              <li><strong>California Compliance:</strong> Ensure compliance with California business and labor regulations</li>
+              <li><strong>Emergency Protocol Setup:</strong> Configuration of California-specific emergency and disaster protocols</li>
+              <li><strong>Integration and Testing:</strong> Connection with your existing LA business systems and comprehensive testing</li>
+              <li><strong>Launch and Optimization:</strong> Go-live with ongoing monitoring and optimization for LA conditions</li>
+            </ol>
+
+            <h3>LA-Specific Features</h3>
+            <p>Your AI phone agents come pre-configured with Los Angeles business expertise:</p>
+            
+            <ul>
+              <li><strong>Pacific Time Zone:</strong> Automatic handling of PST/PDT transitions and West Coast business hours</li>
+              <li><strong>California Holiday Integration:</strong> Awareness of state and local holidays affecting LA business</li>
+              <li><strong>Emergency Integration:</strong> Pre-configured connection to LA emergency services and disaster protocols</li>
+              <li><strong>Multilingual Support:</strong> Native language support for LA's diverse business community</li>
+              <li><strong>Industry Templates:</strong> Pre-built configurations for major LA industries</li>
+            </ul>
+
+            <p><strong>Ready to give your Los Angeles business the competitive advantage that only AI phone agents can provide?</strong> Join hundreds of LA businesses already benefiting from reliable, professional, 24/7 phone coverage that's never stuck in traffic on the 405, never affected by wildfire evacuations, and never misses the creative opportunity that could transform your business.</p>
+
+            <p>Don't let inefficient phone operations cost you opportunities in one of the world's most creative and competitive business environments. Implement AI phone agents today and experience the productivity, cost savings, and customer satisfaction improvements that are transforming Los Angeles business communications.</p>
+
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <Card className="cta-card">
+            <h3>LA Business Consultation</h3>
+            <p>Get expert guidance on implementing AI phone agents specifically for your Los Angeles business operations.</p>
+            <div class="contact-info">
+              <p><strong>LA Phone:</strong> +1 (877) 320-7259</p>
+              <p><strong>Email:</strong> la@aiphoneagent.ai</p>
+            </div>
+            <a href="/booking" class="btn btn-primary">Book Free LA Consultation</a>
+          </Card>
+
+          <Card className="location-card">
+            <h3>LA Coverage Areas</h3>
+            <ul class="location-list">
+              <li>Hollywood & Entertainment District</li>
+              <li>Santa Monica & Silicon Beach</li>
+              <li>Downtown LA Financial District</li>
+              <li>Beverly Hills & West Hollywood</li>
+              <li>Culver City & Media Centers</li>
+              <li>Pasadena & San Gabriel Valley</li>
+              <li>Long Beach & South Bay</li>
+              <li>Orange County Extensions</li>
+              <li>Inland Empire Connections</li>
+              <li>Ventura County Reach</li>
+            </ul>
+          </Card>
+
+          <Card className="industries-card">
+            <h3>LA Key Industries</h3>
+            <ul class="industries-list">
+              <li>Entertainment & Media</li>
+              <li>Technology & Startups</li>
+              <li>Fashion & Design</li>
+              <li>Healthcare & Medical</li>
+              <li>Real Estate & Development</li>
+              <li>Professional Services</li>
+              <li>International Trade</li>
+              <li>Tourism & Hospitality</li>
+              <li>Manufacturing & Aerospace</li>
+              <li>Education & Research</li>
+            </ul>
+          </Card>
+
+          <Card className="benefits-card">
+            <h3>LA-Specific Benefits</h3>
+            <ul class="benefits-list">
+              <li>Traffic Delay Independence</li>
+              <li>Wildfire & Earthquake Ready</li>
+              <li>Multilingual LA Support</li>
+              <li>Entertainment Industry Expertise</li>
+              <li>California Cost Savings</li>
+              <li>Pacific Time Coordination</li>
+              <li>Creative Culture Understanding</li>
+              <li>24/7 Global Market Support</li>
+            </ul>
+          </Card>
+        </aside>
+      </div>
+      
+      <!-- FAQ Section -->
+      <FAQSchema 
+        faqs={laFAQs}
+        title="Frequently Asked Questions - AI Phone Agents for Los Angeles Businesses"
+        subtitle="Get answers to common questions about implementing AI phone agents in Los Angeles business environments"
+      />
+      
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .content-main {
+    max-width: none;
+  }
+
+  .location-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .location-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-neon-blue);
+    padding-bottom: 0.5rem;
+  }
+
+  .location-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    color: var(--color-neon-blue);
+  }
+
+  .location-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .location-content ul, .location-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .location-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .lead-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-neon-cyan);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 163, 255, 0.05);
+    border-left: 4px solid var(--color-neon-blue);
+    border-radius: 8px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cta-card, .location-card, .industries-card, .benefits-card {
+    background: rgba(19, 23, 34, 0.8);
+    border: 1px solid rgba(0, 163, 255, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .cta-card h3, .location-card h3, .industries-card h3, .benefits-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .contact-info {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .location-list, .industries-list, .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .location-list li, .industries-list li, .benefits-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+  }
+
+  .location-list li:last-child, .industries-list li:last-child, .benefits-list li:last-child {
+    border-bottom: none;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-cyan));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .location-content h2 {
+      font-size: 1.5rem;
+    }
+    
+    .location-content h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

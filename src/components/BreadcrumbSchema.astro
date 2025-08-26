@@ -1,0 +1,118 @@
+---
+export interface Props {
+  items: {
+    name: string;
+    url: string;
+  }[];
+  currentPage?: string;
+}
+
+const { items, currentPage } = Astro.props;
+
+// Always start with Home
+const breadcrumbItems = [
+  {
+    name: "Home",
+    url: "https://aiphoneagent.ai"
+  },
+  ...items
+];
+
+// Add current page if provided and not already in items
+if (currentPage && !items.some(item => item.name === currentPage)) {
+  breadcrumbItems.push({
+    name: currentPage,
+    url: Astro.url.href
+  });
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema, null, 2)}></script>
+
+<!-- Visual breadcrumb navigation (optional) -->
+<nav class="breadcrumb" aria-label="Breadcrumb navigation">
+  <ol class="breadcrumb-list">
+    {breadcrumbItems.map((item, index) => (
+      <li class="breadcrumb-item">
+        {index === breadcrumbItems.length - 1 ? (
+          <span class="breadcrumb-current" aria-current="page">{item.name}</span>
+        ) : (
+          <>
+            <a href={item.url} class="breadcrumb-link">{item.name}</a>
+            <span class="breadcrumb-separator" aria-hidden="true">›</span>
+          </>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    margin: 1rem 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumb-link {
+    color: var(--color-text-muted, #94A3B8);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-neon-blue, #00A3FF);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-current {
+    color: var(--color-text, #F5F5F5);
+    font-weight: 500;
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-text-muted, #94A3B8);
+    font-weight: 300;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .breadcrumb {
+      font-size: 0.75rem;
+      margin: 0.5rem 0;
+    }
+    
+    .breadcrumb-list {
+      gap: 0.25rem;
+    }
+    
+    .breadcrumb-item {
+      gap: 0.25rem;
+    }
+  }
+</style>

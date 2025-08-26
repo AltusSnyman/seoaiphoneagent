@@ -4,6 +4,9 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import LocalBusinessSchema from '../../components/LocalBusinessSchema.astro';
+import OrganizationSchema from '../../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
 import FAQSchema from '../../components/FAQSchema.astro';
 
 // FAQ data for New Zealand location page
@@ -65,6 +68,22 @@ const newZealandFAQs = [
     ]}
     targetAudience="New Zealand Business Owners"
     availableHours="24/7 across all NZ time zones"
+  />
+  
+  <LocalBusinessSchema
+    country="NZ"
+    businessName="AI Phone Agent New Zealand"
+    description="Premier AI phone agent services for New Zealand businesses. Kiwi-friendly virtual receptionist solutions from Auckland to Invercargill."
+    telephone="+64 9 123 4567"
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Locations", url: "https://aiphoneagent.ai/locations" },
+      { name: "New Zealand", url: "https://aiphoneagent.ai/locations/new-zealand" }
+    ]}
   />
   
   <PageHero

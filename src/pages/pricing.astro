@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import OrganizationSchema from '../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 
 const includedFeatures = [
   {
@@ -80,6 +82,14 @@ const bonusFeatures = [
     features={[...includedFeatures.map(f => f.name), ...bonusFeatures.map(f => f.name)]}
     targetAudience="Small and Medium Businesses"
     availableHours="24/7"
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Pricing", url: "https://aiphoneagent.ai/pricing" }
+    ]}
   />
   
   <PageHero

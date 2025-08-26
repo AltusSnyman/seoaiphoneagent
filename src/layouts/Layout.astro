@@ -510,11 +510,15 @@ const {
 				to { opacity: 1; transform: translateY(0); }
 			}
 			
+			/* Hero grid default alignment */
+			.hero-grid {
+				text-align: center;
+			}
+			
 			/* Mobile-first responsive design for Core Web Vitals */
 			@media (max-width: 1024px) {
 				.hero-grid {
 					grid-template-columns: 1fr;
-					text-align: center;
 					gap: 2rem;
 				}
 				.hero-title { 

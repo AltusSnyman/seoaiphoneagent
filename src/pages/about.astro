@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import OrganizationSchema from '../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 ---
 
 <PageLayout 
@@ -29,6 +31,28 @@ import ServiceSchema from '../components/ServiceSchema.astro';
 		]}
 		targetAudience="Small and Medium Businesses"
 		availableHours="24/7"
+	/>
+	
+	<OrganizationSchema
+		name="AI Phone Agent"
+		alternateName="AI Phone Agent - Advanced Business Communication Solutions"
+		description="Leading AI receptionist technology company serving thousands of businesses globally with 24/7 virtual phone agents, intelligent call handling, and automated business communication solutions."
+		services={[
+			"AI Virtual Receptionist",
+			"24/7 Phone Answering Service",
+			"Appointment Booking Automation",
+			"Customer Service AI",
+			"Emergency Call Handling",
+			"Multi-language Phone Support",
+			"SMS Automation",
+			"Call Center Solutions"
+		]}
+	/>
+	
+	<BreadcrumbSchema
+		items={[
+			{ name: "About", url: "https://aiphoneagent.ai/about" }
+		]}
 	/>
 	
 	<PageHero

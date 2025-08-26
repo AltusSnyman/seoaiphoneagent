@@ -1,32 +1,108 @@
+# Robots.txt for AI Phone Agent - Advanced SEO Configuration
+# Optimized for search engine crawling and indexing efficiency
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /_astro/
-Disallow: /404.html
 
-# XML Sitemaps
-Sitemap: https://aiphoneagent.ai/sitemap.xml
-Sitemap: https://aiphoneagent.ai/sitemap-index.xml
-
-# Crawl-delay for all bots
+# High-priority content - encourage frequent crawling
 Crawl-delay: 1
 
-# Allow search engines to crawl critical pages
-Allow: /
-Allow: /about/
-Allow: /features/
-Allow: /pricing/
-Allow: /contact/
-Allow: /booking/
+# XML Sitemaps - Comprehensive sitemap strategy
+Sitemap: https://aiphoneagent.ai/sitemap-index.xml
+Sitemap: https://aiphoneagent.ai/sitemap-pages.xml
+Sitemap: https://aiphoneagent.ai/sitemap-blog.xml
+Sitemap: https://aiphoneagent.ai/sitemap-locations.xml
+Sitemap: https://aiphoneagent.ai/sitemap-industries.xml
 
-# Block common bot traps and admin areas
+# Block unnecessary paths to optimize crawl budget
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /404.html
 Disallow: /cgi-bin/
 Disallow: /tmp/
-Disallow: /private/
 
-# Clean URLs preferred
-User-agent: *
-Disallow: /*?
-Allow: /*?utm_source=
-Allow: /*?utm_medium=
-Allow: /*?utm_campaign=
+# Allow important assets for rich snippets and page experience
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /logo.png
+Allow: /manifest.json
+
+# Search Engine Specific Configurations
+
+# Google - Standard crawling with priority access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing - Slightly more conservative crawling
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Yandex - International markets
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Baidu - Asia-Pacific markets
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+# Block SEO tools and aggressive crawlers to preserve crawl budget
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# Allow archive and legitimate research bots
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Wayback
+Allow: /
+
+# Social media crawlers for rich snippets
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: SkypeBot
+Allow: /
+
+# Performance optimization note:
+# This configuration ensures search engines focus on high-value pages
+# while avoiding unnecessary crawling that could impact server performance
+# and preserving crawl budget for important content updates

@@ -1,0 +1,311 @@
+---
+export interface Props {
+  country: 'US' | 'AU' | 'NZ';
+  businessName?: string;
+  description?: string;
+  telephone?: string;
+  address?: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+}
+
+const { country, businessName, description, telephone, address } = Astro.props;
+
+// Country-specific configurations
+const countryConfig = {
+  US: {
+    name: businessName || "AI Phone Agent USA",
+    description: description || "Professional AI phone agent services for American businesses. 24/7 virtual receptionist solutions with local expertise.",
+    telephone: telephone || "+1-877-320-7259",
+    address: address || {
+      streetAddress: "123 Business Avenue",
+      addressLocality: "Los Angeles", 
+      addressRegion: "California",
+      postalCode: "90210",
+      addressCountry: "US"
+    },
+    currenciesAccepted: "USD",
+    paymentAccepted: "Credit Card, Bank Transfer, ACH"
+  },
+  AU: {
+    name: businessName || "AI Phone Agent Australia",
+    description: description || "Leading AI phone agent services for Australian businesses. Professional virtual receptionist solutions with local understanding.",
+    telephone: telephone || "+61 2 3821 3526",
+    address: address || {
+      streetAddress: "456 Collins Street",
+      addressLocality: "Melbourne",
+      addressRegion: "Victoria", 
+      postalCode: "3000",
+      addressCountry: "AU"
+    },
+    currenciesAccepted: "AUD",
+    paymentAccepted: "Credit Card, Bank Transfer, BPAY"
+  },
+  NZ: {
+    name: businessName || "AI Phone Agent New Zealand",
+    description: description || "Premier AI phone agent services for New Zealand businesses. Kiwi-friendly virtual receptionist solutions.",
+    telephone: telephone || "+64 9 123 4567",
+    address: address || {
+      streetAddress: "789 Queen Street",
+      addressLocality: "Auckland",
+      addressRegion: "Auckland",
+      postalCode: "1010", 
+      addressCountry: "NZ"
+    },
+    currenciesAccepted: "NZD",
+    paymentAccepted: "Credit Card, Bank Transfer, Direct Debit"
+  }
+};
+
+const config = countryConfig[country];
+
+// Enhanced service areas with major cities and regions
+const serviceAreas = {
+  US: [
+    { "@type": "City", "name": "New York", "addressRegion": "NY" },
+    { "@type": "City", "name": "Los Angeles", "addressRegion": "CA" },
+    { "@type": "City", "name": "Chicago", "addressRegion": "IL" },
+    { "@type": "City", "name": "Houston", "addressRegion": "TX" },
+    { "@type": "City", "name": "Phoenix", "addressRegion": "AZ" },
+    { "@type": "City", "name": "Philadelphia", "addressRegion": "PA" },
+    { "@type": "City", "name": "San Antonio", "addressRegion": "TX" },
+    { "@type": "City", "name": "San Diego", "addressRegion": "CA" },
+    { "@type": "City", "name": "Dallas", "addressRegion": "TX" },
+    { "@type": "City", "name": "San Jose", "addressRegion": "CA" },
+    { "@type": "City", "name": "Austin", "addressRegion": "TX" },
+    { "@type": "City", "name": "Jacksonville", "addressRegion": "FL" },
+    { "@type": "City", "name": "Fort Worth", "addressRegion": "TX" },
+    { "@type": "City", "name": "Columbus", "addressRegion": "OH" },
+    { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
+    { "@type": "City", "name": "San Francisco", "addressRegion": "CA" },
+    { "@type": "City", "name": "Indianapolis", "addressRegion": "IN" },
+    { "@type": "City", "name": "Seattle", "addressRegion": "WA" },
+    { "@type": "City", "name": "Denver", "addressRegion": "CO" },
+    { "@type": "City", "name": "Boston", "addressRegion": "MA" },
+    { "@type": "City", "name": "El Paso", "addressRegion": "TX" },
+    { "@type": "City", "name": "Detroit", "addressRegion": "MI" },
+    { "@type": "City", "name": "Nashville", "addressRegion": "TN" },
+    { "@type": "City", "name": "Portland", "addressRegion": "OR" },
+    { "@type": "City", "name": "Memphis", "addressRegion": "TN" },
+    { "@type": "City", "name": "Oklahoma City", "addressRegion": "OK" },
+    { "@type": "City", "name": "Las Vegas", "addressRegion": "NV" },
+    { "@type": "City", "name": "Louisville", "addressRegion": "KY" },
+    { "@type": "City", "name": "Baltimore", "addressRegion": "MD" },
+    { "@type": "City", "name": "Milwaukee", "addressRegion": "WI" },
+    { "@type": "City", "name": "Albuquerque", "addressRegion": "NM" },
+    { "@type": "City", "name": "Tucson", "addressRegion": "AZ" },
+    { "@type": "City", "name": "Fresno", "addressRegion": "CA" },
+    { "@type": "City", "name": "Mesa", "addressRegion": "AZ" },
+    { "@type": "City", "name": "Sacramento", "addressRegion": "CA" },
+    { "@type": "City", "name": "Atlanta", "addressRegion": "GA" },
+    { "@type": "City", "name": "Kansas City", "addressRegion": "MO" },
+    { "@type": "City", "name": "Colorado Springs", "addressRegion": "CO" },
+    { "@type": "City", "name": "Miami", "addressRegion": "FL" },
+    { "@type": "City", "name": "Raleigh", "addressRegion": "NC" },
+    { "@type": "City", "name": "Omaha", "addressRegion": "NE" },
+    { "@type": "City", "name": "Long Beach", "addressRegion": "CA" },
+    { "@type": "City", "name": "Virginia Beach", "addressRegion": "VA" },
+    { "@type": "City", "name": "Oakland", "addressRegion": "CA" },
+    { "@type": "City", "name": "Minneapolis", "addressRegion": "MN" },
+    { "@type": "City", "name": "Tulsa", "addressRegion": "OK" },
+    { "@type": "City", "name": "Arlington", "addressRegion": "TX" },
+    { "@type": "City", "name": "Tampa", "addressRegion": "FL" },
+    { "@type": "City", "name": "New Orleans", "addressRegion": "LA" }
+  ],
+  AU: [
+    { "@type": "City", "name": "Sydney", "addressRegion": "NSW" },
+    { "@type": "City", "name": "Melbourne", "addressRegion": "VIC" },
+    { "@type": "City", "name": "Brisbane", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Perth", "addressRegion": "WA" },
+    { "@type": "City", "name": "Adelaide", "addressRegion": "SA" },
+    { "@type": "City", "name": "Gold Coast", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Canberra", "addressRegion": "ACT" },
+    { "@type": "City", "name": "Newcastle", "addressRegion": "NSW" },
+    { "@type": "City", "name": "Wollongong", "addressRegion": "NSW" },
+    { "@type": "City", "name": "Logan City", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Geelong", "addressRegion": "VIC" },
+    { "@type": "City", "name": "Hobart", "addressRegion": "TAS" },
+    { "@type": "City", "name": "Townsville", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Cairns", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Darwin", "addressRegion": "NT" },
+    { "@type": "City", "name": "Toowoomba", "addressRegion": "QLD" },
+    { "@type": "City", "name": "Ballarat", "addressRegion": "VIC" },
+    { "@type": "City", "name": "Bendigo", "addressRegion": "VIC" },
+    { "@type": "City", "name": "Albury-Wodonga", "addressRegion": "NSW" },
+    { "@type": "City", "name": "Launceston", "addressRegion": "TAS" }
+  ],
+  NZ: [
+    { "@type": "City", "name": "Auckland", "addressRegion": "Auckland" },
+    { "@type": "City", "name": "Wellington", "addressRegion": "Wellington" },
+    { "@type": "City", "name": "Christchurch", "addressRegion": "Canterbury" },
+    { "@type": "City", "name": "Hamilton", "addressRegion": "Waikato" },
+    { "@type": "City", "name": "Napier-Hastings", "addressRegion": "Hawke's Bay" },
+    { "@type": "City", "name": "Dunedin", "addressRegion": "Otago" },
+    { "@type": "City", "name": "Palmerston North", "addressRegion": "Manawatu-Wanganui" },
+    { "@type": "City", "name": "Nelson", "addressRegion": "Nelson" },
+    { "@type": "City", "name": "Rotorua", "addressRegion": "Bay of Plenty" },
+    { "@type": "City", "name": "New Plymouth", "addressRegion": "Taranaki" },
+    { "@type": "City", "name": "Whangarei", "addressRegion": "Northland" },
+    { "@type": "City", "name": "Invercargill", "addressRegion": "Southland" },
+    { "@type": "City", "name": "Wanganui", "addressRegion": "Manawatu-Wanganui" },
+    { "@type": "City", "name": "Gisborne", "addressRegion": "Gisborne" }
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService", "TelecomProvider"],
+  "@id": `https://aiphoneagent.ai/locations/${country.toLowerCase()}`,
+  "name": config.name,
+  "description": config.description,
+  "url": `https://aiphoneagent.ai/locations/${country.toLowerCase()}`,
+  "telephone": config.telephone,
+  "email": `info@aiphoneagent.ai`,
+  "foundingDate": "2023",
+  "slogan": "Professional AI Phone Agents for Modern Business",
+  "knowsAbout": [
+    "AI Phone Services", 
+    "Virtual Receptionist", 
+    "Business Automation", 
+    "Customer Service AI",
+    "Appointment Scheduling",
+    "Call Handling",
+    "Voice Recognition",
+    "Natural Language Processing"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": config.address.streetAddress,
+    "addressLocality": config.address.addressLocality,
+    "addressRegion": config.address.addressRegion,
+    "postalCode": config.address.postalCode,
+    "addressCountry": config.address.addressCountry
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": country === 'US' ? "34.0522" : country === 'AU' ? "-37.8136" : "-36.8485",
+    "longitude": country === 'US' ? "-118.2437" : country === 'AU' ? "144.9631" : "174.7633"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "currenciesAccepted": config.currenciesAccepted,
+  "paymentAccepted": config.paymentAccepted,
+  "priceRange": "$$$",
+  "areaServed": serviceAreas[country],
+  "serviceArea": serviceAreas[country],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Phone Agent Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Virtual Receptionist",
+          "description": "24/7 automated phone answering and customer service",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": config.name
+          },
+          "areaServed": serviceAreas[country],
+          "category": "Business Services"
+        },
+        "priceRange": "$299-$999",
+        "priceCurrency": config.currenciesAccepted,
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Appointment Booking System",
+          "description": "Automated appointment scheduling and calendar management",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": config.name
+          },
+          "areaServed": serviceAreas[country],
+          "category": "Business Services"
+        },
+        "priceRange": "$399-$1299",
+        "priceCurrency": config.currenciesAccepted,
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Customer Support AI",
+          "description": "Intelligent customer service automation and support",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": config.name
+          },
+          "areaServed": serviceAreas[country],
+          "category": "Business Services"
+        },
+        "priceRange": "$499-$1999",
+        "priceCurrency": config.currenciesAccepted,
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Emergency Call Handling",
+          "description": "24/7 emergency call routing and crisis management",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": config.name
+          },
+          "areaServed": serviceAreas[country],
+          "category": "Emergency Services"
+        },
+        "priceRange": "$699-$2499",
+        "priceCurrency": config.currenciesAccepted,
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://aiphoneagent.ai/booking"
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "AI Phone Agent Consultation"
+    }
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "AI Phone Agent",
+    "url": "https://aiphoneagent.ai",
+    "logo": "https://aiphoneagent.ai/logo.png",
+    "sameAs": [
+      "https://linkedin.com/company/aiphoneagent",
+      "https://twitter.com/aiphoneagent"
+    ]
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema, null, 2)}></script>

@@ -4,6 +4,9 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import LocalBusinessSchema from '../../components/LocalBusinessSchema.astro';
+import OrganizationSchema from '../../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import FAQSchema from '../../components/FAQSchema.astro';
 
@@ -107,6 +110,22 @@ const australiaFAQs = [
     ]}
     targetAudience="Australian Business Owners"
     availableHours="24/7 across all Australian time zones"
+  />
+  
+  <LocalBusinessSchema
+    country="AU"
+    businessName="AI Phone Agent Australia"
+    description="Leading AI phone agent services for Australian businesses. Professional virtual receptionist solutions with local understanding from Sydney to Perth."
+    telephone="+61 2 3821 3526"
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Locations", url: "https://aiphoneagent.ai/locations" },
+      { name: "Australia", url: "https://aiphoneagent.ai/locations/australia" }
+    ]}
   />
   
   <PageHero

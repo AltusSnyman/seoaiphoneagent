@@ -4,6 +4,9 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import Card from '../../components/Card.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import LocalBusinessSchema from '../../components/LocalBusinessSchema.astro';
+import OrganizationSchema from '../../components/OrganizationSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import FAQSchema from '../../components/FAQSchema.astro';
 
@@ -107,6 +110,22 @@ const usaFAQs = [
     ]}
     targetAudience="American Business Owners"
     availableHours="24/7 across all US time zones"
+  />
+  
+  <LocalBusinessSchema
+    country="US"
+    businessName="AI Phone Agent USA"
+    description="Professional AI phone agent services for American businesses. 24/7 virtual receptionist solutions with local expertise across all US states and time zones."
+    telephone="+1-877-320-7259"
+  />
+  
+  <OrganizationSchema />
+  
+  <BreadcrumbSchema
+    items={[
+      { name: "Locations", url: "https://aiphoneagent.ai/locations" },
+      { name: "United States", url: "https://aiphoneagent.ai/locations/usa" }
+    ]}
   />
   
   <PageHero
