@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get NYC Metro data
+const locationData = getLocationById('us-ny-nyc-metro');
+
+if (!locationData) {
+  throw new Error('NYC Metro location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent NYC Metro Area - Virtual Receptionist Tri-State | Fortune 500 Solutions`,
+  description: `Professional AI phone agent services for NYC Metropolitan Area. Virtual receptionist solutions for Manhattan, Brooklyn, Queens, Bronx, Long Island, Westchester, NJ, CT. Fortune 500 company expertise, multilingual support. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/new-york-metro'
+};
+---
+
+<GeoLocationPage {...pageProps} />

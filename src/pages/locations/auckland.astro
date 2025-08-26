@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get Auckland data
+const locationData = getLocationById('nz-auckland');
+
+if (!locationData) {
+  throw new Error('Auckland location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent Auckland - Virtual Receptionist New Zealand | Kiwi Business Solutions`,
+  description: `Professional AI phone agent services for Auckland businesses. Virtual receptionist solutions for CBD, North Shore, South Auckland. Tourism gateway expertise, tech sector support, culturally sensitive communication. Call +64 9 123 4567.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/auckland'
+};
+---
+
+<GeoLocationPage {...pageProps} />

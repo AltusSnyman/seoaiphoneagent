@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get Los Angeles data
+const locationData = getLocationById('us-ca-la');
+
+if (!locationData) {
+  throw new Error('Los Angeles location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent Los Angeles - Virtual Receptionist LA | 24/7 Business Phone Services`,
+  description: `Professional AI phone agent services for Los Angeles businesses. Virtual receptionist solutions for Hollywood, Beverly Hills, Santa Monica. 24/7 automated phone answering, bilingual support, appointment scheduling. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/los-angeles-city'
+};
+---
+
+<GeoLocationPage {...pageProps} />

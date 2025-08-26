@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get LA Metro data
+const locationData = getLocationById('us-ca-la-metro');
+
+if (!locationData) {
+  throw new Error('LA Metro location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent Los Angeles Metro - Virtual Receptionist Orange County | Entertainment Industry Solutions`,
+  description: `Professional AI phone agent services for Los Angeles-Long Beach-Anaheim Metro Area. Virtual receptionist solutions for LA, Anaheim, Long Beach, Orange County. Entertainment industry expertise, bilingual support, international trade solutions. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/los-angeles-metro'
+};
+---
+
+<GeoLocationPage {...pageProps} />

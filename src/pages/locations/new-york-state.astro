@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get New York State data
+const locationData = getLocationById('us-ny');
+
+if (!locationData) {
+  throw new Error('New York State location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent New York State - Virtual Receptionist NY | Financial & Professional Services`,
+  description: `Professional AI phone agent services across New York State. Virtual receptionist solutions for NYC, Albany, Buffalo, Rochester. Financial & legal sector expertise. Fast-paced business communication. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/new-york-state'
+};
+---
+
+<GeoLocationPage {...pageProps} />

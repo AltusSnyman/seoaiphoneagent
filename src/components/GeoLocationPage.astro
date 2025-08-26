@@ -1,0 +1,1128 @@
+---
+// Universal GEO Location Page Template
+// Generates unique, location-specific content based on geographic data
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GeoSchema from '../components/GeoSchema.astro';
+import GeoInternalLinking from '../components/GeoInternalLinking.astro';
+import type { GeoLocation } from '../data/geoLocations';
+import { getLocationHierarchy, getLocationsByParent } from '../data/geoLocations';
+
+export interface Props {
+  location: GeoLocation;
+  parentLocations?: GeoLocation[];
+  childLocations?: GeoLocation[];
+}
+
+const { location } = Astro.props;
+const hierarchy = getLocationHierarchy(location.id);
+const childLocations = getLocationsByParent(location.id);
+const parentLocation = hierarchy[hierarchy.length - 2]; // Direct parent
+
+// Generate URL slug from location hierarchy  
+const generateLocationURL = (location: GeoLocation): string => {
+  const hierarchy = getLocationHierarchy(location.id);
+  return hierarchy
+    .filter(loc => loc.type !== 'country') // Skip country in URL for cleaner paths
+    .map(loc => loc.slug)
+    .join('/');
+};
+
+// Generate location-specific content
+const generatePageTitle = (loc: GeoLocation): string => {
+  const locationTypes = {
+    country: `AI Phone Agent Services in ${loc.name} - 24/7 Virtual Receptionist`,
+    state: `${loc.name} AI Phone Agents - Professional Virtual Receptionist Services`,
+    region: `AI Phone Agent Solutions for ${loc.name} - Automated Business Calls`,
+    metro: `${loc.name} AI Phone Services - Smart Virtual Receptionist Solutions`,
+    city: `AI Phone Agent ${loc.name} - Local Virtual Receptionist & Call Automation`,
+    suburb: `${loc.name} AI Phone Services - Neighborhood Virtual Receptionist Solutions`
+  };
+  return locationTypes[loc.type] || `AI Phone Agent Services - ${loc.name}`;
+};
+
+const generatePageDescription = (loc: GeoLocation): string => {
+  const baseDescription = `Professional AI phone agent services for businesses in ${loc.name}.`;
+  
+  const locationSpecifics = {
+    country: `Nationwide 24/7 virtual receptionist solutions with local expertise across all states and territories. Advanced call handling for ${loc.keyIndustries.slice(0, 3).join(', ')} sectors.`,
+    state: `Statewide AI phone services covering all major cities and regions. Specialized solutions for ${loc.keyIndustries.slice(0, 2).join(' and ')} industries with local market understanding.`,
+    metro: `Metropolitan area virtual receptionist services with deep understanding of local business culture. Expert call handling for the ${loc.name} business community.`,
+    city: `Local AI phone agent services designed for ${loc.name} businesses. Professional call handling with neighborhood knowledge and cultural understanding.`,
+    suburb: `Neighborhood-focused AI phone services for ${loc.name} area businesses. Personalized virtual receptionist solutions with local community insight.`
+  };
+
+  return `${baseDescription} ${locationSpecifics[loc.type] || 'Customized virtual receptionist solutions with local expertise.'}`;
+};
+
+const generateLocationKeywords = (loc: GeoLocation): string[] => {
+  const baseKeywords = [
+    `ai phone agent ${loc.name.toLowerCase()}`,
+    `virtual receptionist ${loc.name.toLowerCase()}`,
+    `automated phone service ${loc.name.toLowerCase()}`,
+    `business phone automation ${loc.name.toLowerCase()}`
+  ];
+
+  // Add industry-specific keywords
+  loc.keyIndustries.forEach(industry => {
+    baseKeywords.push(`${industry} phone services ${loc.name.toLowerCase()}`);
+  });
+
+  // Add geographic variations
+  if (parentLocation) {
+    baseKeywords.push(
+      `${parentLocation.name.toLowerCase()} ${loc.name.toLowerCase()} phone services`,
+      `ai receptionist ${parentLocation.name.toLowerCase()} ${loc.name.toLowerCase()}`
+    );
+  }
+
+  // Add neighboring area keywords for suburbs and cities
+  if (loc.type === 'city' || loc.type === 'suburb') {
+    baseKeywords.push(
+      `phone services near ${loc.name.toLowerCase()}`,
+      `${loc.name.toLowerCase()} area virtual assistant`,
+      `virtual receptionist services ${loc.name.toLowerCase()} area`
+    );
+  }
+
+  return baseKeywords;
+};
+
+const generateUniqueContent = (loc: GeoLocation) => {
+  return {
+    heroTitle: generateHeroTitle(loc),
+    heroSubtitle: generateHeroSubtitle(loc),
+    locationOverview: generateLocationOverview(loc),
+    businessLandscape: generateBusinessLandscape(loc),
+    localChallenges: generateLocalChallenges(loc),
+    industrySolutions: generateIndustrySolutions(loc),
+    localBenefits: generateLocalBenefits(loc),
+    implementationGuide: generateImplementationGuide(loc),
+    successStories: generateSuccessStories(loc),
+    localPartnership: generateLocalPartnership(loc)
+  };
+};
+
+const generateHeroTitle = (loc: GeoLocation): string => {
+  const titleVariations = {
+    country: `AI Phone Agents Across ${loc.name}`,
+    state: `Professional AI Phone Services for ${loc.name}`,
+    metro: `${loc.name} AI Virtual Receptionist Solutions`,
+    city: `${loc.name} AI Phone Agent Services`,
+    suburb: `Local AI Phone Services for ${loc.name}`
+  };
+  return titleVariations[loc.type] || `AI Phone Agent Services - ${loc.name}`;
+};
+
+const generateHeroSubtitle = (loc: GeoLocation): string => {
+  const insights = loc.localInsights[0] || 'Professional communication solutions tailored for your local market';
+  return `${insights} - 24/7 virtual receptionist services designed for ${loc.name} businesses.`;
+};
+
+const generateLocationOverview = (loc: GeoLocation): string => {
+  const populationInfo = loc.population ? `With over ${loc.population.toLocaleString()} residents, ` : '';
+  const economicContext = loc.economicFactors[0] || 'a thriving business environment';
+  
+  return `${populationInfo}${loc.name} represents ${economicContext}. Our AI phone agent services are specifically designed to meet the unique communication needs of ${loc.name} businesses, from ${loc.keyIndustries.slice(0, 2).join(' and ')} sectors to emerging industries.`;
+};
+
+const generateBusinessLandscape = (loc: GeoLocation): string => {
+  const keyIndustries = loc.keyIndustries.slice(0, 4).join(', ');
+  const businessDensity = loc.businessDensity === 'high' ? 'thriving business ecosystem' : 
+                         loc.businessDensity === 'medium' ? 'growing business community' : 
+                         'emerging business landscape';
+  
+  return `${loc.name}'s ${businessDensity} is anchored by strong ${keyIndustries} sectors. ${loc.economicFactors[1] || 'Local businesses'} benefit from professional AI phone services that understand the regional market dynamics and communication preferences.`;
+};
+
+const generateLocalChallenges = (loc: GeoLocation): string[] => {
+  const challenges = [];
+  
+  if (loc.businessDensity === 'high') {
+    challenges.push(`High competition in ${loc.name} requires exceptional customer service`);
+    challenges.push('Rising operational costs demand efficient automation solutions');
+  }
+  
+  if (loc.keyIndustries.includes('healthcare')) {
+    challenges.push('Healthcare practices need HIPAA-compliant communication systems');
+  }
+  
+  if (loc.keyIndustries.includes('legal')) {
+    challenges.push('Legal firms require confidential and professional call handling');
+  }
+  
+  if (loc.keyIndustries.includes('realestate')) {
+    challenges.push('Real estate professionals need 24/7 lead capture and qualification');
+  }
+  
+  // Add location-specific insights as challenges
+  loc.localInsights.slice(1, 3).forEach(insight => {
+    challenges.push(`Local market reality: ${insight}`);
+  });
+  
+  return challenges;
+};
+
+const generateIndustrySolutions = (loc: GeoLocation) => {
+  return loc.keyIndustries.map(industry => ({
+    industry: formatIndustryName(industry),
+    solution: generateIndustrySolution(industry, loc.name),
+    benefits: generateIndustryBenefits(industry)
+  }));
+};
+
+const formatIndustryName = (industry: string): string => {
+  const industryNames = {
+    healthcare: 'Healthcare & Medical',
+    legal: 'Legal Services',
+    realestate: 'Real Estate',
+    financial: 'Financial Services',
+    technology: 'Technology',
+    professional: 'Professional Services',
+    retail: 'Retail & E-commerce',
+    manufacturing: 'Manufacturing',
+    education: 'Education',
+    entertainment: 'Entertainment',
+    agriculture: 'Agriculture',
+    tourism: 'Tourism & Hospitality'
+  };
+  return industryNames[industry] || industry.charAt(0).toUpperCase() + industry.slice(1);
+};
+
+const generateIndustrySolution = (industry: string, locationName: string): string => {
+  const solutions = {
+    healthcare: `HIPAA-compliant AI phone services for ${locationName} medical practices, handling appointment scheduling, prescription refills, and patient inquiries with complete privacy protection.`,
+    legal: `Professional AI call handling for ${locationName} law firms, managing client intake, appointment scheduling, and confidential communications with attorney-client privilege protection.`,
+    realestate: `24/7 AI phone services for ${locationName} real estate professionals, capturing leads, scheduling property viewings, and qualifying prospects with intelligent conversation flows.`,
+    financial: `Secure AI phone solutions for ${locationName} financial services, handling client inquiries, appointment scheduling, and account management with regulatory compliance.`,
+    technology: `Advanced AI phone systems for ${locationName} tech companies, managing customer support, sales inquiries, and technical documentation with industry-specific knowledge.`,
+    retail: `Customer-focused AI phone services for ${locationName} retailers, handling product inquiries, order status, returns, and customer service with brand consistency.`
+  };
+  return solutions[industry] || `Specialized AI phone services tailored for ${locationName} ${industry} businesses, providing professional call handling with industry expertise.`;
+};
+
+const generateIndustryBenefits = (industry: string): string[] => {
+  const benefits = {
+    healthcare: ['HIPAA compliance', 'Reduced wait times', 'Improved patient satisfaction', '24/7 availability'],
+    legal: ['Client confidentiality', 'Professional intake', 'Emergency handling', 'Appointment coordination'],
+    realestate: ['Lead qualification', 'Property matching', 'Showing coordination', 'Market updates'],
+    financial: ['Secure communication', 'Account assistance', 'Compliance support', 'Professional service'],
+    technology: ['Technical support', 'Product information', 'Feature demonstrations', 'User assistance']
+  };
+  return benefits[industry] || ['Professional service', 'Cost efficiency', 'Improved availability', 'Customer satisfaction'];
+};
+
+const generateLocalBenefits = (loc: GeoLocation): string[] => {
+  const benefits = [
+    `Deep understanding of ${loc.name} business culture and communication preferences`,
+    'Local phone numbers and regional expertise for authentic customer interactions',
+    `Familiarity with ${loc.name} business hours, time zones, and seasonal patterns`
+  ];
+  
+  if (loc.competitorDensity === 'high') {
+    benefits.push('Competitive advantage through superior customer service automation');
+  }
+  
+  if (loc.businessDensity === 'high') {
+    benefits.push('Cost-effective solution for expensive local labor markets');
+  }
+  
+  // Add insights as benefits
+  loc.localInsights.slice(0, 2).forEach((insight, index) => {
+    benefits.push(`Advantage #${index + 4}: ${insight}`);
+  });
+  
+  return benefits;
+};
+
+const generateImplementationGuide = (loc: GeoLocation) => {
+  const timeline = loc.businessDensity === 'high' ? '5-7 business days' : '3-5 business days';
+  const complexity = loc.keyIndustries.includes('healthcare') || loc.keyIndustries.includes('financial') ? 'with compliance considerations' : 'with streamlined setup';
+  
+  return {
+    timeline,
+    complexity,
+    steps: [
+      `Initial consultation to understand your ${loc.name} business requirements`,
+      'Custom AI training with local market knowledge and terminology',
+      `Integration with your existing systems and ${loc.name} business processes`,
+      'Testing phase with local call scenarios and edge cases',
+      'Go-live support with dedicated local account management'
+    ]
+  };
+};
+
+const generateSuccessStories = (loc: GeoLocation) => {
+  // Generate realistic success stories based on location characteristics
+  const stories = [];
+  
+  if (loc.keyIndustries.includes('healthcare')) {
+    stories.push({
+      industry: 'Healthcare Practice',
+      location: `${loc.name} Medical Center`,
+      challenge: 'High call volumes and appointment scheduling bottlenecks',
+      solution: 'AI phone agent with HIPAA-compliant patient communication',
+      results: ['85% reduction in hold times', '40% increase in appointment bookings', '92% patient satisfaction score']
+    });
+  }
+  
+  if (loc.keyIndustries.includes('legal')) {
+    stories.push({
+      industry: 'Law Firm',
+      location: `${loc.name} Legal Services`,
+      challenge: 'After-hours client inquiries and intake management',
+      solution: '24/7 AI receptionist with legal intake protocols',
+      results: ['65% increase in qualified leads', '50% reduction in missed opportunities', '24/7 client accessibility']
+    });
+  }
+  
+  return stories;
+};
+
+const generateLocalPartnership = (loc: GeoLocation): string => {
+  return `As your ${loc.name} AI phone agent partner, we combine cutting-edge technology with local market expertise. Our team understands the unique business environment of ${loc.name}, from ${loc.economicFactors[0] || 'local economic conditions'} to the communication preferences that drive customer satisfaction in your market.`;
+};
+
+const content = generateUniqueContent(location);
+const pageTitle = generatePageTitle(location);
+const pageDescription = generatePageDescription(location);
+const keywords = generateLocationKeywords(location);
+
+// Generate breadcrumb navigation
+const breadcrumbs = hierarchy.map((loc, index) => ({
+  name: loc.name,
+  url: index === 0 ? '/locations/' : `/locations/${hierarchy.slice(1, index + 1).map(l => l.slug).join('/')}/`,
+  isActive: loc.id === location.id
+}));
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  keywords={keywords.join(', ')}
+  canonicalUrl={`https://aiphoneagent.ai/locations/${hierarchy.slice(1).map(l => l.slug).join('/')}/`}
+>
+  <GeoSchema location={location} />
+  <Header />
+  
+  <main>
+    <!-- GEO-Optimized Internal Linking and Breadcrumbs -->
+    <section class="geo-navigation-section">
+      <div class="container">
+        <GeoInternalLinking 
+          currentLocation={location} 
+          linkType="breadcrumb"
+          includeSchema={true}
+        />
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="geo-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>{content.heroTitle}</h1>
+          <p class="hero-subtitle">{content.heroSubtitle}</p>
+          <div class="location-highlights">
+            <div class="highlight-item">
+              <span class="highlight-label">Service Area:</span>
+              <span class="highlight-value">{location.name}</span>
+            </div>
+            {location.population && (
+              <div class="highlight-item">
+                <span class="highlight-label">Population Served:</span>
+                <span class="highlight-value">{location.population.toLocaleString()}</span>
+              </div>
+            )}
+            <div class="highlight-item">
+              <span class="highlight-label">Key Industries:</span>
+              <span class="highlight-value">{location.keyIndustries.slice(0, 3).join(', ')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Overview -->
+    <section class="location-overview">
+      <div class="container">
+        <h2>AI Phone Services in {location.name}</h2>
+        <div class="overview-content">
+          <div class="overview-text">
+            <p class="lead">{content.locationOverview}</p>
+            <p>{content.businessLandscape}</p>
+          </div>
+          <div class="location-stats">
+            <div class="stat-card">
+              <div class="stat-number">{location.marketOpportunity}/10</div>
+              <div class="stat-label">Market Opportunity</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">{location.businessDensity}</div>
+              <div class="stat-label">Business Density</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">{location.keyIndustries.length}+</div>
+              <div class="stat-label">Key Industries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Challenges & Solutions -->
+    <section class="challenges-solutions">
+      <div class="container">
+        <h2>{location.name} Business Communication Challenges</h2>
+        <div class="challenges-grid">
+          {content.localChallenges.map(challenge => (
+            <div class="challenge-item">
+              <div class="challenge-icon">⚠️</div>
+              <p>{challenge}</p>
+            </div>
+          ))}
+        </div>
+        
+        <div class="solution-cta">
+          <h3>Our AI Phone Agents Solve These {location.name} Challenges</h3>
+          <p>Professional virtual receptionist services designed specifically for the {location.name} market.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry-Specific Solutions -->
+    <section class="industry-solutions">
+      <div class="container">
+        <h2>Industry Solutions for {location.name} Businesses</h2>
+        <div class="solutions-grid">
+          {content.industrySolutions.slice(0, 6).map(solution => (
+            <div class="solution-card">
+              <h3>{solution.industry}</h3>
+              <p>{solution.solution}</p>
+              <div class="solution-benefits">
+                <h4>Key Benefits:</h4>
+                <ul>
+                  {solution.benefits.map(benefit => (
+                    <li>{benefit}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Benefits -->
+    <section class="local-benefits">
+      <div class="container">
+        <h2>Why Choose AI Phone Agents for Your {location.name} Business</h2>
+        <div class="benefits-list">
+          {content.localBenefits.map((benefit, index) => (
+            <div class="benefit-item">
+              <div class="benefit-number">{index + 1}</div>
+              <div class="benefit-content">
+                <p>{benefit}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    {content.successStories.length > 0 && (
+      <section class="success-stories">
+        <div class="container">
+          <h2>{location.name} Success Stories</h2>
+          <div class="stories-grid">
+            {content.successStories.map(story => (
+              <div class="story-card">
+                <h3>{story.industry}</h3>
+                <div class="story-location">{story.location}</div>
+                <div class="story-section">
+                  <h4>Challenge:</h4>
+                  <p>{story.challenge}</p>
+                </div>
+                <div class="story-section">
+                  <h4>Solution:</h4>
+                  <p>{story.solution}</p>
+                </div>
+                <div class="story-section">
+                  <h4>Results:</h4>
+                  <ul>
+                    {story.results.map(result => (
+                      <li>{result}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Implementation Guide -->
+    <section class="implementation-guide">
+      <div class="container">
+        <h2>Getting Started with AI Phone Agents in {location.name}</h2>
+        <div class="implementation-content">
+          <div class="implementation-info">
+            <p><strong>Implementation Timeline:</strong> {content.implementationGuide.timeline}</p>
+            <p><strong>Setup Complexity:</strong> {content.implementationGuide.complexity}</p>
+          </div>
+          <div class="implementation-steps">
+            <h3>Implementation Process:</h3>
+            <ol>
+              {content.implementationGuide.steps.map(step => (
+                <li>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Child Locations (if any) -->
+    {childLocations.length > 0 && (
+      <section class="child-locations">
+        <div class="container">
+          <h2>AI Phone Agent Services in {location.name} Areas</h2>
+          <div class="locations-grid">
+            {childLocations.slice(0, 12).map(childLoc => (
+              <a href={`/locations/${generateLocationURL(childLoc)}/`} class="location-card">
+                <h3>{childLoc.name}</h3>
+                <p>{formatIndustryName(childLoc.keyIndustries[0])} • {childLoc.businessDensity} density</p>
+                <div class="location-arrow">→</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Local Partnership -->
+    <section class="local-partnership">
+      <div class="container">
+        <div class="partnership-content">
+          <h2>Your Local {location.name} AI Phone Agent Partner</h2>
+          <p class="partnership-text">{content.localPartnership}</p>
+          <div class="partnership-cta">
+            <a href="/demo/" class="btn-primary">Schedule Your {location.name} Demo</a>
+            <a href="/contact/" class="btn-secondary">Contact Local Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO-Optimized Internal Linking -->
+    <section class="geo-internal-links">
+      <div class="container">
+        <GeoInternalLinking 
+          currentLocation={location} 
+          linkType="all"
+          maxLinks={8}
+          includeSchema={false}
+        />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Breadcrumb Styles */
+  .breadcrumb-section {
+    background: var(--color-dark-400);
+    padding: 1rem 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin: 0 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-neon-blue);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-neon-cyan);
+  }
+
+  .breadcrumb .active span {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  /* GEO Hero Section */
+  .geo-hero {
+    background: linear-gradient(135deg, var(--color-dark-400) 0%, var(--color-dark-300) 100%);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .geo-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--color-neon-blue) 0%, var(--color-neon-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .location-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .highlight-item {
+    text-align: left;
+  }
+
+  .highlight-label {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .highlight-value {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  /* Location Overview */
+  .location-overview {
+    padding: 4rem 0;
+    background: var(--color-dark-300);
+  }
+
+  .location-overview h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .overview-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-text p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .location-stats {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--color-dark-200);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-neon-cyan);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: capitalize;
+  }
+
+  .stat-label {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Challenges & Solutions */
+  .challenges-solutions {
+    padding: 4rem 0;
+    background: var(--color-dark-400);
+  }
+
+  .challenges-solutions h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .challenge-item {
+    background: var(--color-dark-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .challenge-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .challenge-item p {
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .solution-cta {
+    text-align: center;
+    background: var(--color-dark-200);
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.2);
+  }
+
+  .solution-cta h3 {
+    color: var(--color-neon-cyan);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+
+  .solution-cta p {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+  }
+
+  /* Industry Solutions */
+  .industry-solutions {
+    padding: 4rem 0;
+    background: var(--color-dark-300);
+  }
+
+  .industry-solutions h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .solution-card {
+    background: var(--color-dark-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .solution-card h3 {
+    color: var(--color-neon-cyan);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .solution-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .solution-benefits h4 {
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .solution-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .solution-benefits li {
+    color: var(--color-text-muted);
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .solution-benefits li:before {
+    content: "✓";
+    color: var(--color-neon-blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* Local Benefits */
+  .local-benefits {
+    padding: 4rem 0;
+    background: var(--color-dark-400);
+  }
+
+  .local-benefits h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .benefits-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--color-dark-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .benefit-number {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--color-neon-blue) 0%, var(--color-neon-cyan) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .benefit-content p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Success Stories */
+  .success-stories {
+    padding: 4rem 0;
+    background: var(--color-dark-300);
+  }
+
+  .success-stories h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .story-card {
+    background: var(--color-dark-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .story-card h3 {
+    color: var(--color-neon-cyan);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .story-location {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .story-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .story-section h4 {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .story-section p {
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .story-section li {
+    color: var(--color-text-muted);
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .story-section li:before {
+    content: "▶";
+    color: var(--color-neon-blue);
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+  }
+
+  /* Implementation Guide */
+  .implementation-guide {
+    padding: 4rem 0;
+    background: var(--color-dark-400);
+  }
+
+  .implementation-guide h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .implementation-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .implementation-info p {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--color-dark-200);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+  }
+
+  .implementation-info strong {
+    color: var(--color-neon-cyan);
+  }
+
+  .implementation-steps h3 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .implementation-steps ol {
+    padding-left: 1.5rem;
+  }
+
+  .implementation-steps li {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Child Locations */
+  .child-locations {
+    padding: 4rem 0;
+    background: var(--color-dark-300);
+  }
+
+  .child-locations h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .location-card {
+    background: var(--color-dark-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .location-card:hover {
+    border-color: rgba(0, 163, 255, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .location-card h3 {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .location-card p {
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  .location-arrow {
+    color: var(--color-neon-blue);
+    font-size: 1.5rem;
+    text-align: right;
+  }
+
+  /* Local Partnership */
+  .local-partnership {
+    padding: 4rem 0;
+    background: var(--color-dark-400);
+    text-align: center;
+  }
+
+  .partnership-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .partnership-text {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+
+  .partnership-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-neon-blue);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-neon-cyan);
+    border: 2px solid var(--color-neon-cyan);
+  }
+
+  .btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .geo-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .location-highlights {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .overview-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .challenges-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .solutions-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .implementation-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .partnership-cta {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

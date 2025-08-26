@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get Sydney data
+const locationData = getLocationById('au-nsw-sydney');
+
+if (!locationData) {
+  throw new Error('Sydney location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent Sydney - Virtual Receptionist Australia | Financial & Tech Hub Solutions`,
+  description: `Professional AI phone agent services for Sydney businesses. Virtual receptionist solutions for CBD, North Shore, Eastern Suburbs. Financial services expertise, multicultural support, tourism industry solutions. Call +61 2 3821 3526.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/sydney'
+};
+---
+
+<GeoLocationPage {...pageProps} />

@@ -7,12 +7,13 @@ Allow: /
 # High-priority content - encourage frequent crawling
 Crawl-delay: 1
 
-# XML Sitemaps - Comprehensive sitemap strategy
-Sitemap: https://aiphoneagent.ai/sitemap-index.xml
-Sitemap: https://aiphoneagent.ai/sitemap-pages.xml
-Sitemap: https://aiphoneagent.ai/sitemap-blog.xml
+# XML Sitemaps - Comprehensive GEO SEO sitemap strategy
+Sitemap: https://aiphoneagent.ai/sitemap.xml
+Sitemap: https://aiphoneagent.ai/sitemap-main.xml
 Sitemap: https://aiphoneagent.ai/sitemap-locations.xml
 Sitemap: https://aiphoneagent.ai/sitemap-industries.xml
+Sitemap: https://aiphoneagent.ai/sitemap-services.xml
+Sitemap: https://aiphoneagent.ai/sitemap-blog.xml
 
 # Block unnecessary paths to optimize crawl budget
 Disallow: /api/

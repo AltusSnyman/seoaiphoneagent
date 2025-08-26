@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get California data
+const locationData = getLocationById('us-ca');
+
+if (!locationData) {
+  throw new Error('California location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent California - Virtual Receptionist CA | Silicon Valley AI Business Solutions`,
+  description: `Professional AI phone agent services across California. Virtual receptionist solutions for San Francisco, Los Angeles, San Diego, Silicon Valley. Tech-savvy automation for CA businesses. CCPA compliant, multilingual support. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/california'
+};
+---
+
+<GeoLocationPage {...pageProps} />

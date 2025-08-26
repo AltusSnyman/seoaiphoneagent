@@ -1,0 +1,363 @@
+---
+// Enhanced GEO Schema Component for Multi-Level Geographic Targeting
+// Supports Country > State/Region > Metro > City > Suburb hierarchy
+
+export interface GeoLocation {
+  type: 'country' | 'state' | 'region' | 'metro' | 'city' | 'suburb';
+  name: string;
+  parent?: string;
+  coordinates: {
+    latitude: string;
+    longitude: string;
+  };
+  postalCodes?: string[];
+  servicesOffered?: string[];
+  businessDensity?: 'high' | 'medium' | 'low';
+  keyIndustries?: string[];
+  localInsights?: string[];
+}
+
+export interface Props {
+  location: GeoLocation;
+  businessName?: string;
+  description?: string;
+  telephone?: string;
+  address?: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+}
+
+const { location, businessName, description, telephone, address } = Astro.props;
+
+// Generate location-specific business configuration
+const generateLocationConfig = (loc: GeoLocation) => {
+  const baseConfig = {
+    name: businessName || `AI Phone Agent ${loc.name}`,
+    description: description || `Professional AI phone agent services for businesses in ${loc.name}. Local expertise with 24/7 virtual receptionist solutions.`,
+    telephone: telephone || getLocalPhone(loc),
+    servicesOffered: loc.servicesOffered || getDefaultServices(loc),
+    localKeywords: generateLocalKeywords(loc)
+  };
+
+  return baseConfig;
+};
+
+// Get appropriate phone number based on location
+const getLocalPhone = (loc: GeoLocation): string => {
+  // Determine country from hierarchy or location type
+  const country = getCountryFromLocation(loc);
+  switch (country) {
+    case 'US': return "+1-877-320-7259";
+    case 'AU': return "+61 2 3821 3526";
+    case 'NZ': return "+64 9 123 4567";
+    default: return "+1-877-320-7259";
+  }
+};
+
+// Extract country from location hierarchy
+const getCountryFromLocation = (loc: GeoLocation): string => {
+  if (loc.type === 'country') return loc.name === 'United States' ? 'US' : 
+                                        loc.name === 'Australia' ? 'AU' : 
+                                        loc.name === 'New Zealand' ? 'NZ' : 'US';
+  // For sub-locations, would need parent traversal logic
+  return 'US'; // Default for now
+};
+
+// Generate default services based on location characteristics
+const getDefaultServices = (loc: GeoLocation): string[] => {
+  const baseServices = [
+    "AI Virtual Receptionist",
+    "Automated Phone Answering",
+    "Appointment Scheduling",
+    "Customer Service AI",
+    "Call Routing & Management"
+  ];
+
+  // Add location-specific services based on business density and industries
+  if (loc.businessDensity === 'high') {
+    baseServices.push("Enterprise Call Solutions", "Multi-Location Management");
+  }
+
+  if (loc.keyIndustries?.includes('healthcare')) {
+    baseServices.push("HIPAA-Compliant Phone Services", "Medical Appointment Booking");
+  }
+
+  if (loc.keyIndustries?.includes('legal')) {
+    baseServices.push("Legal Client Intake", "Attorney Call Screening");
+  }
+
+  if (loc.keyIndustries?.includes('realestate')) {
+    baseServices.push("Property Inquiry Handling", "Real Estate Lead Qualification");
+  }
+
+  return baseServices;
+};
+
+// Generate local keywords for SEO optimization
+const generateLocalKeywords = (loc: GeoLocation): string[] => {
+  const baseKeywords = [
+    `ai phone agent ${loc.name.toLowerCase()}`,
+    `virtual receptionist ${loc.name.toLowerCase()}`,
+    `automated phone service ${loc.name.toLowerCase()}`,
+    `business phone solutions ${loc.name.toLowerCase()}`
+  ];
+
+  // Add location-specific variations
+  if (loc.type === 'city' || loc.type === 'suburb') {
+    baseKeywords.push(
+      `${loc.name.toLowerCase()} business automation`,
+      `phone services near ${loc.name.toLowerCase()}`,
+      `${loc.name.toLowerCase()} area virtual assistant`
+    );
+  }
+
+  if (loc.parent) {
+    baseKeywords.push(
+      `ai phone agent ${loc.parent.toLowerCase()} ${loc.name.toLowerCase()}`,
+      `${loc.parent.toLowerCase()} ${loc.name.toLowerCase()} phone services`
+    );
+  }
+
+  return baseKeywords;
+};
+
+const config = generateLocationConfig(location);
+
+// Build comprehensive schema based on location type and hierarchy
+const buildLocationSchema = () => {
+  const baseSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService", "TelecomProvider"],
+    "@id": `https://aiphoneagent.ai/locations/${generateLocationURL(location)}`,
+    "name": config.name,
+    "description": config.description,
+    "url": `https://aiphoneagent.ai/locations/${generateLocationURL(location)}`,
+    "telephone": config.telephone,
+    "email": "info@aiphoneagent.ai",
+    "foundingDate": "2023",
+    "slogan": "Professional AI Phone Agents for Modern Business"
+  };
+
+  // Add geographic information
+  const geoSchema = {
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": location.coordinates.latitude,
+      "longitude": location.coordinates.longitude
+    },
+    "areaServed": buildAreaServedSchema(location),
+    "serviceArea": buildServiceAreaSchema(location)
+  };
+
+  // Add address if provided or generate from location
+  const addressSchema = {
+    "address": address || generateLocationAddress(location)
+  };
+
+  // Add services schema
+  const servicesSchema = {
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `AI Phone Agent Services - ${location.name}`,
+      "itemListElement": config.servicesOffered.map((service, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service,
+          "description": `${service} specifically tailored for businesses in ${location.name}`,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": config.name
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": location.name
+          },
+          "category": "Business Services"
+        },
+        "priceRange": generatePriceRange(service),
+        "priceCurrency": getCurrencyForLocation(location),
+        "availability": "https://schema.org/InStock"
+      }))
+    }
+  };
+
+  // Add location-specific schema enhancements
+  const locationSpecificSchema = buildLocationSpecificSchema(location);
+
+  return {
+    ...baseSchema,
+    ...geoSchema,
+    ...addressSchema,
+    ...servicesSchema,
+    ...locationSpecificSchema
+  };
+};
+
+// Generate URL slug from location hierarchy
+const generateLocationURL = (loc: GeoLocation): string => {
+  const slugify = (str: string) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  
+  switch (loc.type) {
+    case 'country':
+      return slugify(loc.name);
+    case 'state':
+    case 'region':
+      return loc.parent ? `${slugify(loc.parent)}/${slugify(loc.name)}` : slugify(loc.name);
+    case 'metro':
+    case 'city':
+    case 'suburb':
+      return loc.parent ? `${slugify(loc.parent)}/${slugify(loc.name)}` : slugify(loc.name);
+    default:
+      return slugify(loc.name);
+  }
+};
+
+// Build area served schema with hierarchy
+const buildAreaServedSchema = (loc: GeoLocation) => {
+  const areaServed = {
+    "@type": getSchemaTypeForLocation(loc.type),
+    "name": loc.name
+  };
+
+  if (loc.coordinates) {
+    areaServed["geo"] = {
+      "@type": "GeoCoordinates",
+      "latitude": loc.coordinates.latitude,
+      "longitude": loc.coordinates.longitude
+    };
+  }
+
+  if (loc.postalCodes && loc.postalCodes.length > 0) {
+    areaServed["postalCode"] = loc.postalCodes;
+  }
+
+  return areaServed;
+};
+
+// Build service area schema with sub-locations
+const buildServiceAreaSchema = (loc: GeoLocation) => {
+  // For higher-level locations, include sub-areas
+  const serviceArea = [buildAreaServedSchema(loc)];
+
+  // Add surrounding areas based on location type
+  if (loc.type === 'city') {
+    // Could add surrounding suburbs
+    serviceArea.push({
+      "@type": "AdministrativeArea",
+      "name": `${loc.name} Metropolitan Area`
+    });
+  }
+
+  return serviceArea;
+};
+
+// Generate appropriate address for location
+const generateLocationAddress = (loc: GeoLocation) => {
+  // This would typically be enhanced with real address data
+  return {
+    "@type": "PostalAddress",
+    "addressLocality": loc.name,
+    "addressRegion": loc.parent || loc.name,
+    "addressCountry": getCountryCodeFromLocation(loc)
+  };
+};
+
+// Get schema.org type for location type
+const getSchemaTypeForLocation = (type: string): string => {
+  switch (type) {
+    case 'country': return 'Country';
+    case 'state': return 'State';
+    case 'region': return 'AdministrativeArea';
+    case 'metro': return 'AdministrativeArea';
+    case 'city': return 'City';
+    case 'suburb': return 'Neighborhood';
+    default: return 'Place';
+  }
+};
+
+// Generate price range based on service type
+const generatePriceRange = (service: string): string => {
+  const priceRanges = {
+    'AI Virtual Receptionist': '$299-$999',
+    'Automated Phone Answering': '$199-$699',
+    'Appointment Scheduling': '$399-$1299',
+    'Customer Service AI': '$499-$1999',
+    'Call Routing & Management': '$299-$899',
+    'Enterprise Call Solutions': '$999-$4999',
+    'HIPAA-Compliant Phone Services': '$699-$2499',
+    'Legal Client Intake': '$599-$1999'
+  };
+  return priceRanges[service] || '$299-$999';
+};
+
+// Get currency for location
+const getCurrencyForLocation = (loc: GeoLocation): string => {
+  const country = getCountryFromLocation(loc);
+  switch (country) {
+    case 'US': return 'USD';
+    case 'AU': return 'AUD';
+    case 'NZ': return 'NZD';
+    default: return 'USD';
+  }
+};
+
+// Get country code from location
+const getCountryCodeFromLocation = (loc: GeoLocation): string => {
+  const country = getCountryFromLocation(loc);
+  switch (country) {
+    case 'US': return 'US';
+    case 'AU': return 'AU';
+    case 'NZ': return 'NZ';
+    default: return 'US';
+  }
+};
+
+// Build location-specific schema enhancements
+const buildLocationSpecificSchema = (loc: GeoLocation) => {
+  const enhancements = {};
+
+  // Add local business characteristics
+  if (loc.businessDensity) {
+    enhancements["additionalProperty"] = [{
+      "@type": "PropertyValue",
+      "name": "businessDensity",
+      "value": loc.businessDensity
+    }];
+  }
+
+  // Add key industries
+  if (loc.keyIndustries && loc.keyIndustries.length > 0) {
+    enhancements["knowsAbout"] = [
+      ...config.servicesOffered,
+      ...loc.keyIndustries.map(industry => `${industry} automation`),
+      `${loc.name} business services`
+    ];
+  }
+
+  // Add local insights as additional context
+  if (loc.localInsights && loc.localInsights.length > 0) {
+    enhancements["description"] = `${config.description} ${loc.localInsights.join(' ')}`;
+  }
+
+  return enhancements;
+};
+
+const locationSchema = buildLocationSchema();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(locationSchema, null, 2)}></script>
+
+<!-- Additional GEO-specific meta tags -->
+<meta name="geo.region" content={`${getCountryCodeFromLocation(location)}-${location.parent || location.name}`} />
+<meta name="geo.placename" content={location.name} />
+<meta name="geo.position" content={`${location.coordinates.latitude};${location.coordinates.longitude}`} />
+<meta name="ICBM" content={`${location.coordinates.latitude}, ${location.coordinates.longitude}`} />
+
+<!-- Location-specific keywords for AI optimization -->
+<meta name="keywords" content={config.localKeywords.join(', ')} />
+<meta name="geo.keywords" content={config.localKeywords.slice(0, 5).join(', ')} />

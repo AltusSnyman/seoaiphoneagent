@@ -1,10 +1,10 @@
-// Dynamic XML sitemap for location pages
+// Main sitemap for core website pages
 import type { APIRoute } from 'astro';
-import { generateLocationSitemap, generateSitemapXML } from '../utils/generateGeoSitemap';
+import { generateMainSitemap, generateSitemapXML } from '../utils/generateGeoSitemap';
 
 export const GET: APIRoute = async () => {
-  const locationEntries = generateLocationSitemap();
-  const xmlContent = generateSitemapXML(locationEntries);
+  const mainEntries = generateMainSitemap();
+  const xmlContent = generateSitemapXML(mainEntries);
   
   return new Response(xmlContent, {
     headers: {

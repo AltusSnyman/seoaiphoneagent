@@ -1,0 +1,20 @@
+---
+import GeoLocationPage from '../../components/GeoLocationPage.astro';
+import { geoLocations, getLocationById } from '../../data/geoLocations';
+
+// Get New York City data
+const locationData = getLocationById('us-ny-nyc');
+
+if (!locationData) {
+  throw new Error('New York City location data not found');
+}
+
+const pageProps = {
+  location: locationData,
+  title: `AI Phone Agent New York City - Virtual Receptionist NYC | 24/7 Business Automation`,
+  description: `Professional AI phone agent services for New York City businesses. Virtual receptionist solutions for Manhattan, Brooklyn, Queens, Bronx. 24/7 automated answering, appointment scheduling & customer service. Call +1-877-320-7259.`,
+  canonicalURL: 'https://aiphoneagent.ai/locations/new-york-city'
+};
+---
+
+<GeoLocationPage {...pageProps} />

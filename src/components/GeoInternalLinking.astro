@@ -1,0 +1,460 @@
+---
+// GEO-Optimized Internal Linking Component
+// Generates contextual internal links to improve crawlability and distribute page authority
+
+import { geoLocations, getLocationById, getLocationsByParent, getLocationHierarchy, type GeoLocation } from '../data/geoLocations';
+
+export interface Props {
+  currentLocation: GeoLocation;
+  linkType?: 'breadcrumb' | 'related' | 'children' | 'nearby' | 'all';
+  maxLinks?: number;
+  includeSchema?: boolean;
+}
+
+const { 
+  currentLocation, 
+  linkType = 'all', 
+  maxLinks = 10,
+  includeSchema = true 
+} = Astro.props;
+
+// Generate URL for location
+const generateLocationURL = (location: GeoLocation): string => {
+  const hierarchy = getLocationHierarchy(location.id);
+  return '/locations/' + hierarchy
+    .filter(loc => loc.type !== 'country') // Skip country in URL
+    .map(loc => loc.slug)
+    .join('/');
+};
+
+// Get breadcrumb hierarchy
+const getBreadcrumbLinks = (location: GeoLocation) => {
+  const hierarchy = getLocationHierarchy(location.id);
+  return hierarchy.map(loc => ({
+    url: generateLocationURL(loc),
+    name: loc.name,
+    type: loc.type
+  }));
+};
+
+// Get child locations (immediate children)
+const getChildrenLinks = (location: GeoLocation) => {
+  const children = getLocationsByParent(location.id);
+  return children
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, maxLinks)
+    .map(child => ({
+      url: generateLocationURL(child),
+      name: child.name,
+      type: child.type,
+      population: child.population,
+      keyIndustries: child.keyIndustries.slice(0, 3)
+    }));
+};
+
+// Get related locations (same level, nearby, or similar market characteristics)
+const getRelatedLinks = (location: GeoLocation) => {
+  const related = geoLocations.filter(loc => 
+    loc.id !== location.id && (
+      // Same parent (siblings)
+      loc.parent === location.parent ||
+      // Same type and similar market opportunity
+      (loc.type === location.type && Math.abs(loc.marketOpportunity - location.marketOpportunity) <= 2) ||
+      // Similar key industries (at least 2 in common)
+      (loc.keyIndustries.filter(industry => location.keyIndustries.includes(industry)).length >= 2)
+    )
+  )
+  .sort((a, b) => {
+    // Priority by market opportunity and priority
+    const scoreA = a.marketOpportunity + a.priority;
+    const scoreB = b.marketOpportunity + b.priority;
+    return scoreB - scoreA;
+  })
+  .slice(0, maxLinks)
+  .map(loc => ({
+    url: generateLocationURL(loc),
+    name: loc.name,
+    type: loc.type,
+    marketOpportunity: loc.marketOpportunity,
+    sharedIndustries: loc.keyIndustries.filter(industry => location.keyIndustries.includes(industry))
+  }));
+  
+  return related;
+};
+
+// Get nearby locations (geographic proximity - simplified)
+const getNearbyLinks = (location: GeoLocation) => {
+  // For simplicity, we'll consider "nearby" as same state/region or parent area
+  const nearby = geoLocations.filter(loc => 
+    loc.id !== location.id && (
+      loc.parent === location.parent ||
+      (location.parent && loc.id === location.parent) ||
+      (loc.parent === location.id)
+    )
+  )
+  .sort((a, b) => b.priority - a.priority)
+  .slice(0, maxLinks)
+  .map(loc => ({
+    url: generateLocationURL(loc),
+    name: loc.name,
+    type: loc.type,
+    businessDensity: loc.businessDensity
+  }));
+  
+  return nearby;
+};
+
+// Generate industry-specific location links
+const getIndustryLinks = (location: GeoLocation) => {
+  return location.keyIndustries.slice(0, 5).map(industry => ({
+    url: `/industries/${industry}/${location.slug}`,
+    name: `${industry.charAt(0).toUpperCase() + industry.slice(1)} Services in ${location.name}`,
+    industry
+  }));
+};
+
+// Generate service-specific location links  
+const getServiceLinks = (location: GeoLocation) => {
+  const coreServices = [
+    'virtual-receptionist',
+    'ai-phone-agent',
+    'appointment-scheduling',
+    'customer-service-ai'
+  ];
+  
+  return coreServices.map(service => ({
+    url: `/services/${service}/${location.slug}`,
+    name: `${service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())} in ${location.name}`,
+    service
+  }));
+};
+
+// Get all link types
+const breadcrumbLinks = linkType === 'breadcrumb' || linkType === 'all' ? getBreadcrumbLinks(currentLocation) : [];
+const childrenLinks = linkType === 'children' || linkType === 'all' ? getChildrenLinks(currentLocation) : [];
+const relatedLinks = linkType === 'related' || linkType === 'all' ? getRelatedLinks(currentLocation) : [];
+const nearbyLinks = linkType === 'nearby' || linkType === 'all' ? getNearbyLinks(currentLocation) : [];
+const industryLinks = linkType === 'all' ? getIndustryLinks(currentLocation) : [];
+const serviceLinks = linkType === 'all' ? getServiceLinks(currentLocation) : [];
+
+// Generate breadcrumb schema
+const breadcrumbSchema = includeSchema && breadcrumbLinks.length > 1 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbLinks.map((link, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": link.name,
+    "item": `https://aiphoneagent.ai${link.url}`
+  }))
+} : null;
+---
+
+{includeSchema && breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema, null, 2)}></script>
+)}
+
+<!-- Breadcrumb Navigation -->
+{breadcrumbLinks.length > 1 && (
+  <nav class="geo-breadcrumb" aria-label="Location breadcrumb">
+    <ol class="breadcrumb-list">
+      {breadcrumbLinks.map((link, index) => (
+        <li class="breadcrumb-item">
+          {index < breadcrumbLinks.length - 1 ? (
+            <>
+              <a href={link.url} class="breadcrumb-link">
+                {link.name}
+              </a>
+              <span class="breadcrumb-separator" aria-hidden="true">›</span>
+            </>
+          ) : (
+            <span class="breadcrumb-current" aria-current="page">
+              {link.name}
+            </span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<!-- Children Locations -->
+{childrenLinks.length > 0 && (
+  <section class="geo-children-links" aria-labelledby="children-heading">
+    <h3 id="children-heading">Areas We Serve in {currentLocation.name}</h3>
+    <div class="location-grid">
+      {childrenLinks.map(child => (
+        <div class="location-card">
+          <h4>
+            <a href={child.url} class="location-link">
+              AI Phone Agent {child.name}
+            </a>
+          </h4>
+          <p class="location-type">{child.type.charAt(0).toUpperCase() + child.type.slice(1)}</p>
+          {child.population && (
+            <p class="location-population">
+              Population: {child.population.toLocaleString()}
+            </p>
+          )}
+          {child.keyIndustries.length > 0 && (
+            <p class="location-industries">
+              Key Industries: {child.keyIndustries.join(', ')}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- Related Locations -->
+{relatedLinks.length > 0 && (
+  <section class="geo-related-links" aria-labelledby="related-heading">
+    <h3 id="related-heading">Similar Markets</h3>
+    <div class="related-grid">
+      {relatedLinks.map(related => (
+        <div class="related-card">
+          <h4>
+            <a href={related.url} class="related-link">
+              {related.name}
+            </a>
+          </h4>
+          <p class="related-opportunity">
+            Market Opportunity: {related.marketOpportunity}/10
+          </p>
+          {related.sharedIndustries.length > 0 && (
+            <p class="shared-industries">
+              Shared Focus: {related.sharedIndustries.join(', ')}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- Nearby Locations -->
+{nearbyLinks.length > 0 && (
+  <section class="geo-nearby-links" aria-labelledby="nearby-heading">
+    <h3 id="nearby-heading">Nearby Areas</h3>
+    <ul class="nearby-list">
+      {nearbyLinks.map(nearby => (
+        <li class="nearby-item">
+          <a href={nearby.url} class="nearby-link">
+            AI Phone Agent {nearby.name}
+          </a>
+          <span class="nearby-density">
+            ({nearby.businessDensity} business density)
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<!-- Industry-Specific Links -->
+{industryLinks.length > 0 && (
+  <section class="geo-industry-links" aria-labelledby="industry-heading">
+    <h3 id="industry-heading">Industry-Specific Solutions in {currentLocation.name}</h3>
+    <div class="industry-grid">
+      {industryLinks.map(industry => (
+        <div class="industry-card">
+          <a href={industry.url} class="industry-link">
+            {industry.name}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- Service-Specific Links -->
+{serviceLinks.length > 0 && (
+  <section class="geo-service-links" aria-labelledby="service-heading">
+    <h3 id="service-heading">Specialized Services in {currentLocation.name}</h3>
+    <div class="service-grid">
+      {serviceLinks.map(service => (
+        <div class="service-card">
+          <a href={service.url} class="service-link">
+            {service.name}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  /* Breadcrumb Styles */
+  .geo-breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-link {
+    color: var(--color-neon-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-neon-cyan);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb-current {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  /* Location Grid Styles */
+  .location-grid, .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .location-card, .related-card {
+    background: var(--color-dark-300);
+    border: 1px solid var(--color-dark-200);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .location-card:hover, .related-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-neon-blue);
+  }
+
+  .location-link, .related-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .location-link:hover, .related-link:hover {
+    color: var(--color-neon-cyan);
+  }
+
+  .location-type, .location-population, .location-industries,
+  .related-opportunity, .shared-industries {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* List Styles */
+  .nearby-list {
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+  }
+
+  .nearby-item {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-dark-200);
+  }
+
+  .nearby-link {
+    color: var(--color-neon-blue);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .nearby-link:hover {
+    color: var(--color-neon-cyan);
+    text-decoration: underline;
+  }
+
+  .nearby-density {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Industry and Service Grids */
+  .industry-grid, .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .industry-card, .service-card {
+    background: var(--color-dark-200);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .industry-card:hover, .service-card:hover {
+    background: var(--color-dark-300);
+  }
+
+  .industry-link, .service-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+  }
+
+  .industry-link:hover, .service-link:hover {
+    color: var(--color-neon-cyan);
+  }
+
+  /* Section Headings */
+  .geo-children-links h3, .geo-related-links h3, 
+  .geo-nearby-links h3, .geo-industry-links h3,
+  .geo-service-links h3 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  /* Section Spacing */
+  .geo-children-links, .geo-related-links, 
+  .geo-nearby-links, .geo-industry-links,
+  .geo-service-links {
+    margin: 3rem 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .location-grid, .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .industry-grid, .service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .breadcrumb-list {
+      font-size: 0.8rem;
+    }
+  }
+</style>
